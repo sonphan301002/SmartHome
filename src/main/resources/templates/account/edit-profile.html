@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="_4-u5 _30ny">
+    <main class="container">
+
+      <section class="row">
+
+        <div class="col-sm-6 offset-sm-3 mt-4">
+          <div class="card-pr4">
+            <div class="card-header__pr4 ">
+              <div class="x40Sa7">
+                <div class="_8LEXgI">
+                    <div class="snzcsS">
+                        <div class="Nv+s+w"
+                        style="background-image: url(&quot;https://cf.shopee.vn/file/166f4182dbac068c2929bcb7f5ca4668&quot;);">
+                        </div>
+                    </div><input class="LKP1ct" type="file" accept=".jpg,.jpeg,.png"><button type="button"
+                        class="btn btn-light btn--m btn--inline">Chọn ảnh</button>
+                    
+                </div>
+            </div>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="name">Ho va ten</label>
+                <input type="text" name="name" class="form-control" id="name" placeholder=" ">
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="Email">Email</label>
+                  <input type="email" name="Email" class="form-control" id="Email" placeholder=" ">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="phone">So dien thoai</label>
+                  <input type="tel" name="phone" class="form-control" id="phone" placeholder=" ">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-8">
+                  <label for="cmnd">CMND</label>
+                  <input type="text" name="cmnd" class="form-control" id="cmnd" placeholder=" ">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="gender">Gioi tinh</label>
+                  <select id="gender" class="form-control">
+                    <option selected>Nam </option>
+                    
+                    <option>Nu</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="address">Dia chi</label>
+                <input type="text" class="form-control" id="adress" placeholder=" ">
+                <div class="invalid-feedback">
+                  Please provide a valid address.
+                </div>
+              </div>
+            </div>
+            <div class="card-footer__editpr4">
+              <button class="btn btn-primary">Luu thay doi</button>
+              <button class="btn btn-secondary">Huy</button>
+            </div>
+          </div>
+          
+        </div>
+
+
+      </section>
+      <!-- <div th:if="${message != null}" class="alert alert-primary" role="alert">
+            <i>[[${message}]]</i>
+        </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="firt_name">Ten</label>
+              <input type="text" name="firt_name" class="form-control" id="firt_name" placeholder=" ">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="phone">Ho</label>
+              <input type="text" name="phone" class="form-control" id="phone" placeholder=" ">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name">name</label>
+            <input type="text" name="name" class="form-control" id="name" placeholder=" ">
+          </div>
+          <div class="form-group">
+            <label for="cmnd">cmnd</label>
+            <input type="cmnd" name="cmnd" class="form-control" id="cmnd" placeholder=" ">
+          </div>
+          <fieldset>
+            <legend>THAY DOI MAT KHAU</legend>
+            <div class="form-group">
+              <label for="Password">Mat khau hien tai</label>
+              <input type="password" name="Password" class="form-control" id="Password" placeholder=" ">
+            </div>
+            <div class="form-group">
+              <label for="Password_1">Mat khau moi</label>  
+              <input type="password" name="Password_1" class="form-control" id="Password_1" placeholder=" ">
+            </div>
+            <div class="form-group">
+              <label for="Password_2">Xac nhan mat khau</label>
+              <input type="password" name="Password_2" class="form-control" id="Password_2" placeholder=" ">
+            </div>
+          </fieldset>
+          <button   class="btn btn-primary" >Luu thay doi</button>
+        </form>
+      </div>-->
+    </main>
+
+
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
