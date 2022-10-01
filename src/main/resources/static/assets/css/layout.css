@@ -471,130 +471,59 @@ td:last-child {
 }
 .card-footer__changepass{
     text-align: center;
+
 }
 
-/*edit profile-end*/
 
-.card-pr4 {
+/*edit profile*/
+#wrapper {
+    background-color: #BA68C8;
+
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8;
+}
+
+.profile-button {
+    background: #BA68C8;
+    box-shadow: none;
     border: none;
-    border-radius: 8px;
-    padding: 30px;
-    background-color: #ffffff;
 }
 
-.card-header__pr4{
-    color: #6c757d!important;
-    
-    border-bottom: 1px solid #f1f1f1
-}
-.card-header__pr4 ._8idr {
-    position: absolute;
-    right: 17px;
-    top: 5px;
-    z-index: 2;
-}
- 
-img {
-    border: 0;
+.profile-button:hover {
+    background: #682773;
 }
 
-._8idr{
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none;
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none;
+}
+
+.back:hover {
+    color: #682773;
     cursor: pointer;
 }
 
- 
-.x40Sa7 {
-    
-    overflow: hidden;
-    padding: 1.125rem 0;
-  
-}
-.x40Sa7 {
-    justify-content: center;
-}
-._8LEXgI {
-    flex-direction: column;
-}
-
-._8LEXgI, .snzcsS {
-    align-items: center;
-    display: flex;
-}
-.snzcsS {
-    height: 6.25rem;
-    width: 6.25rem;
-    margin: 1.25rem 0;
-    position: relative;
-}
-
-.snzcsS {
-    justify-content: center;
-}
-.Nv\+s\+w {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-position: 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    cursor: pointer;
-}
-.LKP1ct {
+.Dimage {
     display: none;
 }
 
-.card-footer__editpr4{
-    text-align: center;
-     
-}
-
-/* Product-detail */
-.single-product{
-    margin-top: 80px;
-
-}
-.single-product .col-6 img{
-    padding: 0;
-}
-.single-product .col-6{
-    padding: 20px;
-} 
-.single-product h4{
-    margin: 20px 0;
-    font-size: 22px;
-    font-weight: bold;
-}
-.single-product select{
-    display: block;
-    padding: 10px;
-    margin-top: 20px;
-}
-.single-product input{
-    width: 50px;
+.btn--m {
     height: 40px;
-    padding-left: 10px;
-    font-size: 20px;
-    margin-right: 10px;
-    border: 1px solid #ff523b;
-}
-.small-img-row{
-    
-    display: flex;
-    justify-content: space-between;
-}
-.small-img-col{
-    flex-basis: 24%;
-    cursor: pointer;
-}
-.btn-add{
-    display: inline-block;
-    background: #1966d8;
-    color: #fff;
-    padding: 8px 30px;
-    margin: 30px 0;
-    border-radius: 30px;
-    transition: background 0.5s;
+    padding: 0 20px;
+    min-width: 70px;
+    max-width: 220px;
 }
 
+.btn--inline {
+    display: inline-flex;
+}
 /* Product-detail-end */
  
