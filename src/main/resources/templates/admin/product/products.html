@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/admin/layout/index :: dynamic(~{::main})}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Sản phẩm </title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700"
+    />
+    <!-- https://fonts.google.com/specimen/Roboto -->
+    <link rel="stylesheet" href="css/fontawesome.min.css" />
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="css/templatemo-style.css">
+    <!--
+	Product Admin CSS Template
+	https://templatemo.com/tm-524-product-admin
+	-->
+  </head>
+
+  <body id="reportsPage">
+  <main>
+    
+    <div class="container mt-5">
+      <div class="row tm-content-row">
+        <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9 tm-block-col">
+          <div class="tm-bg-primary-dark tm-block tm-block-products">
+            <div class="tm-product-table-container">
+              <table class="table table-hover tm-table-small tm-product-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Mã sản phẩm</th>
+                    <th scope="col">Mã NCC</th>
+                    <th scope="col">Mã DM</th>
+                    <th scope="col">Tên SP</th>
+                    <th scope="col">Giá</th>
+                    <th scope="col">Số Lượng</th>
+                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Mô tả</th>
+                    <th scope="col">Ngày tạo</th>
+                    <th scope="col">Ngày sửa</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>111</td>
+                    <td>111</td> 
+                    <td>1</td>
+                    <td class="tm-product-name">Máy hút bụi</td>
+                    <td>550</td>
+                    <td>100</td>
+                    <td>Còn hàng</td>
+                    <td>Xấu</td>
+                    <td>02/02/2022</td>
+                    <td>02/02/2022</td>
+                    <td>
+                      <a href="#" class="tm-product-delete-link">
+                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>111</td>
+                    <td>111</td> 
+                    <td>1</td>
+                    <td class="tm-product-name">Máy hút bụi</td>
+                    <td>550</td>
+                    <td>100</td>
+                    <td>Còn hàng</td>
+                    <td>Xấu</td>
+                    <td>02/02/2022</td>
+                    <td>02/02/2022</td>
+                    <td>
+                      <a href="#" class="tm-product-delete-link">
+                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>111</td>
+                    <td>111</td> 
+                    <td>1</td>
+                    <td class="tm-product-name">Máy hút bụi</td>
+                    <td>550</td>
+                    <td>100</td>
+                    <td>Còn hàng</td>
+                    <td>Xấu</td>
+                    <td>02/02/2022</td>
+                    <td>02/02/2022</td>
+                    <td>
+                      <a href="#" class="tm-product-delete-link">
+                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>111</td>
+                    <td>111</td> 
+                    <td>1</td>
+                    <td class="tm-product-name">Máy hút bụi</td>
+                    <td>550</td>
+                    <td>100</td>
+                    <td>Còn hàng</td>
+                    <td>Xấu</td>
+                    <td>02/02/2022</td>
+                    <td>02/02/2022</td>
+                    <td>
+                      <a href="#" class="tm-product-delete-link">
+                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+            <!-- table container -->
+            <a
+              th:href="@{/admin/product-add}"
+              class="btn btn-primary btn-block text-uppercase mb-3">Thêm mới sản phẩm</a>
+           
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 tm-block-col">
+          <div class="tm-bg-primary-dark tm-block tm-block-product-categories">
+            <h2 class="tm-block-title">Danh mục</h2>
+            <div class="tm-product-table-container">
+              <table class="table tm-table-small tm-product-table">
+                <tbody>
+                  <tr>
+                    <td class=""> Category 1</td>
+                    <td class="text-center">
+                      <a href="login.html" class="tm-product-delete-link">
+                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class=""> Category 2</td>
+                    <td class="text-center">
+                      <a href="#" class="tm-product-delete-link">
+                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class=""> Category 3</td>
+                    <td class="text-center">
+                      <a href="#" class="tm-product-delete-link">
+                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class=""> Category 4</td>
+                    <td class="text-center">
+                      <a href="#" class="tm-product-delete-link">
+                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class=""> Category 5</td>
+                    <td class="text-center">
+                      <a href="#" class="tm-product-delete-link">
+                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  
+                  
+                  
+                  
+                  
+                  
+                </tbody>
+              </table>
+            </div>
+            <!-- table container -->
+            <a
+              th:href="@{/admin/categori-add}"
+              class="btn btn-primary ">Thêm mới danh mục</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script>
+      $(function() {
+        $(".tm-product-name").on("click", function() {
+          window.location.href = "edit-product.html";
+        });
+      });
+    </script>
+    </main>
+  </body>
+</html>

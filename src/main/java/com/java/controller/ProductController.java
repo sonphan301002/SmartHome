@@ -17,15 +17,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ProductController {
-	@Autowired
-	ProductService productService;
-	
-	@RequestMapping("/list")
-	public String list(Model model) {
-		List<SanPham> list = productService.findAll();
-		model.addAttribute("items", list);
-		return "/product/product";
-	}
+//	@Autowired
+//	ProductService productService;
+//	
+//	@RequestMapping("/list")
+//	public String list(Model model) {
+//		List<SanPham> list = productService.findAll();
+//		model.addAttribute("items", list);
+//		return "/product/product";
+//	}
 	
 	@RequestMapping("productDetail")
 	public String detail(Model model) {
@@ -34,19 +34,19 @@ public class ProductController {
 		return "/product/product-detail";
 	}
 	
-	@GetMapping("search")
-	public String search(ModelMap model,
-			@RequestParam(name = "tenSP", required = false) String tenSP) {
-		List<SanPham> list = null;
-		
-		if(StringUtils.hasText(tenSP)) {
-			list = productService.findByNameContaining(tenSP);
-			
-	}else {
-		list = productService.findAll();
-	}
-		model.addAttribute("",list);
-		return "search";
-	}
+//	@GetMapping("search")
+//	public String search(ModelMap model,
+//			@RequestParam(name = "tenSP", required = false) String tenSP) {
+//		List<SanPham> list = null;
+//		
+//		if(StringUtils.hasText(tenSP)) {
+//			list = productService.findByNameContaining(tenSP);
+//			
+//	}else {
+//		list = productService.findAll();
+//	}
+//		model.addAttribute("",list);
+//		return "search";
+//	}
 		 
 }
