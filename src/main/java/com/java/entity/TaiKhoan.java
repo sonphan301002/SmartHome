@@ -3,11 +3,7 @@ package com.java.entity;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -22,10 +18,12 @@ public class TaiKhoan implements Serializable{
 	private String tenND;
 	private String maVT;
 	private String matKhau;
+	@Column(columnDefinition = "nvarchar(50)")
 	private String hoTen;
 	private boolean gioiTinh;
 	private String email;
 	private String SDT;
+	@Column(columnDefinition = "nvarchar(150)")
 	private String diaChi;
 	private String CMND;
 	private String hinhAnh;

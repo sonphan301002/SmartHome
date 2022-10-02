@@ -17,6 +17,7 @@ public class DanhMuc implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long maDM;
+	@Column(columnDefinition = "nvarchar(50)")
 	private String tenDM;
 	
 	@JsonIgnore

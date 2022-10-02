@@ -16,6 +16,7 @@ public class DanhGia implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long maDG;
 	private int xepHang;
+	@Column(columnDefinition = "nvarchar(max)")
 	private String noiDung;
 	@Temporal(TemporalType.DATE)
 	private Date ngayTao;

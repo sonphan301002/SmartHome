@@ -4,16 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -27,10 +18,12 @@ public class SanPham implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long maSP;
+	@Column(columnDefinition = "nvarchar(50)")
 	private String tenSP;
-	private double giaNhap;
+	private double gia;
 	private int soLuong;
 	private int trangThai;
+	@Column(columnDefinition = "nvarchar(max)")
 	private String moTa;
 	private String hinhAnh;
 	@Temporal(TemporalType.DATE)

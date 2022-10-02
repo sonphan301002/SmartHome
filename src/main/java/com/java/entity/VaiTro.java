@@ -3,10 +3,7 @@ package com.java.entity;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -19,6 +16,7 @@ import lombok.Data;
 public class VaiTro implements Serializable{
 	@Id
 	private String maVT;
+	@Column(columnDefinition = "nvarchar(50)")
 	private String tenVT;
 	
 	@JsonIgnore
