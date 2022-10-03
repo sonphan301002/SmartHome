@@ -26,6 +26,13 @@ public class ProductController {
 //		model.addAttribute("items", list);
 //		return "/product/product";
 //	}
+	@RequestMapping("/list")
+	public String list(Model model) {
+//		List<SanPham> list = productService.findAll();
+//		model.addAttribute("items", list);
+		return "/product/product";
+	}
+	
 	
 	@RequestMapping("productDetail")
 	public String detail(Model model) {
