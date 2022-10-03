@@ -11,4 +11,5 @@ public interface ProductService {
 	SanPham findById(Long maSP);
 	List<SanPham> findByCateId(Long string);
 	List<SanPham> findByBestSeller();
+	SanPham save(SanPham sanPham);
 }

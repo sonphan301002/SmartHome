@@ -29,40 +29,40 @@
             <div class="tm-bg-primary-dark tm-block tm-block-settings">
               <h2 class="tm-block-title">Thiết lập tài khoản</h2>
               <form action="" class="tm-signup-form row">
-                <div class="form-group col-lg-6">
-                  <label for="name">Tài Khoản</label>
+                <div class="form-group col-lg-12">
+                  <label for="name">Họ và tên</label>
                   <input
                     id="name"
                     name="name"
                     type="text"
-                    class="form-control validate"
+                    class="form-control validate" required
                   />
                 </div>
                 <div class="form-group col-lg-6">
-                  <label for="email">Mật khẩu</label>
+                  <label for="name">Tên đăng nhập</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="name"
+                    class="form-control validate" required
+                  />
+                </div>
+                <div class="form-group col-lg-6">
+                  <label for="password">Mật khẩu</label>
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    class="form-control validate" required
+                  />
+                </div>
+                <div class="form-group col-lg-6">
+                  <label for="email">Email</label>
                   <input
                     id="email"
                     name="email"
                     type="email"
-                    class="form-control validate"
-                  />
-                </div>
-                <div class="form-group col-lg-6">
-                  <label for="password">Họ tên</label>
-                  <input
-                    id="password"
-                    name="password"
-                    type="text"
-                    class="form-control validate"
-                  />
-                </div>
-                <div class="form-group col-lg-6">
-                  <label for="password2">Email</label>
-                  <input
-                    id="password2"
-                    name="password2"
-                    type="email"
-                    class="form-control validate"
+                    class="form-control validate" required
                   />
                 </div>
                 <div class="form-group col-lg-6">
@@ -71,35 +71,43 @@
                     id="phone"
                     name="phone"
                     type="tel"
-                    class="form-control validate"
+                    class="form-control validate" required
                   />
                 </div>
                 <div class="form-group col-lg-6">
-                  <label for="phone">Địa chỉ</label>
+                  <label for="add">Địa chỉ</label>
                   <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    class="form-control validate"
+                    id="add"
+                    name="add"
+                    type="text"
+                    class="form-control validate" required
                   />
                 </div>
                 <div class="form-group col-lg-6">
-                  <label for="phone">CMND</label>
+                  <label for="cmnd">CMND</label>
                   <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    class="form-control validate"
+                    id="cmnd"
+                    name="cmnd"
+                    type="number"
+                    class="form-control validate" required
+                  />
+                </div>
+                
+                <div class="form-group col-lg-6">
+                  <label for="vt">Mã vai trò</label>
+                  <input
+                    id="vt"
+                    name="vt"
+                    type="text"
+                    class="form-control validate" required
                   />
                 </div>
                 <div class="form-group col-lg-6">
-                  <label for="phone">Giới tính</label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    class="form-control validate"
-                  />
+                  <label for="gt">Nam</label>
+                  <input type="radio" checked="checked" name="radio">
+                  
+                  <label>Nữ</label>
+                  <input type="radio" checked="checked" name="radio">
                 </div>
                 <div class="col text-center ">
                   <button type="submit" class="btn btn-primary m-1">Thêm mới</button>

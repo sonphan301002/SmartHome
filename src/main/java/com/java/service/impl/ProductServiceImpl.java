@@ -38,5 +38,11 @@ public class ProductServiceImpl implements ProductService{
 		return sanPhamDao.findByBestSeller();
 	}
 
+	@Override
+	public SanPham save(SanPham sanPham) {
+		// TODO Auto-generated method stub
+		return sanPhamDao.save(sanPham);
+	}
+
 	
 }

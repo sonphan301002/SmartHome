@@ -17,7 +17,7 @@ import com.java.service.ProductService;
 public class ProductController {
 	@Autowired
 	ProductService productService;
-	
+
 	@RequestMapping("/product/list")
 	public String list(Model model, @RequestParam("cid") Optional<Long> cid) {
 		if (cid.isPresent()) { // nếu có
