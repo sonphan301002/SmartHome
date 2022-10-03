@@ -5,6 +5,19 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.nav-icons{
+	font-size: 25px !important;
+}
+
+.cart-number{
+	position: relative;
+	margin-left: -20px;
+	bottom: -18px;
+	left: -10px;
+	font-size: 12px;
+	color: #1C6758;
+}
+
 .collection-img span {
     top: 10px;
     right: 10px;
@@ -473,8 +486,6 @@ td:last-child {
     text-align: center;
 
 }
-
-
 /*edit profile*/
 #wrapper {
     background-color: #BA68C8;
@@ -525,5 +536,7 @@ td:last-child {
 .btn--inline {
     display: inline-flex;
 }
+
+
 /* Product-detail-end */
  

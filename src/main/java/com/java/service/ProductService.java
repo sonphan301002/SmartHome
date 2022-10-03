@@ -8,16 +8,7 @@ import com.java.entity.SanPham;
 public interface ProductService {
 
 	List<SanPham> findAll();
-
-	 
-
 	SanPham findById(Long maSP);
-
-
-
-	List<SanPham> findByNameContaining(String tenSP);
-
-	 
-
- 
+	List<SanPham> findByCateId(Long string);
+	List<SanPham> findByBestSeller();
 }

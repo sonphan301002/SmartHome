@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Link icon -->
-    <link rel="shortcut icon" href="/assets/images/logodigi2.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/images/logodigizone.png" type="image/x-icon">
 
     <!-- fontawesome cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
@@ -55,9 +55,11 @@
                     </div>
                     <div class="col-lg-5 col-xl-4 col-sm-8 col-md-4 col-7">
                         <div class="d-flex justify-content-end">
-                            <div class="dropdown btn-group"> <a class="nav-link nav-icons" th:href="@{|/cart|}"><i class="fas fa fa-shopping-bag"></i></a>
-
-                            </div> <span class="vl"></span> <a class="nav-link nav-user-img" th:href="@{|/Login|}"><span class="login">Đăng nhập</span></a>
+                            <div class="dropdown btn-group"> 
+                            	<a class="nav-link nav-icons" th:href="@{|/cart|}"><i class="fas fa fa-shopping-bag"></i></a>
+								<a th:href="@{|/cart|}"><span class="cart-number">1</span></a>
+                            </div> 
+                            <span class="vl"></span> <a class="nav-link nav-user-img mt-2" th:href="@{|/Login|}"><span class="login">Đăng nhập</span></a>
                         </div>
                     </div>
                 </div>
@@ -76,15 +78,7 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-expanded="false">Danh mục sản phẩm</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="">Thiệt bị gia dụng</a>
-                                <a class="dropdown-item" href="">Robot hút bụi</a>
-                                <a class="dropdown-item" href="">Quạt + sưởi thông minh</a>
-                                <a class="dropdown-item" href="">Máy lọc không khí</a>
-                                <a class="dropdown-item" href="">Thiết bị sức khỏe</a>
-                                <a class="dropdown-item" href="">Phụ kiện điện thoại</a>
-                                <a class="dropdown-item" href="">Thiết bị mạng</a>
-                                <a class="dropdown-item" href="">Đèn thông minh</a>
-                                <a class="dropdown-item" href="">Thiết bị nhà thông minh</a>
+                                <a th:each="c: ${cates}" class="dropdown-item" th:href="@{|/product/list?cid=${c.maDM}|}">[[${c.tenDM}]]</a>
                             </div>
                         </li>
                         <li class="nav-item"> <a class="nav-link" href="">Review sản phẩm</a> </li>

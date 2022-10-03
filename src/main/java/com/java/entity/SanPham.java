@@ -18,7 +18,7 @@ public class SanPham implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long maSP;
-	@Column(columnDefinition = "nvarchar(50)")
+	@Column(columnDefinition = "nvarchar(max)")
 	private String tenSP;
 	private double gia;
 	private int soLuong;

@@ -70,6 +70,9 @@ html, body{
 	.img-login{
 		margin-top: 0px;
 	}
+	.col-img{
+		border-right: none;
+	}
 }
 
 @media screen and (max-width: 800px) {

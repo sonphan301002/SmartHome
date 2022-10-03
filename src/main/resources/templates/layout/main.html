@@ -47,84 +47,23 @@
 				</div>
 				<div class="container">
 					<div class="row">
-						<div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3">
-							<div class="block-pricing">
-								<div class="table position-relative">
-									<div class="special-img collection-img overflow-hidden">
-										<a href=""><img
-											src="/assets/images/c66752476f22274d8fdd89594ae2a168.jpg"
-											class="w-75"></a> <span
-											class="pb-auto position-absolute bg-danger text-white d-flex align-items-center justify-content-center">Sale</span>
-									</div>
-									<ul class="list-unstyled">
-										<li><a href="#">Robot hút bụi lau nhà Xiaomi Mijia
-												Pro STYTJ06ZHM</a></li>
-										<li><b style="color: #FF1E00;">13,990,000 ₫</b></li>
-									</ul>
-									<!-- <div class="text-center">
-                                        <div class="rating mt-3">
-                                            <span class="text-primary_1"><i class = "fas fa-star"></i></span>
-                                            <span class="text-primary_1"><i class = "fas fa-star"></i></span>
-                                            <span class="text-primary_1"><i class = "fas fa-star"></i></span>
-                                            <span class="text-primary_1"><i class = "fas fa-star"></i></span>
-                                            <span class="text-primary_1"><i class = "fas fa-star"></i></span>
-                                        </div>
-                                    </div> -->
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3">
+						<div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3"
+							th:each="p: ${bestSeller}">
 							<div class="block-pricing">
 								<div class="table position-relative ">
 									<div class="special-img collection-img overflow-hidden">
-										<a href=""><img
-											src="/assets/images/DCFBCD0ED8-SP-11426226-1-800x800.jpg"
-											class="w-75"></a> <span
+										<a th:href="@{|/productDetail/${p.maSP}|}"><img
+											th:src="@{|/assets/images/${p.hinhAnh}|}" class="w-75"></a>
+										<span
 											class="pb-auto position-absolute bg-danger text-white d-flex align-items-center justify-content-center">Sale</span>
 									</div>
 									<ul class="list-unstyled">
-										<li><a href="">Roborock S7 MaxV Ultra, Robot hút bụi
-												tự động giặt giẻ lau</a></li>
-										<li><b style="color: #FF1E00;">25,990,000 ₫</b></li>
+										<li><a th:href="@{|/productDetail/${p.maSP}|}">[[${p.tenSP}]]</a></li>
+										<li><b style="color: #FF1E00;">$[[${p.gia}]] ₫</b></li>
 									</ul>
 								</div>
 							</div>
 						</div>
-
-						<div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3">
-							<div class="block-pricing">
-								<div class="table position-relative">
-									<div class="special-img collection-img overflow-hidden">
-										<a href=""><img
-											src="/assets/images/may-massage-chan-leravan_n_.jpg"
-											class="w-75"></a> <span
-											class="pb-auto position-absolute bg-danger text-white d-flex align-items-center justify-content-center">Sale</span>
-									</div>
-									<ul class="list-unstyled">
-										<li><a href="">Máy massage chân Leravan LJ – ZJ008</a></li>
-										<li><b style="color: #FF1E00;">1,750,000 ₫</b></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3">
-							<div class="block-pricing">
-								<div class="table position-relative">
-									<div class="special-img collection-img  overflow-hidden">
-										<a href=""><img
-											src="/assets/images/bep-tu-doi-thong-minh-mijia-mdcld01acm-1.jpg"
-											class="w-75"></a> <span
-											class="pb-auto position-absolute bg-danger text-white d-flex align-items-center justify-content-center">Sale</span>
-									</div>
-									<ul class="list-unstyled">
-										<li><a href="">Bếp Từ Đôi Xiaomi Mijia MDCLD01ACM</a></li>
-										<li><b style="color: #FF1E00;">3,690,000 ₫</b></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-
 					</div>
 				</div>
 			</section>
