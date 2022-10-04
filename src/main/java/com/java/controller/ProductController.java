@@ -3,15 +3,15 @@ package com.java.controller;
 import java.util.List;
 import java.util.Optional;
 
+import com.java.entity.Product;
+import com.java.service.ProductService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.java.entity.SanPham;
-import com.java.service.ProductService;
 
 @Controller
 public class ProductController {
@@ -21,7 +21,7 @@ public class ProductController {
 	@RequestMapping("/product/list")
 	public String list(Model model, @RequestParam("cid") Optional<Long> cid) {
 		if (cid.isPresent()) { // nếu có
-			List<SanPham> list = productService.findByCateId(cid.get());
+			List<Product> list = productService.findByCateId(cid.get());
 			model.addAttribute("items", list);
 		} else {
 			model.addAttribute("items", productService.findAll());
@@ -31,7 +31,7 @@ public class ProductController {
 	
 	@RequestMapping("productDetail/{maSP}")
 	public String detail(Model model, @PathVariable("maSP") Long maSP) {
-		SanPham item = productService.findById(maSP);
+		Product item = productService.findById(maSP);
 		model.addAttribute("item",item);
 		
 		return "/product/product-detail";

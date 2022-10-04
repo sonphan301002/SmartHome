@@ -2,8 +2,8 @@ package com.java.service.impl;
 
 import java.util.List;
 
-import com.java.dao.SanPhamDao;
-import com.java.entity.SanPham;
+import com.java.dao.ProductDAO;
+import com.java.entity.Product;
 import com.java.service.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,36 +12,30 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductServiceImpl implements ProductService{
 	@Autowired
-	SanPhamDao sanPhamDao;
+	ProductDAO productDAO;
 
 	@Override
-	public List<SanPham> findAll() {
+	public List<Product> findAll() {
 		 
-		return sanPhamDao.findAll();
+		return productDAO.findAll();
 	}
 
 	@Override
-	public SanPham findById(Long maSP) {
+	public Product findById(Long maSP) {
 		 
-		return sanPhamDao.findById(maSP).get();
+		return productDAO.findById(maSP).get();
 	}
 
 	@Override
-	public List<SanPham> findByCateId(Long string) {
+	public List<Product> findByCateId(Long string) {
 		// TODO Auto-generated method stub
-		return sanPhamDao.findByCateId(string);
+		return productDAO.findByCateId(string);
 	}
 
 	@Override
-	public List<SanPham> findByBestSeller() {
+	public Product save(Product sanPham) {
 		// TODO Auto-generated method stub
-		return sanPhamDao.findByBestSeller();
-	}
-
-	@Override
-	public SanPham save(SanPham sanPham) {
-		// TODO Auto-generated method stub
-		return sanPhamDao.save(sanPham);
+		return productDAO.save(sanPham);
 	}
 
 	
