@@ -13,7 +13,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "TaiKhoan")
-public class TaiKhoan implements Serializable{
+public class Account implements Serializable{
 	@Id
 	private String tenND;
 	private String maVT;
@@ -30,13 +30,13 @@ public class TaiKhoan implements Serializable{
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "taiKhoan")
-	List<HoaDon> hoaDon;
+	List<Order> hoaDon;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "taiKhoan")
-	List<DanhGia> danhGia;
+	List<Comment> danhGia;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "taiKhoan", fetch = FetchType.EAGER)
-	List<PhanQuyen> phanQuyen;
+	List<Authority> phanQuyen;
 }

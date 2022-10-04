@@ -2,7 +2,7 @@ package com.java.controller;
 
 import java.util.List;
 
-import com.java.entity.SanPham;
+import com.java.entity.Product;
 import com.java.service.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;

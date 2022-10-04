@@ -18,16 +18,16 @@ import lombok.Data;
 @Entity
 @Table(name = "PhanQuyen", uniqueConstraints = {
 		@UniqueConstraint(columnNames = {"tenND", "maVT"})})
-public class PhanQuyen implements Serializable{
+public class Authority implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long maPQ;
 	
 	@ManyToOne
 	@JoinColumn(name = "tenND")
-	TaiKhoan taiKhoan;
+	Account taiKhoan;
 	
 	@ManyToOne
 	@JoinColumn(name = "maVT")
-	VaiTro vaiTro;
+	Role vaiTro;
 }

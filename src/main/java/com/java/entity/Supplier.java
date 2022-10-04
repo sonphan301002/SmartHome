@@ -12,15 +12,18 @@ import lombok.Data;
 @SuppressWarnings("serial")
 @Data
 @Entity
-@Table(name = "DanhMuc")
-public class DanhMuc implements Serializable{
+@Table(name = "NhaCungCap")
+public class Supplier implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long maDM;
+	private Long maNCC;
 	@Column(columnDefinition = "nvarchar(50)")
-	private String tenDM;
+	private String tenNCC;
+	private String logo;
+	@Column(columnDefinition = "nvarchar(max)")
+	private String moTa;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "danhMuc")
-	List<SanPham> sanPham;
+	@OneToMany(mappedBy = "nhaCungCap")
+	List<Product> sanPham;
 }

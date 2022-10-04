@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "HinhAnh")
-public class HinhAnh implements Serializable{
+public class Image implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long maHA;
@@ -18,5 +18,5 @@ public class HinhAnh implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "maSP")
-	SanPham sanPham;
+	Product sanPham;
 }

@@ -3,21 +3,18 @@ package com.java.service;
 import java.util.List;
 
  
-import com.java.entity.SanPham;
+import com.java.entity.Product;
 
 public interface ProductService {
 
-	List<SanPham> findAll();
+	List<Product> findAll();
 
 	 
 
-	SanPham findById(Long maSP);
+	Product findById(Long maSP);
 
 
 
-	List<SanPham> findByNameContaining(String tenSP);
-
-	 
-
+	List<Product> findByNameContaining(String tenSP);
  
 }

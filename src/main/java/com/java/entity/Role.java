@@ -13,7 +13,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "VaiTro")
-public class VaiTro implements Serializable{
+public class Role implements Serializable{
 	@Id
 	private String maVT;
 	@Column(columnDefinition = "nvarchar(50)")
@@ -21,5 +21,5 @@ public class VaiTro implements Serializable{
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "vaiTro")
-	List<PhanQuyen> phanQuyen;
+	List<Authority> phanQuyen;
 }

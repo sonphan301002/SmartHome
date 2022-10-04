@@ -14,7 +14,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "SanPham")
-public class SanPham implements Serializable{
+public class Product implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long maSP;
@@ -33,13 +33,13 @@ public class SanPham implements Serializable{
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "sanPham")
-	List<DanhGia> danhGia;
+	List<Comment> danhGia;
 	
 	@ManyToOne
 	@JoinColumn(name = "maDM")
-	DanhMuc danhMuc;
+	Category danhMuc;
 	
 	@ManyToOne
 	@JoinColumn(name = "maNCC")
-	NhaCungCap nhaCungCap;
+	Supplier nhaCungCap;
 }

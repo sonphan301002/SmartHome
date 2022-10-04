@@ -1,93 +1,135 @@
 @import url("https://fonts.googleapis.com/css?family=roboto");
-
-html, body{
-	font-family: 'Roboto', sans-serif;
-	background: linear-gradient(to right, #355c7d, #6c5b7b, #c06c84);
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #355c7d, #6c5b7b, #c06c84);
 }
+
 
 /* LOGIN */
 
-.container-fluid{
-	margin-top: 100px;
+.container-fluid {
+    margin-top: 35px;
 }
 
-.btn-register{
-	position: relative;
-	width: 62%;
-	left: 17%;
+.btn-register {
+    position: relative;
+    width: 62%;
+    left: 17%;
 }
 
-.img-login{
-	margin-top: 120px;
+.img-login {
+    margin-top: 120px;
 }
 
-.col-img{
-	border-right: 1px solid grey;
+.col-img {
+    border-right: 1px solid grey;
 }
 
-.card-main{
-	background: linear-gradient(to right, #355c7d, #6c5b7b, #c06c84);
-	border: white;
-	box-shadow: 0 0 3px #FFD1D1;
+.card-main {
+    background: linear-gradient(to right, #355c7d, #6c5b7b, #c06c84);
+    border: white;
+    box-shadow: 0 0 3px #FFD1D1;
 }
 
-.card-login{
-	background: none;
-	border: white;
+.card-login {
+    background: none;
+    border: white;
 }
 
-.modal{
-	background: linear-gradient(to left, #355c7d, #6c5b7b, #c06c84);
+.modal {
+    background: linear-gradient(to left, #355c7d, #6c5b7b, #c06c84);
 }
 
-.font-italic{
-	font-size: 13px;
+.font-italic {
+    font-size: 13px;
 }
 
-.modal-dialog{
-	margin-top: 80px;
+.modal-dialog {
+    margin-top: 80px;
 }
 
-.modal-content{
-	background: linear-gradient(to left, #355c7d, #6c5b7b, #c06c84);
-	border: white;
-	box-shadow: 0 0 3px #FFD1D1;
+.modal-content {
+    background: linear-gradient(to left, #355c7d, #6c5b7b, #c06c84);
+    border: white;
+    box-shadow: 0 0 3px #FFD1D1;
 }
 
-.card-register{
-	background: none;
-	border: white;
+.card-register {
+    background: none;
+    border: white;
 }
 
-.img-register{
-	border-left: 1px solid grey;
-}
-
-@media screen and (max-width: 800px) {
-	.container-fluid{
-		margin-top: 30px;
-	}
-	.img-login{
-		margin-top: 0px;
-	}
+.img-register {
+    border-left: 1px solid grey;
 }
 
 @media screen and (max-width: 800px) {
-	.img-register{
-		display: none;
-	}
+    .container-fluid {
+        margin-top: 30px;
+    }
+    .img-login {
+        margin-top: 0px;
+    }
 }
+
+@media screen and (max-width: 800px) {
+    .img-register {
+        display: none;
+    }
+}
+
 
 /* LOGIN-END */
 
+
 /* FORGOT */
-.forgot{
-	margin-top: 150px;
+
+.forgot {
+    margin-top: 150px;
 }
 
-.card-forgot{
-	background: linear-gradient(to right, #355c7d, #6c5b7b, #c06c84);
-	box-shadow: 0 0 3px #FFD1D1;
-	border: white !important;
+.card-forgot {
+    background: linear-gradient(to right, #355c7d, #6c5b7b, #c06c84);
+    box-shadow: 0 0 3px #FFD1D1;
+    border: white !important;
 }
+
+
 /* FORGOT-END */
+
+
+/* LOGIN BUTTON SOCIAL */
+
+.form-box .btn-social {
+    color: #fff;
+    border: 0;
+    margin-bottom: 10px;
+}
+
+.form-box .btn-facebook {
+    background: #4866a8;
+}
+
+.form-box .btn-google {
+    background: #da3f34
+}
+
+.form-box .btn-twitter {
+    background: #33ccff;
+}
+
+.form-box .btn-facebook:hover {
+    color: #fff;
+    background: #3d5785;
+}
+
+.form-box .btn-google:hover {
+    background: #bf3b31;
+    color: #fff;
+}
+
+.form-box .btn-twitter:hover {
+    background: #2eb7e5;
+    color: #fff;
+}

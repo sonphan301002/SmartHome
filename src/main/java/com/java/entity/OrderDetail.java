@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "HoaDonChiTiet")
-public class HoaDonChiTiet implements Serializable{
+public class OrderDetail implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long maHDCT;
@@ -21,9 +21,9 @@ public class HoaDonChiTiet implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "maHD")
-	HoaDon hoaDon;
+	Order hoaDon;
 	
 	@ManyToOne
 	@JoinColumn(name = "maSP")
-	SanPham sanPham;
+	Product sanPham;
 }

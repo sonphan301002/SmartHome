@@ -19,7 +19,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "KhuyenMai")
-public class KhuyenMai implements Serializable{
+public class Promotion implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long maKM;
@@ -31,5 +31,5 @@ public class KhuyenMai implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "maSP")
-	SanPham sanPham;
+	Product sanPham;
 }

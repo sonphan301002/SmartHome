@@ -14,7 +14,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "HoaDon")
-public class HoaDon implements Serializable{
+public class Order implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long maHD;
@@ -28,9 +28,9 @@ public class HoaDon implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "tenND")
-	TaiKhoan taiKhoan;
+	Account taiKhoan;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "hoaDon")
-	List<HoaDonChiTiet> hoaDonChiTiet;
+	List<OrderDetail> hoaDonChiTiet;
 }

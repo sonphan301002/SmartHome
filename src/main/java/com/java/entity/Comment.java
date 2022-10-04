@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "DanhGia")
-public class DanhGia implements Serializable{
+public class Comment implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long maDG;
@@ -25,9 +25,9 @@ public class DanhGia implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "tenND")
-	TaiKhoan taiKhoan;
+	Account taiKhoan;
 	
 	@ManyToOne
 	@JoinColumn(name = "maSP")
-	SanPham sanPham;
+	Product sanPham;
 }
