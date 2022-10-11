@@ -9,7 +9,7 @@ body {
 /* LOGIN */
 
 .container-fluid {
-    margin-top: 35px;
+    margin-top: 75px;
 }
 
 .btn-register {
@@ -65,24 +65,21 @@ body {
 }
 
 @media screen and (max-width: 800px) {
-<<<<<<< HEAD
-	.container-fluid{
-		margin-top: 30px;
-	}
-	.img-login{
-		margin-top: 0px;
-	}
-	.col-img{
-		border-right: none;
-	}
-=======
     .container-fluid {
         margin-top: 30px;
     }
     .img-login {
         margin-top: 0px;
     }
->>>>>>> 14893a796958741d946e39df5d4424681ab32b0f
+    .col-img {
+        border-right: none;
+    }
+    .container-fluid {
+        margin-top: 30px;
+    }
+    .img-login {
+        margin-top: 0px;
+    }
 }
 
 @media screen and (max-width: 800px) {
