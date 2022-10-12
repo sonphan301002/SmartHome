@@ -37,6 +37,9 @@ public class ProductServiceImpl implements ProductService{
 		// TODO Auto-generated method stub
 		return productDAO.save(sanPham);
 	}
-
 	
+	@Override
+	public void delete(Long maSP) {
+		productDAO.deleteById(maSP);
+	}
 }

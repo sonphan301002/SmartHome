@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<main>
+		<div id="carouselExampleControls" class="carousel slide"
+			data-interval="1800" data-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<a href=""><img class="d-block w-100"
+						src="https://digizone.com.vn/wp-content/uploads/2022/09/tivia2-1536x520.png"
+						alt="First slide"></a>
+				</div>
+				<div class="carousel-item">
+					<a href=""><img class="d-block w-100"
+						src="https://digizone.com.vn/wp-content/uploads/2022/09/himoz20-1536x520.png"
+						alt="Second slide"></a>
+				</div>
+				<div class="carousel-item">
+					<a href=""><img class="d-block w-100"
+						src="https://digizone.com.vn/wp-content/uploads/2022/08/Xa%CC%89-Ha%CC%80ng-He%CC%803-1536x520.png"
+						alt="Third slide"></a>
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselExampleControls"
+				role="button" data-slide="prev"> <span
+				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="sr-only">Previous</span>
+			</a> <a class="carousel-control-next" href="#carouselExampleControls"
+				role="button" data-slide="next"> <span
+				class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="sr-only">Next</span>
+			</a>
+		</div>
+
+		<main>
+			<section id="pricing"
+				class="padd-section text-center wow fadeInUp mt-5"
+				style="visibility: visible; animation-name: fadeInUp;">
+				<div class="section-header">
+					<h2 class="section-title">Sản phẩm bán chạy</h2>
+					<div class="border-top border-primary w-25 mx-auto my-4"></div>
+				</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3"
+							th:each="p: ${bestSeller}">
+							<div class="block-pricing">
+								<div class="table position-relative ">
+									<div class="special-img collection-img overflow-hidden">
+										<a th:href="@{|/productDetail/${p.maSP}|}"><img
+											th:src="@{|/assets/images/${p.hinhAnh}|}" class="w-75"></a>
+										<span
+											class="pb-auto position-absolute bg-danger text-white d-flex align-items-center justify-content-center">Sale</span>
+									</div>
+									<ul class="list-unstyled">
+										<li><a th:href="@{|/productDetail/${p.maSP}|}">[[${p.tenSP}]]</a></li>
+										<li><b style="color: #FF1E00;">$[[${p.gia}]] ₫</b></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+	</main>
+</body>
+</html>
