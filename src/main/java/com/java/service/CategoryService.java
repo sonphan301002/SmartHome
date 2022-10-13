@@ -8,4 +8,10 @@ public interface CategoryService {
 
 	List<Category> findAll();
 
+	Category add(Category category);
+
+	Category update(Category category);
+
+	void delete(Long maDM);
+
 }

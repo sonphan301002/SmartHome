@@ -11,5 +11,7 @@ public interface ProductService {
 	List<Product> findByCateId(Long string);
 	Product save(Product sanPham);
 	Product findById(Long maSP);
-	void delete(Long maSP);
+	Product add(Product product);
+	Product update(Product product);
+	void delete(Long id);
 }

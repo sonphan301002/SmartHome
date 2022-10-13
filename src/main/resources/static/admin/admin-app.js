@@ -6,10 +6,6 @@ app.config(function($routeProvider){
 		templateUrl: "/admin/product/product.html",
 		controller: "product-ctrl"
 	})
-	.when("/product-add", {
-		templateUrl: "/admin/product/add-product.html",
-		controller: "product-ctrl"
-	})
 	.when("/category", {
 		templateUrl: "/admin/category/category.html",
 		controller: "category-ctrl"
@@ -27,12 +23,16 @@ app.config(function($routeProvider){
 		controller: "authority-ctrl"
 	})
 	.when("/supplier", {
-		templateUrl: "/admin/supplier/NCC.html",
+		templateUrl: "/admin/supplier/supplier.html",
 		controller: "supplier-ctrl"
 	})
 	.when("/order", {
 		templateUrl: "/admin/order/donhang.html",
 		controller: "order-ctrl"
+	})
+	.when("/unauthorized", {
+		templateUrl: "/admin/authority/unauthorized.html",
+		controller: "authority-ctrl"
 	})
 	.otherwise({
 		templateUrl: "/admin/order/donhang.html",

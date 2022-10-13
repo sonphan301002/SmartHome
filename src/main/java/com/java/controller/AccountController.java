@@ -18,7 +18,7 @@ public class AccountController {
     @GetMapping("/login/success")
     public String loginSuccess(Model model){
         model.addAttribute("message", "Đăng nhập thành công");
-        return "/layout/main";
+        return "redirect:/";
     }
     
     @GetMapping("login/error")

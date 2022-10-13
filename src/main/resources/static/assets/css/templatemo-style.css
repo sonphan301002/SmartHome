@@ -39,6 +39,12 @@ button:focus {
   font-weight: 700;
   color: #fff;
 }
+.card{
+	background: none;
+}
+.nav-link:hover{
+	color: white;
+}
 .navbar {
   height: 100px;
   background-color: #567086;
@@ -421,9 +427,10 @@ input[type="checkbox"] {
   width: 24px;
   height: 24px;
   transition: all 0.1s linear;
+  margin-left: 20px;
 }
 input[type="checkbox"]:checked {
-  background: url(../img/check-mark.png) #394e64 center no-repeat;
+  background: url(../img/check-mark.png) white center no-repeat;
 }
 input[type="checkbox"]:focus {
   outline: 0 none;
@@ -462,6 +469,9 @@ input[type="checkbox"]:focus {
 }
 .tm-product-delete-link:hover .tm-product-delete-icon {
   color: #6d8ca6;
+}
+.tm-product-delete-link:hover {
+  color: #6d8ca6 !important;
 }
 .custom-select {
   width: 100%;
@@ -505,7 +515,7 @@ input[type="checkbox"]:focus {
 }
 .tm-product-img-dummy {
   max-width: 100%;
-  height: 240px;
+  height: 265px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -705,5 +715,11 @@ input[type="checkbox"]:focus {
   #barChart,
   #lineChart {
     max-height: 350px;
+  }
+}
+
+@media (max-width: 700px) {
+  .img-product-add {
+    width: 370px;
   }
 }

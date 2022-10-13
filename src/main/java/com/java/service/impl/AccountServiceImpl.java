@@ -7,11 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.java.dao.AccountDao;
-import com.java.dao.CategoryDAO;
 import com.java.entity.Account;
-import com.java.entity.Category;
 import com.java.service.AccountService;
-import com.java.service.CategoryService;
 
 @Service
 public class AccountServiceImpl implements AccountService{
@@ -53,5 +50,9 @@ public class AccountServiceImpl implements AccountService{
         return accountDAO.getById(tenND);
     }
 
-
+	@Override
+	public List<Account> getAdministrators() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

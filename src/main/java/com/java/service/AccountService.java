@@ -7,6 +7,10 @@ import com.java.entity.Account;
 
 public interface AccountService {
 
+	List<Account> getAdministrators();
+
+	List<Account> findAll();
+	
     Account getById(String tenND);
 
     void delete(Account entity);
@@ -17,8 +21,5 @@ public interface AccountService {
 
     Optional<Account> findById(String tenND);
 
-    List<Account> findAll();
-
     <S extends Account> S save(S entity);
-
 }

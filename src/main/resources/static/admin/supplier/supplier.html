@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container tm-mt-big tm-mb-big">
+		<div class="row">
+			<div class="col-10 mx-auto">
+				<h5 class="tm-block-title">Nhà cung cấp</h5>
+				<ul class="nav nav-tabs" id="myTab" role="tablist">
+					<li class="nav-item"><a class="nav-link active"
+						data-toggle="tab" data-target="#edit" href="" role="tab"
+						aria-controls="home" aria-selected="true">Cập nhật</a></li>
+					<li class="nav-item"><a class="nav-link" data-target="#list"
+						data-toggle="tab" href="" role="tab" aria-controls="profile"
+						aria-selected="false">Danh sách</a></li>
+				</ul>
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show active" id="edit" role="tabpanel"
+						aria-labelledby="home-tab">
+						<!-- Cập nhật -->
+						<div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+							<div class="row tm-edit-product-row">
+								<div class="col-xl-6 col-lg-6 col-md-12">
+									<div class="form-group mb-3">
+										<label for="name">Tên nhà cung cấp </label> <input id="name"
+											type="text" class="form-control validate" required
+											ng-model="form.tenNCC" />
+									</div>
+
+
+									<div class="form-group mb-3">
+										<label for="description">Mô tả</label>
+										<textarea class="form-control validate" rows="4" required
+											ng-model="form.moTa"></textarea>
+									</div>
+								</div>
+								<div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+									<div class="tm-product-img-dummy mx-auto">
+										<i class="fas fa-cloud-upload-alt tm-upload-icon"
+											onclick="document.getElementById('fileInput').click();"></i>
+									</div>
+									<div class="custom-file mt-3 mb-3">
+										<input id="fileInput" type="file" style="display: none;" /> <input
+											type="button" class="btn btn-primary btn-block mx-auto"
+											value="Chọn logo"
+											onclick="document.getElementById('fileInput').click();" />
+									</div>
+
+
+								</div>
+								<div class="col text-center ">
+									<button ng-click="add()" class="btn btn-primary m-1">Thêm
+										mới</button>
+									<button ng-click="update()" class="btn btn-primary m-1">Cập
+										nhật</button>
+									<button ng-click="delete(form)" class="btn btn-primary m-1">Xóa</button>
+									<button ng-click="reset()" class="btn btn-primary m-1">Làm
+										mới</button>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="list" role="tabpanel"
+						aria-labelledby="profile-tab">
+						<!-- Danh sách -->
+						<div class="tm-product-table-container">
+							<table class="table table-hover tm-table-small tm-product-table">
+								<thead>
+									<tr>
+										<th scope="col">Logo</th>
+										<th scope="col">Mã nhà cung cấp</th>
+										<th scope="col">Tên nhà cung cấp</th>
+										<th scope="col">Mô tả</th>
+										<th scope="col"></th>
+										<th scope="col"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="supp in items">
+										<td><img alt=""
+											ng-src="{{'/assets/images/' + supp.logo}}" width="50"
+											height="50"></td>
+										<td>#{{supp.maNCC}}</td>
+										<td>{{supp.tenNCC}}</td>
+										<td>{{supp.moTa}}</td>
+										<td><button ng-click="delete(supp)"
+												class="tm-product-delete-link btn">
+												<i class="far fa-trash-alt tm-product-delete-icon"></i>
+											</button></td>
+										<td><button ng-click="edit(supp)"
+												class="text-white tm-product-delete-link btn">
+												<i class="far fa-edit"></i>
+											</button></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

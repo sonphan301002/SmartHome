@@ -106,7 +106,7 @@
                         <li class="nav-item"> <a class="nav-link" th:href="@{|/news|}">Tin tức sản phẩm</a> </li>
                         <li class="nav-item"> <a class="nav-link" th:href="@{|/discount|}">Khuyến mãi</a> </li>
                         <li class="nav-item"> <a class="nav-link" th:href="@{|/contact|}">Liên hệ</a> </li>
-
+                        <li class="nav-item"> <a class="nav-link" href="/admin/index">Quản lý</a> </li>
                     </ul>
 
                     <ul class="navbar-nav ml-auto">
@@ -256,7 +256,6 @@
             event.preventDefault();
             Swal.fire({
                 title: 'Bạn muốn đăng xuất?',
-                text: "You won't be able to revert this!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
