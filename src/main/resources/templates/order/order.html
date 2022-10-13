@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
 	th:replace="~{/layout/index :: dynamic(~{::main})}">
-
 <head>
     <title>Digizone</title> 
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
-
 <body>
     <main>
         <section id="pricing" class="padd-section text-center wow fadeInUp mt-5" style="visibility: visible; animation-name: fadeInUp;">
@@ -19,11 +17,9 @@
                 <section class="row" style="background-color: #87A2FB;">
                     <div class="container py-5 h-100">
                         <div class="row d-flex justify-content-center align-items-center h-100">
-                            <div class="col-12">
+                            <div class="col-12 mb-sm-4">
                                 <div class="card card-stepper text-black" style="border-radius: 16px;">
-
                                     <div class="card-body p-5">
-
                                         <div class="d-flex justify-content-between align-items-center mb-5">
                                             <div>
                                                 <h5 class="mb-0">Đơn hàng <span class="text-primary font-weight-bold">#ABCXYZ123</span></h5>
@@ -73,9 +69,7 @@
                                         </div>
                                        <a class="mt-4 d-inline-flex" th:href="@{|/orderDetail|}">Chi tiết đơn hàng >></a> 
                                     </div>
-
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
@@ -84,5 +78,4 @@
         </section>
     </main>
 </body>
-
 </html>

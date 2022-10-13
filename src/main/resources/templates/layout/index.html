@@ -22,21 +22,23 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- angular -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 
-<body>
+<body ng-app="shopping-cart-app" ng-controller="shopping-cart-ctrl">
     <header class="section-header">
         <!-- Top header -->
         <div class="top-header">
             <ul class="nav justify-content-end">
                 <li class="nav-item mr-auto">
-                    <a class="nav-link active" href="#"><i class="fas fa-home mr-2"></i>105 Nguyễn Hoàng, Hải Châu, Đà Nẵng</a>
+                    <a class="nav-link" href="#"><i class="fas fa-home mr-2"></i>105 Nguyễn Hoàng, Hải Châu, Đà Nẵng</a>
                 </li>
                 <li class="nav-item mr-auto">
                     <a class="nav-link" href="#"><i class="fas fa-envelope mr-2"></i>digizone.com.vn@gmail.com</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Hotline : 0905 008 070</a>
+                    <a class="nav-link" href="#">Hotline : 0905 008 070</a>
                 </li>
             </ul>
         </div>
@@ -61,7 +63,9 @@
                         <div class="d-flex justify-content-end">
                             <div class="dropdown btn-group">
                                 <a class="nav-link nav-icons" th:href="@{|/cart|}"><i class="fas fa fa-shopping-bag"></i></a>
-                                <a th:href="@{|/cart|}"><span class="cart-number">1</span></a>
+                                <a th:href="@{|/cart|}">
+                                	<span class="cart-number">{{cart.count}}</span>
+                               	</a>
                             </div>
 
                             <li th:if="${#request.remoteUser}" class="nav-link nav-icons">
@@ -76,8 +80,6 @@
                             <th:block th:unless="${#request.remoteUser}">
                                 <span class="vl"></span> <a class="nav-link nav-user-img mt-2 text-light" th:href="@{/security/login/form}"><span class="login">Đăng nhập</span></a>
                             </th:block>
-
-
                         </div>
                     </div>
                 </div>
@@ -99,13 +101,12 @@
                                 <a th:each="c: ${cates}" class="dropdown-item" th:href="@{|/product/list?cid=${c.maDM}|}">[[${c.tenDM}]]</a>
                             </div>
                         </li>
-                        <li class="nav-item"> <a class="nav-link" href="">Review sản phẩm</a> </li>
-                        <li class="nav-item"> <a class="nav-link" href="">Hướng dẫn sử dụng</a> </li>
-                        <li class="nav-item"> <a class="nav-link" href="">Tin tức sản phẩm</a> </li>
-                        <li class="nav-item"> <a class="nav-link" href="">Khuyến mãi</a> </li>
-                        <li class="nav-item"> <a class="nav-link" href="">Liên hệ</a> </li>
+                        <li class="nav-item"> <a class="nav-link" th:href="@{|/review|}">Review sản phẩm</a> </li>
+                        <li class="nav-item"> <a class="nav-link" th:href="@{|/manuals|}">Hướng dẫn sử dụng</a> </li>
+                        <li class="nav-item"> <a class="nav-link" th:href="@{|/news|}">Tin tức sản phẩm</a> </li>
+                        <li class="nav-item"> <a class="nav-link" th:href="@{|/discount|}">Khuyến mãi</a> </li>
+                        <li class="nav-item"> <a class="nav-link" th:href="@{|/contact|}">Liên hệ</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="/admin/index">Quản lý</a> </li>
-
                     </ul>
 
                     <ul class="navbar-nav ml-auto">
@@ -236,6 +237,18 @@
             <p>Cung cấp thiết bị đèn Yeelight - Gia dụng, đồ công nghệ Xiaomi.</p>
         </div>
     </footer>
+    
+    <!-- social -->
+    <div class="social-button">
+        <a href="tel:0905008070" class="call-button">
+        </a>
+        
+        <a href="http://zalo.me/0905008070" target="_blank" class="zalo-button">
+        </a>
+        <a href="https://m.me/Digizone.com.vn/" target="_blank" class="facebook-button">
+        </a>
+    </div>
+    
 
 
     <script>
@@ -261,6 +274,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="/assets/js/shopping-cart.js"></script>
 </body>
 
 </html>

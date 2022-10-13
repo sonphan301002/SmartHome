@@ -1,0 +1,228 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" th:fragment="dynamic(main)">
+<head>
+    <title>Digizone</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Link icon -->
+    <link rel="shortcut icon" href="/assets/images/logodigizone.png" type="image/x-icon">
+
+    <!-- fontawesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <!-- Link css -->
+    <link rel="stylesheet" href="/assets/css/layout.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <header class="section-header">
+        <!-- Top header -->
+        <div class="top-header">
+            <ul class="nav justify-content-end">
+                <li class="nav-item mr-auto">
+                    <a class="nav-link active" href="#"><i class="fas fa-home mr-2"></i>105 Nguyễn Hoàng, Hải Châu, Đà Nẵng</a>
+                </li>
+                <li class="nav-item mr-auto">
+                    <a class="nav-link" href="#"><i class="fas fa-envelope mr-2"></i>digizone.com.vn@gmail.com</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Hotline : 0905 008 070</a>
+                </li>
+            </ul>
+        </div>
+        <!-- header -->
+        <section class="header-main border-bottom">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-sm-4 col-md-4 col-5">
+                        <a th:href="@{/}" class="brand-wrap">
+                            <img class="logo img-fluid w-75" src="/assets/images/logodigi2.png">
+                            <!-- <span class="logo">Digizone</span> -->
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-xl-5 col-sm-8 col-md-4 d-none d-md-block">
+                        <form action="#" class="search-wrap">
+                            <div class="input-group w-100"> <input type="text" class="form-control search-form" style="width:55%;" placeholder="Nhập từ khóa cần tìm...">
+                                <div class="input-group-append"> <button class="btn btn-primary search-button" type="submit"> <i class="fa fa-search"></i> </button> </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-5 col-xl-4 col-sm-8 col-md-4 col-7">
+                        <div class="d-flex justify-content-end">
+                            <div class="dropdown btn-group"> 
+                            	<a class="nav-link nav-icons" th:href="@{|/cart|}"><i class="fas fa fa-shopping-bag"></i></a>
+								<a th:href="@{|/cart|}"><span class="cart-number">1</span></a>
+                            </div> 
+                            <span class="vl"></span> <a class="nav-link nav-user-img mt-2" th:href="@{|/Login|}"><span class="login">Đăng nhập</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- nav -->
+        <nav class="navbar navbar-expand-md navbar-main border-bottom">
+            <div class="container-fluid">
+                <form class="d-md-none my-2">
+                    <div class="input-group"> <input type="search" name="search" class="form-control" placeholder="Search" required="">
+                        <div class="input-group-append"> <button type="submit" class="btn btn-secondary"> <i class="fa fa-search"></i> </button> </div>
+                    </div>
+                </form> <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#dropdown6" aria-expanded="false"> <span class="navbar-toggler-icon"></span> </button>
+                <div class="navbar-collapse collapse" id="dropdown6">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-expanded="false">Danh mục sản phẩm</a>
+                            <div class="dropdown-menu">
+                                <a th:each="c: ${cates}" class="dropdown-item" th:href="@{|/product/list?cid=${c.maDM}|}">[[${c.tenDM}]]</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link" href="/admin/index">Review sản phẩm</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="">Hướng dẫn sử dụng</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="">Tin tức sản phẩm</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="">Khuyến mãi</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="">Liên hệ</a> </li>
+
+                    </ul>
+
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href=""><img src="/assets/images/vietnam.png" alt=""></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""><img src="/assets/images/united-kingdom.png" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- slide -->
+        
+    </header>
+    
+    <div th:replace="${main}"></div>
+
+    <footer class="page-footer bg-light">
+        <!-- <div class="icon bg-footer">
+                <div class="container">
+                    <div class="row py-4 d-flex align-items-center">
+                        <div class="col-md-12 col text-center">
+                            <a href="#"><i class="fas fa-envelope mr-5 fa-2x"></i></a>
+                            <a href="#"><i class="fab fa-facebook-square mr-5 fa-2x"></i></a>
+                            <a href="#"><i class="fab fa-instagram mr-5 fa-2x"></i></i></a>
+                            <a href="#"><i class="fab fa-twitter mr-5 fa-2x"></i></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+        <div class="container py-4 text-center text-md-left mt-5">
+            <div class="row">
+                <div class="col-md-3 mx-auto mb-4">
+                    <h6>
+                        <Strong>DIGIZONE STORE</Strong>
+                    </h6>
+                    <hr class="bg-success mt-1 d-inline-block mx-auto" style="width: 125px; height: 2px;">
+                    <p class="mt-2"><span class="text" style="color: #000000; font-size: 100%;"><strong>Địa chỉ:</strong> 105 Nguyễn Hoàng, Phường Hải Châu 2, Quận Hải Châu, Đà Nẵng</span><br><span style="color: #000000; font-size: 100%;"><strong><span class="text">Điện thoại: </span></strong>
+                        <a class="text-is-phone-number" style="color: #000000;">0905.008.070</a>
+                        </span><br><span style="color: #000000; font-size: 100%;"><strong><span class="text">Email: </span></strong>
+                        </span><a href="mailto:digizone.com.vn@gmail.com" target="_blank" rel="noopener"><span style="color: #000000;">digizone.com.vn@gmail.com</span></a></p>
+
+                </div>
+
+                <div class="col-md-3 mx-auto mb-4">
+                    <h6><strong>Chăm sóc khách hàng</strong></h6>
+                    <hr class="bg-success mt-1 d-inline-block mx-auto" style="width: 160px; height: 2px;">
+                    <ul class="list-unstyled">
+                        <li class="my-2">
+                            <a style="text-decoration: none" href="#">Trung tâm trợ giúp</a>
+                        </li>
+                        <li class="my-2">
+                            <a style="text-decoration: none" href="#">Hỗ trợ kỹ thuật</a>
+                        </li>
+                        <li class="my-2">
+                            <a style="text-decoration: none" href="#">Kinh doanh, bán buôn</a>
+                        </li>
+                        <li class="my-2">
+                            <a style="text-decoration: none" href="#">Lắp đặt và bảo hành</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mx-auto mb-4">
+                    <h6><strong>Chính sách bán hàng</strong></h6>
+                    <hr class="bg-success mt-1 d-inline-block mx-auto" style="width: 153px; height: 2px;">
+                    <ul class="list-unstyled">
+                        <li class="my-2">
+                            <a style="text-decoration: none" href="#">Hướng dẫn đặt hàng</a>
+                        </li>
+                        <li class="my-2">
+                            <a style="text-decoration: none" href="#">Chính sách thanh toán</a>
+                        </li>
+                        <li class="my-2">
+                            <a style="text-decoration: none" href="#">Chính sách bảo hành</a>
+                        </li>
+                        <li class="my-2">
+                            <a style="text-decoration: none" href="#">Chính sách bảo mật</a>
+                        </li>
+                        <li class="my-2">
+                            <a style="text-decoration: none" href="#">Chính sách đổi trả và hoàn tiền</a>
+                        </li>
+                        <li class="my-2">
+                            <a style="text-decoration: none" href="#">Điều khoản, quy định chung</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mx-auto mb-4">
+
+                    <h6><strong>Thanh toán</strong></h6>
+                    <hr class="bg-success mt-1 d-inline-block mx-auto" style="width: 83px; height: 2px;">
+                    <ul class="list-unstyled d-flex mr-auto">
+                        <li class="my-2 mr-1">
+                            <a style="text-decoration: none" href="#"><img src="https://seoiclick.com/content/uploads/chung/zalo-pay.jpg" class="w-50" alt=""></a>
+                        </li>
+                        <li class="my-2 mr-1">
+                            <a style="text-decoration: none" href="#"><img src="https://seoiclick.com/content/uploads/chung/mo-mo.jpg" class="w-50" alt=""></a>
+                        </li>
+                        <li class="my-2 mr-1">
+                            <a style="text-decoration: none" href="#"><img src="/assets/images/viettel-pay.jpg" class="w-50" alt=""></a>
+                        </li>
+                    </ul>
+
+                    <h6><strong>Đơn vị vận chuyển</strong></h6>
+                    <hr class="bg-success mt-1 d-inline-block mx-auto" style="width: 140px; height: 2px;">
+                    <ul class="list-unstyled d-flex mr-auto">
+                        <li class="my-2 mx-auto mr-1">
+                            <a style="text-decoration: none" href="#"><img src="/assets/images/ghtk.png" class="w-50" alt=""></a>
+                        </li>
+                        <li class="my-2 mx-auto mr-1">
+                            <a style="text-decoration: none" href="#"><img src="/assets/images/ghn.png" class="w-50" alt=""></a>
+                        </li>
+                        <li class="my-2 mx-auto mr-1">
+                            <a style="text-decoration: none" href="#"><img src="/assets/images/jst.png" class="w-50" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer-copyright text-center py-3 bg-light">
+            <h5>&copy; Digizone Store
+                <a href="https://digizone.com.vn/">digizone.com.vn</a></h5>
+            <p>Cung cấp thiết bị đèn Yeelight - Gia dụng, đồ công nghệ Xiaomi.</p>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/admin/layout/index :: dynamic(~{::main})}">
+  
+
+  <body id="reportsPage">
+  <main>
+    
+      
+      <div class="container mt-5">
+        
+        <!-- row -->
+        <div class="row tm-content-row">
+          <div class="tm-block-col tm-col-avatar">
+            <div class="tm-bg-primary-dark tm-block tm-block-avatar">
+              <h2 class="tm-block-title">Ảnh</h2>
+              <div class="tm-avatar-container">
+                <img
+                  src="/assets/images/bep-dien-tu-zhiwu-zhu__nnn_.jpg"
+                  alt="Avatar"
+                  class="tm-avatar img-fluid mb-4"
+                />
+                
+              </div>
+              <input class="btn btn-primary" type="file" >
+            </div>
+          </div>
+          <div class="tm-block-col tm-col-account-settings">
+            <div class="tm-bg-primary-dark tm-block tm-block-settings">
+              <h2 class="tm-block-title">Thiết lập tài khoản</h2>
+              <form action="" class="tm-signup-form row">
+                <div class="form-group col-lg-12">
+                  <label for="name">Họ và tên</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    class="form-control validate" required
+                  />
+                </div>
+                <div class="form-group col-lg-6">
+                  <label for="name">Tên đăng nhập</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="name"
+                    class="form-control validate" required
+                  />
+                </div>
+                <div class="form-group col-lg-6">
+                  <label for="password">Mật khẩu</label>
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    class="form-control validate" required
+                  />
+                </div>
+                <div class="form-group col-lg-6">
+                  <label for="email">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    class="form-control validate" required
+                  />
+                </div>
+                <div class="form-group col-lg-6">
+                  <label for="phone">SDT</label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    class="form-control validate" required
+                  />
+                </div>
+                <div class="form-group col-lg-6">
+                  <label for="add">Địa chỉ</label>
+                  <input
+                    id="add"
+                    name="add"
+                    type="text"
+                    class="form-control validate" required
+                  />
+                </div>
+                <div class="form-group col-lg-6">
+                  <label for="cmnd">CMND</label>
+                  <input
+                    id="cmnd"
+                    name="cmnd"
+                    type="number"
+                    class="form-control validate" required
+                  />
+                </div>
+                
+                <div class="form-group col-lg-6">
+                  <label for="vt">Mã vai trò</label>
+                  <input
+                    id="vt"
+                    name="vt"
+                    type="text"
+                    class="form-control validate" required
+                  />
+                </div>
+                <div class="form-group col-lg-6">
+                  <label for="gt">Nam</label>
+                  <input type="radio" checked="checked" name="radio">
+                  
+                  <label>Nữ</label>
+                  <input type="radio" checked="checked" name="radio">
+                </div>
+                <div class="col text-center ">
+                  <button type="submit" class="btn btn-primary m-1">Thêm mới</button>
+                  <button type="submit" class="btn btn-primary m-1">Cập nhật</button>
+                  <button type="submit" class="btn btn-primary m-1">Xóa</button>
+                  <button type="submit" class="btn btn-primary m-1">Làm mới</button>
+                  
+                </div>
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    </main>
+  </body>
+</html>
