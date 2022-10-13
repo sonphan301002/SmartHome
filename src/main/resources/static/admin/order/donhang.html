@@ -18,84 +18,38 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Mã</th>
+                                    <th scope="col">Mã đơn hàng</th>
                                     <th scope="col">Username</th>
                                     <th scope="col">Ngày bán </th>
                                     <th scope="col">Ngày tạo</th>
                                     <th scope="col">Ngày sửa</th>
+                                    <th scope="col">Trạng thái</th>
                                     <th scope="col">Chi tiết</th>
                                     
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row"><b>#122349</b></th>
-                                    <td><b>Oliver Trag</b></td>
-                                    <td>16:00, 12 NOV 2018</td> 
-                                    <td>16:00, 12 NOV 2018</td>
-                                    <td>08:00, 18 NOV 2018</td>
+                                <tr ng-repeat="item in items">
+                                    <th scope="row">#<b>{{item.maHD}}</b></th>
+                                    <td><b>{{item.taiKhoan.tenND}}</b></td>
+                                    <td>{{item.ngayBan}}</td>
+                                    <td>{{item.ngayTao}}</td>
+                                    <td>{{item.ngaySua}}</td>
                                     <td>
-                                        <a href="#" class="tm-product-delete-link">
-                                          <i class="far fa-trash-alt tm-product-delete-icon"></i>
-                                          
+                                        <span style="font-size: 90%" class="badge badge-pill badge-secondary" ng-if="item.trangThai == 1">Chờ xác nhận</span>
+                                        <span style="font-size: 90%" class="badge badge-pill badge-primary" ng-if="item.trangThai == 2">Đã thanh toán</span>
+                                        <span style="font-size: 90%" class="badge badge-pill badge-info" ng-if="item.trangThai == 3">Đang vận chuyển</span>
+                                        <span style="font-size: 90%" class="badge badge-pill badge-success" ng-if="item.trangThai == 4">Giao thành công</span>
+                                        <span style="font-size: 90%" class="badge badge-pill badge-danger" ng-if="item.trangThai == 5">Đã huỷ</span>
+                                    </td>
+                                    <td>
+                                        <a ng-click="edit(item)" class="tm-product-delete-link">
+                                          <i class="fas fa-info tm-product-delete-icon"></i>
                                         </a>
                                       </td>
                                 </tr>
-                                <tr>
-                                    <th scope="row"><b>#122349</b></th>
-                                    <td><b>Oliver Trag</b></td>
-                                    <td>16:00, 12 NOV 2018</td> 
-                                    <td>16:00, 12 NOV 2018</td>
-                                    <td>08:00, 18 NOV 2018</td>
-                                    <td>
-                                        <a href="#" class="tm-product-delete-link">
-                                          <i class="far fa-edit-alt tm-product-delete-icon"></i>
-                                          
-                                        </a>
-                                      </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><b>#122349</b></th>
-                                    <td><b>Oliver Trag</b></td>
-                                    <td>16:00, 12 NOV 2018</td> 
-                                    <td>16:00, 12 NOV 2018</td>
-                                    <td>08:00, 18 NOV 2018</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><b>#122349</b></th>
-                                    <td><b>Oliver Trag</b></td>
-                                    <td>16:00, 12 NOV 2018</td> 
-                                    <td>16:00, 12 NOV 2018</td>
-                                    <td>08:00, 18 NOV 2018</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><b>#122349</b></th>
-                                    <td><b>Oliver Trag</b></td>
-                                    <td>16:00, 12 NOV 2018</td> 
-                                    <td>16:00, 12 NOV 2018</td>
-                                    <td>08:00, 18 NOV 2018</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><b>#122349</b></th>
-                                    <td><b>Oliver Trag</b></td>
-                                    <td>16:00, 12 NOV 2018</td> 
-                                    <td>16:00, 12 NOV 2018</td>
-                                    <td>08:00, 18 NOV 2018</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><b>#122349</b></th>
-                                    <td><b>Oliver Trag</b></td>
-                                    <td>16:00, 12 NOV 2018</td> 
-                                    <td>16:00, 12 NOV 2018</td>
-                                    <td>08:00, 18 NOV 2018</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><b>#122349</b></th>
-                                    <td><b>Oliver Trag</b></td>
-                                    <td>16:00, 12 NOV 2018</td> 
-                                    <td>16:00, 12 NOV 2018</td>
-                                    <td>08:00, 18 NOV 2018</td>
-                                </tr>
+
+
                                 
                             </tbody>
                         </table>
@@ -103,5 +57,7 @@
                 </div>
             </div>
 	</main>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
