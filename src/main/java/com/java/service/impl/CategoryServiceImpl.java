@@ -19,4 +19,22 @@ public class CategoryServiceImpl implements CategoryService{
 		// TODO Auto-generated method stub
 		return categoryDAO.findAll();
 	}
+
+	@Override
+	public Category add(Category category) {
+		// TODO Auto-generated method stub
+		return categoryDAO.save(category);
+	}
+
+	@Override
+	public Category update(Category category) {
+		// TODO Auto-generated method stub
+		return categoryDAO.save(category);
+	}
+
+	@Override
+	public void delete(Long maDM) {
+		// TODO Auto-generated method stub
+		categoryDAO.deleteById(maDM);
+	}
 }

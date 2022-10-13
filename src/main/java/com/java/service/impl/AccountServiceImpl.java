@@ -2,6 +2,9 @@ package com.java.service.impl;
 
 import java.util.List;
 
+import java.util.Optional;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +14,7 @@ import com.java.service.AccountService;
 
 @Service
 public class AccountServiceImpl implements AccountService{
+
     @Autowired
     AccountDao accountDao;
 
@@ -20,7 +24,7 @@ public class AccountServiceImpl implements AccountService{
     }
 
     @Override
-    public Account findById(String tenND) {
+    public Account findByND(String tenND) {
         return accountDao.findById(tenND).get();
     }
 
@@ -39,6 +43,62 @@ public class AccountServiceImpl implements AccountService{
         accountDao.deleteById(tenND);
 
         
+    }
+
+
+	
+
+    @Override
+    public <S extends Account> S save(S entity) {
+        return accountDao.save(entity);
+    }
+
+//    @Override
+//    public List<Account> findAll() {
+//        return accountDAO.findAll();
+//    }
+//
+//    @Override
+//    public Optional<Account> findById(String tenND) {
+//        return accountDAO.findById(tenND);
+//    }
+
+    @Override
+    public boolean existsById(String tenND) {
+        return accountDao.existsById(tenND);
+    }
+
+    @Override
+    public void deleteById(String tenND) {
+        accountDao.deleteById(tenND);
+    }
+
+    @Override
+    public void delete(Account entity) {
+        accountDao.delete(entity);
+    }
+
+    @Override
+    public Account getById(String tenND) {
+        return accountDao.getById(tenND);
+    }
+
+	@Override
+	public List<Account> getAdministrators() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+    
+
+    
+
+    
+
+    @Override
+    public Optional<Account> findById(String tenND) {
+        // TODO Auto-generated method stub
+        return Optional.empty();
     }
 
 }

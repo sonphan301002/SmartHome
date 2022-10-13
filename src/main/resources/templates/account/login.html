@@ -16,7 +16,7 @@
 </head>
 
 <body>
-	<div class="container-fluid ">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-10">
 				<div class="card card-main offset-sm-2">
@@ -26,6 +26,24 @@
 								class="col-sm-6 mb-4 text-center col-img col-md-6 col-xl-6 col-lg-6">
 								<img alt="" class="img-fluid w-75 img-login"
 									src="/assets/images/logodigizone.png">
+								<div class="text-white mb-4 mt-5">Or login with</div>
+								<div class="row mb-3 form-box">
+									<div class="col-4">
+										<a href="" class="btn btn-block btn-social btn-facebook">
+											<i class="fa fa-facebook"></i>
+										</a>
+									</div>
+									<div class="col-4">
+										<a href="" class="btn btn-block btn-social btn-google"> <i
+											class="fa fa-google"></i>
+										</a>
+									</div>
+									<div class="col-4">
+										<a href="" class="btn btn-block btn-social btn-twitter"> <i
+											class="fa fa-twitter"></i>
+										</a>
+									</div>
+								</div>
 							</div>
 							<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6">
 								<div class="col-sm-10">
@@ -33,14 +51,19 @@
 										<div class="card-body">
 											<h4 class="text-uppercase">Đăng nhập</h4>
 											<hr class="my-3">
-											<form action="">
+											<form th:action="@{/security/login}" method="post">
 												<div class="form-group">
-													<label>Tên đăng nhập*</label> <input class="form-control">
+													<label>Tên đăng nhập*</label> <input name="username"
+														class="form-control">
 												</div>
 												<div class="form-group">
-													<label>Mật khẩu*</label> <input class="form-control"
-														type="password">
+													<label>Mật khẩu*</label> <input name="password"
+														class="form-control" type="password">
 												</div>
+												<div th:if="${message != null}">
+													<p style="color: #FFFF00;">[[${message}]]</p>
+												</div>
+
 												<hr>
 												<button class="btn btn-primary text-uppercase w-100 p-2">Đăng
 													nhập</button>
@@ -122,5 +145,4 @@
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
 </body>
-
 </html>
