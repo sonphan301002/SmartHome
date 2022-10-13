@@ -1,16 +1,16 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{/admin/layout/index :: dynamic(~{::main})}">
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en" xmlns:th="http://www.thymeleaf.org" -->
+<!-- 	th:replace="~{/admin/layout/index :: dynamic(~{::main})}"> -->
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Tài khoản</title>
-</head>
+<!-- <head> -->
+<!-- <meta charset="UTF-8"> -->
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+<!-- <title>Tài khoản</title> -->
+<!-- </head> -->
 
-<body id="reportsPage">
-	<main>
+<!-- <body id="reportsPage"> -->
+<!-- 	<main> -->
 		<div class="container mt-5">
 			<div class="row tm-content-row">
 				<div class="col-sm-12 col-md-12  tm-block-col">
@@ -20,6 +20,7 @@
 							<table class="table table-hover tm-table-small tm-product-table">
 								<thead>
 									<tr>
+										<th>Anh</th>
 										<th scope="col">Username</th>
 										<th scope="col">Mã VT</th>
 										<th scope="col">Mật khẩu</th>
@@ -32,96 +33,35 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>David C</td>
-										<td>123</td>
-										<td>*****</td>
-										<td>David C</td>
-										<td>Nam</td>
-										<td>c@gmail.com</td>
-										<td>123456789</td>
-										<td>VN</td>
-										<td>2131545455</td>
-										<td><a href="#" class="tm-product-delete-link"> <i
-												class="far fa-trash-alt tm-product-delete-icon"></i>
+									<tr ng-repeat="item in items">
+										
+										<td>
+											<img  ng-src="{{'/assets/images/' + item.hinhAnh}}" width="50" height="50">
+										</td>
+										
+										<td>{{item.tenND}}</td>
+										<td>{{item.maVT}}</td>
+										<td>{{item.matKhau}}</td>
+										<td>{{item.hoTen}}</td>
+										<td>{{item.gioiTinh?'Nam':'Nữ'}}</td>
+										<td>{{item.email}}</td>
+										<td>{{item.sdt}}</td>
+										<td>{{item.diaChi}}</td>
+										<td>{{item.cmnd}}</td>
+										<td><a ng-click="delete(item)" class="tm-product-delete-link"> <i
+												class="far fa-trash-alt "></i>
 
 										</a></td>
-									</tr>
-									<tr>
-										<td>David C</td>
-										<td>123</td>
-										<td>*****</td>
-										<td>David C</td>
-										<td>Nam</td>
-										<td>c@gmail.com</td>
-										<td>123456789</td>
-										<td>VN</td>
-										<td>2131545455</td>
-										<td><a href="#" class="tm-product-delete-link"> <i
-												class="far fa-trash-alt tm-product-delete-icon"></i>
+										<td><a ng-click="edit(item)" class="tm-product-delete-link"> <i class="far fa-edit"></i>
 
 										</a></td>
-									</tr>
-									<tr>
-										<td>David C</td>
-										<td>123</td>
-										<td>*****</td>
-										<td>David C</td>
-										<td>Nam</td>
-										<td>c@gmail.com</td>
-										<td>123456789</td>
-										<td>VN</td>
-										<td>2131545455</td>
-										<td><a href="#" class="tm-product-delete-link"> <i
-												class="far fa-trash-alt tm-product-delete-icon"></i>
 
-										</a></td>
 									</tr>
-									<tr>
-										<td>David C</td>
-										<td>123</td>
-										<td>*****</td>
-										<td>David C</td>
-										<td>Nam</td>
-										<td>c@gmail.com</td>
-										<td>123456789</td>
-										<td>VN</td>
-										<td>2131545455</td>
-										<td><a href="#" class="tm-product-delete-link"> <i
-												class="far fa-trash-alt tm-product-delete-icon"></i>
-
-										</a></td>
-									</tr>
-									<tr>
-										<td>David C</td>
-										<td>123</td>
-										<td>*****</td>
-										<td>David C</td>
-										<td>Nam</td>
-										<td>c@gmail.com</td>
-										<td>123456789</td>
-										<td>VN</td>
-										<td>2131545455</td>
-										<td><a href="#" class="tm-product-delete-link"> <i
-												class="far fa-trash-alt tm-product-delete-icon"></i>
-
-										</a></td>
-									</tr>
-									<tr>
-										<td>David C</td>
-										<td>123</td>
-										<td>*****</td>
-										<td>David C</td>
-										<td>Nam</td>
-										<td>c@gmail.com</td>
-										<td>123456789</td>
-										<td>VN</td>
-										<td>2131545455</td>
-										<td><a href="#" class="tm-product-delete-link"> <i
-												class="far fa-trash-alt tm-product-delete-icon"></i>
-
-										</a></td>
-									</tr>
+									
+									
+									
+									
+									
 
 
 								</tbody>
@@ -140,31 +80,16 @@
 		</div>
 
 		<script src="js/jquery-3.3.1.min.js"></script>
-		<!-- https://jquery.com/download/ -->
-		<script src="js/moment.min.js"></script>
-		<!-- https://momentjs.com/ -->
-		<script src="js/Chart.min.js"></script>
-		<!-- http://www.chartjs.org/docs/latest/ -->
+		
+		
+		
+		
+		
 		<script src="js/bootstrap.min.js"></script>
-		<!-- https://getbootstrap.com/ -->
-		<script src="js/tooplate-scripts.js"></script>
-		<script>
-			Chart.defaults.global.defaultFontColor = 'white';
-			let ctxLine, ctxBar, ctxPie, optionsLine, optionsBar, optionsPie, configLine, configBar, configPie, lineChart;
-			barChart, pieChart;
-			// DOM is ready
-			$(function() {
-				drawLineChart(); // Line Chart
-				drawBarChart(); // Bar Chart
-				drawPieChart(); // Pie Chart
+		
+		
 
-				$(window).resize(function() {
-					updateLineChart();
-					updateBarChart();
-				});
-			})
-		</script>
-	</main>
-</body>
+<!-- 	</main> -->
+<!-- </body> -->
 
-</html>
+<!-- </html> -->

@@ -89,6 +89,7 @@
 
 		<main>
 			<ng-view></ng-view>
+			
 		</main>
 
 		<footer class="tm-footer row tm-mt-small">
@@ -102,27 +103,13 @@
 	
 	<script type="text/javascript" src="/admin/admin-app.js"></script>
 	<script type="text/javascript" src="/admin/product/product-ctrl.js"></script>
-
+	<script type="text/javascript" src="/admin/account/account-ctrl.js"></script>
+	
 	<script src="/assets/js/jquery-3.3.1.min.js"></script>
-	<script src="/assets/js/moment.min.js"></script>
-	<script src="/assets/js/Chart.min.js"></script>
+	
+	
 	<script src="/assets/js/bootstrap.min.js"></script>
-	<script src="/assets/js/tooplate-scripts.js"></script>
-	<script>
-		Chart.defaults.global.defaultFontColor = 'white';
-		let ctxLine, ctxBar, ctxPie, optionsLine, optionsBar, optionsPie, configLine, configBar, configPie, lineChart;
-		barChart, pieChart;
-		// DOM is ready
-		$(function() {
-			drawLineChart(); // Line Chart
-			drawBarChart(); // Bar Chart
-			drawPieChart(); // Pie Chart
-
-			$(window).resize(function() {
-				updateLineChart();
-				updateBarChart();
-			});
-		})
-	</script>
+	
+	
 </body>
 </html>

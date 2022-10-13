@@ -22,10 +22,10 @@ public class Account implements Serializable{
 	private String hoTen;
 	private boolean gioiTinh;
 	private String email;
-	private String SDT;
+	private String sdt;
 	@Column(columnDefinition = "nvarchar(150)")
 	private String diaChi;
-	private String CMND;
+	private String cmnd;
 	private String hinhAnh;
 	
 	@JsonIgnore

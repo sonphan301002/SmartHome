@@ -15,7 +15,7 @@ app.config(function($routeProvider){
 		controller: "category-ctrl"
 	})
 	.when("/account", {
-		templateUrl: "/admin/account/account.html",
+		templateUrl: "/admin/account/index.html",
 		controller: "account-ctrl"
 	})
 	.when("/account-add", {
