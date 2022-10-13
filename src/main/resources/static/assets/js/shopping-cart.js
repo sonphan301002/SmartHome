@@ -68,6 +68,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http){
 		ngayBan : new Date(),
 		ngaySua : new Date(),
 		ngayTao : new Date(),
+		taiKhoan: {tenND: $("#tenND").text()},
         get hoaDonChiTiet(){
             return $scope.cart.items.map(item => {
                 return {
@@ -85,7 +86,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http){
             $http.post("/rest/orders", order).then(resp => {
                 alert("Đặt hàng thành công !");
                 $scope.cart.clear();
-                location.href = "/order/orderDetail/" + resp.data.maSP;
+                location.href = "/order/orderDetail/" + resp.data.maHDCT;
             }).catch(error => {
                 alert("Lỗi ! Vui lòng thử lại sau !");
                 console.log(error);
