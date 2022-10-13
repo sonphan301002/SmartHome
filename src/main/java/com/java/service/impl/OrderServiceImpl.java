@@ -1,11 +1,5 @@
 package com.java.service.impl;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,37 +8,48 @@ import com.java.dao.OrderDetailDAO;
 import com.java.entity.Order;
 import com.java.entity.OrderDetail;
 import com.java.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderServiceImpl implements OrderService {
-	@Autowired
-	OrderDAO odao;
-	
-	@Autowired
-	OrderDetailDAO oddao;
+    @Autowired
+    OrderDAO odao;
 
-	@Override
-	public Order create(JsonNode orderData) {
-		ObjectMapper mapper = new ObjectMapper();
-		
-		Order order = mapper.convertValue(orderData, Order.class);
-		odao.save(order);
-		
-		TypeReference<List<OrderDetail>> type = new TypeReference<List<OrderDetail>>() {};
-		List<OrderDetail> details = mapper.convertValue(orderData.get("hoaDonChiTiet"), type)
-				.stream().peek(d -> d.setHoaDon(order)).collect(Collectors.toList());
-		oddao.saveAll(details);
-		
-		return order;
-	}
+    @Autowired
+    OrderDetailDAO oddao;
 
-	@Override
-	public Order findById(Long id) {
-		return odao.findById(id).get();
-	}
-	
-	@Override
-	public List<Order> findByUsername(String username) {
-		return odao.findByUsername(username);
-	}
+    @Override
+    public List<Order> findAll() {
+        return odao.findAll();
+    }
+
+    @Override
+    public Order create(JsonNode orderData) {
+        ObjectMapper mapper = new ObjectMapper();
+
+        Order order = mapper.convertValue(orderData, Order.class);
+        odao.save(order);
+
+        TypeReference<List<OrderDetail>> type = new TypeReference<>() {
+        };
+        List<OrderDetail> details = mapper.convertValue(orderData.get("orderDetails"), type)
+                .stream().peek(d -> d.setHoaDon(order)).collect(Collectors.toList());
+        oddao.saveAll(details);
+
+        return order;
+    }
+
+//    @Override
+//    public HoaDon findById(Long id) {
+//        return odao.findById(id).get();
+//    }
+//
+//    @Override
+//    public List<HoaDon> findByUsername(String username) {
+//        return odao.findByUsername(username);
+//    }
 }
