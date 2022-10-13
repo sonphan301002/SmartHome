@@ -63,7 +63,9 @@
                         <div class="d-flex justify-content-end">
                             <div class="dropdown btn-group">
                                 <a class="nav-link nav-icons" th:href="@{|/cart|}"><i class="fas fa fa-shopping-bag"></i></a>
-                                <a th:href="@{|/cart|}"><span class="cart-number">1</span></a>
+                                <a th:href="@{|/cart|}">
+                                	<span class="cart-number">{{cart.count}}</span>
+                               	</a>
                             </div>
 
                             <li th:if="${#request.remoteUser}" class="nav-link nav-icons">
@@ -78,8 +80,6 @@
                             <th:block th:unless="${#request.remoteUser}">
                                 <span class="vl"></span> <a class="nav-link nav-user-img mt-2 text-light" th:href="@{/security/login/form}"><span class="login">Đăng nhập</span></a>
                             </th:block>
-
-
                         </div>
                     </div>
                 </div>
