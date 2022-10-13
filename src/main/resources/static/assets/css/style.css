@@ -9,7 +9,7 @@ body {
 /* LOGIN */
 
 .container-fluid {
-    margin-top: 100px;
+    margin-top: 75px;
 }
 
 .btn-register {
@@ -74,6 +74,15 @@ body {
 	.col-img{
 		border-right: none;
 	}
+    .container-fluid {
+        margin-top: 30px;
+    }
+    .img-login {
+        margin-top: 0px;
+    }
+    .col-img {
+        border-right: none;
+    }
     .container-fluid {
         margin-top: 30px;
     }

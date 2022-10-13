@@ -1,5 +1,6 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en" th:fragment="dynamic(main)">
+
 <head>
     <title>Digizone</title>
     <!-- Required meta tags -->
@@ -12,6 +13,9 @@
     <!-- fontawesome cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
+
+    <!-- Link sweet alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Link css -->
     <link rel="stylesheet" href="/assets/css/layout.css">
@@ -55,11 +59,25 @@
                     </div>
                     <div class="col-lg-5 col-xl-4 col-sm-8 col-md-4 col-7">
                         <div class="d-flex justify-content-end">
-                            <div class="dropdown btn-group"> 
-                            	<a class="nav-link nav-icons" th:href="@{|/cart|}"><i class="fas fa fa-shopping-bag"></i></a>
-								<a th:href="@{|/cart|}"><span class="cart-number">1</span></a>
-                            </div> 
-                            <span class="vl"></span> <a class="nav-link nav-user-img mt-2" th:href="@{|/Login|}"><span class="login">Đăng nhập</span></a>
+                            <div class="dropdown btn-group">
+                                <a class="nav-link nav-icons" th:href="@{|/cart|}"><i class="fas fa fa-shopping-bag"></i></a>
+                                <a th:href="@{|/cart|}"><span class="cart-number">1</span></a>
+                            </div>
+
+                            <li th:if="${#request.remoteUser}" class="nav-link nav-icons">
+                                <a class="nav-link text-light" href="">
+                                    <span class="text">Hi</span> [[${#request.remoteUser}]] !</a>
+                            </li>
+
+                            <th:block th:if="${#request.remoteUser}">
+                                <span class="vl"></span> <a id="choose" class="nav-link nav-user-img mt-2 text-light" th:href="@{/security/logoff}"><span class="login">Đăng xuất</span></a>
+                            </th:block>
+
+                            <th:block th:unless="${#request.remoteUser}">
+                                <span class="vl"></span> <a class="nav-link nav-user-img mt-2 text-light" th:href="@{/security/login/form}"><span class="login">Đăng nhập</span></a>
+                            </th:block>
+
+
                         </div>
                     </div>
                 </div>
@@ -102,9 +120,9 @@
             </div>
         </nav>
         <!-- slide -->
-        
+
     </header>
-    
+
     <div th:replace="${main}"></div>
 
     <footer class="page-footer bg-light">
@@ -218,6 +236,25 @@
             <p>Cung cấp thiết bị đèn Yeelight - Gia dụng, đồ công nghệ Xiaomi.</p>
         </div>
     </footer>
+
+
+    <script>
+        document.querySelector('#choose').addEventListener('click', (event) => {
+            event.preventDefault();
+            Swal.fire({
+                title: 'Bạn muốn đăng xuất?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Có, đăng xuất'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.assign("/security/logoff");
+                }
+            })
+        })
+    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
