@@ -13,33 +13,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.java.entity.Product;
-import com.java.service.ProductService;
+import com.java.entity.Category;
+import com.java.service.CategoryService;
 
-@RestController
 @CrossOrigin("*")
-@RequestMapping("/rest/products")
-public class ProductRestController {
+@RestController
+@RequestMapping("/rest/categories")
+public class CategoryRestController {
 	@Autowired
-	ProductService productService;
+	CategoryService categoryService;
 	
 	@GetMapping
-	public List<Product> getAll() {
-		return productService.findAll();
+	public List<Category> findAll() {
+		return categoryService.findAll();
 	}
 	
 	@PostMapping
-	public Product add(@RequestBody Product product) {
-		return productService.add(product);
+	public Category add(@RequestBody Category category) {
+		return categoryService.add(category);
 	}
 	
-	@PutMapping("{maSP}")
-	public Product update(@PathVariable("maSP") Long maSP, @RequestBody Product product) {
-		return productService.update(product);
+	@PutMapping("{maDM}")
+	public Category update(@PathVariable("maDM") Long maDM, @RequestBody Category category) {
+		return categoryService.update(category);
 	}
 	
-	@DeleteMapping("{maSP}")
-	public void delete(@PathVariable("maSP") Long maSP) {
-		productService.delete(maSP);
+	@DeleteMapping("{maDM}")
+	public void delete(@PathVariable("maDM") Long maDM) {
+		categoryService.delete(maDM);
 	}
 }

@@ -13,33 +13,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.java.entity.Product;
-import com.java.service.ProductService;
+import com.java.entity.Supplier;
+import com.java.service.SupplierService;
 
-@RestController
 @CrossOrigin("*")
-@RequestMapping("/rest/products")
-public class ProductRestController {
+@RestController
+@RequestMapping("/rest/supplieres")
+public class SupplierRestController {
 	@Autowired
-	ProductService productService;
+	SupplierService supplierService;
 	
 	@GetMapping
-	public List<Product> getAll() {
-		return productService.findAll();
+	public List<Supplier> findAll(){
+		return supplierService.findAll();
 	}
 	
 	@PostMapping
-	public Product add(@RequestBody Product product) {
-		return productService.add(product);
+	public Supplier create(@RequestBody Supplier supplier) {
+		return supplierService.create(supplier);
 	}
 	
-	@PutMapping("{maSP}")
-	public Product update(@PathVariable("maSP") Long maSP, @RequestBody Product product) {
-		return productService.update(product);
+	@PutMapping("{maNCC}")
+	public Supplier update(@PathVariable("maNCC") Long maNCC, @RequestBody Supplier supplier) {
+		return supplierService.update(supplier);
 	}
 	
-	@DeleteMapping("{maSP}")
-	public void delete(@PathVariable("maSP") Long maSP) {
-		productService.delete(maSP);
+	@DeleteMapping("{maNCC}")
+	public void delete(@PathVariable("maNCC") Long maNCC) {
+		supplierService.delete(maNCC);
 	}
 }
