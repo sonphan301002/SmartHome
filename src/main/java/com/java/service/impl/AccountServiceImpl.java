@@ -12,6 +12,7 @@ import org.springframework.util.StringUtils;
 
 import com.java.dao.AccountDao;
 import com.java.entity.Account;
+import com.java.entity.AuthenticationProvider;
 import com.java.entity.Authority;
 import com.java.service.AccountService;
 
@@ -28,6 +29,16 @@ public class AccountServiceImpl implements AccountService{
     public List<Account> findAll() {
         return accountDao.findAll();
     }
+
+    @Override
+    public Account findByEmail(String email) {
+        return accountDao.findByEmail(email);
+    }
+
+//    @Override
+//    public Account getUserByUsername(String username) {
+//        return accountDao.getUserByUsername(username);
+//    }
 
     @Override
     public Account findByND(String tenND) {
@@ -50,6 +61,25 @@ public class AccountServiceImpl implements AccountService{
 
         
     }	
+    
+    @Override
+    public void createNewAccountAfterOauthLoginSuccess(String email, String name, AuthenticationProvider provider) {
+        Account account = new Account();
+        account.setTenND(email);
+        account.setEmail(email);
+        account.setHoTen(name);
+        account.setAuthProvider(provider);
+        
+        accountDao.save(account);
+    }
+    
+    @Override
+    public void updateAccountAfterOauthLoginSuccess(Account account, String name, AuthenticationProvider provider) {
+        account.setHoTen(name);
+        account.setAuthProvider(provider);
+        
+        accountDao.save(account);
+    }
 
     @Override
     public <S extends Account> S save(S account) {
