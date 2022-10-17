@@ -6,13 +6,12 @@ import java.util.Optional;
 
 
 import com.java.entity.Account;
-import com.java.entity.AuthenticationProvider;
-
-import org.springframework.security.core.Authentication;
 
 public interface AccountService {
     
     Account create(Account account);
+
+    Account update(Account account);
 
     void delete(String tenND);
 
@@ -36,17 +35,5 @@ public interface AccountService {
     List<Account> findAll();
 
     Account findByND(String tenND);
-
-    Account update(Account account);
-
-    Account findByEmail(String email);
-
-    void createNewAccountAfterOauthLoginSuccess(String email, String name, AuthenticationProvider provider);
-
-    void updateAccountAfterOauthLoginSuccess(Account account, String name, AuthenticationProvider provider);
-
-
-//    Account getUserByUsername(String username);
-
 
 }

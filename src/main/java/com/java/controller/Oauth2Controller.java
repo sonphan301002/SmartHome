@@ -5,7 +5,6 @@ import java.util.Date;
 import javax.validation.Valid;
 
 import com.java.entity.Account;
-import com.java.entity.AuthenticationProvider;
 import com.java.service.AccountService;
 
 import org.springframework.beans.BeanUtils;
@@ -43,24 +42,6 @@ public class Oauth2Controller {
         //Đọc thông tin tài khoản mạng xã hội
         String email = oauth.getPrincipal().getAttribute("email");
         String fullname = oauth.getPrincipal().getAttribute("name");
-        
-        System.out.println("Account is "+email);
-        
-        
-        //Tìm kiếm account theo email
-        Account account = accountService.findByEmail(email);
-        
-        
-        //Nếu chưa có acc với email tìm được
-        if (account == null) {
-            
-//            ->Tạo mới
-            accountService.createNewAccountAfterOauthLoginSuccess(email, fullname, AuthenticationProvider.GOOGLE);
-        }else {
-            
-//            update nếu có acc với email tìm được
-            accountService.updateAccountAfterOauthLoginSuccess(account, fullname, AuthenticationProvider.GOOGLE);
-        }
         
         
         //Tạo đối tượng userdetails lấy fullname làm username
