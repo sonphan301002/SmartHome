@@ -28,6 +28,10 @@ public class Account implements Serializable{
 	private String cmnd;
 	private String hinhAnh;
 	
+	@Enumerated(EnumType.STRING)
+	@Column (name="auth_provider")
+	private AuthenticationProvider authProvider;
+	
 	@JsonIgnore
 	@OneToMany(mappedBy = "taiKhoan")
 	List<Order> hoaDon;

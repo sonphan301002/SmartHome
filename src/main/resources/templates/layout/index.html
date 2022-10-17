@@ -23,7 +23,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- angular -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 
 <body ng-app="shopping-cart-app" ng-controller="shopping-cart-ctrl">
@@ -64,12 +64,12 @@
                             <div class="dropdown btn-group">
                                 <a class="nav-link nav-icons" th:href="@{|/cart|}"><i class="fas fa fa-shopping-bag"></i></a>
                                 <a th:href="@{|/cart|}">
-                                	<span class="cart-number">{{cart.count}}</span>
-                               	</a>
+                                    <span class="cart-number">{{cart.count}}</span>
+                                </a>
                             </div>
 
                             <li th:if="${#request.remoteUser}" class="nav-link nav-icons">
-                                <a class="nav-link text-light" href="">
+                                <a class="nav-link text-light" href="/security/editProfile">
                                     <span class="text">Hi</span> [[${#request.remoteUser}]] !</a>
                             </li>
 
@@ -237,18 +237,18 @@
             <p>Cung cấp thiết bị đèn Yeelight - Gia dụng, đồ công nghệ Xiaomi.</p>
         </div>
     </footer>
-    
+
     <!-- social -->
     <div class="social-button">
         <a href="tel:0905008070" class="call-button">
         </a>
-        
+
         <a href="http://zalo.me/0905008070" target="_blank" class="zalo-button">
         </a>
         <a href="https://m.me/Digizone.com.vn/" target="_blank" class="facebook-button">
         </a>
     </div>
-    
+
 
 
     <script>
