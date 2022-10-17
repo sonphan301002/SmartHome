@@ -45,7 +45,8 @@ public class AccountServiceImpl implements AccountService{
         accountDAO.delete(entity);
     }
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public Account getById(String tenND) {
         return accountDAO.getById(tenND);
     }

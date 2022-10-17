@@ -19,6 +19,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.java.entity.Account;
 import com.java.service.AccountService;
 
+@SuppressWarnings("deprecation")
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -101,6 +102,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	
 	//Cho phép truy xuất RESP API từ bên ngoài (domain khác)
+	@SuppressWarnings("static-access")
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers(HttpMethod.POST.OPTIONS,"/**");

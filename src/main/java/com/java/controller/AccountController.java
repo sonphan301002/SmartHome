@@ -5,12 +5,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.java.entity.Account;
+
 @Controller
 @RequestMapping("security")
 public class AccountController {
 	
     @GetMapping("/login/form")
-	public String login(Model model) {
+	public String login(Model model, Account account) {
         model.addAttribute("message", "Vui lòng đăng nhập");
 		return "/account/login";
 	}
@@ -33,7 +35,6 @@ public class AccountController {
         return "/layout/main";
     }
     
-	
     @GetMapping("/change")
 	public String change() {
 		return "/account/change-password";
