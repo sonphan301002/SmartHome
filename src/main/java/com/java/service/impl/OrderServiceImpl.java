@@ -28,6 +28,16 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public List<OrderDetail> findByMaHD(Long maHD) {
+        return oddao.findByMaHD(maHD);
+    }
+
+    @Override
+    public Order update(Order order){
+        return odao.save(order);
+    }
+
+    @Override
     public Order create(JsonNode orderData) {
         ObjectMapper mapper = new ObjectMapper();
 
