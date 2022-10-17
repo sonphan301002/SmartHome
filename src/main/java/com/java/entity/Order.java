@@ -25,7 +25,8 @@ public class Order implements Serializable{
 	private Date ngayTao;
 	@Temporal(TemporalType.DATE)
 	private Date ngaySua;
-	
+	@Column(columnDefinition = "nvarchar(max)")
+	private String ghiChu;
 	@ManyToOne
 	@JoinColumn(name = "tenND")
 	Account taiKhoan;
