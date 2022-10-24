@@ -26,6 +26,8 @@ public class Order implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date ngaySua;
 	@Column(columnDefinition = "nvarchar(max)")
+	private String diaChi;
+	@Column(columnDefinition = "nvarchar(max)")
 	private String ghiChu;
 	@ManyToOne
 	@JoinColumn(name = "tenND")

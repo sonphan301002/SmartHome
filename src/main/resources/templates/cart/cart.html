@@ -1,18 +1,26 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org"
 	th:replace="~{/layout/index :: dynamic(~{::main})}">
-
 <head>
     <title>Digizone</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
-
 <body>
     <main>
-        <div class="container" xmlns:th="http://www.thymeleaf.org" th:fragment="shopping_cart">
-            <div class="cart-page">
+        <div class="container" th:fragment="shopping_cart">
+        	<div class="cart-null" ng:if="cart.count == 0">
+        		<div class="text-center">
+		        	<img class="cart-null-img" src="/assets/images/cartnull.png" alt="" />
+	        		<h5>Không có sản phẩm trong giỏ hàng</h5>
+	        		<div class="cart-button d-flex justify-content-center">
+	        			<a class="text-white" th:href="@{/}">Mua sắm ngay</a>
+	        		</div>
+        		</div>
+        	</div>
+        	
+        	<div class="cart-page" ng:if="cart.count != 0">
                 <table>
                     <tr>
                         <th>Sản phẩm</th>
@@ -23,11 +31,11 @@
                     <tr ng-repeat="item in cart.items">
                         <td>
                             <div class="cart-info">
-                                <img src="/assets/images/c66752476f22274d8fdd89594ae2a168.jpg" 
+                                <img src="/assets/images/{{item.hinhAnh}}"
                                     alt="" width="200px">
                                 <div>
                                     <p>{{item.tenSP}}</p>
-                                    <small>$ {{item.gia}}</small>
+                                    <small>{{item.gia}} ₫</small>
                                     <a href="" ng-click="cart.remove(item.id)">Xóa</a>
                                 </div>
                             </div>
@@ -40,7 +48,7 @@
                                 </div>
                             </form>
                         </td>
-                        <td>${{item.soLuong * item.gia | number : 2}}</td>
+                        <td>{{cart.amount | number : 2}} ₫</td>
                     </tr>
                 </table>
 
@@ -52,20 +60,26 @@
                             <td>Tổng tiền</td>
                         </tr>
                         <tr ng-repeat="item in cart.items">
-                            <td>${{item.soLuong * item.gia | number : 2}}</td>
-                            <td ng-model="item.VAT">${{(item.soLuong * item.gia) * 0.05 | number : 2}}</td>
-                            <td >${{(item.soLuong * item.gia) + ((item.soLuong * item.gia) * 0.05) | number : 2}}</td>
+                            <td>{{cart.amount | number : 2}} ₫</td>
+                            <td ng-model="item.VAT">{{cart.amount * 0.05 | number : 2}} ₫</td>
+                            <td >{{cart.amount + (cart.amount * 0.05) | number : 2}} ₫</td>
                         </tr>
                     </table>
                 </div>
 
-                <div class="cart-pay">
-                	<span style="display: none;" id="tenND" th:text="${#request.remoteUser}"></span>
-                    <button class="" ng-click="order.purcharse()">Thanh toán</button>
+                <div class="cart-button">
+                	<th:block th:if="${#request.remoteUser}">
+                		<span id="tenND" th:text="${#request.remoteUser}" style="display: none;"></span>
+						<a type="button" ng-click="order.purcharse()">Mua hàng</a>	
+					</th:block>
+					
+					<th:block th:unless="${#request.remoteUser}">
+						<span id="tenND" th:text="${#request.remoteUser}" style="display: none;"></span>
+						<a class="text-white" th:href="@{/order/checkout}">Mua hàng</a>
+					</th:block>
                 </div>
-            </div>
+           </div>
         </div>
     </main>
 </body>
-
 </html>

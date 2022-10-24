@@ -69,7 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeHttpRequests()
 		
 		//địa chỉ bắt đầu bằng cart -> bắt buộc phải đăng nhập
-		.antMatchers("/cart/**").authenticated()
+//		.antMatchers("/cart/**").authenticated()
 //		.antMatchers("/admin/**").hasAnyRole("STAF","DIRE")
 //		.antMatchers("/rest/authorities").hasRole("DIRE")
 		.anyRequest().permitAll();

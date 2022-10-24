@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<head>
+	<title>Digizone</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+	<main>
+		<div class="container">
+			<div class="">
+				<div class="row">
+					<div class="col-md-8">
+						<header class="contact-header">
+							<div class="contact-header-text top">
+								<h1 class="contact-header-title">Bản đồ hướng dẫn</h1>
+							</div>
+						</header>
+						
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.07026745454!2d108.21171071429661!3d16.061843043903526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219b58028ac9b%3A0x65df2b4da2e69898!2zMTM1IMSQLiBOZ3V54buFbiBIb8OgbmcsIE5hbSBExrDGoW5nLCBI4bqjaSBDaMOidSwgxJDDoCBO4bq1bmcgNTUwMDAwLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1664783861315!5m2!1sen!2s" 
+							width="90%" height="470" style="border:0;" allowfullscreen="" 
+							loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+						</iframe>
+					</div>
+					
+					<div class="col-md-4">
+						<header class="contact-header">
+							<div class="contact-header-text top">
+								<h1 class="contact-header-title">Liên hệ - góp ý</h1>
+							</div>
+						</header>
+						
+						<p>Mọi thắc mắc hoặc góp ý, quý khách vui lòng điền đầy đủ
+							thông tin vào form bên dưới đây.</p>
+							
+						<form action="">
+							<div class="form-group">
+								<label for="">Họ và tên</label>
+								<input type="text" class="form-control"/>
+							</div>
+							
+							<div class="form-group">
+								<label for="">Email</label>
+								<input type="text" class="form-control"/>
+							</div>
+							
+							<div class="form-group">
+								<label for="">Tiêu đề</label>
+								<input type="text" class="form-control"/>
+							</div>
+							
+							<div class="form-group">
+								<label for="">Nội dung</label>
+								<textarea class="form-control"></textarea>
+							</div>
+							
+							<div class="form-group">
+								<button class="contact-send-button text-white">Gửi</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

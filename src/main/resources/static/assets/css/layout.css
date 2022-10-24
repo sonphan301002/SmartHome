@@ -416,12 +416,12 @@ td:last-child {
     text-align: right;
 }
 
-.cart-pay {
+.cart-button {
     display: flex;
     justify-content: flex-end;
 }
 
-.cart-pay button {
+.cart-button a {
     text-align: center;
     padding: 8px 24px;
     font-weight: 300;
@@ -431,6 +431,19 @@ td:last-child {
     border: none;
     border-radius: 5px;
     background-color: #ff523b;
+}
+
+.cart-null {
+	width: 100%;
+	height: 350px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cart-null-img {
+	width: 200px;
+	height: 200px;
 }
 
 

@@ -9,9 +9,9 @@ app.controller("shopping-cart-ctrl", function($scope, $http){
             var item = this.items.find(item => item.maSP == maSP);
             if(item){
                 //nếu mặt hàng đã có thì tăng số lượng
-				item.soLuong++;
+                item.soLuong++;
                 this.saveToLocalStorage();
-			} else {
+            } else {
                 //tải sản phẩm từ server về
                 $http.get(`/rest/products/${maSP}`).then(resp => {
                     resp.data.soLuong = 1;
@@ -32,11 +32,9 @@ app.controller("shopping-cart-ctrl", function($scope, $http){
 		},
         //xóa toàn bộ sản phẩm trong giỏ hàng
         clear(){
-            this.items = []
+            this.items = [],
             this.saveToLocalStorage();
         },
-        //tính tổng tiền của một sản phẩm
-        amt_of(item){},
         //tính tổng số lượng các mặt hàng trong giỏ hàng
         get count(){
             return this.items
@@ -69,14 +67,17 @@ app.controller("shopping-cart-ctrl", function($scope, $http){
 		ngaySua : new Date(),
 		ngayTao : new Date(),
 		taiKhoan: {tenND: $("#tenND").text()},
+		diaChi: "",
+		ghiChu: "",
         get hoaDonChiTiet(){
             return $scope.cart.items.map(item => {
                 return {
-                    sanPham: {maSP: item.maSP},
                     soLuong: item.soLuong,
-                    donGia: item.gia,
                     giamGia: item.giamGia,
-                    VAT: item.VAT
+                    donGia: item.gia,
+                    VAT: item.VAT,
+                    hoaDon: item.maHD,
+                    sanPham: {maSP: item.maSP}
                 }
             })
         },
@@ -86,7 +87,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http){
             $http.post("/rest/orders", order).then(resp => {
                 alert("Đặt hàng thành công !");
                 $scope.cart.clear();
-                location.href = "/order/orderDetail/" + resp.data.maHDCT;
+                location.href = "/order/orderDetail/" + resp.data.maHD;
             }).catch(error => {
                 alert("Lỗi ! Vui lòng thử lại sau !");
                 console.log(error);

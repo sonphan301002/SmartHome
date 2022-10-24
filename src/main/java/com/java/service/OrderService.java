@@ -13,7 +13,9 @@ public interface OrderService {
 
     Order update(Order order);
 
-
     Order create(JsonNode orderData);
 
+	Order findById(Long maHD);
+
+	List<Order> findByUsername(String tenND);
 }

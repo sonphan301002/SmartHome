@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{/admin/layout/index :: dynamic(~{::main})}">
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en" xmlns:th="http://www.thymeleaf.org" -->
+<!-- 	th:replace="~{/admin/layout/index :: dynamic(~{::main})}"> -->
   
 
-  <body id="reportsPage">
-  <main>
+<!--   <body id="reportsPage"> -->
+<!--   <main> -->
     
       
       <div class="container mt-5">
@@ -32,8 +32,7 @@
                 <div class="form-group col-lg-12">
                   <label for="name">Họ và tên</label>
                   <input
-                    id="name"
-                    name="name"
+                    ng-model="form.hoTen"
                     type="text"
                     class="form-control validate" required
                   />
@@ -41,8 +40,7 @@
                 <div class="form-group col-lg-6">
                   <label for="name">Tên đăng nhập</label>
                   <input
-                    id="name"
-                    name="name"
+                    ng-model="form.tenND"
                     type="name"
                     class="form-control validate" required
                   />
@@ -50,8 +48,7 @@
                 <div class="form-group col-lg-6">
                   <label for="password">Mật khẩu</label>
                   <input
-                    id="password"
-                    name="password"
+                    ng-model="form.matKhau"
                     type="password"
                     class="form-control validate" required
                   />
@@ -59,8 +56,7 @@
                 <div class="form-group col-lg-6">
                   <label for="email">Email</label>
                   <input
-                    id="email"
-                    name="email"
+                    ng-model="form.email"
                     type="email"
                     class="form-control validate" required
                   />
@@ -68,8 +64,7 @@
                 <div class="form-group col-lg-6">
                   <label for="phone">SDT</label>
                   <input
-                    id="phone"
-                    name="phone"
+                    ng-model="form.sdt"
                     type="tel"
                     class="form-control validate" required
                   />
@@ -77,8 +72,7 @@
                 <div class="form-group col-lg-6">
                   <label for="add">Địa chỉ</label>
                   <input
-                    id="add"
-                    name="add"
+                    ng-model="form.diaChi"
                     type="text"
                     class="form-control validate" required
                   />
@@ -86,8 +80,7 @@
                 <div class="form-group col-lg-6">
                   <label for="cmnd">CMND</label>
                   <input
-                    id="cmnd"
-                    name="cmnd"
+                    ng-model="form.cmnd"
                     type="number"
                     class="form-control validate" required
                   />
@@ -96,24 +89,24 @@
                 <div class="form-group col-lg-6">
                   <label for="vt">Mã vai trò</label>
                   <input
-                    id="vt"
-                    name="vt"
+                    ng-model="form.maVT"
                     type="text"
                     class="form-control validate" required
                   />
                 </div>
                 <div class="form-group col-lg-6">
-                  <label for="gt">Nam</label>
-                  <input type="radio" checked="checked" name="radio">
-                  
-                  <label>Nữ</label>
-                  <input type="radio" checked="checked" name="radio">
+                  <label class="radio-inline">
+								<input ng-model="form.gioiTinh" ng-value="true" name="available" type="radio">Nam
+							</label>
+							<label class="radio-inline">
+								<input ng-model="form.gioiTinh" ng-value="false" name="available" type="radio">Nữ
+							</label>
                 </div>
                 <div class="col text-center ">
-                  <button type="submit" class="btn btn-primary m-1">Thêm mới</button>
-                  <button type="submit" class="btn btn-primary m-1">Cập nhật</button>
-                  <button type="submit" class="btn btn-primary m-1">Xóa</button>
-                  <button type="submit" class="btn btn-primary m-1">Làm mới</button>
+                  <button ng-click="create()" type="submit" class="btn btn-primary m-1">Thêm mới</button>
+                  <button ng-click="update()" type="submit" class="btn btn-primary m-1">Cập nhật</button>
+                  <button ng-click="delete(form)" type="submit" class="btn btn-primary m-1">Xóa</button>
+                  <button ng-click="reset()" type="reset" class="btn btn-primary m-1">Làm mới</button>
                   
                 </div>
                 
@@ -125,10 +118,10 @@
       
     
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <!-- https://jquery.com/download/ -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- https://getbootstrap.com/ -->
-    </main>
-  </body>
-</html>
+<!--     <script src="js/jquery-3.3.1.min.js"></script> -->
+<!--     https://jquery.com/download/ -->
+<!--     <script src="js/bootstrap.min.js"></script> -->
+<!--     https://getbootstrap.com/ -->
+<!--     </main> -->
+<!--   </body> -->
+<!-- </html> -->

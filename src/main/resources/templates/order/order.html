@@ -17,16 +17,22 @@
                 <section class="row" style="background-color: #87A2FB;">
                     <div class="container py-5 h-100">
                         <div class="row d-flex justify-content-center align-items-center h-100">
-                            <div class="col-12 mb-sm-4">
-                                <div class="card card-stepper text-black" style="border-radius: 16px;">
+                            <div class="col-12 mb-sm-4" th:each ="o : ${orders}">
+                                <div class="card card-stepper text-black mb-sm-4" style="border-radius: 16px;">
                                     <div class="card-body p-5">
                                         <div class="d-flex justify-content-between align-items-center mb-5">
                                             <div>
-                                                <h5 class="mb-0">Đơn hàng <span class="text-primary font-weight-bold">#ABCXYZ123</span></h5>
+                                                <h5 class="mb-0">Đơn hàng 
+                                                	<span class="text-primary font-weight-bold">[[${o.maHD}]]</span>
+                                                </h5>
                                             </div>
                                             <div class="text-end">
-                                                <p class="mb-0">Ngày đặt hàng: <span>22/09/2022</span></p>
-                                                <p class="mb-0">Tổng số tiền: <span class="font-weight-bold">₫2.506.200</span></p>
+                                                <p class="mb-0">Ngày đặt hàng: 
+                                                	<span>[[${o.ngayTao}]]</span>
+                                               	</p>
+                                                <p class="mb-0">Tổng số tiền: 
+                                                	<span class="font-weight-bold">₫1.500.000</span>
+                                               	</p>
                                             </div>
                                         </div>
 
@@ -34,40 +40,37 @@
                                             <li class="step0 active text-center" id="step1"></li>
                                             <li class="step0 active text-center" id="step2"></li>
                                             <li class="step0 active text-center" id="step3"></li>
-                                            <li class="step0 text-muted text-end" id="step4"></li>
+                                            <li class="step0 active text-center" id="step4"></li>
                                         </ul>
 
                                         <div class="d-flex justify-content-between">
                                             <div class="d-lg-flex align-items-center">
-                                                <!-- <i class="fas fa-clipboard-list fa-3x me-lg-4 mb-3 mb-lg-0"></i>                                         -->
+
                                                 <div>
                                                     <p class="fw-bold mb-1">Đơn hàng</p>
                                                     <p class="fw-bold mb-0">Đang xử lý</p>
                                                 </div>
                                             </div>
                                             <div class="d-lg-flex align-items-center">
-                                                <!-- <i class="fas fa-box-open fa-3x me-lg-4 mb-3 mb-lg-0"></i> -->
                                                 <div>
                                                     <p class="fw-bold mb-1">Đơn hàng</p>
                                                     <p class="fw-bold mb-0">Đang vận chuyển</p>
                                                 </div>
                                             </div>
                                             <div class="d-lg-flex align-items-center">
-                                                <!-- <i class="fas fa-shipping-fast fa-3x me-lg-4 mb-3 mb-lg-0"></i> -->
                                                 <div>
                                                     <p class="fw-bold mb-1">Đơn hàng</p>
                                                     <p class="fw-bold mb-0">Đang được giao</p>
                                                 </div>
                                             </div>
                                             <div class="d-lg-flex align-items-center">
-                                                <!-- <i class="fas fa-home fa-3x me-lg-4 mb-3 mb-lg-0"></i> -->
                                                 <div>
                                                     <p class="fw-bold mb-1">Đơn hàng</p>
                                                     <p class="fw-bold mb-0">Đã được giao</p>
                                                 </div>
                                             </div>
                                         </div>
-                                       <a class="mt-4 d-inline-flex" th:href="@{|/orderDetail|}">Chi tiết đơn hàng >></a> 
+                                       <a class="mt-4 d-inline-flex" th:href="@{|/order/orderDetail/${o.maHD}|}">Chi tiết đơn hàng</a> 
                                     </div>
                                 </div>
                             </div>
