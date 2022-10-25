@@ -70,7 +70,7 @@
                 <div class="cart-button">
                 	<th:block th:if="${#request.remoteUser}">
                 		<span id="tenND" th:text="${#request.remoteUser}" style="display: none;"></span>
-						<a type="button" ng-click="order.purcharse()">Mua hàng</a>	
+						<a class="text-white" ng-click="order.purcharse()">Mua hàng</a>
 					</th:block>
 					
 					<th:block th:unless="${#request.remoteUser}">
