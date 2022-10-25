@@ -7,6 +7,7 @@
 <body>
 	<div class="container mt-5">
 		<div class="row tm-content-row">
+<<<<<<< HEAD
 			<div class="col-sm-12 col-md-12 col-lg-9 col-xl-9 tm-block-col">
 				<div class="">
 					<h2 class="tm-block-title">Danh sách sản phẩm</h2>
@@ -70,10 +71,172 @@
 					<!-- table container -->
 					<a href="#!category" class="btn btn-primary ">Thêm
 						mới danh mục</a>
+=======
+			<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 tm-block-col">
+				<div class="">
+					<h2 class="tm-block-title">Sản phẩm</h2>
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+						<li class="nav-item"><a class="nav-link active"
+							data-toggle="tab" data-target="#edit" href="" role="tab"
+							aria-controls="home" aria-selected="true">Cập nhật</a></li>
+						<li class="nav-item"><a class="nav-link" data-target="#list"
+							data-toggle="tab" href="" role="tab" aria-controls="profile"
+							aria-selected="false">Danh sách</a></li>
+					</ul>
+					<div class="tab-content" id="myTabContent">
+						<div class="tab-pane fade show active" id="edit" role="tabpanel"
+							aria-labelledby="home-tab">
+							<!-- Cập nhật -->
+							<div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+								<div class="row tm-edit-product-row">
+									<div class="col-xl-6 col-lg-6 col-md-12">
+										<div class="form-group mb-3">
+											<label for="name">Tên sản phẩm </label> <input id="name"
+												name="tenSP" type="text" class="form-control validate"
+												ng-model="form.tenSP" required />
+										</div>
+										<div class="row">
+											<div class="form-group mb-3 col-xs-12 col-sm-12">
+												<label for="">Nhà cung cấp</label> <select
+													ng-model="form.nhaCungCap.maNCC"
+													class="custom-select tm-select-accounts" id="category">
+													<option selected ng-repeat="supp in supps"
+														ng-value="supp.maNCC">{{supp.tenNCC}}</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="form-group mb-3">
+											<label for="description">Mô tả</label>
+											<textarea class="form-control validate" rows="3" required
+												ng-model="form.moTa"></textarea>
+										</div>
+										<div class="form-group mb-3">
+											<label for="category">Danh mục</label> <select
+												ng-model="form.danhMuc.maDM"
+												class="custom-select tm-select-accounts" id="category">
+												<option ng-repeat="cate in cates" selected
+													ng-value="cate.maDM">{{cate.tenDM}}</option>
+											</select>
+										</div>
+										<div class="row">
+											<div class="form-group mb-3 col-xs-12 col-sm-6">
+												<label for="expire_date">Ngày tạo</label> <input
+													id="expire_date" name="expire_date" type="date"
+													class="form-control validate" data-large-mode="true"
+													ng-model="form.ngayTao" />
+											</div>
+											<div class="form-group mb-3 col-xs-12 col-sm-6">
+												<label for="expire_date">Ngày sửa </label> <input
+													id="expire_date" name="expire_date" type="date"
+													class="form-control validate" required
+													ng-model="form.ngaySua" />
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+										<div class="tm-product-img-dummy mx-auto mt-2">
+											<label for="fileInput" class="mt-2"> <img alt=""
+												class="img-product-add"
+												ng-src="{{'/assets/images/' + form.hinhAnh}}" width="100%"
+												height="100%">
+											</label>
+										</div>
+										<div class="custom-file mt-3 mb-3">
+											<input id="fileInput" type="file" style="display: none;" />
+											<input type="button"
+												class="btn btn-primary btn-block mx-auto" value="Chọn ảnh"
+												id="fileInput"
+												onclick="document.getElementById('fileInput').click();"
+												onchange="angular.element(this).scope().imageChanged(this.files)" />
+										</div>
+										<div class="form-group mb-3 mt-3">
+											<label for="name">Giá </label> <input id="name" name="name"
+												type="number" class="form-control validate" required
+												ng-model="form.gia" />
+										</div>
+										<div class="row">
+											<div class="form-group mb-3 col-xs-12 col-sm-6">
+												<label for="">Số lượng </label> <input id=""
+													name="expire_date" type="number"
+													class="form-control validate" data-large-mode="true"
+													ng-model="form.soLuong" />
+											</div>
+											<div class="form-group mb-3 col-xs-12 col-sm-6">
+												<label for="stock">Trạng thái </label> <select
+													class="custom-select tm-select-accounts" id="category">
+													<option selected>Còn hàng</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col text-center ">
+										<button ng-click="add()" class="btn btn-primary m-1">Thêm
+											mới</button>
+										<button ng-click="update()" class="btn btn-primary m-1">Cập
+											nhật</button>
+										<button ng-click="delete(form)" class="btn btn-primary m-1">Xóa</button>
+										<button ng-click="reset()" class="btn btn-primary m-1">Làm
+											mới</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="list" role="tabpanel"
+							aria-labelledby="profile-tab">
+							<!-- Danh sách -->
+							<div class="tm-product-table-container">
+								<table class="table table-hover tm-table-small tm-product-table">
+									<thead>
+										<tr>
+											<th scope="col">Hình ảnh</th>
+											<th scope="col">Mã sản phẩm</th>
+											<th scope="col">Mã NCC</th>
+											<th scope="col">Mã DM</th>
+											<th scope="col">Tên SP</th>
+											<th scope="col">Giá</th>
+											<th scope="col">Số Lượng</th>
+											<th scope="col">Trạng thái</th>
+											<th scope="col">Ngày tạo</th>
+											<th scope="col">Ngày sửa</th>
+											<th scope="col"></th>
+											<th scope="col"></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="p in items">
+											<td>
+												<img alt="" ng-src="{{'/assets/images/' + p.hinhAnh}}" width="50" height="50">
+											</td>
+											<td>#{{p.maSP}}</td>
+											<td>{{p.nhaCungCap.tenNCC}}</td>
+											<td>{{p.danhMuc.tenDM}}</td>
+											<td class="tm-product-name">{{p.tenSP}}</td>
+											<td>{{p.gia}}</td>
+											<td>{{p.soLuong}}</td>
+											<td>{{p.trangThai}}</td>
+											<td>{{p.ngayTao}}</td>
+											<td>{{p.ngaySua}}</td>
+											<td><button ng-click="delete(p)"
+													class="tm-product-delete-link btn">
+													<i class="far fa-trash-alt tm-product-delete-icon"></i>
+												</button></td>
+											<td><button ng-click="edit(p)"
+													class="text-white tm-product-delete-link btn">
+													<i class="far fa-edit"></i>
+												</button></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
 				</div>
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
 
 
 	<script src="js/jquery-3.3.1.min.js"></script>
@@ -87,5 +250,7 @@
 			});
 		});
 	</script>
+=======
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.java.config;
 
 import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,13 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.oauth2.client.endpoint.AbstractOAuth2AuthorizationGrantRequest;
+import org.springframework.security.oauth2.client.endpoint.DefaultAuthorizationCodeTokenResponseClient;
+import org.springframework.security.oauth2.client.endpoint.OAuth2AccessTokenResponseClient;
+import org.springframework.security.oauth2.client.endpoint.OAuth2AuthorizationCodeGrantRequest;
+import org.springframework.security.oauth2.client.web.AuthorizationRequestRepository;
+import org.springframework.security.oauth2.client.web.HttpSessionOAuth2AuthorizationRequestRepository;
+import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest;
 
 import com.java.entity.Account;
 import com.java.service.AccountService;
@@ -42,8 +50,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				 //Lấy password và mã hõa
 				 String password = bCryptPasswordEncoder.encode(user.getMatKhau());
 				 
-				 System.out.println(user.getTenND());
-				 System.out.println(user.getMatKhau());
+				 System.out.println(username);
+				 System.out.println(password);
 				 
 				 //Lấy vai trò người dùng đưa vào mảng
 				 String [] roles = user.getPhanQuyen().stream()
@@ -62,10 +70,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeHttpRequests()
 		
 		//địa chỉ bắt đầu bằng cart -> bắt buộc phải đăng nhập
-		.antMatchers("/cart/**").authenticated()
+//		.antMatchers("/cart/**").authenticated()
 //		.antMatchers("/admin/**").hasAnyRole("STAF","DIRE")
 //		.antMatchers("/rest/authorities").hasRole("DIRE")
 		.anyRequest().permitAll();
+		
+		
+//		Đăng nhập từ google
+		http.oauth2Login()
+//		form login
+		.loginPage("/security/login/form")
+		
+//		login thành công bằng 
+		.defaultSuccessUrl("/oauth2/login/success", true)
+		.failureUrl("/oauth2/login/error")
+
+//      địa chỉ login bằng mạng xã hội		
+		.authorizationEndpoint() //Authorization Request
+		    .baseUri("/oauth2/authorization")
+		    .authorizationRequestRepository(getRepository())
+		    
+		.and().tokenEndpoint()//Authorization Response
+		    .accessTokenResponseClient(getToken());
 		
 		http.formLogin()
 		//địa chỉ dẫn đến trang login
@@ -98,6 +124,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Bean
 	public BCryptPasswordEncoder getPasswordEncoder() {
 		return new BCryptPasswordEncoder();
+	}
+	
+	
+	//Lưu thông tin đăng nhập trước khi gửi lên server
+	@Bean
+	public AuthorizationRequestRepository<OAuth2AuthorizationRequest> getRepository(){
+	    return new HttpSessionOAuth2AuthorizationRequestRepository();
+	}
+	
+	//Token từ server trả về
+	@Bean
+	public OAuth2AccessTokenResponseClient<OAuth2AuthorizationCodeGrantRequest> getToken(){
+	    return new DefaultAuthorizationCodeTokenResponseClient();
 	}
 	
 	

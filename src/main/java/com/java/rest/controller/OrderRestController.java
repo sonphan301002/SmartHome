@@ -26,10 +26,12 @@ public class OrderRestController {
     public List<OrderDetail> getOrderDetailList(@PathVariable("maHD") Long maHD){
         return orderService.findByMaHD(maHD);
     }
+    
     @PutMapping("{maHD}")
     public Order update(@PathVariable("maHD") Long maHD, @RequestBody Order order){
         return orderService.update(order);
     }
+
 
     @PostMapping()
     public Order create(@RequestBody JsonNode orderData) {

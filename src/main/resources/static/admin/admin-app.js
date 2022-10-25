@@ -14,10 +14,6 @@ app.config(function($routeProvider){
 		templateUrl: "/admin/account/account.html",
 		controller: "account-ctrl"
 	})
-//	.when("/account-add", {
-//		templateUrl: "/admin/account/add-accounts.html",
-//		controller: "account-ctrl"
-//	})
 	.when("/authority", {
 		templateUrl: "/admin/authority/authority.html",
 		controller: "authority-ctrl"

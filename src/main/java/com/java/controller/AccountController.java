@@ -1,15 +1,28 @@
 package com.java.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.validation.Valid;
 
 import com.java.entity.Account;
+import com.java.service.AccountService;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("security")
 public class AccountController {
+    
+    @Autowired
+    AccountService accountService;
 	
     @GetMapping("/login/form")
 	public String login(Model model, Account account) {
@@ -33,6 +46,33 @@ public class AccountController {
     public String logOffSuccess(Model model){
         model.addAttribute("message", "Đăng xuất thành công");
         return "redirect:/";
+    }
+    
+    @PostMapping("/register")
+    public String dangky(ModelMap model, 
+            @Valid @ModelAttribute("customer") 
+    Account dto,BindingResult result){
+        
+        
+//      nếu có lỗi -> nạp lại trang registration
+        if (result.hasErrors()) {
+            return "/account/login";
+        }
+        
+        //Tạo ra đối tượng entity
+        Account entity = new Account();
+        
+        //Copy dữ liệu từ đối tượng dto -> entity
+        BeanUtils.copyProperties(dto, entity);
+        
+        //Lưu thông tin entity vào CSDL
+        accountService.save(entity);
+        
+        
+        //Hiển thị thông báo
+        model.addAttribute("message", "Đăng ký tài khoản thành công !");
+        
+        return "/account/login";
     }
     
     @GetMapping("/change")

@@ -3,11 +3,11 @@
 	th:replace="~{/layout/index :: dynamic(~{::main})}">
 
 <head>
-	<title>Detail</title>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Detail</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
 <body>
@@ -54,8 +54,11 @@
 						</select> <input class="mt-2" type="number" min="1" value="1"
 							ng-model="item.soLuong"> <a href="" id="prodetail"
 							class="btn-add" style="text-decoration: none; color: #fff"
-							th:attr="ng-click=@{|cart.add(${item.maSP})|}">Thêm vào giỏ hàng</a>
+							th:attr="ng-click=@{|cart.add(${item.maSP})|}">Thêm vào giỏ
+							hàng</a>
+
 						<h3>Chi tiết sản phẩm</h3>
+
 						<p>Thiết kế sang trọng, hiện đại.</p>
 						<p>Công suất lớn, tiết kiệm thời gian nấu.</p>
 						<p>Tùy chỉnh mức nhiệt nấu, đầy đủ các trang bị an toàn.</p>
@@ -188,8 +191,8 @@
 	            	showConfirmButton: true,
 	            	timer: 1500
 	           })
-	        })
-        
+	        })	
+		
 			var productImg = document.getElementById("productImg");
 			var SmallImg = document.getElementsByClassName("small-img");
 

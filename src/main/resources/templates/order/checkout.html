@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<main>
+		<div
+			class="container d-flex align-items-center justify-content-center">
+			<div class="card mt-sm-4">
+				<div class="card-body">
+					<div class="cart-title h1">Thông tin khách hàng</div>
+					<form action="" method="post">
+						<div class="form-group">
+							<div>Người mua:</div>
+							<input type="text" class="form-control" ng-model="taiKhoan">
+						</div>
+
+						<div class="form-group">
+							<div>Ngày đặt hàng:</div>
+							<div class="form-control" ng-model="order.ngayTao">
+								{{order.ngayTao | date : 'dd-MM-yyyy'}}</div>
+						</div>
+
+						<div class="form-group">
+							<div>Địa chỉ nhận hàng:</div>
+							<textarea class="form-control" ng-model="order.diaChi"></textarea>
+						</div>
+
+						<div class="form-group">
+							<div>Ghi chú:</div>
+							<textarea class="form-control" ng-model="order.ghiChu"></textarea>
+						</div>
+
+						<div class="order-but text-white d-flex justify-content-center">
+							<button type="button" ng-click="order.purcharse()">Đặt
+								hàng</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

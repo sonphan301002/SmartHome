@@ -26,6 +26,11 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> findAll() {
         return odao.findAll();
     }
+    
+    @Override
+    public Order findById(Long maHD) {
+        return odao.findById(maHD).get();
+    }
 
     @Override
     public List<OrderDetail> findByMaHD(Long maHD) {
@@ -44,8 +49,7 @@ public class OrderServiceImpl implements OrderService {
         Order order = mapper.convertValue(orderData, Order.class);
         odao.save(order);
 
-        TypeReference<List<OrderDetail>> type = new TypeReference<>() {
-        };
+        TypeReference<List<OrderDetail>> type = new TypeReference<>() {};
         List<OrderDetail> details = mapper.convertValue(orderData.get("hoaDonChiTiet"), type)
                 .stream().peek(d -> d.setHoaDon(order)).collect(Collectors.toList());
         oddao.saveAll(details);
@@ -53,13 +57,8 @@ public class OrderServiceImpl implements OrderService {
         return order;
     }
 
-//    @Override
-//    public HoaDon findById(Long id) {
-//        return odao.findById(id).get();
-//    }
-//
-//    @Override
-//    public List<HoaDon> findByUsername(String username) {
-//        return odao.findByUsername(username);
-//    }
+    @Override
+    public List<Order> findByUsername(String tenND) {
+        return odao.findByUsername(tenND);
+    }
 }

@@ -39,6 +39,15 @@ button:focus {
   font-weight: 700;
   color: #fff;
 }
+<<<<<<< HEAD
+=======
+.card{
+	background: none;
+}
+.nav-link:hover{
+	color: white;
+}
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
 .navbar {
   height: 100px;
   background-color: #567086;
@@ -421,9 +430,16 @@ input[type="checkbox"] {
   width: 24px;
   height: 24px;
   transition: all 0.1s linear;
+<<<<<<< HEAD
 }
 input[type="checkbox"]:checked {
   background: url(../img/check-mark.png) #394e64 center no-repeat;
+=======
+  margin-left: 20px;
+}
+input[type="checkbox"]:checked {
+  background: url(../img/check-mark.png) white center no-repeat;
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
 }
 input[type="checkbox"]:focus {
   outline: 0 none;
@@ -463,6 +479,12 @@ input[type="checkbox"]:focus {
 .tm-product-delete-link:hover .tm-product-delete-icon {
   color: #6d8ca6;
 }
+<<<<<<< HEAD
+=======
+.tm-product-delete-link:hover {
+  color: #6d8ca6 !important;
+}
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
 .custom-select {
   width: 100%;
   border: none;
@@ -505,7 +527,11 @@ input[type="checkbox"]:focus {
 }
 .tm-product-img-dummy {
   max-width: 100%;
+<<<<<<< HEAD
   height: 240px;
+=======
+  height: 265px;
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
   display: flex;
   align-items: center;
   justify-content: center;
@@ -707,3 +733,12 @@ input[type="checkbox"]:focus {
     max-height: 350px;
   }
 }
+<<<<<<< HEAD
+=======
+
+@media (max-width: 700px) {
+  .img-product-add {
+    width: 370px;
+  }
+}
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac

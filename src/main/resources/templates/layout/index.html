@@ -30,7 +30,7 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-	
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </head>
@@ -81,9 +81,8 @@
 							</div>
 
 							<li th:if="${#request.remoteUser}" class="nav-link nav-icons">
-								<a class="nav-link text-light"
-								th:href="@{|/security/editProfile|}"> <span class="text">Hi</span>
-									[[${#request.remoteUser}]] !
+								<a class="nav-link text-light" href="/security/editProfile">
+									<span class="text">Hi</span> [[${#request.remoteUser}]] !
 							</a>
 							</li>
 
@@ -107,9 +106,6 @@
 				</div>
 			</div>
 		</section>
-
-		<!-- nav -->
-
 
 		<!-- nav -->
 		<nav class="navbar navbar-expand-md navbar-main border-bottom">
@@ -151,13 +147,6 @@
 							th:href="@{|/contact|}">Liên hệ</a></li>
 						<li class="nav-item"><a class="nav-link" href="/admin/index">Quản
 								lý</a></li>
-					</ul>
-
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href=""><img
-								src="/assets/images/vietnam.png" alt=""></a></li>
-						<li class="nav-item"><a class="nav-link" href=""><img
-								src="/assets/images/united-kingdom.png" alt=""></a></li>
 					</ul>
 				</div>
 			</div>
@@ -291,15 +280,8 @@
 				Xiaomi.</p>
 		</div>
 	</footer>
-	<!-- social -->
-	<div class="social-button">
-		<a href="tel:0905008070" class="call-button"> </a> <a
-			href="http://zalo.me/0905008070" target="_blank" class="zalo-button">
-		</a> <a href="https://m.me/Digizone.com.vn/" target="_blank"
-			class="facebook-button"> </a>
-	</div>
-
-	<script>
+	
+    <script>
         document.querySelector('#choose').addEventListener('click', (event) => {
             event.preventDefault();
             Swal.fire({
@@ -316,8 +298,8 @@
             })
         })
     </script>
-    
-    <script type="text/javascript" src="/assets/js/shopping-cart.js"></script>
+
+	<script type="text/javascript" src="/assets/js/shopping-cart.js"></script>
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

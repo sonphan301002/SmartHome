@@ -12,4 +12,5 @@ import com.java.entity.Order;
 public interface OrderDAO extends JpaRepository<Order, Long>{
 	@Query("SELECT o FROM Order o WHERE o.taiKhoan.tenND = ?1")
 	List<Order> findByUsername(String username);
+	
 }

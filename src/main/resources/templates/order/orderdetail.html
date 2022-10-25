@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
 	th:replace="~{/layout/index :: dynamic(~{::main})}">
-
 <head>
 <title>Digizone</title>
 <!-- Required meta tags -->
@@ -9,9 +8,8 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
-
 <body>
-	<main>
+	<main th:object="${detail}">
 		<section id="pricing"
 			class="padd-section text-center wow fadeInUp mt-5"
 			style="visibility: visible; animation-name: fadeInUp;">
@@ -24,82 +22,54 @@
 
 					<div class="d-flex justify-content-between align-items-center py-3">
 						<h5 class="mb-0">
-							Đơn hàng <span class="text-primary font-weight-bold">#ABCXYZ123</span>
+							Đơn hàng <span class="text-primary font-weight-bold">#[[*{maHD}]]</span>
 						</h5>
 					</div>
 
-
 					<div class="row">
 						<div class="col-lg-8">
-
 							<div class="card mb-4">
 								<div class="card-body">
 									<div class="mb-3 d-flex justify-content-between">
 										<div>
-											<span class="me-3">22-09-2022</span> <span class="me-3">#ABCXYZ123</span>
-											<span class="badge rounded-pill bg-info">Đang vận
-												chuyển</span>
+											<span class="me-3">[[*{ngayTao}]]</span> <span
+												class="badge rounded-pill bg-info">Đang vận chuyển</span>
 										</div>
-
 									</div>
+
 									<table class="table table-borderless">
 										<tbody>
 											<tr>
-												<td>
+												<td class="text-end">Sản phẩm</td>
+												<td class="text-end">Số lượng</td>
+												<td class="text-end">Đơn giá</td>
+												<td class="text-end">Thành tiền</td>
+												<td class="text-end">Giảm giá</td>
+												<td class="text-end">Tổng tiền</td>
+											</tr>
+											<tr th:each="detail : *{hoaDonChiTiet}" th:object="${detail}">
+												<td class="text-end">
 													<div class="d-flex mb-2">
 														<div class="flex-shrink-0">
-															<img
-																src="/assets/images/bep-dien-tu-zhiwu-zhu__nnn_.jpg"
+															<img th:src="@{|/assets/images/*{sanPham.hinhAnh}|}"
 																alt="" width="100" class="img-fluid">
 														</div>
 														<div class="flex-lg-grow-1 ms-3">
 															<h6 class="small mb-0">
-																<a href="#" class="text-reset">Bếp điện từ zhiwu zhu</a>
+																<a href="#" class="text-reset">[[*{sanPham.tenSP}]]</a>
 															</h6>
 
 														</div>
 													</div>
 												</td>
-												<td>1</td>
-												<td class="text-end">1.500.000đ</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="d-flex mb-2">
-														<div class="flex-shrink-0">
-															<img
-																src="/assets/images/bep-dien-tu-zhiwu-zhu__nnn_.jpg"
-																alt="" width="100" class="img-fluid">
-														</div>
-														<div class="flex-lg-grow-1 ms-3">
-															<h6 class="small mb-0">
-																<a href="#" class="text-reset">Nồi lẩu thông minh</a>
-															</h6>
-														</div>
-													</div>
-												</td>
-												<td>1</td>
-												<td class="text-end">1.000.000đ</td>
+												<td class="text-end">[[*{soLuong}]]</td>
+												<td class="text-end">[[*{sanPham.gia}]]đ</td>
+												<td class="text-end">[[*{soLuong} * *{sanPham.gia}]]</td>
+												<td class="text-end">[[*{giamGia}]]</td>
+												<td class="text-end">[[*{soLuong} * *{sanPham.gia} -
+													*{giamGia}]]</td>
 											</tr>
 										</tbody>
-										<tfoot>
-											<tr>
-												<td colspan="2">Tổng tiền hàng</td>
-												<td class="text-end">2.500.000đ</td>
-											</tr>
-											<tr>
-												<td colspan="2">Phí vận chuyển</td>
-												<td class="text-end">20.000đ</td>
-											</tr>
-											<tr>
-												<td colspan="2">Giảm giá</td>
-												<td class="text-danger text-end">-10.000đ</td>
-											</tr>
-											<tr class="fw-bold">
-												<td colspan="2">Tổng số tiền</td>
-												<td class="text-end">2.510.000đ</td>
-											</tr>
-										</tfoot>
 									</table>
 								</div>
 							</div>
@@ -109,18 +79,18 @@
 									<div class="row">
 										<div class="col-lg-6">
 											<h3 class="h6">Hình thức thanh toán</h3>
-											<img src="/assets/images/bep-dien-tu-zhiwu-zhu__nnn_.jpg" alt=""
-												width="50" class="img-fluid">
-											<p>
-												Ví Momo<br> Tổng: 2.510.000đ <span
-													class="badge bg-success rounded-pill">Đã thanh toán</span>
-												</p>
+											<img src="/assets/images/bep-dien-tu-zhiwu-zhu__nnn_.jpg"
+												alt="" width="50" class="img-fluid"> Ví Momo<br>
+											Tổng: 2.510.000đ <span class="badge bg-success rounded-pill">Đã
+												thanh toán</span>
+											</p>
 										</div>
 										<div class="col-lg-6">
 											<h3 class="h6">Địa chỉ nhận hàng</h3>
 											<address>
-												<strong>Anh NN</strong><br> 105 Nguyễn Hoàng, Đà Nẵng<br>
-												<abbr title="Phone">SĐT:</abbr> 0905011022
+												<strong>Người mua: [[*{taiKhoan.hoTen}]]</strong> <br>Địa
+												chỉ: [[*{diaChi}]]<br> <abbr>Điện thoại:
+													[[*{taiKhoan.sdt}]]</abbr>
 											</address>
 										</div>
 									</div>
@@ -132,14 +102,9 @@
 							<div class="card mb-4">
 								<div class="card-body">
 									<h3 class="h6">Ghi chú khách hàng</h3>
-									<p>Lorem ipsum dolor, sit amet consectetur adipisicing
-										elit. Pariatur dolore nostrum, officiis illum, reprehenderit
-										error ex architecto repudiandae distinctio voluptas tenetur
-										nisi veritatis odit repellendus vitae natus possimus molestias
-										blanditiis?</p>
+									<p>[[*{ghiChu}]]</p>
 								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
@@ -147,5 +112,4 @@
 		</section>
 	</main>
 </body>
-
 </html>

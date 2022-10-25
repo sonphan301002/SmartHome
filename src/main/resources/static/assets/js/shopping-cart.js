@@ -1,4 +1,5 @@
 const app = angular.module("shopping-cart-app", [])
+
 app.controller("shopping-cart-ctrl", function($scope, $http) {
 	$scope.cart = {
 		items: [],
@@ -76,6 +77,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		ngaySua: new Date(),
 		ngayTao: new Date(),
 		taiKhoan: { tenND: $("#tenND").text() },
+		diaChi: "",
 		ghiChu: "",
 		get hoaDonChiTiet() {
 			return $scope.cart.items.map(item => {

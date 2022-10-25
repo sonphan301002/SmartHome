@@ -6,7 +6,9 @@ import java.util.Optional;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.java.dao.AccountDao;
 import com.java.entity.Account;
@@ -14,6 +16,8 @@ import com.java.service.AccountService;
 
 @Service
 public class AccountServiceImpl implements AccountService{
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     AccountDao accountDao;
@@ -41,16 +45,29 @@ public class AccountServiceImpl implements AccountService{
     @Override
     public void delete(String tenND) {
         accountDao.deleteById(tenND);
-
-        
-    }
-
-
-	
-
+    }	
+    
     @Override
-    public <S extends Account> S save(S entity) {
-        return accountDao.save(entity);
+    public <S extends Account> S save(S account) {
+        Optional<Account> optExist = findById(account.getTenND());
+        
+        //kiểm tra nếu người dùng kh nhập password
+        if (optExist.isPresent()) {
+            
+            //Lấy password cũ
+            if (StringUtils.isEmpty(account.getMatKhau())) {
+                account.setMatKhau(null);
+            
+            }else {// nhập password
+                
+//              -> mã hóa password
+                account.setMatKhau(bCryptPasswordEncoder.encode(account.getMatKhau()));
+            }
+        }
+        
+        account.setMatKhau(bCryptPasswordEncoder.encode(account.getMatKhau()));
+        
+        return accountDao.save(account);
     }
 
 //    @Override
@@ -89,13 +106,7 @@ public class AccountServiceImpl implements AccountService{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-    
-
-    
-
-    
-
+	
     @Override
     public Optional<Account> findById(String tenND) {
         // TODO Auto-generated method stub

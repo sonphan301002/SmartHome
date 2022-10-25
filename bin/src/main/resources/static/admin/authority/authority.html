@@ -9,6 +9,7 @@
 			<div class="container mt-5">
 				<div class="row tm-content-row">
 					<div class="col-sm-12 col-md-12  tm-block-col">
+<<<<<<< HEAD
 						<h5 class="text-white mb-3">Phân quyền</h5>
 						<div class="tm-bg-primary-dark tm-block tm-block-products">
 							<div class="tm-product-table-container">
@@ -60,6 +61,29 @@
 									</tbody>
 								</table>
 							</div>
+=======
+						<h5 class="text-white mb-4 tm-block-title">Phân quyền</h5>
+						<div class="tm-product-table-container">
+							<table class="table table-hover tm-table-small tm-product-table">
+								<thead>
+									<tr>
+										<th scope="col">Tên tài khoản</th>
+										<th scope="col">Khách hàng</th>
+										<th scope="col">Nhân viên</th>
+										<th scope="col">Giám đốc</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="ad in admins">
+										<td>{{ad.fullname}}</td>
+										<td ng-repeat="role in roles">
+											<input ng-checked="authority_of(ad, role)"
+											ng-click="authority_changed(ad, role)" type="checkbox">
+										</td>
+									</tr>
+								</tbody>
+							</table>
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
 						</div>
 					</div>
 				</div>
