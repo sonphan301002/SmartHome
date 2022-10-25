@@ -1,170 +1,191 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{/admin/layout/index :: dynamic(~{::main})}">
-
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Tài khoản</title>
 </head>
 
-<body id="reportsPage">
-	<main>
-		<div class="container mt-5">
-			<div class="row tm-content-row">
-				<div class="col-sm-12 col-md-12  tm-block-col">
-					<h5 class="text-white mb-4 tm-block-title">Tài khoản</h5>
-					<div class="tm-bg-primary-dark tm-block tm-block-products">
-						<div class="tm-product-table-container">
-							<table class="table table-hover tm-table-small tm-product-table">
-								<thead>
-									<tr>
-										<th scope="col">Username</th>
-										<th scope="col">Mã VT</th>
-										<th scope="col">Mật khẩu</th>
-										<th scope="col">Họ tên</th>
-										<th scope="col">Giới tính</th>
-										<th scope="col">Email</th>
-										<th scope="col">SDT</th>
-										<th scope="col">Địa chỉ</th>
-										<th scope="col">CMND</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>David C</td>
-										<td>123</td>
-										<td>*****</td>
-										<td>David C</td>
-										<td>Nam</td>
-										<td>c@gmail.com</td>
-										<td>123456789</td>
-										<td>VN</td>
-										<td>2131545455</td>
-										<td><a href="#" class="tm-product-delete-link"> <i
-												class="far fa-trash-alt tm-product-delete-icon"></i>
+<body>
+	<div class="container mt-5">
+		<div class="row tm-content-row">
+			<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 tm-block-col">
+				<div class="">
+					<h2 class="tm-block-title">Sản phẩm</h2>
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+						<li class="nav-item"><a class="nav-link active"
+							data-toggle="tab" data-target="#edit" href="" role="tab"
+							aria-controls="home" aria-selected="true">Cập nhật</a></li>
+						<li class="nav-item"><a class="nav-link" data-target="#list"
+							data-toggle="tab" href="" role="tab" aria-controls="profile"
+							aria-selected="false">Danh sách</a></li>
+					</ul>
+					<div class="tab-content" id="myTabContent">
+						<div class="tab-pane fade show active" id="edit" role="tabpanel"
+							aria-labelledby="home-tab">
+							<!-- Cập nhật -->
+							<div class="container mt-5">
 
-										</a></td>
-									</tr>
-									<tr>
-										<td>David C</td>
-										<td>123</td>
-										<td>*****</td>
-										<td>David C</td>
-										<td>Nam</td>
-										<td>c@gmail.com</td>
-										<td>123456789</td>
-										<td>VN</td>
-										<td>2131545455</td>
-										<td><a href="#" class="tm-product-delete-link"> <i
-												class="far fa-trash-alt tm-product-delete-icon"></i>
+								<!-- row -->
+								<div class="row tm-content-row">
+									<div class="tm-block-col tm-col-avatar">
+										<div class="tm-bg-primary-dark tm-block tm-block-avatar">
+											<h2 class="tm-block-title">Ảnh</h2>
+											<div class="tm-avatar-container">
+												<img ng-src="{{'/assets/images/' + form.hinhAnh}} " width="100%"
+												height="100%"
+													alt="Avatar" class="tm-avatar img-fluid mb-4" />
+											</div>
+											<input class="btn btn-primary" type="file">
+										</div>
+									</div>
+									<div class="tm-block-col tm-col-account-settings">
+										<div class="tm-bg-primary-dark tm-block tm-block-settings">
+											<h2 class="tm-block-title">Thiết lập tài khoản</h2>
+											<form action="" class="tm-signup-form row">
+												<div class="form-group col-lg-12">
+													<label for="name">Họ và tên</label> <input
+														ng-model="form.hoTen" type="text"
+														class="form-control validate" required />
+												</div>
+												<div class="form-group col-lg-6">
+													<label for="name">Tên đăng nhập</label> <input
+														ng-model="form.tenND" type="name"
+														class="form-control validate" required />
+												</div>
+												<div class="form-group col-lg-6">
+													<label for="password">Mật khẩu</label> <input
+														ng-model="form.matKhau" type="password"
+														class="form-control validate" required />
+												</div>
+												<div class="form-group col-lg-6">
+													<label for="email">Email</label> <input
+														ng-model="form.email" type="email"
+														class="form-control validate" required />
+												</div>
+												<div class="form-group col-lg-6">
+													<label for="phone">SDT</label> <input ng-model="form.sdt"
+														type="tel" class="form-control validate" required />
+												</div>
+												<div class="form-group col-lg-6">
+													<label for="add">Địa chỉ</label> <input
+														ng-model="form.diaChi" type="text"
+														class="form-control validate" required />
+												</div>
+												<div class="form-group col-lg-6">
+													<label for="cmnd">CMND</label> <input 
+													ng-model="form.cmnd"
+														type="text" class="form-control validate" required />
+												</div>
 
-										</a></td>
-									</tr>
-									<tr>
-										<td>David C</td>
-										<td>123</td>
-										<td>*****</td>
-										<td>David C</td>
-										<td>Nam</td>
-										<td>c@gmail.com</td>
-										<td>123456789</td>
-										<td>VN</td>
-										<td>2131545455</td>
-										<td><a href="#" class="tm-product-delete-link"> <i
-												class="far fa-trash-alt tm-product-delete-icon"></i>
+												<div class="form-group col-lg-6">
+													<label for="vt">Mã vai trò</label> <input
+														ng-model="form.maVT" type="text"
+														class="form-control validate" required />
+												</div>
+												<div class="form-group col-lg-6">
+													<label>Giới tính</label> <br>
+													<label class="radio-inline mr-3 mt-2"> <input
+														ng-model="form.gioiTinh" ng-value="true" name="available"
+														type="radio" checked="checked"> Nam
+													</label> <label class="radio-inline"> <input
+														ng-model="form.gioiTinh" ng-value="false" name="available"
+														type="radio"> Nữ
+													</label>
+												</div>
+												<div class="col text-center ">
+													<button ng-click="create()" type="submit"
+														class="btn btn-primary m-1">Thêm mới</button>
+													<button ng-click="update()" type="submit"
+														class="btn btn-primary m-1">Cập nhật</button>
+													<button ng-click="delete(form)" type="submit"
+														class="btn btn-primary m-1">Xóa</button>
+													<button ng-click="reset()" type="reset"
+														class="btn btn-primary m-1">Làm mới</button>
 
-										</a></td>
-									</tr>
-									<tr>
-										<td>David C</td>
-										<td>123</td>
-										<td>*****</td>
-										<td>David C</td>
-										<td>Nam</td>
-										<td>c@gmail.com</td>
-										<td>123456789</td>
-										<td>VN</td>
-										<td>2131545455</td>
-										<td><a href="#" class="tm-product-delete-link"> <i
-												class="far fa-trash-alt tm-product-delete-icon"></i>
+												</div>
 
-										</a></td>
-									</tr>
-									<tr>
-										<td>David C</td>
-										<td>123</td>
-										<td>*****</td>
-										<td>David C</td>
-										<td>Nam</td>
-										<td>c@gmail.com</td>
-										<td>123456789</td>
-										<td>VN</td>
-										<td>2131545455</td>
-										<td><a href="#" class="tm-product-delete-link"> <i
-												class="far fa-trash-alt tm-product-delete-icon"></i>
-
-										</a></td>
-									</tr>
-									<tr>
-										<td>David C</td>
-										<td>123</td>
-										<td>*****</td>
-										<td>David C</td>
-										<td>Nam</td>
-										<td>c@gmail.com</td>
-										<td>123456789</td>
-										<td>VN</td>
-										<td>2131545455</td>
-										<td><a href="#" class="tm-product-delete-link"> <i
-												class="far fa-trash-alt tm-product-delete-icon"></i>
-
-										</a></td>
-									</tr>
-
-
-								</tbody>
-							</table>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-						<a href="#!account-add"
-							class="btn btn-primary btn-block text-uppercase mb-3">Thêm
-							mới tài khoản</a>
+						<div class="tab-pane fade" id="list" role="tabpanel"
+							aria-labelledby="profile-tab">
+							<!-- Danh sách -->
+							<div class="container mt-5">
+								<div class="row tm-content-row">
+									<div class="col-sm-12 col-md-12  tm-block-col">
+										<h5 class="text-white mb-4 tm-block-title">Tài khoản</h5>
+										<div class="tm-bg-primary-dark tm-block tm-block-products">
+											<div class="tm-product-table-container">
+												<table
+													class="table table-hover tm-table-small tm-product-table">
+													<thead>
+														<tr>
+															<th>Anh</th>
+															<th scope="col">Username</th>
+															<th scope="col">Mã VT</th>
+															<th scope="col">Mật khẩu</th>
+															<th scope="col">Họ tên</th>
+															<th scope="col">Giới tính</th>
+															<th scope="col">Email</th>
+															<th scope="col">SDT</th>
+															<th scope="col">Địa chỉ</th>
+															<th scope="col">CMND</th>
+															<th></th>
+															<th></th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr ng-repeat="item in items">
+
+															<td><img
+																ng-src="{{'/assets/images/' + item.hinhAnh}}" width="50"
+																height="50"></td>
+
+															<td>{{item.tenND}}</td>
+															<td>{{item.maVT}}</td>
+															<td>{{item.matKhau}}</td>
+															<td>{{item.hoTen}}</td>
+															<td>{{item.gioiTinh?'Nam':'Nữ'}}</td>
+															<td>{{item.email}}</td>
+															<td>{{item.sdt}}</td>
+															<td>{{item.diaChi}}</td>
+															<td>{{item.cmnd}}</td>
+															<td><a ng-click="delete(item)"
+																class="tm-product-delete-link"> <i
+																	class="far fa-trash-alt "></i>
+
+															</a></td>
+															<td><a ng-click="edit(item)"
+																class="tm-product-delete-link"> <i
+																	class="far fa-edit"></i>
+
+															</a></td>
+
+														</tr>
+
+
+
+
+
+
+
+													</tbody>
+												</table>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-
-
 		</div>
-
-		</div>
-
-		<script src="js/jquery-3.3.1.min.js"></script>
-		<!-- https://jquery.com/download/ -->
-		<script src="js/moment.min.js"></script>
-		<!-- https://momentjs.com/ -->
-		<script src="js/Chart.min.js"></script>
-		<!-- http://www.chartjs.org/docs/latest/ -->
-		<script src="js/bootstrap.min.js"></script>
-		<!-- https://getbootstrap.com/ -->
-		<script src="js/tooplate-scripts.js"></script>
-		<script>
-			Chart.defaults.global.defaultFontColor = 'white';
-			let ctxLine, ctxBar, ctxPie, optionsLine, optionsBar, optionsPie, configLine, configBar, configPie, lineChart;
-			barChart, pieChart;
-			// DOM is ready
-			$(function() {
-				drawLineChart(); // Line Chart
-				drawBarChart(); // Bar Chart
-				drawPieChart(); // Pie Chart
-
-				$(window).resize(function() {
-					updateLineChart();
-					updateBarChart();
-				});
-			})
-		</script>
-	</main>
+	</div>
 </body>
-
 </html>

@@ -30,20 +30,22 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
+	
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </head>
 
-<body>
+<body ng-app="shopping-cart-app" ng-controller="shopping-cart-ctrl">
 	<header class="section-header">
 		<!-- Top header -->
 		<div class="top-header">
 			<ul class="nav justify-content-end">
-				<li class="nav-item mr-auto"><a class="nav-link active"
-					href="#"><i class="fas fa-home mr-2"></i>105 Nguyễn Hoàng, Hải
-						Châu, Đà Nẵng</a></li>
+				<li class="nav-item mr-auto"><a class="nav-link" href="#"><i
+						class="fas fa-home mr-2"></i>105 Nguyễn Hoàng, Hải Châu, Đà Nẵng</a></li>
 				<li class="nav-item mr-auto"><a class="nav-link" href="#"><i
 						class="fas fa-envelope mr-2"></i>digizone.com.vn@gmail.com</a></li>
-				<li class="nav-item"><a class="nav-link disabled" href="#">Hotline
-						: 0905 008 070</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Hotline :
+						0905 008 070</a></li>
 			</ul>
 		</div>
 		<!-- header -->
@@ -73,12 +75,14 @@
 						<div class="d-flex justify-content-end">
 							<div class="dropdown btn-group">
 								<a class="nav-link nav-icons" th:href="@{|/cart|}"><i
-									class="fas fa fa-shopping-bag"></i></a> <a th:href="@{|/cart|}"><span
-									class="cart-number">1</span></a>
+									class="fas fa fa-shopping-bag"></i></a> <a th:href="@{|/cart|}">
+									<span class="cart-number">{{cart.count}}</span>
+								</a>
 							</div>
 
 							<li th:if="${#request.remoteUser}" class="nav-link nav-icons">
-								<a class="nav-link text-light" th:href="@{|/security/editProfile|}"> <span class="text">Hi</span>
+								<a class="nav-link text-light"
+								th:href="@{|/security/editProfile|}"> <span class="text">Hi</span>
 									[[${#request.remoteUser}]] !
 							</a>
 							</li>
@@ -103,6 +107,9 @@
 				</div>
 			</div>
 		</section>
+
+		<!-- nav -->
+
 
 		<!-- nav -->
 		<nav class="navbar navbar-expand-md navbar-main border-bottom">
@@ -132,19 +139,18 @@
 								<a th:each="c: ${cates}" class="dropdown-item"
 									th:href="@{|/product/list?cid=${c.maDM}|}">[[${c.tenDM}]]</a>
 							</div></li>
-						<li class="nav-item"><a class="nav-link" href="">Review
-								sản phẩm</a></li>
-						<li class="nav-item"><a class="nav-link" href="">Hướng
-								dẫn sử dụng</a></li>
-						<li class="nav-item"><a class="nav-link" href="">Tin tức
-								sản phẩm</a></li>
-						<li class="nav-item"><a class="nav-link" href="">Khuyến
-								mãi</a></li>
-						<li class="nav-item"><a class="nav-link" href="">Liên hệ</a>
-						</li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{|/review|}">Review sản phẩm</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{|/manuals|}">Hướng dẫn sử dụng</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{|/news|}">Tin
+								tức sản phẩm</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{|/discount|}">Khuyến mãi</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{|/contact|}">Liên hệ</a></li>
 						<li class="nav-item"><a class="nav-link" href="/admin/index">Quản
 								lý</a></li>
-
 					</ul>
 
 					<ul class="navbar-nav ml-auto">
@@ -157,7 +163,6 @@
 			</div>
 		</nav>
 		<!-- slide -->
-
 	</header>
 
 	<div th:replace="${main}"></div>
@@ -189,8 +194,8 @@
 								chỉ:</strong> 105 Nguyễn Hoàng, Phường Hải Châu 2, Quận Hải Châu, Đà Nẵng</span><br>
 						<span style="color: #000000; font-size: 100%;"><strong><span
 								class="text">Điện thoại: </span></strong> <a class="text-is-phone-number"
-							style="color: #000000;">0905.008.070</a> </span><br>
-						<span style="color: #000000; font-size: 100%;"><strong><span
+							style="color: #000000;">0905.008.070</a> </span><br> <span
+							style="color: #000000; font-size: 100%;"><strong><span
 								class="text">Email: </span></strong> </span><a
 							href="mailto:digizone.com.vn@gmail.com" target="_blank"
 							rel="noopener"><span style="color: #000000;">digizone.com.vn@gmail.com</span></a>
@@ -276,7 +281,6 @@
 								src="/assets/images/jst.png" class="w-50" alt=""></a></li>
 					</ul>
 				</div>
-
 			</div>
 		</div>
 		<div class="footer-copyright text-center py-3 bg-light">
@@ -287,7 +291,13 @@
 				Xiaomi.</p>
 		</div>
 	</footer>
-
+	<!-- social -->
+	<div class="social-button">
+		<a href="tel:0905008070" class="call-button"> </a> <a
+			href="http://zalo.me/0905008070" target="_blank" class="zalo-button">
+		</a> <a href="https://m.me/Digizone.com.vn/" target="_blank"
+			class="facebook-button"> </a>
+	</div>
 
 	<script>
         document.querySelector('#choose').addEventListener('click', (event) => {
@@ -306,6 +316,8 @@
             })
         })
     </script>
+    
+    <script type="text/javascript" src="/assets/js/shopping-cart.js"></script>
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

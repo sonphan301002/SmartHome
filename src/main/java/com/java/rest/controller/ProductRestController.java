@@ -23,23 +23,28 @@ public class ProductRestController {
 	@Autowired
 	ProductService productService;
 	
-	@GetMapping
+	@GetMapping()
 	public List<Product> getAll() {
 		return productService.findAll();
 	}
 	
-	@PostMapping
-	public Product add(@RequestBody Product product) {
-		return productService.add(product);
+	@GetMapping("{maSP}")
+	public Product getOne(@PathVariable("maSP") Long maSP) {
+		return productService.findById(maSP);
+	}
+	
+	@PostMapping()
+	public Product create(@RequestBody Product product) {
+		return productService.save(product);
+	}
+	
+	@DeleteMapping("{maSP}")
+	public void delete(@PathVariable("maSP") Long masp) {
+		productService.delete(masp);
 	}
 	
 	@PutMapping("{maSP}")
 	public Product update(@PathVariable("maSP") Long maSP, @RequestBody Product product) {
 		return productService.update(product);
-	}
-	
-	@DeleteMapping("{maSP}")
-	public void delete(@PathVariable("maSP") Long maSP) {
-		productService.delete(maSP);
 	}
 }

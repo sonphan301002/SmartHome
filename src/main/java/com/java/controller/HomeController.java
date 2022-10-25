@@ -15,7 +15,31 @@ public class HomeController {
 	@RequestMapping("/")
 	public String home(Model model) {
 		model.addAttribute("bestSeller", productService.findAll());
-		
 		return "/layout/main";
+	}
+	
+	@RequestMapping("/review")
+	public String review() {
+		return "/layout/review";
+	}
+	
+	@RequestMapping("/news")
+	public String news() {
+		return "/layout/news";
+	}
+	
+	@RequestMapping("/manuals")
+	public String manuals() {
+		return "/layout/manuals";
+	}
+	
+	@RequestMapping("/discount")
+	public String discount() {
+		return "/layout/discount";
+	}
+	
+	@RequestMapping("/contact")
+	public String contact() {
+		return "/layout/contact";
 	}
 }

@@ -71,7 +71,7 @@ app.controller("supplier-ctrl", function($scope, $http) {
 			showCancelButton: true,
 			confirmButtonColor: '#3085d6',
 			cancelButtonColor: '#d33',
-			confirmButtonText: 'Đồng ý',
+			confirmButtonText: 'Xác nhận',
 			cancelButtonText: 'Hủy'
 		}).then((result) => {
 			if (result.isConfirmed) {

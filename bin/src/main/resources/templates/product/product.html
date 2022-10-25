@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<head>
+<title>Digizone</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+	<main>
+		<section id="pricing"
+			class="padd-section text-center wow fadeInUp mt-5"
+			style="visibility: visible; animation-name: fadeInUp;">
+			<div class="container">
+				<div class="row">
+					<div class="container">
+						<div class="row">
+							<div class="col-6 d-flex justify-content-start">
+								<h5 class="">
+									<a href="">Trang chủ</a> <span>/ Đồ gia dụng</span>
+								</h5>
+							</div>
+
+							<div class="col-6 d-flex justify-content-end">
+								<form action="">
+									<div class="form-group">
+										<select name="" id="" class="form-control">
+											<option value="">Theo tên A-Z</option>
+											<option value="">Theo tên Z-A</option>
+											<option value="">Theo giá tăng dần</option>
+											<option value="">Theo giá giảm dần</option>
+										</select>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3" th:each="p: ${items}">
+							<div class="block-pricing">
+								<div class="table position-relative ">
+									<div class="special-img collection-img overflow-hidden">
+										<a th:href="@{|/productDetail/${p.maSP}|}"> <img
+											th:src="@{|/assets/images/${p.hinhAnh}|}" class="w-75">
+										</a> <span
+											class="pb-auto position-absolute bg-danger text-white d-flex align-items-center justify-content-center">Sale</span>
+									</div>
+									<ul class="list-unstyled">
+										<li><a th:href="@{|/productDetail/${p.maSP}|}">[[${p.tenSP}]]</a></li>
+										<li><b style="color: #FF1E00;">$[[${p.gia}]] ₫</b></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+
+</html>

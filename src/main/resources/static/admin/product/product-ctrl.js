@@ -47,14 +47,14 @@ app.controller("product-ctrl", function($scope, $http) {
 			$scope.init();
 			Swal.fire({
 				icon: 'success',
-				title: 'Thêm mới thành công',
+				title: 'Thêm mới thành công!',
 				showConfirmButton: true,
 				timer: 1500
 			})
 		}).catch(error => {
 			Swal.fire({
 				icon: 'warning',
-				title: 'Thêm mới thất bại',
+				title: 'Thêm mới thất bại!',
 				showConfirmButton: true,
 				timer: 1500
 			})
@@ -70,14 +70,14 @@ app.controller("product-ctrl", function($scope, $http) {
 			$scope.reset();
 			Swal.fire({
 				icon: 'success',
-				title: 'Cập nhật thành công',
+				title: 'Cập nhật thành công!',
 				showConfirmButton: true,
 				timer: 1500
 			})
 		}).catch(error => {
 			Swal.fire({
 				icon: 'success',
-				title: 'Cập nhật thất bại',
+				title: 'Cập nhật thất bại!',
 				showConfirmButton: true,
 				timer: 1500
 			})
@@ -87,12 +87,12 @@ app.controller("product-ctrl", function($scope, $http) {
 
 	$scope.delete = function(item) {
 		Swal.fire({
-			title: 'Bạn có muốn xóa hay không',
+			title: 'Bạn có muốn xóa hay không?',
 			icon: 'warning',
 			showCancelButton: true,
 			confirmButtonColor: '#3085d6',
 			cancelButtonColor: '#d33',
-			confirmButtonText: 'Đồng ý',
+			confirmButtonText: 'Xác nhận',
 			cancelButtonText: 'Hủy'
 		}).then((result) => {
 			if (result.isConfirmed) {
@@ -102,14 +102,14 @@ app.controller("product-ctrl", function($scope, $http) {
 					$scope.reset();
 					Swal.fire({
 						icon: 'success',
-						title: 'Xóa thành công',
+						title: 'Xóa thành công!',
 						showConfirmButton: true,
 						timer: 1500
 					})
 				}).catch(error => {
 					Swal.fire({
 						icon: 'success',
-						title: 'Xóa thất bại',
+						title: 'Xóa thất bại!',
 						showConfirmButton: true,
 						timer: 1500
 					})

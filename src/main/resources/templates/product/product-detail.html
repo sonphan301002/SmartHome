@@ -3,22 +3,23 @@
 	th:replace="~{/layout/index :: dynamic(~{::main})}">
 
 <head>
-<title>Detail</title>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Detail</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
 <body>
 	<main>
 		<div class="container mt-5">
 			<div class="small-container single-product">
-				<div class="row">
+				<div class="row" th:object="${item}">
 					<div class="col-sm-6">
 						<div class="card">
 							<div class="card-body">
-								<img src="/assets/images/bep-tu-doi-thong-minh-mijia-mdcld01acm-1.jpg"
+								<img
+									src="/assets/images/bep-tu-doi-thong-minh-mijia-mdcld01acm-1.jpg"
 									width="100%" id="productImg">
 							</div>
 						</div>
@@ -43,19 +44,18 @@
 						</div>
 					</div>
 					<div class="col-sm-6">
-						<p>Sản phẩm gia dụng</p>
-						<h1>Bếp Từ Đôi Xiaomi Mijia MDCLD01ACM</h1>
-						<h4>$50.00</h4>
+						<p></p>
+						<h1>[[${item.tenSP}]]</h1>
+						<h4>$[[${item.gia}]]</h4>
 						<select style="display: block; padding: 10px; margin-top: 20px;">
 							<option>Cỡ lớn hơn</option>
 							<option>Màu hồng</option>
 							<option>Cỡ nhỏ hơn</option>
-						</select> <input class="mt-2" type="number" value="1" min="1"> <a href=""
-							class="btn-add">Add To Cart</a>
-
-
+						</select> <input class="mt-2" type="number" min="1" value="1"
+							ng-model="item.soLuong"> <a href="" id="prodetail"
+							class="btn-add" style="text-decoration: none; color: #fff"
+							th:attr="ng-click=@{|cart.add(${item.maSP})|}">Thêm vào giỏ hàng</a>
 						<h3>Chi tiết sản phẩm</h3>
-
 						<p>Thiết kế sang trọng, hiện đại.</p>
 						<p>Công suất lớn, tiết kiệm thời gian nấu.</p>
 						<p>Tùy chỉnh mức nhiệt nấu, đầy đủ các trang bị an toàn.</p>
@@ -180,6 +180,16 @@
 		</section>
 
 		<script>
+			document.querySelector('#prodetail').addEventListener('click', (event) => {
+	            event.preventDefault();
+	            Swal.fire({
+	            	icon: 'success',
+	            	title: 'Thêm thành công!',
+	            	showConfirmButton: true,
+	            	timer: 1500
+	           })
+	        })
+        
 			var productImg = document.getElementById("productImg");
 			var SmallImg = document.getElementsByClassName("small-img");
 

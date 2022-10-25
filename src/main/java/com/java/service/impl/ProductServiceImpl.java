@@ -51,10 +51,7 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public void delete(Long id) {
-		// TODO Auto-generated method stub
-		productDAO.deleteById(id);
+	public void delete(Long maSP) {
+		productDAO.deleteById(maSP);
 	}
-
-	
 }

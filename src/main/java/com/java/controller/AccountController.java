@@ -32,7 +32,7 @@ public class AccountController {
     @GetMapping("/logoff/success")
     public String logOffSuccess(Model model){
         model.addAttribute("message", "Đăng xuất thành công");
-        return "/layout/main";
+        return "redirect:/";
     }
     
     @GetMapping("/change")
