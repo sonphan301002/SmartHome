@@ -48,6 +48,8 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
             this.items = []
             this.saveToLocalStorage();
         },
+		//tính tổng tiền của một sản phẩm
+		amt_of(item) { },
 		//tính tổng số lượng các mặt hàng trong giỏ hàng
 		get count() {
 			return this.items
@@ -73,7 +75,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			this.items = json ? JSON.parse(json) : [];
 		}
 	}
-	
+
 	$scope.cart.loadFromLocalStorage();
 
 	$scope.order = {

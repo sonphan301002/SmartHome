@@ -30,5 +30,4 @@ public class OrderRestController {
     public Order update(@PathVariable("maHD") Long maHD, @RequestBody Order order){
         return orderService.update(order);
     }
-
 }

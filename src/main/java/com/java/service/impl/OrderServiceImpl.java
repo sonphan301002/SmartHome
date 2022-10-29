@@ -56,4 +56,10 @@ public class OrderServiceImpl implements OrderService {
     public Order update(Order order){
         return odao.save(order);
     }
+
+    @Override
+    public List<OrderDetail> findByMaHD(Long maHD) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }
