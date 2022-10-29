@@ -18,7 +18,8 @@
 					<div class="col-sm-6">
 						<div class="card">
 							<div class="card-body">
-								<img src="/assets/images/bep-tu-doi-thong-minh-mijia-mdcld01acm-1.jpg"
+								<img
+									src="/assets/images/bep-tu-doi-thong-minh-mijia-mdcld01acm-1.jpg"
 									width="100%" id="productImg">
 							</div>
 						</div>
@@ -45,16 +46,16 @@
 					<div class="col-sm-6">
 						<p></p>
 						<h1>[[${item.tenSP}]]</h1>
-						<h4>$[[${item.gia}]]</h4>
+						<h4>[[${item.gia}]] ₫</h4>
 						<select style="display: block; padding: 10px; margin-top: 20px;">
 							<option>Cỡ lớn hơn</option>
 							<option>Màu hồng</option>
 							<option>Cỡ nhỏ hơn</option>
-						</select> 
-						<input class="mt-2" type="number" min="1" value="1" ng-model="item.soLuong">
+						</select>
+						<input type="number"  class="form-control mt-2" min="1" value="1"
+							ng-model="item.soLuong">
 						<a href="" class="btn-add" style="text-decoration: none; color: #fff"
-							th:attr="ng-click=@{|cart.add(${item.maSP})|}">Add To Cart</a>
-
+							th:attr="ng-click=@{|cart.add(${item.maSP})|}">Thêm vào giỏ hàng</a>
 
 						<h3>Chi tiết sản phẩm</h3>
 
@@ -182,6 +183,16 @@
 		</section>
 
 		<script>
+			document.querySelector('#prodetail').addEventListener('click', (event) => {
+	            event.preventDefault();
+	            Swal.fire({
+	            	icon: 'success',
+	            	title: 'Thêm thành công!',
+	            	showConfirmButton: true,
+	            	timer: 1500
+	           })
+	        })	
+		
 			var productImg = document.getElementById("productImg");
 			var SmallImg = document.getElementsByClassName("small-img");
 

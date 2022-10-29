@@ -9,6 +9,27 @@
     font-size: 25px !important;
 }
 
+.product-name{
+	font-size: 25px;
+	font-weight: 530;
+}
+
+.product-price{
+	font-size: 18px;
+}
+
+.badge-danger{
+	width: 50px !important;
+}
+
+.cart-number{
+	position: relative;
+	margin-left: -20px;
+	bottom: -18px;
+	left: -10px;
+	font-size: 12px;
+	color: #1C6758;
+}
 .cart-number {
     position: relative;
     margin-left: -20px;
@@ -422,6 +443,7 @@ td:last-child {
 }
 
 .cart-button a {
+	text-decoration: none;
     text-align: center;
     padding: 8px 24px;
     font-weight: 300;
@@ -557,7 +579,6 @@ td:last-child {
     display: inline-flex;
 }
 
-
 /* Product-detail */
 
 .single-product {
@@ -613,6 +634,28 @@ td:last-child {
     transition: background 0.5s;
 }
 
+/* Product-detail-end */
+ /* CONTACT*/
+.contact-header-text {
+	padding: 1.5rem 0 1.5rem;
+	text-align: left;
+}
+
+.contact-header-text-top {
+	padding-top: 0;
+}
+
+.contact-header-title {
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.contact-send-button {
+	padding: 8px 24px;
+	font-weight: 500;
+	font-size: 1rem;
+}
+
 
 /* Product-detail-end */
 
@@ -643,6 +686,7 @@ td:last-child {
     background-color: #ff523b;
 }
 
+/* DISCOUNT */
 
 /* DISCOUNT */
 
@@ -666,7 +710,6 @@ td:last-child {
 .discount-des {
     font-size: 0.875rem;
 }
-
 
 /* Social */
 
@@ -709,4 +752,23 @@ td:last-child {
 
 .facebook-button {
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Facebook_Messenger_logo_2020.svg/1200px-Facebook_Messenger_logo_2020.svg.png);
+}
+/* Order */
+.order-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.order-button button {
+	color: #fff;
+	text-decoration: none;
+    text-align: center;
+    padding: 8px 24px;
+    font-weight: 300;
+    font-size: .875rem;
+    width: 100%;
+    max-width: 400px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff523b;
 }

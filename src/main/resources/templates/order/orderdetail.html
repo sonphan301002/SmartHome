@@ -9,50 +9,45 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>
-	<main th:object ="${detail}">
-		<section id="pricing" class="padd-section text-center wow fadeInUp mt-5"
+	<main th:object="${detail}">
+		<section id="pricing"
+			class="padd-section text-center wow fadeInUp mt-5"
 			style="visibility: visible; animation-name: fadeInUp;">
 			<div class="section-header">
 				<h2 class="section-title">Chi Tiết Đơn Hàng</h2>
 			</div>
+			
 			<div class="container-fluid" style="background-color: #87A2FB;">
-
-				<div class="container" >
-
+				<div class="container">
 					<div class="d-flex justify-content-between align-items-center py-3">
 						<h5 class="mb-0">
-							Đơn hàng
-							<span class="text-primary font-weight-bold">#[[*{maHD}]]</span>
+							Đơn hàng <span class="text-primary font-weight-bold">#[[*{maHD}]]</span>
 						</h5>
 					</div>
 
 					<div class="row">
-						<div class="col-lg-8">
+						<div class="col-lg-7">
 							<div class="card mb-4">
 								<div class="card-body">
 									<div class="mb-3 d-flex justify-content-between">
 										<div>
-											<span class="me-3">[[*{ngayTao}]]</span>
-											<span class="badge rounded-pill bg-info">Đang vận chuyển</span>
+											<span class="me-3">[[*{ngayTao}]]</span> <span
+												class="badge rounded-pill bg-info">Đang vận chuyển</span>
 										</div>
 									</div>
-									
+
 									<table class="table table-borderless">
 										<tbody>
 											<tr>
 												<td class="text-end">Sản phẩm</td>
 												<td class="text-end">Số lượng</td>
 												<td class="text-end">Đơn giá</td>
-												<td class="text-end">Thành tiền</td>
-												<td class="text-end">Giảm giá</td>
-												<td class="text-end">Tổng tiền</td>
 											</tr>
-											<tr th:each ="detail : *{hoaDonChiTiet}" th:object="${detail}">
+											<tr th:each="detail : *{hoaDonChiTiet}" th:object="${detail}">
 												<td class="text-end">
 													<div class="d-flex mb-2">
 														<div class="flex-shrink-0">
-															<img
-																th:src="@{|/assets/images/*{sanPham.hinhAnh}|}"
+															<img th:src="@{|/assets/images/*{sanPham.hinhAnh}|}"
 																alt="" width="100" class="img-fluid">
 														</div>
 														<div class="flex-lg-grow-1 ms-3">
@@ -65,48 +60,65 @@
 												</td>
 												<td class="text-end">[[*{soLuong}]]</td>
 												<td class="text-end">[[*{sanPham.gia}]]đ</td>
-												<td class="text-end">[[*{soLuong} * *{sanPham.gia}]]</td>
-												<td class="text-end">[[*{giamGia}]]</td>
-												<td class="text-end">[[*{soLuong} * *{sanPham.gia} - *{giamGia}]]</td>
 											</tr>
 										</tbody>
+										<tfoot th:each="detail : *{hoaDonChiTiet}" th:object="${detail}">
+											<tr>
+												<td colspan="2">Tổng tiền hàng</td>
+												<td class="text-end">[[*{soLuong} * *{sanPham.gia}]]</td>
+											</tr>
+											<tr>
+												<td colspan="2">Phí vận chuyển</td>
+												<td class="text-end">20.000đ</td>
+											</tr>
+											<tr>
+												<td colspan="2">Giảm giá</td>
+												<td class="text-danger text-end">[[*{giamGia}]]</td>
+											</tr>
+											<tr class="fw-bold">
+												<td colspan="2">Tổng số tiền</td>
+												<td class="text-end">[[*{soLuong} * *{sanPham.gia} - *{giamGia}]]</td>
+											</tr>
+										</tfoot>
 									</table>
 								</div>
 							</div>
+						</div>
 
+						<div class="col-lg-5">
 							<div class="card mb-4">
 								<div class="card-body">
-									<div class="row">
-										<div class="col-lg-6">
-											<h3 class="h6">Hình thức thanh toán</h3>
-											<img src="/assets/images/bep-dien-tu-zhiwu-zhu__nnn_.jpg" alt=""
-												width="50" class="img-fluid">
-												Ví Momo<br> Tổng: 2.510.000đ <span
-													class="badge bg-success rounded-pill">Đã thanh toán</span>
-												</p>
+									<form action="">
+										<div class="form-group">
+											<div class="h6">Ghi chú khách hàng</div>
+											<textarea class="form-control"
+												ng-change="order.update()"
+											ng-model="order.ghiChu">[[*{ghiChu}]]</textarea>
+										</div>										
+									</form>
+
+									<div class="row mt-sm-2">
+										<div class="col">
+											<div class="">Hình thức thanh toán</div>
+											<img src="/assets/images/bep-dien-tu-zhiwu-zhu__nnn_.jpg"
+												alt="" width="50" class="img-fluid">
+											<span class="">Momo</span>
+											<span class="badge bg-success rounded-pill">Đã thanh toán</span>
 										</div>
-										<div class="col-lg-6">
-											<h3 class="h6">Địa chỉ nhận hàng</h3>
-											<address>
-												<strong>Người mua: [[*{taiKhoan.hoTen}]]</strong>
-												<br>Địa chỉ: [[*{diaChi}]]<br>
-												<abbr>Điện thoại: [[*{taiKhoan.sdt}]]</abbr>
-											</address>
+
+										<div class="col">
+											<div class="">Địa chỉ nhận hàng</div>
+											<div>
+												<span>Người mua: [[*{taiKhoan.hoTen}]]</span> 
+												<br>
+												<span>Địa chỉ: [[*{diaChi}]]</span>
+												<br>
+												<span>Điện thoại: [[*{taiKhoan.sdt}]]</span>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-lg-4">
-
-							<div class="card mb-4">
-								<div class="card-body">
-									<h3 class="h6">Ghi chú khách hàng</h3>
-									<p>[[*{ghiChu}]]
-									</p>
-								</div>
-							</div>
-
 						</div>
 					</div>
 				</div>

@@ -31,9 +31,9 @@ public class Order implements Serializable{
 	private String ghiChu;
 	@ManyToOne
 	@JoinColumn(name = "tenND")
-	Account taiKhoan;
+	private Account taiKhoan;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "hoaDon")
-	List<OrderDetail> hoaDonChiTiet;
+	private List<OrderDetail> hoaDonChiTiet;
 }

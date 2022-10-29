@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+app.controller("authority-ctrl", function($scope, $http) {
+	
+=======
 app.controller("authority-ctrl", function($scope, $http, $location) {
 	$scope.roles = [];
 	
@@ -63,4 +67,5 @@ app.controller("authority-ctrl", function($scope, $http, $location) {
 	}
 	
 	$scope.init();
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
 })

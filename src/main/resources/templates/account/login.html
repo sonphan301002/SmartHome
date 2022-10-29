@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
+<meta charset="UTF-8">
+<title>Đăng nhập</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+<!-- Fontawesome -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
     <title>Đăng nhập</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -12,7 +21,6 @@
     <!-- Link sweet alert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-
 <body>
     <div class="container-fluid">
         <div class="row">
@@ -60,10 +68,10 @@
                                                 <button class="btn btn-primary text-uppercase w-100 p-2">Đăng
 													nhập</button>
 
-                                                <a th:href="@{|/forgot|}">
-                                                    <p class="my-2 text-center">Quên mật khẩu?</p>
-                                                </a>
-                                            </form>
+												<a th:href="@{|/security/forgot|}">
+													<p class="my-2 text-center">Quên mật khẩu?</p>
+												</a>
+											</form>
                                             <!-- ĐĂNG NHẬP -->
 
                                             <hr class="my-2">

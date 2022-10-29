@@ -1,6 +1,9 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en" th:fragment="dynamic(main)">
+<<<<<<< HEAD
+=======
 
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
 <head>
     <title>Digizone</title>
     <!-- Required meta tags -->
@@ -14,31 +17,48 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
 
+<<<<<<< HEAD
+=======
     <!-- Link sweet alert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
     <!-- Link css -->
     <link rel="stylesheet" href="/assets/css/layout.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<<<<<<< HEAD
+</head>
+
+<body>
+=======
     <!-- angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 
 <body ng-app="shopping-cart-app" ng-controller="shopping-cart-ctrl">
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
     <header class="section-header">
         <!-- Top header -->
         <div class="top-header">
             <ul class="nav justify-content-end">
                 <li class="nav-item mr-auto">
+<<<<<<< HEAD
+                    <a class="nav-link active" href="#"><i class="fas fa-home mr-2"></i>105 Nguyễn Hoàng, Hải Châu, Đà Nẵng</a>
+=======
                     <a class="nav-link" href="#"><i class="fas fa-home mr-2"></i>105 Nguyễn Hoàng, Hải Châu, Đà Nẵng</a>
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
                 </li>
                 <li class="nav-item mr-auto">
                     <a class="nav-link" href="#"><i class="fas fa-envelope mr-2"></i>digizone.com.vn@gmail.com</a>
                 </li>
                 <li class="nav-item">
+<<<<<<< HEAD
+                    <a class="nav-link disabled" href="#">Hotline : 0905 008 070</a>
+=======
                     <a class="nav-link" href="#">Hotline : 0905 008 070</a>
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
                 </li>
             </ul>
         </div>
@@ -61,6 +81,13 @@
                     </div>
                     <div class="col-lg-5 col-xl-4 col-sm-8 col-md-4 col-7">
                         <div class="d-flex justify-content-end">
+<<<<<<< HEAD
+                            <div class="dropdown btn-group"> 
+                            	<a class="nav-link nav-icons" th:href="@{|/cart|}"><i class="fas fa fa-shopping-bag"></i></a>
+								<a th:href="@{|/cart|}"><span class="cart-number">1</span></a>
+                            </div> 
+                            <span class="vl"></span> <a class="nav-link nav-user-img mt-2" th:href="@{|/Login|}"><span class="login">Đăng nhập</span></a>
+=======
                             <div class="dropdown btn-group">
                                 <a class="nav-link nav-icons" th:href="@{|/cart|}"><i class="fas fa fa-shopping-bag"></i></a>
                                 <a th:href="@{|/cart|}">
@@ -80,6 +107,7 @@
                             <th:block th:unless="${#request.remoteUser}">
                                 <span class="vl"></span> <a class="nav-link nav-user-img mt-2 text-light" th:href="@{/security/login/form}"><span class="login">Đăng nhập</span></a>
                             </th:block>
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
                         </div>
                     </div>
                 </div>
@@ -101,12 +129,21 @@
                                 <a th:each="c: ${cates}" class="dropdown-item" th:href="@{|/product/list?cid=${c.maDM}|}">[[${c.tenDM}]]</a>
                             </div>
                         </li>
+<<<<<<< HEAD
+                        <li class="nav-item"> <a class="nav-link" href="/admin/index">Review sản phẩm</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="">Hướng dẫn sử dụng</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="">Tin tức sản phẩm</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="">Khuyến mãi</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="">Liên hệ</a> </li>
+
+=======
                         <li class="nav-item"> <a class="nav-link" th:href="@{|/review|}">Review sản phẩm</a> </li>
                         <li class="nav-item"> <a class="nav-link" th:href="@{|/manuals|}">Hướng dẫn sử dụng</a> </li>
                         <li class="nav-item"> <a class="nav-link" th:href="@{|/news|}">Tin tức sản phẩm</a> </li>
                         <li class="nav-item"> <a class="nav-link" th:href="@{|/discount|}">Khuyến mãi</a> </li>
                         <li class="nav-item"> <a class="nav-link" th:href="@{|/contact|}">Liên hệ</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="/admin/index">Quản lý</a> </li>
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
                     </ul>
 
                     <ul class="navbar-nav ml-auto">
@@ -121,9 +158,15 @@
             </div>
         </nav>
         <!-- slide -->
+<<<<<<< HEAD
+        
+    </header>
+    
+=======
 
     </header>
 
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
     <div th:replace="${main}"></div>
 
     <footer class="page-footer bg-light">
@@ -238,6 +281,8 @@
         </div>
     </footer>
 
+<<<<<<< HEAD
+=======
     <!-- social -->
     <div class="social-button">
         <a href="tel:0905008070" class="call-button">
@@ -269,12 +314,16 @@
         })
     </script>
 
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<<<<<<< HEAD
+=======
     <script src="/assets/js/shopping-cart.js"></script>
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
 </body>
 
 </html>

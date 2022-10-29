@@ -14,7 +14,11 @@
 	<main>
 		<div class="container mt-5">
 			<div class="small-container single-product">
+<<<<<<< HEAD
+				<div class="row">
+=======
 				<div class="row" th:object="${item}">
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
 					<div class="col-sm-6">
 						<div class="card">
 							<div class="card-body">
@@ -43,17 +47,28 @@
 						</div>
 					</div>
 					<div class="col-sm-6">
+<<<<<<< HEAD
+						<p>Sản phẩm gia dụng</p>
+						<h1>Bếp Từ Đôi Xiaomi Mijia MDCLD01ACM</h1>
+						<h4>$50.00</h4>
+=======
 						<p></p>
 						<h1>[[${item.tenSP}]]</h1>
 						<h4>$[[${item.gia}]]</h4>
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
 						<select style="display: block; padding: 10px; margin-top: 20px;">
 							<option>Cỡ lớn hơn</option>
 							<option>Màu hồng</option>
 							<option>Cỡ nhỏ hơn</option>
+<<<<<<< HEAD
+						</select> <input class="mt-2" type="number" value="1"> <a href=""
+							class="btn-add">Add To Cart</a>
+=======
 						</select> 
 						<input class="mt-2" type="number" min="1" value="1" ng-model="item.soLuong">
 						<a href="" class="btn-add" style="text-decoration: none; color: #fff"
 							th:attr="ng-click=@{|cart.add(${item.maSP})|}">Add To Cart</a>
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
 
 
 						<h3>Chi tiết sản phẩm</h3>

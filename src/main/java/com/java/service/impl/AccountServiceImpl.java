@@ -12,12 +12,10 @@ import org.springframework.util.StringUtils;
 
 import com.java.dao.AccountDao;
 import com.java.entity.Account;
-import com.java.entity.Authority;
 import com.java.service.AccountService;
 
 @Service
 public class AccountServiceImpl implements AccountService{
-    
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -47,10 +45,8 @@ public class AccountServiceImpl implements AccountService{
     @Override
     public void delete(String tenND) {
         accountDao.deleteById(tenND);
-
-        
     }	
-
+    
     @Override
     public <S extends Account> S save(S account) {
         Optional<Account> optExist = findById(account.getTenND());
@@ -74,6 +70,16 @@ public class AccountServiceImpl implements AccountService{
         return accountDao.save(account);
     }
 
+//    @Override
+//    public List<Account> findAll() {
+//        return accountDAO.findAll();
+//    }
+//
+//    @Override
+//    public Optional<Account> findById(String tenND) {
+//        return accountDAO.findById(tenND);
+//    }
+
     @Override
     public boolean existsById(String tenND) {
         return accountDao.existsById(tenND);
@@ -89,7 +95,8 @@ public class AccountServiceImpl implements AccountService{
         accountDao.delete(entity);
     }
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public Account getById(String tenND) {
         return accountDao.getById(tenND);
     }
@@ -99,13 +106,7 @@ public class AccountServiceImpl implements AccountService{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-    
-
-    
-
-    
-
+	
     @Override
     public Optional<Account> findById(String tenND) {
         // TODO Auto-generated method stub

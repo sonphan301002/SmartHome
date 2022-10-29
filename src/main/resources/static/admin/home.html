@@ -1,147 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto:400,700">
 
-    <!-- https://fonts.google.com/specimen/Roboto -->
-    <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
+<!-- https://fonts.google.com/specimen/Roboto -->
+<link rel="stylesheet" href="/assets/css/fontawesome.min.css">
 
-    <!-- https://fontawesome.com/ -->
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+<!-- https://fontawesome.com/ -->
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-          integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+	integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- https://getbootstrap.com/ -->
-    <link rel="stylesheet" href="/assets/css/templatemo-style.css">
+<!-- https://getbootstrap.com/ -->
+<link rel="stylesheet" href="/assets/css/templatemo-style.css">
 
-    <!-- Angular -->
-    <script
-            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<!-- Angular -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 
-    <script
-            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body ng-app="admin-app">
-<div class="" id="home">
-    <nav class="navbar navbar-expand-xl">
-        <div class="container h-100">
-            <a class="navbar-brand" href="/admin/index">
-                <h1 class="tm-site-title mb-0">Admin</h1>
-            </a>
-            <button class="navbar-toggler ml-auto mr-0" type="button"
-                    data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <i class="fas fa-bars tm-nav-icon"></i>
-            </button>
+	<div class="" id="home">
+		<nav class="navbar navbar-expand-xl">
+			<div class="container h-100">
+				<a class="navbar-brand" href="/admin/index">
+					<h1 class="tm-site-title mb-0">Admin</h1>
+				</a>
+				<button class="navbar-toggler ml-auto mr-0" type="button"
+					data-toggle="collapse" data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<i class="fas fa-bars tm-nav-icon"></i>
+				</button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto h-100">
-                    <li class="nav-item"><a class="nav-link" href="#!order">
-                        <i class="fas fa-tachometer-alt"></i> Đơn hàng <span
-                            class="sr-only">(current)</span>
-                    </a></li>
-                    <li class="nav-item dropdown"><a
-                            class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                            role="button" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <i class="far fa-file-alt"></i> <span>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mx-auto h-100">
+						<li class="nav-item"><a class="nav-link" href="#!order">
+								<i class="fas fa-tachometer-alt"></i> Đơn hàng <span
+								class="sr-only">(current)</span>
+						</a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <i class="far fa-file-alt"></i> <span>
 									Báo cáo <i class="fas fa-angle-down"></i>
 							</span>
-                    </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Theo ngày</a> <a
-                                class="dropdown-item" href="#">Theo tháng</a> <a
-                                class="dropdown-item" href="#">Theo năm</a>
-                        </div></li>
-                    <li class="nav-item"><a class="nav-link" href="#!product">
-                        <i class="fas fa-shopping-cart"></i> Sản phẩm
-                    </a></li>
+						</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">Theo ngày</a> <a
+									class="dropdown-item" href="#">Theo tháng</a> <a
+									class="dropdown-item" href="#">Theo năm</a>
+							</div></li>
+						<li class="nav-item"><a class="nav-link" href="#!product">
+								<i class="fas fa-shopping-cart"></i> Sản phẩm
+						</a></li>
 
-                    <li class="nav-item"><a class="nav-link"
-                                            href="#!account"> <i class="far fa-user"></i> Tài
-                        khoản
-                    </a></li>
-                    <li class="nav-item"><a class="nav-link "
-                                            href="#!authority"> <i class="fas fa-cog"></i>
-                        Phân quyền
-                    </a></li>
-                    <li class="nav-item"><a class="nav-link "
-                                            href="#!supplier"> <i class="fas fa-warehouse"></i> Nhà
-                        cung cấp
-                    </a></li>
+						<li class="nav-item"><a class="nav-link" href="#!category">
+								<i class="fas fa-list"></i></i> Danh mục
+						</a></li>
 
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link d-block"
-                                            href="@{/Login}"> <b>Logout</b>
-                    </a></li>
-                </ul>
-            </div>
-        </div>
+						<li class="nav-item"><a class="nav-link" href="#!account">
+								<i class="far fa-user"></i> Tài khoản
+						</a></li>
+						<li class="nav-item"><a class="nav-link " href="#!supplier">
+								<i class="fas fa-warehouse"></i> Nhà cung cấp
+						</a></li>
+						<li class="nav-item"><a class="nav-link " href="#!authority">
+								<i class="fas fa-cog"></i> Phân quyền </a></li>
+					</ul>
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link d-block" id="admin"
+							href="/security/logoff"> <b>Logout</b>
+						</a></li>
+					</ul>
+				</div>
+			</div>
 
-    </nav>
+		</nav>
 
-    <main>
-        <ng-view></ng-view>
+		<main>
+			<ng-view></ng-view>
+			
+		</main>
 
-    </main>
+		<footer class="tm-footer row tm-mt-small">
+			<div class="col-12 font-weight-light">
+				<p class="text-center text-white mb-0 px-4 small">
+					Copyright &copy; <b>2022</b> All rights reserved.
+				</p>
+			</div>
+		</footer>
+	</div>
 
-    <footer class="tm-footer row tm-mt-small">
-        <div class="col-12 font-weight-light">
-            <p class="text-center text-white mb-0 px-4 small">
-                Copyright &copy; <b>2022</b> All rights reserved.
-            </p>
-        </div>
-    </footer>
-</div>
+	<script type="text/javascript" src="/admin/admin-app.js"></script>
+	<script type="text/javascript" src="/admin/product/product-ctrl.js"></script>
+	<script type="text/javascript" src="/admin/account/account-ctrl.js"></script>
+	<script type="text/javascript" src="/admin/order/order-ctrl.js"></script>
+	<script type="text/javascript" src="/admin/category/category-ctrl.js"></script>
+	<script type="text/javascript" src="/admin/authority/authority-ctrl.js"></script>
+	<script type="text/javascript" src="/admin/supplier/supplier-ctrl.js"></script>
 
-<script type="text/javascript" src="/admin/admin-app.js"></script>
-<script type="text/javascript" src="/admin/product/product-ctrl.js"></script>
+	<script src="/assets/js/jquery-3.3.1.min.js"></script>
 
+	<script src="/assets/js/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="/admin/account/account-ctrl.js"></script>
+	<script src="/assets/js/tooplate-scripts.js"></script>
 
+	<script>
+		Chart.defaults.global.defaultFontColor = 'white';
+		let ctxLine, ctxBar, ctxPie, optionsLine, optionsBar, optionsPie, configLine, configBar, configPie, lineChart;
+		barChart, pieChart;
+		// DOM is ready
+		$(function() {
+			drawLineChart(); // Line Chart
+			drawBarChart(); // Bar Chart
+			drawPieChart(); // Pie Chart
 
-
-<script type="text/javascript" src="/admin/order/order-ctrl.js"></script>
-
-<script type="text/javascript" src="/admin/category/category-ctrl.js"></script>
-<script type="text/javascript" src="/admin/authority/authority-ctrl.js"></script>
-<script type="text/javascript" src="/admin/supplier/supplier-ctrl.js"></script>
-
-
-<script src="/assets/js/jquery-3.3.1.min.js"></script>
-
-
-<script src="/assets/js/bootstrap.min.js"></script>
-
-
-
-
-<script src="/assets/js/tooplate-scripts.js"></script>
-
-<script>
-    Chart.defaults.global.defaultFontColor = 'white';
-    let ctxLine, ctxBar, ctxPie, optionsLine, optionsBar, optionsPie, configLine, configBar, configPie, lineChart;
-    barChart, pieChart;
-    // DOM is ready
-    $(function() {
-        drawLineChart(); // Line Chart
-        drawBarChart(); // Bar Chart
-        drawPieChart(); // Pie Chart
-
-        $(window).resize(function() {
-            updateLineChart();
-            updateBarChart();
-        });
-    })
-</script>
-
+			$(window).resize(function() {
+				updateLineChart();
+				updateBarChart();
+			});
+		})
+		
+        document.querySelector('#admin').addEventListener('click', (event) => {
+            event.preventDefault();
+            Swal.fire({
+                title: 'Bạn muốn đăng xuất?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Có, đăng xuất'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.assign("/security/logoff");
+                }
+            })
+        })
+	</script>
+	
 </body>
 </html>

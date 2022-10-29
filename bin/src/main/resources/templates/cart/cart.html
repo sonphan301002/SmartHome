@@ -11,7 +11,11 @@
 
 <body>
     <main>
+<<<<<<< HEAD
+        <div class="container">
+=======
         <div class="container" xmlns:th="http://www.thymeleaf.org" th:fragment="shopping_cart">
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
             <div class="cart-page">
                 <table>
                     <tr>
@@ -20,27 +24,45 @@
                         <th>Thành tiền</th>
                     </tr>
 
+<<<<<<< HEAD
+                    <tr>
+=======
                     <tr ng-repeat="item in cart.items">
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
                         <td>
                             <div class="cart-info">
                                 <img src="/assets/images/c66752476f22274d8fdd89594ae2a168.jpg" 
                                     alt="" width="200px">
                                 <div>
+<<<<<<< HEAD
+                                    <p>Đồ gia dụng</p>
+                                    <small>Giá: $999</small>
+                                    <a href="">Xóa</a>
+=======
                                     <p>{{item.tenSP}}</p>
                                     <small>$ {{item.gia}}</small>
                                     <a href="" ng-click="cart.remove(item.id)">Xóa</a>
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
                                 </div>
                             </div>
                         </td>
                         <td>
                             <form action="">
                                 <div class="form-group">
+<<<<<<< HEAD
+                                    <input type="number" value="1">
+                                </div>
+                            </form>
+                        </td>
+                        <td>$999</td>
+=======
                                     <input type="number" ng-change="cart.saveToLocalStorage()" 
 			                		ng-model="item.soLuong" min="1">
                                 </div>
                             </form>
                         </td>
                         <td>${{item.soLuong * item.gia | number : 2}}</td>
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
                     </tr>
                 </table>
 
@@ -48,6 +70,17 @@
                     <table>
                         <tr>
                             <td>Thành tiền</td>
+<<<<<<< HEAD
+                            <td>$999</td>
+                        </tr>
+                        <tr>
+                            <td>Thuế VAT</td>
+                            <td>$1</td>
+                        </tr>
+                        <tr>
+                            <td>Tổng tiền</td>
+                            <td>$1000</td>
+=======
                             <td>Thuế VAT</td>
                             <td>Tổng tiền</td>
                         </tr>
@@ -55,13 +88,18 @@
                             <td>${{item.soLuong * item.gia | number : 2}}</td>
                             <td ng-model="item.VAT">${{(item.soLuong * item.gia) * 0.05 | number : 2}}</td>
                             <td >${{(item.soLuong * item.gia) + ((item.soLuong * item.gia) * 0.05) | number : 2}}</td>
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
                         </tr>
                     </table>
                 </div>
 
                 <div class="cart-pay">
+<<<<<<< HEAD
+                    <button class="">Thanh toán</button>
+=======
                 	<span style="display: none;" id="tenND" th:text="${#request.remoteUser}"></span>
                     <button class="" ng-click="order.purcharse()">Thanh toán</button>
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
                 </div>
             </div>
         </div>

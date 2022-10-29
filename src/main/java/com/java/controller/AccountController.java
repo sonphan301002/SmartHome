@@ -1,6 +1,5 @@
 package com.java.controller;
 
-import java.util.Date;
 
 import javax.validation.Valid;
 
@@ -17,8 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-
 
 @Controller
 @RequestMapping("security")
@@ -28,7 +25,7 @@ public class AccountController {
     AccountService accountService;
 	
     @GetMapping("/login/form")
-	public String login(Model model) {
+	public String login(Model model, Account account) {
         model.addAttribute("message", "Vui lòng đăng nhập");
 		return "/account/login";
 	}
@@ -78,7 +75,6 @@ public class AccountController {
         return "/account/login";
     }
     
-	
     @GetMapping("/change")
 	public String change() {
 		return "/account/change-password";

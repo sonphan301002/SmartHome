@@ -140,9 +140,9 @@
 									</thead>
 									<tbody>
 										<tr ng-repeat="p in items">
-											<td>
-												<img alt="" ng-src="{{'/assets/images/' + p.hinhAnh}}" width="50" height="50">
-											</td>
+											<td><img alt=""
+												ng-src="{{'/assets/images/' + p.hinhAnh}}" width="50"
+												height="50"></td>
 											<td>#{{p.maSP}}</td>
 											<td>{{p.nhaCungCap.tenNCC}}</td>
 											<td>{{p.danhMuc.tenDM}}</td>
@@ -150,8 +150,8 @@
 											<td>{{p.gia}}</td>
 											<td>{{p.soLuong}}</td>
 											<td>{{p.trangThai}}</td>
-											<td>{{p.ngayTao}}</td>
-											<td>{{p.ngaySua}}</td>
+											<td>{{p.ngayTao | date:'dd-MM-yyyy'}}</td>
+											<td>{{p.ngaySua | date:'dd-MM-yyyy'}}</td>
 											<td><button ng-click="delete(p)"
 													class="tm-product-delete-link btn">
 													<i class="far fa-trash-alt tm-product-delete-icon"></i>

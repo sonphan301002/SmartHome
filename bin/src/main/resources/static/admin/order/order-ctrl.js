@@ -1,4 +1,8 @@
 app.controller("order-ctrl", function($scope, $http) {
+<<<<<<< HEAD
+	
+})
+=======
     $scope.items  = [];
     $scope.form = {};
     $scope.oditems = [];
@@ -59,3 +63,4 @@ app.controller("order-ctrl", function($scope, $http) {
         });
     }
 });
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac

@@ -1,7 +1,6 @@
 package com.java.config;
 
 import java.util.NoSuchElementException;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.oauth2.client.endpoint.AbstractOAuth2AuthorizationGrantRequest;
 import org.springframework.security.oauth2.client.endpoint.DefaultAuthorizationCodeTokenResponseClient;
 import org.springframework.security.oauth2.client.endpoint.OAuth2AccessTokenResponseClient;
 import org.springframework.security.oauth2.client.endpoint.OAuth2AuthorizationCodeGrantRequest;
@@ -27,6 +25,7 @@ import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequ
 import com.java.entity.Account;
 import com.java.service.AccountService;
 
+@SuppressWarnings("deprecation")
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -140,6 +139,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	
 	//Cho phép truy xuất RESP API từ bên ngoài (domain khác)
+	@SuppressWarnings("static-access")
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers(HttpMethod.POST.OPTIONS,"/**");

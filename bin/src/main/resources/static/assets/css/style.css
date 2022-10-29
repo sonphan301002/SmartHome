@@ -9,11 +9,15 @@ body {
 /* LOGIN */
 
 .container-fluid {
+<<<<<<< HEAD
+    margin-top: 35px;
+=======
 
     
 
     margin-top: 75px;
 
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
 }
 
 .btn-register {
@@ -69,6 +73,10 @@ body {
 }
 
 @media screen and (max-width: 800px) {
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
 	.container-fluid{
 		margin-top: 30px;
 	}
@@ -78,12 +86,19 @@ body {
 	.col-img{
 		border-right: none;
 	}
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
     .container-fluid {
         margin-top: 30px;
     }
     .img-login {
         margin-top: 0px;
     }
+<<<<<<< HEAD
+>>>>>>> 14893a796958741d946e39df5d4424681ab32b0f
+=======
     .col-img {
         border-right: none;
     }
@@ -93,6 +108,7 @@ body {
     .img-login {
         margin-top: 0px;
     }
+>>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
 }
 
 @media screen and (max-width: 800px) {

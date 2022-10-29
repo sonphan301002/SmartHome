@@ -38,13 +38,14 @@ public class ProductRestController {
 		return productService.save(product);
 	}
 	
+	@PutMapping("{maSP}")
+	public Product update(@PathVariable("maSP") Long maSP, @RequestBody Product product) {
+	    return productService.update(product);
+	}
+	
 	@DeleteMapping("{maSP}")
 	public void delete(@PathVariable("maSP") Long masp) {
 		productService.delete(masp);
 	}
 	
-	@PutMapping("{maSP}")
-	public Product update(@PathVariable("maSP") Long maSP, @RequestBody Product product) {
-		return productService.update(product);
-	}
 }
