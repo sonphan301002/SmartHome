@@ -11,6 +11,7 @@
 <body>
 	<main>
 		<div class="container" th:fragment="shopping_cart">
+			<div id="username" style="display: none;">[[${#request.remoteUser}]]</div>
 			<div class="cart-page">
 				<div class="cart-null" ng:if="cart.count == 0">
 					<div class="text-center">
@@ -18,7 +19,8 @@
 							alt="" />
 						<h5>Không có sản phẩm trong giỏ hàng</h5>
 						<div class="cart-button d-flex justify-content-center">
-							<a class="text-white" th:href="@{/}" style="text-decoration: none;">Mua sắm ngay</a>
+							<a class="text-white" th:href="@{/}"
+								style="text-decoration: none;">Mua sắm ngay</a>
 						</div>
 					</div>
 				</div>
@@ -38,8 +40,8 @@
 										width="100%" height="100%">
 									<div>
 										<p class="product-name">{{item.tenSP}}</p>
-										<small class="product-price">$ {{item.gia | number : 0}}</small>
-										<a class="badge badge-pill badge-danger ml-3" href=""
+										<small class="product-price">$ {{item.gia | number :
+											0}}</small> <a class="badge badge-pill badge-danger ml-3" href=""
 											ng-click="cart.remove(item.id)">Xóa</a>
 									</div>
 								</div>
@@ -66,22 +68,19 @@
 							<tr ng-repeat="item in cart.items">
 								<td>{{item.gia * item.soLuong | number : 2}} ₫</td>
 								<td>{{item.gia * item.soLuong * 0.05 | number : 2}} ₫</td>
-								<td>{{item.gia * item.soLuong + (item.gia * item.soLuong * 0.05) | number : 2}} ₫</td>
+								<td>{{item.gia * item.soLuong + (item.gia * item.soLuong *
+									0.05) | number : 2}} ₫</td>
 							</tr>
 						</table>
 					</div>
 
 					<div class="cart-button">
 						<th:block th:if="${#request.remoteUser}">
-							<div id="tenND" ng-model="order.taiKhoan"
-								style="display: none;">[[${#request.remoteUser}]]</div>
-							<a class="text-white" type="button" 
-								ng-click="order.purcharse()">Mua hàng</a>
+							<a class="text-white" type="button" ng-click="order.purcharse()">Mua
+								hàng</a>
 						</th:block>
 
 						<th:block th:unless="${#request.remoteUser}">
-							<div id="tenND" ng-model="order.taiKhoan"
-								style="display: none;">[[${#request.remoteUser}]]</div>
 							<a class="text-white" style="text-decoration: none;"
 								th:href="@{/order/checkout}">Mua hàng</a>
 						</th:block>

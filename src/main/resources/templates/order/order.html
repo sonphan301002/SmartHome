@@ -13,6 +13,7 @@
             <div class="section-header">
                 <h2 class="section-title">Đơn Hàng</h2>
             </div>
+            
             <div class="section-title">
                 <section class="row" style="background-color: #87A2FB;">
                     <div class="container py-5 h-100">
@@ -37,15 +38,53 @@
                                         </div>
 
                                         <ul id="progressbar-2" class="d-flex justify-content-between mx-0 mt-0 mb-5 px-0 pt-0 pb-2">
-                                            <li class="step0 active text-center" id="step1"></li>
-                                            <li class="step0 active text-center" id="step2"></li>
-                                            <li class="step0 active text-center" id="step3"></li>
-                                            <li class="step0 active text-center" id="step4"></li>
+                                            <!--Trạng thái 1 -->
+                                            <th:block th:if="${o.trangThai} == 1">
+                                            	<li class="step0 active text-center" id="step1"></li>
+                                            	
+                                            	<li class="step0 text-center" id="step2"></li>
+                                            	
+                                            	<li class="step0 text-center" id="step3"></li>
+                                            	
+                                            	<li class="step0 text-center" id="step4"></li>
+                                            </th:block>
+                                            
+											<!--Trạng thái 2 -->
+											<th:block th:if="${o.trangThai} == 2">
+                                            	<li class="step0 active text-center" id="step1"></li>
+                                            	
+                                            	<li class="step0 active text-center" id="step2"></li>
+                                            	
+                                            	<li class="step0 text-center" id="step3"></li>
+                                            	
+                                            	<li class="step0 text-center" id="step4"></li>
+                                            </th:block>
+                                            
+                                            <!--Trạng thái 3 -->
+                                            <th:block th:if="${o.trangThai} == 3">
+                                            	<li class="step0 active text-center" id="step1"></li>
+                                            	
+                                            	<li class="step0 active text-center" id="step2"></li>
+                                            	
+                                            	<li class="step0 active text-center" id="step3"></li>
+                                            	
+                                            	<li class="step0 text-center" id="step4"></li>
+                                            </th:block>
+                                            
+                                            <!--Trạng thái 4 -->
+                                            <th:block th:if="${o.trangThai} == 4">
+                                            	<li class="step0 active text-center" id="step1"></li>
+                                            	
+                                            	<li class="step0 active text-center" id="step2"></li>
+                                            	
+                                            	<li class="step0 active text-center" id="step3"></li>
+                                            	
+                                            	<li class="step0 active text-center" id="step4"></li>
+                                            </th:block>
                                         </ul>
 
                                         <div class="d-flex justify-content-between">
                                             <div class="d-lg-flex align-items-center">
-
                                                 <div>
                                                     <p class="fw-bold mb-1">Đơn hàng</p>
                                                     <p class="fw-bold mb-0">Đang xử lý</p>

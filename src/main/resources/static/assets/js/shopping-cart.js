@@ -11,6 +11,11 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				//nếu mặt hàng đã có thì tăng số lượng
 				item.soLuong++;
 				this.saveToLocalStorage();
+				Swal.fire({
+					icon: 'success',
+					title: 'Thêm vào giỏ thành công',
+					showConfirmButton: true
+				});
 			} else {
 				//tải sản phẩm từ server về
 				$http.get(`/rest/products/${maSP}`).then(resp => {
@@ -18,6 +23,11 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					//thêm vào danh sách
 					this.items.push(resp.data);
 					this.saveToLocalStorage();
+					Swal.fire({
+						icon: 'success',
+						title: 'Thêm vào giỏ thành công',
+						showConfirmButton: true
+					});
 				})
 			}
 		},
@@ -85,7 +95,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		trangThai: 1,
 		diaChi: "",
 		ghiChu: "",
-		taiKhoan: {tenND: $("#tenND").text()},
+		taiKhoan: {tenND: $("#username").text()},
 		get hoaDonChiTiet() {
 			return $scope.cart.items.map(item => {
 				return {
@@ -114,6 +124,25 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					title: 'Thanh toán thất bại',
 					showConfirmButton: true
 				})
+				console.log(error);
+			})
+		},
+		update() {
+			var order = angular.copy(this);
+			//Đặt hàng
+			$http.put(`/rest/orders/${maHD}`, order).then(resp => {
+				Swal.fire({
+					icon: 'success',
+					title: 'Cập nhật thành công',
+					showConfirmButton: true
+				});
+				location.reload();
+			}).catch(error => {
+				Swal.fire({
+					icon: 'warning',
+					title: 'Cập nhật thất bại',
+					showConfirmButton: true
+				});
 				console.log(error);
 			})
 		}
