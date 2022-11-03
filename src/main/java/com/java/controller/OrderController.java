@@ -4,9 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.java.entity.Order;
+import com.java.entity.OrderDetail;
 import com.java.service.OrderService;
 
 @Controller
@@ -23,7 +28,9 @@ public class OrderController {
 	
 	@RequestMapping("/order/orderDetail/{maHD}")
 	public String orderDetail(Model model, @PathVariable("maHD") Long maHD) {
-		model.addAttribute("detail", orderService.findById(maHD));
+	    //List<OrderDetail> detailList = orderService.findByMaHD(maHD);
+	    Order order = orderService.findById(maHD);
+		model.addAttribute("order", order);
 		return "/order/orderdetail";
 	}
 	

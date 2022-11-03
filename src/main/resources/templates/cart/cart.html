@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org"
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
 	th:replace="~{/layout/index :: dynamic(~{::main})}">
 <head>
 <title>Digizone</title>
@@ -11,6 +11,7 @@
 <body>
 	<main>
 		<div class="container" th:fragment="shopping_cart">
+			<div id="username" style="display: none;">[[${#request.remoteUser}]]</div>
 			<div class="cart-page">
 				<span id="tenND" style="display: none;">[[${#request.remoteUser}]]</span>
 				<div class="cart-null" ng:if="cart.count == 0">
@@ -19,7 +20,8 @@
 							alt="" />
 						<h5>Không có sản phẩm trong giỏ hàng</h5>
 						<div class="cart-button d-flex justify-content-center">
-							<a class="text-white" th:href="@{/}">Mua sắm ngay</a>
+							<a class="text-white" th:href="@{/}"
+								style="text-decoration: none;">Mua sắm ngay</a>
 						</div>
 					</div>
 				</div>
@@ -53,7 +55,7 @@
 									</div>
 								</form>
 							</td>
-							<td>{{cart.amount | number : 2}} ₫</td>
+							<td>{{item.gia * item.soLuong | number : 2}} ₫</td>
 						</tr>
 					</table>
 
@@ -65,9 +67,10 @@
 								<td>Tổng tiền</td>
 							</tr>
 							<tr ng-repeat="item in cart.items">
-								<td>{{cart.amount | number : 2}} ₫</td>
-								<td>{{cart.amount * 0.05 | number : 2}} ₫</td>
-								<td>{{cart.amount + (cart.amount * 0.05) | number : 2}} ₫</td>
+								<td>{{item.gia * item.soLuong | number : 2}} ₫</td>
+								<td>{{item.gia * item.soLuong * 0.05 | number : 2}} ₫</td>
+								<td>{{item.gia * item.soLuong + (item.gia * item.soLuong *
+									0.05) | number : 2}} ₫</td>
 							</tr>
 						</table>
 					</div>
@@ -80,6 +83,8 @@
 
 						<th:block th:unless="${#request.remoteUser}">
 							<a class="text-white" th:href="@{/order/checkout}">Mua hàng</a>
+							<a class="text-white" style="text-decoration: none;"
+								th:href="@{/order/checkout}">Mua hàng</a>
 						</th:block>
 					</div>
 				</div>

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.java.service.AccountService;
 import com.java.service.ProductService;
 
 @Controller
@@ -12,8 +13,12 @@ public class HomeController {
 	@Autowired
 	ProductService productService;
 	
+	@Autowired
+	AccountService accountService;
+	
 	@RequestMapping("/")
 	public String home(Model model) {
+	    model.addAttribute("taiKhoan", accountService.findAll());
 		model.addAttribute("bestSeller", productService.findAll());
 		return "/layout/main";
 	}

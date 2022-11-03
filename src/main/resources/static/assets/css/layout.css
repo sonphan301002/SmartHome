@@ -527,6 +527,297 @@ td:last-child {
 }
 
 
+/*MAIN.HTML BONUS*/
+#main-content{
+    max-width: 1200px;  
+    margin: 0 auto;
+    background-color: #ffff;
+    border-radius: 5px;
+     
+}
+
+#mapper{
+    background-color: #e7e7e7;
+     
+}
+
+.block-pricing{
+    border-radius: 5px;
+}
+
+.text-color {
+    color: #fff
+}
+
+.carousel-item img {
+    height: 400px
+}
+
+.bg-main{
+    background-color: #007bff;
+}
+
+ 
+ 
+#content-down{
+   max-width: 1200px;
+   margin: 0 auto
+}
+.text {
+    font-weight: bold
+}
+.card{
+    height: 130px;
+    overflow: hidden;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    
+} 
+.imagename{
+    font-size: 14px;
+    font-weight: bold;
+     
+}
+
+#wp-slider{
+     
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 10px
+     
+} 
+
+.iditems {
+    background-color: #fff;
+    border-radius: 5px;
+    width: 100%;
+    margin: 0px auto;
+    
+    
+}
+
+ 
+.slick-slide {
+    margin: 10px 5px; 
+}
+
+.slick-slide img {
+    width: 100%;
+    height: 180px;
+    border: 0px solid #fff;
+}
+
+ 
+ 
+/*END MAIN.HTML*/
+
+
+/* PRODUCT2 */
+
+ #wapper{
+    background-color: #eee;
+} 
+
+.t-products {
+    background-color: #e48271;
+    color: #fff;
+    border-radius: 3px
+}
+
+.processor {
+    background-color: #fff;
+    margin-top: 5px;
+    border-bottom: 1px solid #eee
+}
+
+.brand {
+    background-color: #fff;
+    border-bottom: 1px solid #eee
+}
+
+.type {
+    background-color: #fff
+}
+
+.product {
+    border: 0.5px solid rgb(40, 39, 39);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+    
+    position: relative
+    
+}
+
+.about span {
+    color: #FF1E00;
+    font-size: 16px
+}
+.about a{
+    text-decoration: none;
+}
+.cart-button button {
+    font-size: 12px;
+    color: #fff;
+    background-color: #5629c0;
+    height: 38px
+}
+
+.cart-button button:focus,
+button:active {
+    font-size: 12px;
+    color: #fff;
+    background-color: #5629c0;
+    box-shadow: none
+}
+
+.product_fav i {
+    line-height: 40px;
+    color: #5629c0;
+    font-size: 15px
+}
+
+.product_fav {
+    display: inline-block;
+    width: 36px;
+    height: 39px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 11%;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 3px;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease
+}
+
+.product_fav:hover {
+    background: #2990c0
+}
+
+.product_fav:hover i {
+    color: #fff
+}
+
+.about {
+    margin-top: 12px
+}
+
+.off {
+    position: absolute;
+    left: 65%;
+    top: 6%;
+    width: 80px;
+    text-align: center;
+    height: 30px;
+    line-height: 8px;
+    border-radius: 5px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff
+}
+
+ 
+ 
+
+.pagination{
+    margin-top: 10px;
+    justify-content: center;
+} 
+.pagination ul{
+    display: flex;
+    background-color: #fff;
+    padding: 6px;
+    border-radius: 50px;
+    border: 0.3px solid #000 ;
+}
+
+.pagination ul li{
+    color: #20b2aa;
+    list-style: none;
+    line-height: 45px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+     
+}
+
+.pagination ul li.numb {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    margin: 0 3px;
+}
+.pagination ul li.dots{
+    font-size: 22px;
+    cursor: default;
+}
+.pagination ul li.btn{
+    
+    padding: 0 20px;
+}
+.pagination ul li.prev{
+    border-radius: 25px 5px 5px 25px;
+} 
+
+.pagination ul li.next{
+    border-radius: 5px 25px 25px 5px;
+}
+.pagination ul li.active,
+.pagination ul li.numb:hover,
+.pagination ul li.btn:hover{
+    color: #fff;
+    background: #20b2aa;
+} 
+
+/* #blog-pager{
+    width: 100%;
+    float: left;
+    text-align: center;
+    padding: 20px 0;
+}
+.pagination{
+    
+    width: 100%;
+    padding-left: 0;
+    list-style: none;
+    border-radius: 0.25rem;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 10px;
+    
+} 
+.pagination li a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    padding: 3px 10px;
+    font: 14px "Source Sans Pro", -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";;
+}
+.pagination li.disabled {
+    display: none;
+}
+.pagination li {
+    background-color: #4e5051;
+    display: inline-block;
+    border-radius: 34%;
+    padding: 5px;
+    margin: 5px;
+}
+  */
+ 
+  
+/* END PRODUCT */
+
+
 /*edit profile*/
 
 #wrapper {
@@ -634,6 +925,7 @@ td:last-child {
 }
 
 /* Product-detail-end */
+
  /* CONTACT*/
 .contact-header-text {
 	padding: 1.5rem 0 1.5rem;

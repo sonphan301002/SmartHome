@@ -22,17 +22,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-<<<<<<< HEAD
+
 		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>-->
-=======
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
->>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -47,13 +47,12 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-<<<<<<< HEAD
-=======
+
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
->>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
+
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
@@ -78,8 +77,7 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-<<<<<<< HEAD
-=======
+
 
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -93,7 +91,7 @@
 			<version>5.7.3</version>
 			<scope>compile</scope>
 		</dependency>
->>>>>>> e25c5e4f1893f3031b96ee537d3e99fc3524c4ac
+
 	</dependencies>
 
 	<build>

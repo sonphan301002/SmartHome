@@ -31,15 +31,14 @@ public class OrderServiceImpl implements OrderService {
     public Order findById(Long maHD) {
         return odao.findById(maHD).get();
     }
-
+    
     @Override
     public List<OrderDetail> findByMaHD(Long maHD) {
         return oddao.findByMaHD(maHD);
     }
-
     @Override
-    public Order update(Order order){
-        return odao.save(order);
+    public List<Order> findByUsername(String tenND) {
+        return odao.findByUsername(tenND);
     }
 
     @Override
@@ -58,7 +57,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> findByUsername(String tenND) {
-        return odao.findByUsername(tenND);
+    public Order update(Order order){
+        return odao.save(order);
     }
+
 }

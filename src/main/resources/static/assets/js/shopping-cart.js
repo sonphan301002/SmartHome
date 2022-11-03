@@ -11,6 +11,11 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				//nếu mặt hàng đã có thì tăng số lượng
 				item.soLuong++;
 				this.saveToLocalStorage();
+				Swal.fire({
+					icon: 'success',
+					title: 'Thêm vào giỏ thành công',
+					showConfirmButton: true
+				});
 			} else {
 				//tải sản phẩm từ server về
 				$http.get(`/rest/products/${maSP}`).then(resp => {
@@ -18,6 +23,11 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					//thêm vào danh sách
 					this.items.push(resp.data);
 					this.saveToLocalStorage();
+					Swal.fire({
+						icon: 'success',
+						title: 'Thêm vào giỏ thành công',
+						showConfirmButton: true
+					});
 				})
 			}
 		},
@@ -49,6 +59,11 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			this.saveToLocalStorage();
 		},
 		
+		//xóa toàn bộ sản phẩm trong giỏ hàng
+        clear(){
+            this.items = []
+            this.saveToLocalStorage();
+        },
 		//tính tổng tiền của một sản phẩm
 		amt_of(item) { },
 		//tính tổng số lượng các mặt hàng trong giỏ hàng
@@ -76,22 +91,24 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			this.items = json ? JSON.parse(json) : [];
 		}
 	}
+
 	$scope.cart.loadFromLocalStorage();
 
 	$scope.order = {
 		ngayBan: new Date(),
 		ngaySua: new Date(),
 		ngayTao: new Date(),
-		taiKhoan: { tenND: $("#tenND").text() },
+		trangThai: 1,
 		diaChi: "",
 		ghiChu: "",
 		trangThai: 1,
+		taiKhoan: {tenND: $("#username").text()},
 		get hoaDonChiTiet() {
 			return $scope.cart.items.map(item => {
 				return {
-					sanPham: { maSP: item.maSP },
-					soLuong: item.soLuong,
+					sanPham: {maSP: item.maSP},
 					donGia: item.gia,
+					soLuong: item.soLuong,
 					giamGia: item.giamGia,
 					VAT: item.VAT
 				}
@@ -105,7 +122,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					icon: 'success',
 					title: 'Thanh toán thành công',
 					showConfirmButton: true
-				})
+				});
 				$scope.cart.clear();
 				location.href = "/order/orderDetail/" + resp.data.maHD;
 			}).catch(error => {
@@ -114,6 +131,25 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					title: 'Thanh toán thất bại',
 					showConfirmButton: true
 				})
+				console.log(error);
+			})
+		},
+		update() {
+			var order = angular.copy(this);
+			//Đặt hàng
+			$http.put(`/rest/orders/${maHD}`, order).then(resp => {
+				Swal.fire({
+					icon: 'success',
+					title: 'Cập nhật thành công',
+					showConfirmButton: true
+				});
+				location.reload();
+			}).catch(error => {
+				Swal.fire({
+					icon: 'warning',
+					title: 'Cập nhật thất bại',
+					showConfirmButton: true
+				});
 				console.log(error);
 			})
 		}

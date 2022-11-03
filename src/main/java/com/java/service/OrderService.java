@@ -9,14 +9,13 @@ import java.util.List;
 public interface OrderService {
     List<Order> findAll();
 
+    Order findById(Long maHD);
+    
+    List<Order> findByUsername(String tenND);
+    
     List<OrderDetail> findByMaHD(Long maHD);
 
-    Order update(Order order);
-
-
     Order create(JsonNode orderData);
-
-	Order findById(Long maHD);
-
-	List<Order> findByUsername(String tenND);
+    
+    Order update(Order order);
 }
