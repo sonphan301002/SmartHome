@@ -54,4 +54,20 @@ public class ProductServiceImpl implements ProductService{
 	public void delete(Long maSP) {
 		productDAO.deleteById(maSP);
 	}
+	
+	public List<Product> findByTensp(String keyword) {
+		 
+		return productDAO.findByTensp(keyword);
+	}
+
+//	@Override
+//	public Page<Product> findAllByTenspLike(String keyword, Pageable pageable) {
+//		 
+//		return productDAO.findAllByTenspLike(keyword, pageable);
+//	}
+//
+//	@Override
+//	public Page<Product> findAll(Pageable pageable) {
+// 		return productDAO.findAll(pageable);
+//	}
 }

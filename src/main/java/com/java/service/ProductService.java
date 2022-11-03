@@ -14,4 +14,8 @@ public interface ProductService {
 	Product add(Product product);
 	Product update(Product product);
 	void delete(Long id);
+	
+	List<Product> findByTensp(String keyword);
+//	Page<Product> findAllByTenspLike(String keyword, Pageable pageable);
+//	Page<Product> findAll(Pageable pageable);
 }

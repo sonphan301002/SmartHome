@@ -18,49 +18,71 @@
 					<div class="col-sm-6">
 						<div class="card">
 							<div class="card-body">
-								<img
-									src="/assets/images/bep-tu-doi-thong-minh-mijia-mdcld01acm-1.jpg"
-									width="100%" id="productImg">
+							<a th:href="@{|/productDetail/{maSP}|}">
+								<img th:src="@{|/assets/images/*{image}|}" width="100%" id="productImg"></a>
+							
+								<!--<img src="/assets/images/bep-tu-doi-thong-minh-mijia-mdcld01acm-1.jpg"
+									width="100%" id="productImg">-->
 							</div>
 						</div>
 
 						<div class="small-img-row mt-3">
 							<div class="small-img-col">
-								<img src="/assets/images/bep-dien-tu-zhiwu-zhu__nnn_.jpg"
-									width="100%" class="small-img img-thumbnail">
+							<a th:href="@{|/productDetail/{maSP}|}">
+							<img th:src="@{|/assets/images/*{image}|}"
+									width="100%" class="small-img img-thumbnail"></a>
+									
+								<!--<img src="/assets/images/bep-dien-tu-zhiwu-zhu__nnn_.jpg"
+									width="100%" class="small-img img-thumbnail">-->
 							</div>
 							<div class="small-img-col">
-								<img src="/assets/images/may-massage-chan-leravan_n_.jpg"
-									width="100%" class="small-img img-thumbnail">
+							<a th:href="@{|/productDetail/{maSP}|}">
+								<img th:src="@{|/assets/images/*{image}|}"
+									width="100%" class="small-img img-thumbnail"></a>
+									
+								<!--<img src="/assets/images/may-massage-chan-leravan_n_.jpg"
+									width="100%" class="small-img img-thumbnail">-->
 							</div>
 							<div class="small-img-col">
-								<img src="/assets/images/c66752476f22274d8fdd89594ae2a168.jpg"
-									width="100%" class="small-img img-thumbnail">
+							<a th:href="@{|/productDetail/{maSP}|}">
+								<img th:src="@{|/assets/images/*{image}|}"
+									width="100%" class="small-img img-thumbnail"></a>
+									
+								<!--<img src="/assets/images/c66752476f22274d8fdd89594ae2a168.jpg"
+									width="100%" class="small-img img-thumbnail">-->
 							</div>
 							<div class="small-img-col">
-								<img src="/assets/images/DCFBCD0ED8-SP-11426226-1-800x800.jpg"
-									width="100%" class="small-img img-thumbnail">
+							<a th:href="@{|/productDetail/{maSP}|}">
+								<img th:src="@{|/assets/images/*{image}|}"
+									width="100%" class="small-img img-thumbnail"></a>
+									
+								<!--<img src="/assets/images/DCFBCD0ED8-SP-11426226-1-800x800.jpg"
+									width="100%" class="small-img img-thumbnail">-->
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-6">
 						<p></p>
 						<h1>[[${item.tenSP}]]</h1>
-						<h4>[[${item.gia}]] ₫</h4>
+						<h4>$[[${item.gia}]]</h4>
 						<select style="display: block; padding: 10px; margin-top: 20px;">
 							<option>Cỡ lớn hơn</option>
 							<option>Màu hồng</option>
 							<option>Cỡ nhỏ hơn</option>
-						</select>
-						<input type="number"  class="form-control mt-2" min="1" value="1"
-							ng-model="item.soLuong">
+						</select> 
+						<input class="mt-2" type="number" min="1" value="1" ng-model="item.soLuong">
 						<a href="" class="btn-add" style="text-decoration: none; color: #fff"
-							th:attr="ng-click=@{|cart.add(${item.maSP})|}">Thêm vào giỏ hàng</a>
+							th:attr="ng-click=@{|cart.add(${item.maSP})|}">Add To Cart</a>
+
+
 						<h3>Chi tiết sản phẩm</h3>
-						<p>Thiết kế sang trọng, hiện đại.</p>
+						
+						<p>[[${item.moTa}]]</p>
+
+						<!--<p>Thiết kế sang trọng, hiện đại.</p>
 						<p>Công suất lớn, tiết kiệm thời gian nấu.</p>
 						<p>Tùy chỉnh mức nhiệt nấu, đầy đủ các trang bị an toàn.</p>
-						<p>Hỗ trợ kết nối APP thông minh.</p>
+						<p>Hỗ trợ kết nối APP thông minh.</p> -->
 					</div>
 				</div>
 			</div>
@@ -77,17 +99,20 @@
 			<div class="container">
 				<div class="row">
 
-					<div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3">
+					<div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3" th:each="p:*{danhMuc.SanPham}">
 						<div class="block-pricing">
 							<div class="table">
 								<div class="special-img position-relative overflow-hidden">
-									<img src="/assets/images/c66752476f22274d8fdd89594ae2a168.jpg"
-										class="w-100"> <span
+								<a th:href="@{|/productDetail/{maSP}|}">
+									<img th:src="@{|/assets/images/*{image}|}"></a>
+								
+									<!--<img src="/assets/images/c66752476f22274d8fdd89594ae2a168.jpg"
+										class="w-100">--> <span
 										class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">Sale</span>
 								</div>
-								<ul class="list-unstyled">
-									<li><b>Name Product</b></li>
-									<li><b>Price</b></li>
+								<ul class="list-unstyled" >
+									<li><b th:href="@{|/productDetail/{maSP}|}" th:text="${p.tenSP}"></b></li>
+									<li><b th:href="@{|/productDetail/{maSP}|}" th:text="${p.gia}"></b></li>
 								</ul>
 								<div class="text-center">
 									<div class="rating mt-3">
@@ -101,7 +126,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3">
+					
+					
+					<!-- <div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3">
 						<div class="block-pricing">
 							<div class="table">
 								<div class="special-img position-relative overflow-hidden">
@@ -125,72 +152,12 @@
 								</div>
 							</div>
 						</div>
-					</div>
-
-					<div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3">
-						<div class="block-pricing">
-							<div class="table">
-								<div class="special-img position-relative overflow-hidden">
-									<img src="/assets/images/may-massage-chan-leravan_n_.jpg"
-										class="w-100"> <span
-										class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">sale</span>
-								</div>
-								<ul class="list-unstyled">
-									<li><b>Name Product</b></li>
-									<li><b>Price</b></li>
-								</ul>
-								<div class="text-center">
-									<div class="rating mt-3">
-										<span class="text-primary_1"><i class="fas fa-star"></i></span>
-										<span class="text-primary_1"><i class="fas fa-star"></i></span>
-										<span class="text-primary_1"><i class="fas fa-star"></i></span>
-										<span class="text-primary_1"><i class="fas fa-star"></i></span>
-										<span class="text-primary_1"><i class="fas fa-star"></i></span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3">
-						<div class="block-pricing">
-							<div class="table">
-								<div class="special-img position-relative overflow-hidden">
-									<img src="/assets/images/DCFBCD0ED8-SP-11426226-1-800x800.jpg"
-										class="w-100"> <span
-										class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">sale</span>
-								</div>
-								<ul class="list-unstyled">
-									<li><b>Name Product</b></li>
-									<li><b>Price</b></li>
-								</ul>
-								<div class="text-center">
-									<div class="rating mt-3">
-										<span class="text-primary_1"><i class="fas fa-star"></i></span>
-										<span class="text-primary_1"><i class="fas fa-star"></i></span>
-										<span class="text-primary_1"><i class="fas fa-star"></i></span>
-										<span class="text-primary_1"><i class="fas fa-star"></i></span>
-										<span class="text-primary_1"><i class="fas fa-star"></i></span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</section>
 
 		<script>
-			document.querySelector('#prodetail').addEventListener('click', (event) => {
-	            event.preventDefault();
-	            Swal.fire({
-	            	icon: 'success',
-	            	title: 'Thêm thành công!',
-	            	showConfirmButton: true,
-	            	timer: 1500
-	           })
-	        })	
-		
 			var productImg = document.getElementById("productImg");
 			var SmallImg = document.getElementsByClassName("small-img");
 
@@ -208,6 +175,5 @@
 			}
 		</script>
 	</main>
-</body>
 
 </html>

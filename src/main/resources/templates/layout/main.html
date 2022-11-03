@@ -36,8 +36,38 @@
 				class="sr-only">Next</span>
 			</a>
 		</div>
-
+		 
 		<main>
+	<!--	<div id="wp-slider">
+	        <div class=" ">
+	            <span>DỊCH VỤ, KHUYẾN MÃI </span>
+	
+	        </div>
+	        <div class="iditems">
+	            <div><img style="border-radius: 5px;"
+	                    src="https://digizone.com.vn/wp-content/uploads/2022/07/Khoa-thong-minh-xiaomi.png">
+	            </div>
+	            <div><img style="border-radius: 5px;"
+	                    src="https://digizone.com.vn/wp-content/uploads/2021/05/aq-768x576.png">
+	            </div>
+	            <div><img style="border-radius: 5px;" src="https://digizone.com.vn/wp-content/uploads/2021/05/111.png">
+	            </div>
+	            <div><img style="border-radius: 5px;" src="https://digizone.com.vn/wp-content/uploads/2021/05/freeship.png">
+	            </div>
+	            <div><img style="border-radius: 5px;" src="https://digizone.com.vn/wp-content/uploads/2021/05/yeekm2.png">
+	            </div>
+	            <div><img style="border-radius: 5px;"
+	                    src="https://cdn2.cellphones.com.vn/x/https://dashboard.cellphones.com.vn/storage/xiaomi.png">
+	            </div>
+	            <div><img style="border-radius: 5px;"
+	                    src="https://cdn2.cellphones.com.vn/x/https://dashboard.cellphones.com.vn/storage/SIS%20asus.png">
+	            </div>
+	            <div><img style="border-radius: 5px;"
+	                    src="https://cdn2.cellphones.com.vn/x/https://dashboard.cellphones.com.vn/storage/xiaomi.png">
+	            </div>
+	
+	        </div>
+	      </div> --> 
 			<section id="pricing"
 				class="padd-section text-center wow fadeInUp mt-5"
 				style="visibility: visible; animation-name: fadeInUp;">
@@ -67,7 +97,330 @@
 					</div>
 				</div>
 			</section>
+				<section id="pricing" class="padd-section text-center wow fadeInUp mt-5"
+				style="visibility: visible; animation-name: fadeInUp;">
+				<div id="main-content">
+					<div class="section-header">
+						<h2 class="section-title" style="text-align: left;">
+							<a style="color: #100f0f;" href="">THIẾT BỊ GIA DỤNG</a> 
+						</h2>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3"	th:each="p: ${items}">
+								<div class="block-pricing">
+									<div class="table position-relative">
+										<div class="special-img collection-img overflow-hidden">
+											<a th:href="@{|/productDetail/${p.maSP}|}"><img
+												th:src="@{|/assets/images/${p.hinhAnh}|}" class="w-75"></a>
+											<span
+												class="pb-auto position-absolute bg-danger text-white d-flex align-items-center justify-content-center">Sale</span>
+										</div>
+										<ul class="list-unstyled">
+											<li><a th:href="@{|/productDetail/${p.maSP}|}">[[${p.tenSP}]]</a></li>
+											<li><b style="color: #FF1E00;">$[[${p.gia}]] ₫</b></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="pricing" class="padd-section text-center wow fadeInUp mt-5"
+				style="visibility: visible; animation-name: fadeInUp;">
+				<div id="main-content">
+					<div class="section-header">
+						<h2 class="section-title" style="text-align: left;">
+							<a style="color: #100f0f;" href="">ROBOT HÚT BỤI</a>
+						</h2>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3"	th:each="p: ${items}">
+								<div class="block-pricing">
+									<div class="table position-relative">
+										<div class="special-img collection-img overflow-hidden">
+											<a th:href="@{|/productDetail/${p.maSP}|}"><img
+												th:src="@{|/assets/images/${p.hinhAnh}|}" class="w-75"></a>
+											<span
+												class="pb-auto position-absolute bg-danger text-white d-flex align-items-center justify-content-center">Sale</span>
+										</div>
+										<ul class="list-unstyled">
+											<li><a th:href="@{|/productDetail/${p.maSP}|}">[[${p.tenSP}]]</a></li>
+											<li><b style="color: #FF1E00;">$[[${p.gia}]] ₫</b></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="pricing" class="padd-section text-center wow fadeInUp mt-5"
+				style="visibility: visible; animation-name: fadeInUp;">
+				<div id="main-content">
+					<div class="section-header">
+						<h2 class="section-title" style="text-align: left;">
+							<a style="color: #100f0f;" href=""> QUẠT + SƯỞI THÔNG MINH</a>
+						</h2>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3"	th:each="p: ${items}">
+								<div class="block-pricing">
+									<div class="table position-relative">
+										<div class="special-img collection-img overflow-hidden">
+											<a th:href="@{|/productDetail/${p.maSP}|}"><img
+												th:src="@{|/assets/images/${p.hinhAnh}|}" class="w-75"></a>
+											<span
+												class="pb-auto position-absolute bg-danger text-white d-flex align-items-center justify-content-center">Sale</span>
+										</div>
+										<ul class="list-unstyled">
+											<li><a th:href="@{|/productDetail/${p.maSP}|}">[[${p.tenSP}]]</a></li>
+											<li><b style="color: #FF1E00;">$[[${p.gia}]] ₫</b></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="pricing" class="padd-section text-center wow fadeInUp mt-5"
+                style="visibility: visible; animation-name: fadeInUp;">
+                <div id="main-content">
+                    <div class="section-header">
+                        <h2 class="section-title" style="text-align: left;">
+                            <a style="color: #100f0f;" href="">THIẾT BỊ GIA DỤNG</a>
+                        </h2>
+
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3">
+                                <div class="block-pricing">
+                                    <div class="table position-relative">
+                                        <div class="special-img collection-img overflow-hidden">
+                                            <a href=""><img
+                                                    src="/assets/images/bep-tu-doi-thong-minh-mijia-mdcld01acm-1.jpg"
+                                                    class="w-75"></a> <span
+                                                class="pb-auto position-absolute bg-danger text-white d-flex align-items-center justify-content-center">Sale</span>
+                                        </div>
+                                        <ul class="list-unstyled">
+                                            <li><a href="#">Robot hút bụi lau nhà Xiaomi Mijia
+                                                    Pro STYTJ06ZHM</a></li>
+                                            <li><b style="color: #FF1E00;">13,990,000 ₫</b></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3">
+                                <div class="block-pricing">
+                                    <div class="table position-relative">
+                                        <div class="special-img collection-img overflow-hidden">
+                                            <a href=""><img
+                                                    src="/assets/images/bep-tu-doi-thong-minh-mijia-mdcld01acm-1.jpg"
+                                                    class="w-75"></a> <span
+                                                class="pb-auto position-absolute bg-danger text-white d-flex align-items-center justify-content-center">Sale</span>
+                                        </div>
+                                        <ul class="list-unstyled">
+                                            <li><a href="#">Robot hút bụi lau nhà Xiaomi Mijia
+                                                    Pro STYTJ06ZHM</a></li>
+                                            <li><b style="color: #FF1E00;">13,990,000 ₫</b></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3">
+                                <div class="block-pricing">
+                                    <div class="table position-relative">
+                                        <div class="special-img collection-img overflow-hidden">
+                                            <a href=""><img
+                                                    src="/assets/images/bep-tu-doi-thong-minh-mijia-mdcld01acm-1.jpg"
+                                                    class="w-75"></a> <span
+                                                class="pb-auto position-absolute bg-danger text-white d-flex align-items-center justify-content-center">Sale</span>
+                                        </div>
+                                        <ul class="list-unstyled">
+                                            <li><a href="#">Robot hút bụi lau nhà Xiaomi Mijia
+                                                    Pro STYTJ06ZHM</a></li>
+                                            <li><b style="color: #FF1E00;">13,990,000 ₫</b></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3">
+                                <div class="block-pricing">
+                                    <div class="table position-relative">
+                                        <div class="special-img collection-img overflow-hidden">
+                                            <a href=""><img
+                                                    src="/assets/images/bep-tu-doi-thong-minh-mijia-mdcld01acm-1.jpg"
+                                                    class="w-75"></a> <span
+                                                class="pb-auto position-absolute bg-danger text-white d-flex align-items-center justify-content-center">Sale</span>
+                                        </div>
+                                        <ul class="list-unstyled">
+                                            <li><a href="#">Robot hút bụi lau nhà Xiaomi Mijia
+                                                    Pro STYTJ06ZHM</a></li>
+                                            <li><b style="color: #FF1E00;">13,990,000 ₫</b></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="pricing" class="padd-section text-center wow fadeInUp mt-5"
+                style="visibility: visible; animation-name: fadeInUp;">
+                <div id="main-content">
+                    <div class="section-header">
+                        <h1 class="section-title" style="text-align: center;">
+                             SẢN PHẨM NỔI BẬT
+                        </h1>
+
+                    </div>
+                    <div class="container">
+                        
+                         
+                        <div class="row mt-2 g-4">
+                            <div class="col-md-3">
+                                <div class="card p-1">
+                                    <div class="d-flex justify-content-between align-items-center p-2">
+                                        <div class="flex-column lh-1 imagename"> <span>Máy lọc không khí</span> </div>
+                                        <div> <a href=""><img
+                                                    src="https://digizone.com.vn/wp-content/uploads/2022/07/xiaomi-smart-air-purifier-4-3-768x512.jpg"
+                                                    height="100" width="100" /></a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card p-2">
+                                    <div class="d-flex justify-content-between align-items-center p-2">
+                                        <div class="flex-column lh-1 imagename"> <span>Thiết bị gia dụng</span> </div>
+                                        <div> <a href=""><img
+                                                    src="https://digizone.com.vn/wp-content/uploads/2022/07/ee4e204e210c18bf11b8185b61939991-removebg-preview.png"
+                                                    height="100" width="100" /></a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card p-2">
+                                    <div class="d-flex justify-content-between align-items-center p-2">
+                                        <div class="flex-column lh-1 imagename"> <span>Robot hút bụi</span> </div>
+                                        <div> <a href=""><img
+                                                    src="https://digizone.com.vn/wp-content/uploads/2022/07/ecovacs-deebot-x1-omni-768x768.jpg"
+                                                    height="100" width="100" /></a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card p-2">
+                                    <div class="d-flex justify-content-between align-items-center p-2">
+                                        <div class="flex-column lh-1 imagename"> <span>Quạt</span> + <span>suởi thông
+                                                minh</span>
+                                        </div>
+                                        <div> <a href=""><img
+                                                    src="https://digizone.com.vn/wp-content/uploads/2022/07/quat-khong-canh-keheal__1_-220x220.jpg"
+                                                    height="100" width="100" /></a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card p-1">
+                                    <div class="d-flex justify-content-between align-items-center p-2">
+                                        <div class="flex-column lh-1 imagename"> <span>Thiết bị sức khoẻ</span> </div>
+                                        <div> <a href=""><img
+                                                    src="https://digizone.com.vn/wp-content/uploads/2022/08/xiaomiviet-vn-may-chay-bo-xiaomi-kingsmith-r2-may-chay-bo-thong-minh-xiaomi-kingsmith-r2.webp"
+                                                    height="100" width="100" /></a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card p-2">
+                                    <div class="d-flex justify-content-between align-items-center p-2">
+                                        <div class="flex-column lh-1 imagename"> <span>Đèn thông minh</span> </div>
+                                        <div> <a href=""><img
+                                                    src="https://digizone.com.vn/wp-content/uploads/2022/07/yeelight-candela-lamp-2-220x220.jpg"
+                                                    height="100" width="100" /></a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card p-2">
+                                    <div class="d-flex justify-content-between align-items-center p-2">
+                                        <div class="flex-column lh-1 imagename"> <span>Thiết bị nhà thông minh</span> </div>
+                                        <div> <a href=""><img
+                                                    src="https://digizone.com.vn/wp-content/uploads/2022/08/khoa-aqara-a100-omekit-homekey-220x220.jpg"
+                                                    height="100" width="100" /></a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card p-2">
+                                    <div class="d-flex justify-content-between align-items-center p-2">
+                                        <div class="flex-column lh-1 imagename"> <span>Phụ kiện ô tô + xe điện</span> </div>
+                                        <div> <a href=""><img
+                                                    src="https://digizone.com.vn/wp-content/uploads/2022/08/dien-tro-luc-xiaomi-himo-z20-220x220.jpg"
+                                                    height="100" width="100" /></a> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>    
 		</main>
 	</main>
+	    <script>
+
+
+        $(document).ready(function () {
+
+            $('iditems').slick({
+                dots: true,
+                infinite: true,
+                speed: 800,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 4,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+
+                ]
+            });
+        });
+
+
+    </script>
+ 
+  
 </body>
+       
+        
 </html>
+ 
