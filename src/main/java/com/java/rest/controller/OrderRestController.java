@@ -2,6 +2,7 @@ package com.java.rest.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.java.entity.Order;
+import com.java.entity.OrderDetail;
 import com.java.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,12 @@ public class OrderRestController {
     public List<Order> getAll() {
         return orderService.findAll();
     }
-    
+
+    @GetMapping("{maHD}")
+    public List<OrderDetail> getOrderDetailList(@PathVariable("maHD") Long maHD){
+        return orderService.findByMaHD(maHD);
+    }
+
     @PostMapping()
     public Order create(@RequestBody JsonNode orderData) {
         return orderService.create(orderData);
