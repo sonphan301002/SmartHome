@@ -12,6 +12,7 @@
 	<main>
 		<div class="container" th:fragment="shopping_cart">
 			<div class="cart-page">
+				<span id="tenND" style="display: none;">[[${#request.remoteUser}]]</span>
 				<div class="cart-null" ng:if="cart.count == 0">
 					<div class="text-center">
 						<img class="cart-null-img" src="/assets/images/cartnull.png"
@@ -22,7 +23,7 @@
 						</div>
 					</div>
 				</div>
-
+				
 				<div class="cart-page" ng:if="cart.count != 0">
 					<table>
 						<tr>
@@ -73,15 +74,11 @@
 
 					<div class="cart-button">
 						<th:block th:if="${#request.remoteUser}">
-							<span id="tenND" th:text="${#request.remoteUser}"
-								style="display: none;"></span>
 							<a class="text-white" type="button" ng-click="order.purcharse()">Mua
 								hàng</a>
 						</th:block>
 
 						<th:block th:unless="${#request.remoteUser}">
-							<span id="tenND" th:text="${#request.remoteUser}"
-								style="display: none;"></span>
 							<a class="text-white" th:href="@{/order/checkout}">Mua hàng</a>
 						</th:block>
 					</div>

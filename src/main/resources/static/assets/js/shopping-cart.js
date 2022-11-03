@@ -43,6 +43,12 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				}
 			})
 		},
+		
+		clear(){
+			this.items= []; // items rổng
+			this.saveToLocalStorage();
+		},
+		
 		//tính tổng tiền của một sản phẩm
 		amt_of(item) { },
 		//tính tổng số lượng các mặt hàng trong giỏ hàng
@@ -79,6 +85,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		taiKhoan: { tenND: $("#tenND").text() },
 		diaChi: "",
 		ghiChu: "",
+		trangThai: 1,
 		get hoaDonChiTiet() {
 			return $scope.cart.items.map(item => {
 				return {
