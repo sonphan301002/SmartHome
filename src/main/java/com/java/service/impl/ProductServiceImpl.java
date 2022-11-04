@@ -56,7 +56,6 @@ public class ProductServiceImpl implements ProductService{
 	}
 	
 	public List<Product> findByTensp(String keyword) {
-		 
 		return productDAO.findByTensp(keyword);
 	}
 

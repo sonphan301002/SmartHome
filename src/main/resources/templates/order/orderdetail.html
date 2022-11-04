@@ -11,11 +11,11 @@
 <body>
 	<main th:object="${order}">
 		<section id="pricing"
-			class="padd-section wow fadeInUp mt-5"
+			class="padd-section wow fadeInUp mt-5  mb-5"
 			style="visibility: visible; animation-name: fadeInUp;">
 
 			<div class="section-header">
-				<h2 class="section-title  text-center">Chi Tiết Đơn Hàng</h2>
+				<h2 class="section-title text-center">Chi Tiết Đơn Hàng</h2>
 			</div>
 
 			<div class="container-fluid" style="background-color: #87A2FB;">
@@ -27,32 +27,30 @@
 						</h5>
 					</div>
 					
-					<div class="row">
+					<div class="row d-flex align-items-start justify-content-center">
 						<div class="col-lg-7">
-							<div class="card mb-4">
-								
+							<div class="card h-100 mb-4">
 								<div class="card-body">
-									<div class="mb-3 d-flex justify-content-between">
-										<div>
-											<span class="me-3">[[*{ngayTao}]]</span> <span
-												class="badge rounded-pill bg-info"> <!--Trạng thái 1 -->
+									<div class="d-flex align-items-center justify-content-start mb-3">
+										<span class="me-3 mr-3">[[*{ngayTao}]]</span>
+										<span class="badge rounded-pill bg-info">
+											<!--Trạng thái 1 -->
 												<th:block th:if="*{trangThai} == 1">
 													Đang xử lý
 												</th:block> 
-												<!--Trạng thái 2 -->
+											<!--Trạng thái 2 -->
 												<th:block th:if="*{trangThai} == 2">
 													Đang vận chuyển
 												</th:block>
-												<!--Trạng thái 3 -->
+											<!--Trạng thái 3 -->
 												<th:block th:if="*{trangThai} == 3">
 													Đang giao
 												</th:block>
-												<!--Trạng thái 4 -->
+											<!--Trạng thái 4 -->
 												<th:block th:if="*{trangThai} == 4">
 													Giao hàng thành công
 												</th:block>
-											</span>
-										</div>
+										</span>
 									</div>
 
 									<table class="table table-borderless">
@@ -63,6 +61,7 @@
 												<td class="text-end">Đơn giá</td>
 												<td class="text-end">Thành tiền</td>
 											</tr>
+											
 											<tr th:each="detail : *{hoaDonChiTiet}" th:object="${detail}">
 												<td class="text-end">
 													<div class="d-flex mb-2">
@@ -105,71 +104,46 @@
 						</div>
 
 						<div class="col-lg-5">
-							<div class="card mb-4">
+							<div class="card h-100 mb-4">
 								<div class="card-body">
 									<form action="">
-										<div class="form-group">
-											<label for="">Họ tên</label>
-											<input type="text" class="form-control"/>
-										</div>
-<<<<<<< HEAD
-										<div class="col-lg-6">
-											<h3 class="h6">Địa chỉ nhận hàng</h3>
-											<address>
-												<strong>Người mua: [[*{taiKhoan.hoTen}]]</strong> <br>Địa
-												chỉ: [[*{taiKhoan.diaChi}]]<br> <abbr>Điện thoại:
-													[[*{taiKhoan.sdt}]]</abbr>
-											</address>
-=======
-										<div class="form-group">
-											<label for="">Điện thoại</label>
-											<input type="text" class="form-control"/>
-										</div>
-										<div class="form-group">
-											<label for="">Địa Chỉ</label>
-											<input type="text" class="form-control"/>
-										</div>
 										<div class="form-group">
 											<div class="h6">Ghi chú khách hàng</div>
 											<textarea class="form-control" ng-model="order.ghiChu">[[*{ghiChu}]]</textarea>
 										</div>
 									</form>
 
-									<div class="row  text-center mt-sm-2">
+									<div class="row text-center mt-sm-2">
 										<div class="col-sm-4">
-											<div class="">Hình thức thanh toán</div>
+											<div class="h6">Hình thức thanh toán</div>
 											<img src="/assets/images/mo-mo.jpg"
 												alt="" width="50" class="img-fluid"> <br> 
 											<div class="">Momo</div>
 										</div>
 
 										<div class="col-sm-8">
-											<div class="">Thông tin người nhận</div>
-											<div class="">
-<!-- 												<table class="table table-borderless"> -->
-<!-- 													<tbody> -->
-<!-- 														<tr> -->
-<!-- 															<td>Người mua: [[*{taiKhoan.hoTen}]]</td> -->
-<!-- 														</tr> -->
-<!-- 														<tr> -->
-<!-- 															<td>Địa chỉ: [[*{diaChi}]]</td> -->
-<!-- 														</tr> -->
-<!-- 														<tr> -->
-<!-- 															<td>Điện thoại: [[*{taiKhoan.sdt}]]</td> -->
-<!-- 														</tr> -->
-<!-- 													</tbody> -->
-<!-- 												</table> -->
-												<span>Người mua: [[*{taiKhoan.hoTen}]]</span>
-												<br>
-												<span>Địa chỉ: [[*{diaChi}]]</span>
-												<br>
-												<span>Điện thoại: [[*{taiKhoan.sdt}]]</span>
+											<div class="h6">Thông tin người nhận</div>
+											<div class="row d-flex justify-content-end">
+												<div class="col-5 text-left">
+													<span>Người mua</span>
+													<br>
+													<span>Địa chỉ</span>
+													<br>
+													<span>Điện thoại</span>
+												</div>
+												<div class="col-7 text-left">
+													<span>[[*{taiKhoan.hoTen}]]</span>
+													<br>
+													<span>[[*{diaChi}]]</span>
+													<br>
+													<span>[[*{taiKhoan.sdt}]]</span>
+												</div>
 											</div>
->>>>>>> 6a7eef45d2da59b9bc86849a53cb77f91076c45a
 										</div>
 									</div>
 									
-									<div class="order-button text-white d-flex align-items-center justify-content-center">
+									<div class="order-button text-white d-flex align-items-center 
+										justify-content-center">
 										<button type="button" ng-click="order.update()">Cập nhật</button>
 									</div>
 								</div>

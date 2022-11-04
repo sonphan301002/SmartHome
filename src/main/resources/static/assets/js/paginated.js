@@ -62,9 +62,3 @@ function createPagination(totalPages, page) {
 	element.innerHTML = liTag; //thêm thẻ li vào bên trong thẻ ul
 	return liTag;
 }
-
- 
-    
-        
-        
-      

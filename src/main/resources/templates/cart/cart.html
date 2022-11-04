@@ -76,16 +76,7 @@
 					</div>
 
 					<div class="cart-button">
-						<th:block th:if="${#request.remoteUser}">
-							<a class="text-white" type="button" ng-click="order.purcharse()">Mua
-								hàng</a>
-						</th:block>
-
-						<th:block th:unless="${#request.remoteUser}">
-							<a class="text-white" th:href="@{/order/checkout}">Mua hàng</a>
-							<a class="text-white" style="text-decoration: none;"
-								th:href="@{/order/checkout}">Mua hàng</a>
-						</th:block>
+						<a class="text-white" type="button" ng-click="order.purcharse()">Mua hàng</a>
 					</div>
 				</div>
 			</div>

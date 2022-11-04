@@ -71,20 +71,20 @@ p {
     color: #D2001A;
     text-decoration: none;
 }
-
+/* order */
 #pricing .block-pricing {
     background: #fff;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2), 0 0 5px 0 rgba(0, 0, 0, 0.19);
     display: inline-block;
     position: relative;
-    width: 100%
+    width: 100%;
 }
 
 #pricing .block-pricing .table {
     margin-bottom: -10px;
     padding: 20px 5px;
     max-width: 100%;
-    width: 100%
+    width: 100%;
 }
 
 .block-pricing li {
@@ -467,6 +467,25 @@ td:last-child {
 	height: 200px;
 }
 
+/* order */
+.order-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.order-button button {
+    text-align: center;
+    padding: 8px 24px;
+    font-weight: 300;
+    font-size: .875rem;
+    width: 100%;
+    max-width: 450px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff523b;
+    color: #fff;
+}
+
 
 /* backgoroud footer */
 
@@ -612,7 +631,6 @@ td:last-child {
  
 /*END MAIN.HTML*/
 
-
 /* PRODUCT2 */
 
  #wapper{
@@ -722,9 +740,6 @@ button:active {
     justify-content: center;
     color: #fff
 }
-
- 
- 
 
 .pagination{
     margin-top: 10px;
