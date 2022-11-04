@@ -20,9 +20,10 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-6 d-flex justify-content-start">
-								<h5 class="">
-									<a href="">Trang chủ</a> <span>/ Đồ gia dụng</span>
-								</h5>
+								<div class="h5">
+									<a th:href="@{/}">Trang chủ</a>
+                                    <span>/ Đồ gia dụng</span>
+								</div>
 							</div>
 
 							<div class="col-6 d-flex justify-content-end">
@@ -41,17 +42,6 @@
 					<div class="container-fluid mt-5 mb-5">
                        <div class="row g-2">
                             <div class="col-md-3">
-                                <div class="t-products p-2">
-                                    <h6 class="text-uppercase">Danh mục sản phẩm</h6>
-                                    <div class="p-lists">
-                                        <div class="d-flex justify-content-between mt-2"> <span>Thiết bị gia dụng</span>
-                                         <a th:each="c: ${cates}" class="dropdown-item"
-                                    		th:href="@{|/product/list?cid=${c.maDM}|}">[[${c.tenDM}]]</a>
-                                        </div>
-                                      
-                                    </div>
-                                </div>
-
                                 <div class="brand p-2">
                                     <div class="heading d-flex justify-content-between align-items-center">
                                         <h6 class="text-uppercase">Hãng sản xuất</h6> <span>--</span>
@@ -74,9 +64,6 @@
                                             <label class="form-check-label" for="flexCheckDefault"> Xiaomi </label>
                                         </div>
                                     </div>
-                                
-                                  
-
                                 </div>
                                 <div class="type p-2 mb-2">
                                     <div class="heading d-flex justify-content-between align-items-center">
@@ -101,190 +88,62 @@
 
                             <div class="col-md-9">
                                 <div class="row g-2">
-
-                                <div class="col-md-4">
-                                        <div class="product py-4" th:each="p: ${items}"> <span
-                                                class="off bg-warning">SALE</span>
-                                            <div class="text-center"> <a th:href="@{|/productDetail/${p.maSP}|}"> <img
-                                                        th:src="@{|/assets/images/${p.hinhAnh}|}" width="200">
-                                                </a> </div>
-                                            <div class="about text-center">
-                                                <li><a th:href="@{|/productDetail/${p.maSP}|}">[[${p.tenSP}]]</a></li>
-                                                <span>$[[${p.gia}]] ₫</span>
-
-                                            </div>
-                                            <div
-                                                class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
-                                                <button class="btn btn-primary text-uppercase">Mua ngay</button>
-                                                <div class="add"> </span>
-                                                    <span th:attr="ng-click=@{|cart.add(${p.maSP})|}" class="product_fav"><i class="fa fa-opencart"></i></span>
+                                    <div class="col-md-4" th:each="p: ${items}">
+                                        <div class=" py-4">
+                                        <div class="block-pricing">
+                                            <div class="table position-relative">
+                                                <div class="special-img collection-img overflow-hidden">
+                                                    <a th:href="@{|/productDetail/${p.maSP}|}">
+                                                        <img th:src="@{|/assets/images/${p.hinhAnh}|}" width="200">
+                                                    </a>
+                                                    <span class="pb-auto position-absolute bg-danger text-white
+                                                        d-flex align-items-center justify-content-center">Sale</span>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <div class="col-md-4">
-                                        <div class="product py-4"> <span class="off bg-success">-25% OFF</span>
-                                            <div class="text-center"> <img
-                                                    src="https://digizone.com.vn/wp-content/uploads/2022/07/4bc5d301a09fd06495ae2ed29fd88929.jpg"
-                                                    width="200"> </div>
-                                            <div class="about text-center">
-                                                <a href=""><p>Bình đun nước giữ nhiệt di động Xiaomi Deerma DEM-DR035 350ml</p></a>
-                                                <span> 450,000
-                                                    ₫</span>
-                                            </div>
-                                            <div
-                                                class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
-                                                <button class="btn btn-primary text-uppercase">Mua ngay</button>
-                                                <div class="add"> </span>
-                                                    <span class="product_fav"><i class="fa fa-opencart"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="product py-4"> <span class="off bg-success">-25% OFF</span>
-                                            <div class="text-center"> <img
-                                                    src="https://digizone.com.vn/wp-content/uploads/2022/07/4bc5d301a09fd06495ae2ed29fd88929.jpg"
-                                                    width="200"> </div>
-                                            <div class="about text-center">
-                                                <a href=""><p>Bình đun nước giữ nhiệt di động Xiaomi Deerma DEM-DR035 350ml</p></a>
-                                                <span> 450,000
-                                                    ₫</span>
-                                            </div>
-                                            <div
-                                                class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
-                                                <button class="btn btn-primary text-uppercase">Mua ngay</button>
-                                                <div class="add"> </span>
-                                                    <span class="product_fav"><i class="fa fa-opencart"></i></span>
-                                                </div>
+                                                <ul class="list-unstyled">
+                                                    <li><a th:href="@{|/productDetail/${p.maSP}|}">[[${p.tenSP}]]</a></li>
+                                                    <li><b style="color: #FF1E00;">$[[${p.gia}]] ₫</b></li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
 
-                         
-
-                                    <div class="col-md-4">
-                                        <div class="product py-4"> <span class="off bg-warning">SALE</span>
-                                            <div class="text-center"> <img
-                                                    src="https://digizone.com.vn/wp-content/uploads/2022/07/4bc5d301a09fd06495ae2ed29fd88929.jpg"
-                                                    width="200"> </div>
-                                            <div class="about text-center">
-                                                <a href=""><p>Bình đun nước giữ nhiệt di động Xiaomi Deerma DEM-DR035 350ml</p></a>
-                                                <span> 450,000
-                                                    ₫</span>
-                                            </div>
-                                            <div
-                                                class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
-                                                <button class="btn btn-primary text-uppercase">Mua ngay</button>
-                                                <div class="add"> </span>
-                                                    <span class="product_fav"><i class="fa fa-opencart"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="product py-4">
-                                            <div class="text-center"> <img
-                                                    src="https://digizone.com.vn/wp-content/uploads/2022/07/4bc5d301a09fd06495ae2ed29fd88929.jpg"
-                                                    width="200"> </div>
-                                            <div class="about text-center">
-                                                <a href=""><p>Bình đun nước giữ nhiệt di động Xiaomi Deerma DEM-DR035 350ml</p></a>
-                                                <span> 450,000
-                                                    ₫</span>
-                                            </div>
-                                            <div
-                                                class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
-                                                <button class="btn btn-primary text-uppercase">Mua ngay</button>
-                                                <div class="add">
-                                                    <span class="product_fav"><i class="fa fa-opencart"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                     <div class="col-md-4">
-                                        <div class="product py-4">
-                                            <div class="text-center"> <img
-                                                    src="https://digizone.com.vn/wp-content/uploads/2022/07/4bc5d301a09fd06495ae2ed29fd88929.jpg"
-                                                    width="200"> </div>
-                                            <div class="about text-center">
-                                                <a href=""><p>Bình đun nước giữ nhiệt di động Xiaomi Deerma DEM-DR035 350ml</p></a>
-                                                <span> 450,000
-                                                    ₫</span>
-                                            </div>
-                                            <div
-                                                class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center">
-                                                <button class="btn btn-primary text-uppercase">Mua ngay</button>
-                                                <div class="add">
-                                                    <span class="product_fav"><i class="fa fa-opencart"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                           
-                                    
-					 
-
-                                 
-
+                                    <!-- <div class="blog-pager" id="blog-pager">
+                                         <ul class="pagination justify-content-center">
+                                            <li class="prev disabled">
+                                                <span> « </span>
+                                            </li>
+                                            <li class="active">
+                                                <a href="" data-page="1">1</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="" data-page="2">2</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="" data-page="3">3</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="" data-page="4">4</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="" data-page="5">5</a>
+                                            </li>
+                                            <li class="next">
+                                                <a href="" data-page="2"> » </a>
+                                            </li>
+                                         </ul>
+                                    </div> -->
                                 </div>
-                                <div class="pagination">
-                                    <ul>
-                                        <!-- <li class="btn prev"><span> « </span></li>
-                                        <li class="numb active"><span>1</span></li>
-                                        <li class="numb"><span>2</span></li>
-                                        <li class="dots"><span>...</span></li>
-                                        <li class="numb"><span>4</span></li>
-                                        <li class="numb"><span>5</span></li>
-                                        <li class="dots"><span>...</span></li>
-                                        <li class="numb"><span>7</span></li>
-                                         
-                                        <li class="btn next"><span> » </span></li> -->
-                                    </ul>
-                                </div>
-                                
-                                
-                                
-                                
-                            
-                            
-                                <!-- <div class="blog-pager" id="blog-pager">
-                                     <ul class="pagination justify-content-center">
-                                        <li class="prev disabled">
-                                            <span> « </span>
-                                        </li>
-                                        <li class="active">
-                                            <a href="" data-page="1">1</a>
-                                        </li>
-                                        <li class="">
-                                            <a href="" data-page="2">2</a>
-                                        </li>
-                                        <li class="">
-                                            <a href="" data-page="3">3</a>
-                                        </li>
-                                        <li class="">
-                                            <a href="" data-page="4">4</a>
-                                        </li>
-                                        <li class="">
-                                            <a href="" data-page="5">5</a>
-                                        </li>
-                                        <li class="next">
-                                            <a href="" data-page="2"> » </a>
-                                        </li>
-                                     </ul>
-                                </div> -->
-                                
-                                
                             </div>
-
+                            <div class="pagination">
+                                <ul>
+                                    
+                                </ul>
+                            </div>
                         </div>
                     </div>
-					 
-
-
 				</div>
 			</div>
 		</section>
 	</main>
 </body>
-
 </html>

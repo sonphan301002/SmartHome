@@ -39,9 +39,8 @@ public class ProductController {
 		return "/product/product-detail";
 	}
 	
-	@RequestMapping("search")
-	public String search(ModelMap model, 
-			@RequestParam(name = "keyword", required = false) String keyword) {
+	@RequestMapping("/search")
+	public String search(ModelMap model, @RequestParam("keyword") String keyword) {
 		List<Product> list = null;
 		
 		if(StringUtils.hasText(keyword)) {
@@ -50,7 +49,7 @@ public class ProductController {
 			list = productService.findAll();
 		}
 		
-		model.addAttribute("products", list);
+		model.addAttribute("items", list);
 		
 		return "/product/product";
  }
