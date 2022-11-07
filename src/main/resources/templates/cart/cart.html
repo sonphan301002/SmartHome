@@ -76,7 +76,12 @@
 					</div>
 
 					<div class="cart-button">
-						<a class="text-white" type="button" ng-click="order.purcharse()">Mua hàng</a>
+						<th:block th:if="${#request.remoteUser}">
+							<a class="text-white" type="button" ng-click="order.purcharse()">Mua hàng</a>
+						</th:block>
+						<th:block th:unless="${#request.remoteUser}">
+							<a class="text-white text-decoration-none" th:href="@{/security/login/form}">Mua hàng</a>
+						</th:block>
 					</div>
 				</div>
 			</div>

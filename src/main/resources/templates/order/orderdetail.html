@@ -13,7 +13,7 @@
 		<section id="pricing"
 			class="padd-section wow fadeInUp mt-5  mb-5"
 			style="visibility: visible; animation-name: fadeInUp;">
-
+			<div class="d-none" id="maHD" ng-model="order.maHD">[[*{maHD}]]</div>
 			<div class="section-header">
 				<h2 class="section-title text-center">Chi Tiết Đơn Hàng</h2>
 			</div>
@@ -23,7 +23,7 @@
 					<div class="d-flex align-items-center justify-content-between py-3">
 						<h5 class="mb-0">
 							Đơn hàng
-							<span class="font-weight-bold">#[[*{maHD}]]</span>
+							<span class="font-weight-bold" ng-model="order.maHD">#[[*{maHD}]]</span>
 						</h5>
 					</div>
 					
@@ -134,7 +134,7 @@
 												<div class="col-7 text-left">
 													<span>[[*{taiKhoan.hoTen}]]</span>
 													<br>
-													<span>[[*{diaChi}]]</span>
+													<span>[[*{taiKhoan.diaChi}]]</span>
 													<br>
 													<span>[[*{taiKhoan.sdt}]]</span>
 												</div>
@@ -144,7 +144,7 @@
 									
 									<div class="order-button text-white d-flex align-items-center 
 										justify-content-center">
-										<button type="button" ng-click="order.update()">Cập nhật</button>
+										<button type="button">Cập nhật</button>
 									</div>
 								</div>
 							</div>
