@@ -18,17 +18,20 @@ public class Order implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long maHD;
-	@Temporal(TemporalType.DATE)
-	private Date ngayBan;
 	private int trangThai;
 	@Temporal(TemporalType.DATE)
 	private Date ngayTao;
 	@Temporal(TemporalType.DATE)
 	private Date ngaySua;
+	@Column(columnDefinition = "nvarchar(50)")
+	private String hoTen;
+	private String dienThoai;
+	private String email;
 	@Column(columnDefinition = "nvarchar(max)")
 	private String diaChi;
 	@Column(columnDefinition = "nvarchar(max)")
 	private String ghiChu;
+	private int thanhToan;
 	@ManyToOne
 	@JoinColumn(name = "tenND")
 	private Account taiKhoan;

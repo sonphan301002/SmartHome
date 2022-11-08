@@ -95,10 +95,12 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 	$scope.cart.loadFromLocalStorage();
 
 	$scope.order = {
-		ngayBan: new Date(),
-		ngaySua: new Date(),
 		ngayTao: new Date(),
+		ngaySua: new Date(),
 		trangThai: 1,
+		hoTen: "",
+		dienThoai: "",
+		email: "",
 		diaChi: "",
 		ghiChu: "",
 		trangThai: 1,
@@ -110,7 +112,6 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					donGia: item.gia,
 					soLuong: item.soLuong,
 					giamGia: item.giamGia,
-					VAT: item.VAT
 				}
 			})
 		},

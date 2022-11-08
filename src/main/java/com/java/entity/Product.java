@@ -22,7 +22,6 @@ public class Product implements Serializable{
 	private String tenSP;
 	private double gia;
 	private int soLuong;
-	private int trangThai;
 	@Column(columnDefinition = "nvarchar(max)")
 	private String moTa;
 	private String hinhAnh;
