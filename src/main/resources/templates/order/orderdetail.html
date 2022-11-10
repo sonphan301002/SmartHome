@@ -109,7 +109,7 @@
 									<form action="">
 										<div class="form-group">
 											<div class="h6">Ghi chú khách hàng</div>
-											<textarea class="form-control" ng-model="order.ghiChu">[[*{ghiChu}]]</textarea>
+											<div class="form-control">[[*{ghiChu}]]</div>
 										</div>
 									</form>
 
@@ -123,20 +123,13 @@
 
 										<div class="col-sm-8">
 											<div class="h6">Thông tin người nhận</div>
-											<div class="row d-flex justify-content-end">
-												<div class="col-5 text-left">
-													<span>Người mua</span>
+											<div class="row d-flex justify-content-center">
+												<div class="text-left">
+													<div>Người mua: [[*{hoTen}]]</div>
 													<br>
-													<span>Địa chỉ</span>
+													<div>Địa chỉ: [[*{diaChi}]]</div>
 													<br>
-													<span>Điện thoại</span>
-												</div>
-												<div class="col-7 text-left">
-													<span>[[*{taiKhoan.hoTen}]]</span>
-													<br>
-													<span>[[*{taiKhoan.diaChi}]]</span>
-													<br>
-													<span>[[*{taiKhoan.sdt}]]</span>
+													<div>Điện thoại: [[*{dienThoai}]]</div>
 												</div>
 											</div>
 										</div>
@@ -144,7 +137,7 @@
 									
 									<div class="order-button text-white d-flex align-items-center 
 										justify-content-center">
-										<button type="button">Cập nhật</button>
+										<button type="button">Hủy Đơn</button>
 									</div>
 								</div>
 							</div>
