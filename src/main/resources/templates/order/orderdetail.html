@@ -58,44 +58,39 @@
 											<tr>
 												<td class="text-end">Sản phẩm</td>
 												<td class="text-end">Số lượng</td>
-												<td class="text-end">Đơn giá</td>
 												<td class="text-end">Thành tiền</td>
 											</tr>
 											
 											<tr th:each="detail : *{hoaDonChiTiet}" th:object="${detail}">
 												<td class="text-end">
-													<div class="d-flex mb-2">
-														<div class="flex-shrink-0">
+													<div class="d-flex flex-wrap mb-2">
+														<div class="">
 															<img th:src="@{|/assets/images/*{sanPham.hinhAnh}|}"
-																alt="" width="100" class="img-fluid">
+																alt="" width="200" class="img-fluid">
 														</div>
-														<div class="flex-lg-grow-1 ms-3">
-															<h6 class="small mb-0">
-																<a href="#" class="text-reset">[[*{sanPham.tenSP}]]</a>
-															</h6>
-
+														<div class="">
+															<div>
+																<div class="h5 product-name">[[*{sanPham.tenSP}]]</div>
+																<small class="product-price">[[*{sanPham.gia}]] ₫</small>
+															</div>
 														</div>
 													</div>
 												</td>
-												<td class="text-end">[[*{soLuong}]]</td>
-												<td class="text-end">[[*{sanPham.gia}]]₫</td>
-												<td class="text-end">[[*{soLuong} * *{sanPham.gia}]] ₫</td>
+												<td class="product-price text-end">[[*{soLuong}]]</td>
+												<td class="product-price">[[*{soLuong} * *{sanPham.gia}]] ₫</td>
 											</tr>
 										</tbody>
 
 										<tfoot>
 											<tr>
-												<td>Tổng tiền hàng</td>												
 												<td>Phí vận chuyển</td>
 												<td>Giảm giá</td>
-												<td>Tổng số tiền</td>
+												<td>Tổng tiền</td>
 											</tr>
 											<tr th:each="detail : *{hoaDonChiTiet}" th:object="${detail}">
-												<td class="text-end">[[*{soLuong} * *{sanPham.gia}]]</td>
-												<td class="text-end">20.000đ</td>
-												<td class="text-danger text-end">[[*{giamGia}]]</td>
-												<td class="text-end">[[*{soLuong} * *{sanPham.gia} -
-													*{giamGia}]]</td>
+												<td class="product-price text-end">20.000 ₫</td>
+												<td class="product-price text-danger text-end">[[*{giamGia}]] ₫</td>
+												<td class="product-price text-end">[[*{soLuong} * *{sanPham.gia} - *{giamGia}]] ₫</td>
 											</tr>
 										</tfoot>
 									</table>
@@ -135,9 +130,8 @@
 										</div>
 									</div>
 									
-									<div class="order-button text-white d-flex align-items-center 
-										justify-content-center">
-										<button type="button">Hủy Đơn</button>
+									<div class="order-button text-white d-flex align-items-center justify-content-center">
+										<button type="button" ng-click="order.cancel()">Hủy Đơn</button>
 									</div>
 								</div>
 							</div>

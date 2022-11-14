@@ -135,6 +135,25 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				console.log(error);
 			})
 		},
+		cancel() {
+			var order = angular.copy(this);
+			$http.put(`/rest/orders/${maHD}`, order).then(resp => {
+				order.trangThai = "5";
+				Swal.fire({
+					icon: 'success',
+					title: 'Xác nhận hủy đơn ?',
+					showConfirmButton: true
+				});
+				location.reload();
+			}).catch(error => {
+				Swal.fire({
+					icon: 'warning',
+					title: 'Hủy đơn thất bại',
+					showConfirmButton: true
+				});
+				console.log(error);
+			})
+		},
 		update() {
 			var order = angular.copy(this);
 			//Đặt hàng

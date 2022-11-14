@@ -103,17 +103,15 @@
 										<input type="text" class="form-control" placeholder="Địa chỉ"
 											ng-model="order.diaChi">
 									</div>
-	
+
 									<div class="form-group">
 										<textarea class="form-control" placeholder="Ghi chú"
 											ng-model="order.ghiChu"></textarea>
 									</div>
-									<small class="font-italic text-black" ng-if="order.taiKhoan != null">Vui lòng đăng nhập</small>
+									
 									<div class="order-button text-white d-flex justify-content-center">
-										<button type="button" ng-if="order.taiKhoan == null"
+										<button type="button"
 											ng-click="order.purcharse()">Đặt hàng</button>
-										<button type="button" ng-if="order.taiKhoan != null"
-											disabled>Đặt hàng</button>
 									</div>
 								</form>
 							</div>
