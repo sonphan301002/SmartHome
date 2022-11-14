@@ -13,4 +13,6 @@ public interface SanPhamDao extends JpaRepository<Product, Long>{
 			+ "from hoa_don_chi_tiet hdct inner join san_pham sp on sp.masp = hdct.masp\r\n"
 			+ "GROUP BY hdct.masp, sp.tensp, sp.gia, sp.hinh_anh order by hdct.masp asc", nativeQuery = true )
 	List<Product> findByBestSeller();
+	
+	
 }

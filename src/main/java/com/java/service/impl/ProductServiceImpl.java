@@ -59,6 +59,30 @@ public class ProductServiceImpl implements ProductService{
 		return productDAO.findByTensp(keyword);
 	}
 
+    @Override
+    public List<Product> findNewProduct() {
+        // TODO Auto-generated method stub
+        return productDAO.findNewProduct();
+    }
+
+    @Override
+    public List<Product> hienThiThietBi() {
+        // TODO Auto-generated method stub
+        return productDAO.hienThiThietBi();
+    }
+
+    @Override
+    public List<Product> hienThiRobot() {
+        // TODO Auto-generated method stub
+        return productDAO.hienThiRobot();
+    }
+
+    @Override
+    public List<Product> hienThimayLoc() {
+        // TODO Auto-generated method stub
+        return productDAO.hienThimayLoc();
+    }
+
 //	@Override
 //	public Page<Product> findAllByTenspLike(String keyword, Pageable pageable) {
 //		 

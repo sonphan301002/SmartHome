@@ -20,6 +20,10 @@ public class HomeController {
 	public String home(Model model) {
 	    model.addAttribute("taiKhoan", accountService.findAll());
 		model.addAttribute("bestSeller", productService.findAll());
+		model.addAttribute("newProd", productService.findNewProduct());
+		model.addAttribute("thietBi", productService.hienThiThietBi());
+		model.addAttribute("roBot", productService.hienThiRobot());
+		model.addAttribute("mayloc", productService.hienThimayLoc());
 		return "/layout/main";
 	}
 	

@@ -18,4 +18,8 @@ public interface ProductService {
 	List<Product> findByTensp(String keyword);
 //	Page<Product> findAllByTenspLike(String keyword, Pageable pageable);
 //	Page<Product> findAll(Pageable pageable);
+    List<Product> findNewProduct();
+    List<Product> hienThiThietBi();
+    List<Product> hienThiRobot();
+    List<Product> hienThimayLoc();
 }
