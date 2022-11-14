@@ -1,100 +1,143 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
 
 <head>
-<title>Title</title>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
 <body id="wrapper">
-	<main>
+    <main>
 
-		<div class="container rounded bg-white mt-5">
-			<div class="row">
-				<div class="col-md-4 border-right">
-					<div
-						class="d-flex flex-column align-items-center text-center p-3 py-5">
-						<img class=""
-							src="https://media.istockphoto.com/vectors/default-image-icon-vector-missing-picture-page-for-website-design-or-vector-id1357365823?k=20&m=1357365823&s=612x612&w=0&h=ZH0MQpeUoSHM3G2AWzc8KkGYRg4uP_kuu0Za8GFxdFc="
-							width="300" height="300">
+        <div class="container rounded bg-white mt-3">
+            <div class="row">
+                <div class="col-md-4 border-right">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                        <img class="" src="https://media.istockphoto.com/vectors/default-image-icon-vector-missing-picture-page-for-website-design-or-vector-id1357365823?k=20&m=1357365823&s=612x612&w=0&h=ZH0MQpeUoSHM3G2AWzc8KkGYRg4uP_kuu0Za8GFxdFc=" width="300" height="300">
 
-					</div>
-				</div>
-				<div class="col-md-8">
-					<div class="p-3 py-5">
-						<div
-							class="d-flex justify-content-between align-items-center mb-3">
-							<div class=" flex-row align-items-center back">
-								<i class="fa fa-long-arrow-left mr-1 mb-1"></i>
-								<a th:href="@{/order}">Danh sách đơn mua</a>
-							</div>
-							<h6 class="text-right">Tài khoản của tôi</h6>
-						</div>
-						<div class="row mt-2">
-							<div class="col-md-6">
-								<input type="text" class="form-control" placeholder="Họ và tên"
-									value="">
-							</div>
-							<div class="col-md-6">
-								<input type="tel" class="form-control" value=""
-									placeholder="Điện thoại">
-							</div>
-						</div>
-						<div class="row mt-3">
-							<div class="col-md-6">
-								<input type="email" class="form-control" placeholder="Email"
-									value="">
-							</div>
-							<div class="col-md-6">
-								<input type="tel" class="form-control" value=""
-									placeholder="CCCD">
-							</div>
-						</div>
-						<div class="row mt-3">
-							<div class="col-md-6">
-								<input type="password" class="form-control"
-									placeholder="Mật khẩu mới" value="">
-							</div>
-							<div class="col-md-6">
-								<input type="password" class="form-control" value=""
-									placeholder="Nhập lại mật khẩu">
-							</div>
-						</div>
-						<div class="row mt-3">
-							<div class="col-md-6">
-								<textarea class="form-control" rows="5" cols=""></textarea>
-							</div>
-							<div class="col-md-6">
-								<select name="country" id="country" class="form-control">
-									<option selected>Giới tính</option>
-									<option value="">Nam</option>
-									<option value="">Nữ</option>
-								</select>
-							</div>
-						</div>
+                    </div>
+                </div>
+                <form th:action="@{/security/changeInfomation}" method="post" th:object="${acc}" class="col-md-8">
+                    <div class="p-3 py-3">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">TÀI KHOẢN CỦA TÔI
+                            </h4>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="input-group mb-1">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
+                                        </div>
+                                        <input type="text" class="form-control" id="tenND" name="tenND" placeholder="Tên đăng nhập" th:field="*{tenND}" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="input-group mb-1">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fa fa-smile text-info"></i></div>
+                                        </div>
+                                        <input type="tel" class="form-control" id="hoTen" name="hoTen" placeholder="Họ và tên" th:field="*{hoTen}">
+                                    </div>
+                                    <small th:if="${#fields.hasErrors('hoTen')}" id="hoTenHelpId" class="form-text text-danger">Họ tên không được để trống</small>
+                                </div>
+                            </div>
+                        </div>
 
-						<div class="mt-5 text-right">
-							<button class="btn btn-outline-info profile-button" type="button">Thay
-								đổi</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</main>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fa fa-venus-mars text-info"></i></div>
+                                    </div>
+                                    <select name="country" id="gioiTinh" class="form-control" th:field="*{gioiTinh}">
+                                        <option value="0">Nam</option>
+                                        <option value="1">Nữ</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fas fa-map-marked text-info"></i></div>
+                                        </div>
+                                        <input type="text" class="form-control" id="diaChi" name="diaChi" placeholder="Địa chỉ" th:field="*{diaChi}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
+                                        </div>
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Địa chỉ email" th:field="*{email}">
+                                        <small th:if="${#fields.hasErrors('email')}" id="hoTenHelpId" class="form-text text-danger">Email không được để trống</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fa fa-phone text-info"></i></div>
+                                        </div>
+                                        <input type="tel" class="form-control" id="sdt" name="sdt" placeholder="Số điện thoại" th:field="*{sdt}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fa fa-key text-info"></i></div>
+                                        </div>
+                                        <input type="text" class="form-control" id="matKhau" name="matKhau" placeholder="Mật khẩu" th:field="*{matKhau}">
+                                    </div>
+                                    <small th:if="${#fields.hasErrors('matKhau')}" id="hoTenHelpId" class="form-text text-danger">Mật khẩu không được để trống</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
+                                        </div>
+                                        <textarea class="form-control" placeholder="Ghi chú"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <input type="submit" value="Thay đổi" class="btn btn-info btn-block rounded-0 py-2">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
 </body>
+
 </html>

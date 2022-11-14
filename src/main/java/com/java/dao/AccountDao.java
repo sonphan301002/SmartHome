@@ -13,4 +13,6 @@ public interface AccountDao extends JpaRepository<Account, String>{
 	
 	@Query("select DISTINCT ar.taiKhoan from Authority ar where ar.vaiTro.maVT in ('GD', 'NV')")
 	List<Account> getAdministrators();
+	
+	Account findByEmail(String email);
 }

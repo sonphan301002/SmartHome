@@ -12,6 +12,7 @@ import org.springframework.util.StringUtils;
 
 import com.java.dao.AccountDao;
 import com.java.entity.Account;
+import com.java.entity.AuthenticationProvider;
 import com.java.service.AccountService;
 
 @Service
@@ -49,36 +50,26 @@ public class AccountServiceImpl implements AccountService{
     
     @Override
     public <S extends Account> S save(S account) {
-        Optional<Account> optExist = findById(account.getTenND());
-        
-        //kiểm tra nếu người dùng kh nhập password
-        if (optExist.isPresent()) {
-            
-            //Lấy password cũ
-            if (StringUtils.isEmpty(account.getMatKhau())) {
-                account.setMatKhau(null);
-            
-            }else {// nhập password
-                
-//              -> mã hóa password
-                account.setMatKhau(bCryptPasswordEncoder.encode(account.getMatKhau()));
-            }
-        }
-        
-        account.setMatKhau(bCryptPasswordEncoder.encode(account.getMatKhau()));
+//        Optional<Account> optExist = findById(account.getTenND());
+//        
+//        //kiểm tra nếu người dùng kh nhập password
+//        if (optExist.isPresent()) {
+//            
+//            //Lấy password cũ
+//            if (StringUtils.isEmpty(account.getMatKhau())) {
+//                account.setMatKhau(null);
+//            
+//            }else {// nhập password
+//                
+////              -> mã hóa password
+//                account.setMatKhau(bCryptPasswordEncoder.encode(account.getMatKhau()));
+//            }
+//        }
+//        
+//        account.setMatKhau(bCryptPasswordEncoder.encode(account.getMatKhau()));
         
         return accountDao.save(account);
     }
-
-//    @Override
-//    public List<Account> findAll() {
-//        return accountDAO.findAll();
-//    }
-//
-//    @Override
-//    public Optional<Account> findById(String tenND) {
-//        return accountDAO.findById(tenND);
-//    }
 
     @Override
     public boolean existsById(String tenND) {
@@ -111,6 +102,31 @@ public class AccountServiceImpl implements AccountService{
     public Optional<Account> findById(String tenND) {
         // TODO Auto-generated method stub
         return Optional.empty();
+    }
+    
+    
+    @Override
+    public Account findByEmail(String email) {
+        return accountDao.findByEmail(email);
+    }
+    
+    @Override
+    public void createNewAccountAfterOauthLoginSuccess(String email, String name, AuthenticationProvider provider) {
+        Account account = new Account();
+        account.setTenND(email);
+        account.setEmail(email);
+        account.setHoTen(name);
+        account.setAuthProvider(provider);
+
+        accountDao.save(account);
+    }
+
+    @Override
+    public void updateAccountAfterOauthLoginSuccess(Account account, String name, AuthenticationProvider provider) {
+        account.setHoTen(name);
+        account.setAuthProvider(provider);
+
+        accountDao.save(account);
     }
 
 }

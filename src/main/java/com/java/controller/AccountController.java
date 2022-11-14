@@ -14,7 +14,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -80,13 +82,31 @@ public class AccountController {
 		return "/account/change-password";
 	}
 	
-    @GetMapping("/editProfile")
-	public String editProfile() {
+    @GetMapping("/editProfile/{tenND}")
+	public String editProfile(ModelMap model, @PathVariable("tenND") String tenND){
+    	
+    	Account acc = accountService.getById(tenND);
+    	model.addAttribute("acc", acc);
 		return "/account/edit-profile";
 	}
 	
     @GetMapping("/forgot")
 	public String fogot() {
 		return "/account/forgot-password";
+	}
+    
+    @PostMapping("/changeInfomation")
+    public String changeInfomation(ModelMap model ,@Valid
+    		@ModelAttribute("acc") Account item, BindingResult result){
+    	
+    	if (result.hasErrors()) {
+    		return "/account/edit-profile";
+		}
+        
+    	accountService.save(item);
+        
+        //Hiển thị thông báo
+        model.addAttribute("message", "Cập nhật thông tin thành công !");
+    	return "/account/edit-profile";
 	}
 }
