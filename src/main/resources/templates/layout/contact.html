@@ -35,25 +35,25 @@
 						<p>Mọi thắc mắc hoặc góp ý, quý khách vui lòng điền đầy đủ
 							thông tin vào form bên dưới đây.</p>
 							
-						<form action="">
+						<form action="/submit" method="post">
 							<div class="form-group">
-								<label for="">Họ và tên</label>
-								<input type="text" class="form-control"/>
+								<label >Họ và tên</label>
+								<input name="name" type="text" class="form-control"/>
 							</div>
 							
 							<div class="form-group">
-								<label for="">Email</label>
-								<input type="text" class="form-control"/>
+								<label >Email</label>
+								<input name="toEmail" type="text" class="form-control"/>
 							</div>
 							
 							<div class="form-group">
-								<label for="">Tiêu đề</label>
-								<input type="text" class="form-control"/>
+								<label >Tiêu đề</label>
+								<input name="subject" type="text" class="form-control"/>
 							</div>
 							
 							<div class="form-group">
-								<label for="">Nội dung</label>
-								<textarea class="form-control"></textarea>
+								<label >Nội dung</label>
+								<textarea name="content" class="form-control"></textarea>
 							</div>
 							
 							<div class="form-group">

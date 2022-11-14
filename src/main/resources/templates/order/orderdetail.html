@@ -13,7 +13,7 @@
 		<section id="pricing"
 			class="padd-section wow fadeInUp mt-5  mb-5"
 			style="visibility: visible; animation-name: fadeInUp;">
-
+			<div class="d-none" id="maHD" ng-model="order.maHD">[[*{maHD}]]</div>
 			<div class="section-header">
 				<h2 class="section-title text-center">Chi Tiết Đơn Hàng</h2>
 			</div>
@@ -23,7 +23,7 @@
 					<div class="d-flex align-items-center justify-content-between py-3">
 						<h5 class="mb-0">
 							Đơn hàng
-							<span class="font-weight-bold">#[[*{maHD}]]</span>
+							<span class="font-weight-bold" ng-model="order.maHD">#[[*{maHD}]]</span>
 						</h5>
 					</div>
 					
@@ -58,44 +58,39 @@
 											<tr>
 												<td class="text-end">Sản phẩm</td>
 												<td class="text-end">Số lượng</td>
-												<td class="text-end">Đơn giá</td>
 												<td class="text-end">Thành tiền</td>
 											</tr>
 											
 											<tr th:each="detail : *{hoaDonChiTiet}" th:object="${detail}">
 												<td class="text-end">
-													<div class="d-flex mb-2">
-														<div class="flex-shrink-0">
+													<div class="d-flex flex-wrap mb-2">
+														<div class="">
 															<img th:src="@{|/assets/images/*{sanPham.hinhAnh}|}"
-																alt="" width="100" class="img-fluid">
+																alt="" width="200" class="img-fluid">
 														</div>
-														<div class="flex-lg-grow-1 ms-3">
-															<h6 class="small mb-0">
-																<a href="#" class="text-reset">[[*{sanPham.tenSP}]]</a>
-															</h6>
-
+														<div class="">
+															<div>
+																<div class="h5 product-name">[[*{sanPham.tenSP}]]</div>
+																<small class="product-price">[[*{sanPham.gia}]] ₫</small>
+															</div>
 														</div>
 													</div>
 												</td>
-												<td class="text-end">[[*{soLuong}]]</td>
-												<td class="text-end">[[*{sanPham.gia}]]₫</td>
-												<td class="text-end">[[*{soLuong} * *{sanPham.gia}]] ₫</td>
+												<td class="product-price text-end">[[*{soLuong}]]</td>
+												<td class="product-price">[[*{soLuong} * *{sanPham.gia}]] ₫</td>
 											</tr>
 										</tbody>
 
 										<tfoot>
 											<tr>
-												<td>Tổng tiền hàng</td>												
 												<td>Phí vận chuyển</td>
 												<td>Giảm giá</td>
-												<td>Tổng số tiền</td>
+												<td>Tổng tiền</td>
 											</tr>
 											<tr th:each="detail : *{hoaDonChiTiet}" th:object="${detail}">
-												<td class="text-end">[[*{soLuong} * *{sanPham.gia}]]</td>
-												<td class="text-end">20.000đ</td>
-												<td class="text-danger text-end">[[*{giamGia}]]</td>
-												<td class="text-end">[[*{soLuong} * *{sanPham.gia} -
-													*{giamGia}]]</td>
+												<td class="product-price text-end">20.000 ₫</td>
+												<td class="product-price text-danger text-end">[[*{giamGia}]] ₫</td>
+												<td class="product-price text-end">[[*{soLuong} * *{sanPham.gia} - *{giamGia}]] ₫</td>
 											</tr>
 										</tfoot>
 									</table>
@@ -109,7 +104,7 @@
 									<form action="">
 										<div class="form-group">
 											<div class="h6">Ghi chú khách hàng</div>
-											<textarea class="form-control" ng-model="order.ghiChu">[[*{ghiChu}]]</textarea>
+											<div class="form-control">[[*{ghiChu}]]</div>
 										</div>
 									</form>
 
@@ -123,28 +118,20 @@
 
 										<div class="col-sm-8">
 											<div class="h6">Thông tin người nhận</div>
-											<div class="row d-flex justify-content-end">
-												<div class="col-5 text-left">
-													<span>Người mua</span>
+											<div class="row d-flex justify-content-center">
+												<div class="text-left">
+													<div>Người mua: [[*{hoTen}]]</div>
 													<br>
-													<span>Địa chỉ</span>
+													<div>Địa chỉ: [[*{diaChi}]]</div>
 													<br>
-													<span>Điện thoại</span>
-												</div>
-												<div class="col-7 text-left">
-													<span>[[*{taiKhoan.hoTen}]]</span>
-													<br>
-													<span>[[*{diaChi}]]</span>
-													<br>
-													<span>[[*{taiKhoan.sdt}]]</span>
+													<div>Điện thoại: [[*{dienThoai}]]</div>
 												</div>
 											</div>
 										</div>
 									</div>
 									
-									<div class="order-button text-white d-flex align-items-center 
-										justify-content-center">
-										<button type="button" ng-click="order.update()">Cập nhật</button>
+									<div class="order-button text-white d-flex align-items-center justify-content-center">
+										<button type="button" ng-click="order.cancel()">Hủy Đơn</button>
 									</div>
 								</div>
 							</div>

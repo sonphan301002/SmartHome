@@ -16,10 +16,10 @@
             
             <div class="section-title">
                 <div class="" style="background-color: #87A2FB;">
-                    <div class="container py-5 h-100">
-                        <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="container py-5">
+                        <div class="row d-flex justify-content-center align-items-center">
                             <div class="col-12 mb-sm-4" th:each ="o : ${orders}">
-                                <div class="card card-stepper text-black mb-sm-4 h-100" style="border-radius: 16px;">
+                                <div class="card card-stepper text-black mb-sm-4 h-50" style="border-radius: 16px;">
                                     <div class="card-body p-5">
                                         <div class="d-flex justify-content-between align-items-center mb-5">
                                             <div>
@@ -38,50 +38,49 @@
                                         </div>
                                         <!-- Trạng thái -->
                                         <div class="">
-                                            <ul id="progressbar-2" class="d-flex justify-content-between 
-                                                mx-0 mt-0 mb-5 px-0 pt-0 pb-2">
+                                            <ul id="progressbar" class="text-center d-flex justify-content-between mx-0 mt-0 mb-5 px-0 pt-0 pb-2">
                                                 <!--Trạng thái 1 -->
                                                 <th:block th:if="${o.trangThai} == 1">
-                                                    <li class="step0 active text-center" id="step1"></li>
+                                                    <li class="step0 active"></li>
                                                     
-                                                    <li class="step0 text-center" id="step2"></li>
+                                                    <li class="step0" ></li>
                                                     
-                                                    <li class="step0 text-center" id="step3"></li>
+                                                    <li class="step0 " ></li>
                                                     
-                                                    <li class="step0 text-center" id="step4"></li>
+                                                    <li class="step0 "></li>
                                                 </th:block>
                                                 
                                                 <!--Trạng thái 2 -->
                                                 <th:block th:if="${o.trangThai} == 2">
-                                                    <li class="step0 active text-center" id="step1"></li>
+                                                    <li class="step0 active " ></li>
                                                     
-                                                    <li class="step0 active text-center" id="step2"></li>
+                                                    <li class="step0 active " ></li>
                                                     
-                                                    <li class="step0 text-center" id="step3"></li>
+                                                    <li class="step0 "></li>
                                                     
-                                                    <li class="step0 text-center" id="step4"></li>
+                                                    <li class="step0 "></li>
                                                 </th:block>
                                                 
                                                 <!--Trạng thái 3 -->
                                                 <th:block th:if="${o.trangThai} == 3">
-                                                    <li class="step0 active text-center" id="step1"></li>
+                                                    <li class="step0 active "></li>
                                                     
-                                                    <li class="step0 active text-center" id="step2"></li>
+                                                    <li class="step0 active "></li>
                                                     
-                                                    <li class="step0 active text-center" id="step3"></li>
+                                                    <li class="step0 active "></li>
                                                     
-                                                    <li class="step0 text-center" id="step4"></li>
+                                                    <li class="step0 "></li>
                                                 </th:block>
                                                 
                                                 <!--Trạng thái 4 -->
                                                 <th:block th:if="${o.trangThai} == 4">
-                                                    <li class="step0 active text-center" id="step1"></li>
+                                                    <li class="step0 active "></li>
                                                     
-                                                    <li class="step0 active text-center" id="step2"></li>
+                                                    <li class="step0 active "></li>
                                                     
-                                                    <li class="step0 active text-center" id="step3"></li>
+                                                    <li class="step0 active "></li>
                                                     
-                                                    <li class="step0 active text-center" id="step4"></li>
+                                                    <li class="step0 active "></li>
                                                 </th:block>
                                             </ul>
                                         </div>
