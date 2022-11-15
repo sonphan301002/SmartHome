@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.java.entity.Account;
+import com.java.entity.AuthenticationProvider;
 import com.java.service.AccountService;
 
 import com.java.service.AccountService;
@@ -33,8 +35,27 @@ public class Oauth2Controller {
         String fullname = oauth.getPrincipal().getAttribute("name");
         
         
+        System.out.println("Account is "+email);
+
+
+        //Tìm kiếm account theo email
+        Account account = accountService.findByEmail(email);
+
+
+        //Nếu chưa có acc với email tìm được
+        if (account == null) {
+//            ->Tạo mới
+            accountService.createNewAccountAfterOauthLoginSuccess(email, fullname, AuthenticationProvider.GOOGLE);
+        }else {
+
+//            update nếu có acc với email tìm được
+            accountService.updateAccountAfterOauthLoginSuccess(account, fullname, AuthenticationProvider.GOOGLE);
+        }
+        
+        
+        
         //Tạo đối tượng userdetails lấy fullname làm username
-        UserDetails user = User.withUsername(fullname).password("").roles("GUEST").build();
+        UserDetails user = User.withUsername(email).password("").roles("GUEST").build();
         
         //Tạo đối tượng authentication từ userdetails
         Authentication auth=

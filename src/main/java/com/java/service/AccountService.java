@@ -6,6 +6,7 @@ import java.util.Optional;
 
 
 import com.java.entity.Account;
+import com.java.entity.AuthenticationProvider;
 
 public interface AccountService {
     
@@ -35,5 +36,11 @@ public interface AccountService {
     List<Account> findAll();
 
     Account findByND(String tenND);
+
+	void createNewAccountAfterOauthLoginSuccess(String email, String name, AuthenticationProvider provider);
+
+	void updateAccountAfterOauthLoginSuccess(Account account, String name, AuthenticationProvider provider);
+
+	Account findByEmail(String email);
 
 }
