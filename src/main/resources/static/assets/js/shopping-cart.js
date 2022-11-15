@@ -98,12 +98,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		ngayTao: new Date(),
 		ngaySua: new Date(),
 		trangThai: 1,
-		hoTen: "",
-		dienThoai: "",
-		email: "",
-		diaChi: "",
-		ghiChu: "",
-		trangThai: 1,
+		thanhToan: 0,
 		taiKhoan: {tenND: $("#username").text()},
 		get hoaDonChiTiet() {
 			return $scope.cart.items.map(item => {
@@ -112,6 +107,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					donGia: item.gia,
 					soLuong: item.soLuong,
 					giamGia: item.giamGia,
+					VAT: item.vat
 				}
 			})
 		},
