@@ -51,4 +51,7 @@ public class HomeController {
 	public String contact() {
 		return "/layout/contact";
 	}
+ 
+	
+ 
 }
