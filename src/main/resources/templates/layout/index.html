@@ -85,11 +85,11 @@
 								</a>
 							</div>
 
-							<li th:if="${#request.remoteUser}" class="nav-link nav-icons">
-								<a class="nav-link text-light" th:href="@{|/security/editProfile/${#request.remoteUser}|}">
-									<span class="text">Hi</span> [[${#request.remoteUser}]] !
-							</a>
-							</li>
+                            <li th:if="${#request.remoteUser}" class="nav-link nav-icons">
+                                <a class="nav-link text-light" href="/security/editProfile">
+                                    <span class="text">Hi</span> [[${#request.remoteUser}]] !
+                                </a>
+                            </li>
 
 							<th:block th:if="${#request.remoteUser}">
 								<span class="vl"></span>

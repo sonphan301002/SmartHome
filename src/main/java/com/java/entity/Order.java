@@ -23,12 +23,6 @@ public class Order implements Serializable{
 	private Date ngayTao;
 	@Temporal(TemporalType.DATE)
 	private Date ngaySua;
-	@Column(columnDefinition = "nvarchar(50)")
-	private String hoTen;
-	private String dienThoai;
-	private String email;
-	@Column(columnDefinition = "nvarchar(max)")
-	private String diaChi;
 	@Column(columnDefinition = "nvarchar(max)")
 	private String ghiChu;
 	private int thanhToan;

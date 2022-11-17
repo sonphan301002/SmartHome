@@ -11,7 +11,7 @@
 <body>
 	<main>
 		<div class="container" th:fragment="shopping_cart">
-			<div id="username" style="display: none;">[[${#request.remoteUser}]]</div>
+			<span class="d-none" id="username">[[${#request.remoteUser}]]</span>
 			<div class="cart-page">
 				<div class="cart-null" ng:if="cart.count == 0">
 					<div class="text-center">
@@ -25,95 +25,61 @@
 					</div>
 				</div>
 				
-				<div class="row" ng:if="cart.count != 0">
-					<div class="col-7">
-						<div class="card border-0 h-100">
-							<div class="card-body">
-								<div class="">
-									<div class="h5 text-center">Giỏ hàng</div>
+				<div ng:if="cart.count != 0">
+					<div class="card border-0 h-100">
+						<div class="card-body">
+							<div class="">
+								<div class="h5 text-center">Giỏ hàng</div>
+								<table>
+									<tr>
+										<th>Sản phẩm</th>
+										<th>Số lượng</th>
+										<th>Thành tiền</th>
+									</tr>
+			
+									<tr ng-repeat="item in cart.items">
+										<td>
+											<div class="cart-info">
+												<img ng-src="{{'/assets/images/' + item.hinhAnh}}" alt=""
+													width="100%" height="100%">
+												<div>
+													<p class="product-name">{{item.tenSP}}</p>
+													<small class="product-price">{{item.gia | number :
+														0}} ₫</small><a class="badge badge-pill badge-danger ml-3" href=""
+														ng-click="cart.remove(item.id)">Xóa</a>
+												</div>
+											</div>
+										</td>
+										<td>
+											<form action="">
+												<div class="form-group">
+													<input type="number" ng-change="cart.saveToLocalStorage()"
+														ng-model="item.soLuong" min="1">
+												</div>
+											</form>
+										</td>
+										<td>{{item.gia * item.soLuong | number : 2}} ₫</td>
+									</tr>
+								</table>
+			
+								<div class="total-price">
 									<table>
 										<tr>
-											<th>Sản phẩm</th>
-											<th>Số lượng</th>
-											<th>Thành tiền</th>
+											<td>VAT</td>
+											<td ng-model="item.vat">{{cart.amount * 0.05 | number : 2}} ₫</td>
 										</tr>
-				
-										<tr ng-repeat="item in cart.items">
-											<td>
-												<div class="cart-info">
-													<img ng-src="{{'/assets/images/' + item.hinhAnh}}" alt=""
-														width="100%" height="100%">
-													<div>
-														<p class="product-name">{{item.tenSP}}</p>
-														<small class="product-price">$ {{item.gia | number :
-															0}}</small> <a class="badge badge-pill badge-danger ml-3" href=""
-															ng-click="cart.remove(item.id)">Xóa</a>
-													</div>
-												</div>
-											</td>
-											<td>
-												<form action="">
-													<div class="form-group">
-														<input type="number" ng-change="cart.saveToLocalStorage()"
-															ng-model="item.soLuong" min="1">
-													</div>
-												</form>
-											</td>
-											<td>{{item.gia * item.soLuong | number : 2}} ₫</td>
+										<tr>
+											<td>Tổng tiền</td>
+											<td>{{cart.amount - cart.amount * 0.05| number : 2}} ₫</td>
 										</tr>
 									</table>
-				
-									<div class="total-price">
-										<table>
-											<tr>
-												<td>Tổng tiền</td>
-												<td>{{cart.amount | number : 2}} ₫</td>
-											</tr>
-										</table>
-									</div>
 								</div>
-							</div>
-						</div>
-					</div>
 
-					<div class="col-5">
-						<div class="card h-100 border-0">
-							<div class="card-body">
-								<div class="cart-title text-center h5">Thông tin đặt hàng</div>
-								<form action="" method="post">
-									<div class="d-none" ng-model="order.taiKhoan" 
-										id="tenND">[[${#request.remoteUser}]]</div>
-									
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Họ và tên"
-											ng-model="order.hoTen">
-									</div>
-	
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Số điện thoại"
-										ng-model="order.dienThoai">
-									</div>
-									
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Email"
-										ng-model="order.email">
-									</div>
-	
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Địa chỉ"
-											ng-model="order.diaChi">
-									</div>
-
-									<div class="form-group">
-										<textarea class="form-control" placeholder="Ghi chú"
-											ng-model="order.ghiChu"></textarea>
-									</div>
-									
-									<div class="order-button text-white d-flex justify-content-center">
-										<button type="button"
-											ng-click="order.purcharse()">Đặt hàng</button>
-									</div>
-								</form>
+								<div class="cart-button">
+									<span class="d-none" name="username" id="username">[[${#request.remoteUser}]]</span>
+									<a th:href="@{|/order/checkout/${#request.remoteUser}|}"
+										class="text-white text-decoration-none">Thanh toán</a>
+								</div>
 							</div>
 						</div>
 					</div>

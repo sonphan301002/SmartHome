@@ -547,7 +547,6 @@ td:last-child {
 }
 
 .cart-button a {
-    text-align: center;
     padding: 8px 24px;
     font-weight: 300;
     font-size: .875rem;
@@ -556,6 +555,8 @@ td:last-child {
     border: none;
     border-radius: 5px;
     background-color: #ff523b;
+    color: #fff;
+    text-align: center;
 }
 
 .cart-null {
