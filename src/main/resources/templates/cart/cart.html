@@ -75,9 +75,13 @@
 									</table>
 								</div>
 
-								<div class="cart-button">
+								<div class="cart-button" th:if="${#request.remoteUser}">
 									<span class="d-none" name="username" id="username">[[${#request.remoteUser}]]</span>
 									<a th:href="@{|/order/checkout/${#request.remoteUser}|}"
+										class="text-white text-decoration-none">Thanh toán</a>
+								</div>
+								<div class="cart-button" th:unless="${#request.remoteUser}">
+									<a th:href="@{|/security/login/form|}"
 										class="text-white text-decoration-none">Thanh toán</a>
 								</div>
 							</div>

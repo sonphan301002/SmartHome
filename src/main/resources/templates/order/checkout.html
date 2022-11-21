@@ -12,8 +12,8 @@
         <section class="container mt-4 mb-4">
             <div class="row d-flex align-items-start justify-content-center">
                 <span class="d-none" id="username">[[${#request.remoteUser}]]</span>
-                <div class="col-7">
-                    <div class="h3 text-center">Danh sách sản phẩm</div>
+                <div class="col-8">
+                    <div class="h5 text-center">Danh sách sản phẩm</div>
                     <table class="">
                         <tr ng-repeat="item in cart.items">
                             <td>
@@ -51,38 +51,54 @@
                     </div>
                 </div>
     
-                <div class="col-5" th:object="${taiKhoan}">
-                    <div class="h5 text-center">Thông tin đặt hàng</div>
-                    <form action="">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Họ và tên" th:value="${taiKhoan.hoTen}">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Điện thoại"  th:value="${taiKhoan.sdt}">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Email"  th:value="${taiKhoan.email}">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Địa chỉ"  th:value="${taiKhoan.diaChi}">
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" ng-model="order.ghiChu" name="" id=""></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Mã giảm giá (Nếu có)">
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control" name="" id="">
-                                <option value="">Thanh toán khi nhận hàng</option>
-                                <option value="">MoMo</option>
-                            </select>
-                        </div>
-                    </form>
+                <div class="col-4">
+                    <div class="" th:object="${taiKhoan}">
+                        <div class="h5 text-center">Thông tin đặt hàng</div>
+                        <form action="">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Họ và tên" th:value="${taiKhoan.hoTen}">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Điện thoại"  th:value="${taiKhoan.sdt}">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Email"  th:value="${taiKhoan.email}">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Địa chỉ"  th:value="${taiKhoan.diaChi}">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" ng-model="order.ghiChu" placeholder="Ghi chú"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="radio" name="thanhToan" id="" ng-model="order.thanhToan" value="0"> Thanh toán khi nhận hàng
+                                <input type="radio" name="thanhToan" id="" data-toggle="modal" data-target="#myModal"
+                                    ng-model="order.thanhToan" value="1"> Momo
+                            </div>
 
-                    <div class="order-button text-white d-flex justify-content-center">
-                        <button type="button"
-                            ng-click="order.purcharse()">Đặt hàng</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog">
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body d-flex align-items-center justify-content-center">
+                                        <img ng-src="/assets/images/qr-momo.jpg" alt="" width="70%">
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </form>
+    
+                        <div class="order-button text-white d-flex justify-content-center">
+                            <button type="button"
+                                ng-click="order.purcharse()">Đặt hàng</button>
+                        </div>
                     </div>
                 </div>
             </div>

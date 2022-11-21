@@ -111,9 +111,13 @@
 									<div class="row text-center mt-sm-2">
 										<div class="col-sm-4">
 											<div class="h6">Hình thức thanh toán</div>
-											<img src="/assets/images/mo-mo.jpg"
-												alt="" width="50" class="img-fluid"> <br> 
-											<div class="">Momo</div>
+											<div class="">
+												<span th:if="*{thanhToan} == 0">Thanh toán khi nhận hàng</span>
+												<div th:if="*{thanhToan} == 1">
+													<img src="/assets/images/mo-mo.jpg"
+														alt="" width="50" class="img-fluid"> 
+												</div>
+											</div>
 										</div>
 
 										<div class="col-sm-8">
