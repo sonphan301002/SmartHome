@@ -47,9 +47,6 @@ public class ContactController {
                 "                <p color=\"#3979b8\" font-size=\"medium\" class=\"job-title__Container-sc-1hmtp73-0 ibpiyI\"\n" +
                 "                    style=\"margin: 0px; color: rgb(57, 121, 184); font-size: 14px; line-height: 22px;\">" +
                 "           <span>"+content+"</span></p>\n" +
-                "                <p color=\"#3979b8\" font-size=\"medium\" class=\"custom-field__CustomFieldContainer-sc-190n2f-0 hXbvbV\"\n" +
-                "                    style=\"color: rgb(57, 121, 184); margin: 0px; font-size: 14px; line-height: 22px;\"><span>Chúc bạn\n" +
-                "                        một ngày mới tốt lành!</span></p>\n" +
                 "            </td>\n" +
                 "        </tr>\n" +
                 "        <tr>\n" +

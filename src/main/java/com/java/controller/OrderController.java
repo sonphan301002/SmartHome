@@ -14,12 +14,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.java.entity.Order;
 import com.java.entity.OrderDetail;
+import com.java.service.AccountService;
 import com.java.service.OrderService;
 
 @Controller
 public class OrderController {
 	@Autowired
 	OrderService orderService;
+	
+	@Autowired
+	AccountService accountService;
 	
 	@RequestMapping("/order")
 	public String order(Model model, HttpServletRequest request) {
@@ -32,8 +36,13 @@ public class OrderController {
 	public String orderDetail(Model model,
 	        @PathVariable("maHD") Long maHD) {
 	    Order order = orderService.findById(maHD);
-	    
 		model.addAttribute("order", order);
 		return "/order/orderdetail";
+	}
+	
+	@RequestMapping("/order/checkout/{username}")
+	public String checkout(Model model, @PathVariable("username") String username) {
+	    model.addAttribute("taiKhoan", accountService.findByND(username));
+	    return "/order/checkout";
 	}
 }

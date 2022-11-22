@@ -111,20 +111,24 @@
 									<div class="row text-center mt-sm-2">
 										<div class="col-sm-4">
 											<div class="h6">Hình thức thanh toán</div>
-											<img src="/assets/images/mo-mo.jpg"
-												alt="" width="50" class="img-fluid"> <br> 
-											<div class="">Momo</div>
+											<div class="">
+												<span th:if="*{thanhToan} == 0">Thanh toán khi nhận hàng</span>
+												<div th:if="*{thanhToan} == 1">
+													<img src="/assets/images/mo-mo.jpg"
+														alt="" width="50" class="img-fluid"> 
+												</div>
+											</div>
 										</div>
 
 										<div class="col-sm-8">
 											<div class="h6">Thông tin người nhận</div>
 											<div class="row d-flex justify-content-center">
 												<div class="text-left">
-													<div>Người mua: [[*{hoTen}]]</div>
+													<div>Người mua: [[*{taiKhoan.hoTen}]]</div>
 													<br>
-													<div>Địa chỉ: [[*{diaChi}]]</div>
+													<div>Địa chỉ: [[*{taiKhoan.diaChi}]]</div>
 													<br>
-													<div>Điện thoại: [[*{dienThoai}]]</div>
+													<div>Điện thoại: [[*{taiKhoan.sdt}]]</div>
 												</div>
 											</div>
 										</div>

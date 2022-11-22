@@ -99,8 +99,8 @@
                                                              width="50" class="img-fluid">
                                                         <p ng-model="oditems">
                                                             Ví Momo<br> Tổng: {{oditems.total}} đ
-                                                            <span ng-if="form.trangThai == 2" class="badge bg-success rounded-pill">Đã thanh toán</span>
-                                                            <span ng-if="form.trangThai != 2" class="badge bg-danger rounded-pill">Chưa thanh toán</span>
+                                                            <span ng-if="form.thanhToan == 1" class="badge bg-success rounded-pill">Đã thanh toán</span>
+                                                            <span ng-if="form.thanhToan == 0" class="badge bg-danger rounded-pill">Chưa thanh toán</span>
                                                         </p>
                                                     </div>
                                                     <div class="text-center col-lg-6">

@@ -98,12 +98,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		ngayTao: new Date(),
 		ngaySua: new Date(),
 		trangThai: 1,
-		hoTen: "",
-		dienThoai: "",
-		email: "",
-		diaChi: "",
-		ghiChu: "",
-		trangThai: 1,
+		thanhToan: "",
 		taiKhoan: {tenND: $("#username").text()},
 		get hoaDonChiTiet() {
 			return $scope.cart.items.map(item => {
@@ -112,6 +107,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					donGia: item.gia,
 					soLuong: item.soLuong,
 					giamGia: item.giamGia,
+					VAT: item.vat
 				}
 			})
 		},
@@ -137,7 +133,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		},
 		cancel() {
 			var order = angular.copy(this);
-			$http.put(`/rest/orders/${maHD}`, order).then(resp => {
+			$http.put(`/rest/orders/${order.maHD}`, order).then(resp => {
 				order.trangThai = "5";
 				Swal.fire({
 					icon: 'success',
@@ -157,7 +153,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		update() {
 			var order = angular.copy(this);
 			//Đặt hàng
-			$http.put(`/rest/orders/${maHD}`, order).then(resp => {
+			$http.put(`/rest/orders/${order.maHD}`, order).then(resp => {
 				Swal.fire({
 					icon: 'success',
 					title: 'Cập nhật thành công',

@@ -28,11 +28,30 @@ public interface ProductDAO extends JpaRepository<Product, Long>{
 	@Query(value = "select top 4 * from san_pham where san_pham.madm = 4;", nativeQuery = true )
     List<Product> hienThimayLoc();
 	
+<<<<<<< HEAD
 	@Query(value = "CALL sp_ThongKeDoanhThu (?)", nativeQuery = true )
     List<Object[]> thongKeDoanhThu(int nam);
 	
 //	@Query("SELECT o FROM Product o WHERE o.tenSP LIKE ?1")
 //	@Query("SELECT o FROM Product o WHERE CONCAT(o.maSP, o.tenSP, o.danhMuc.tenDM, o.nhaCungCap.tenNCC) LIKE ?1")
+=======
+	
+//	@Query("SELECT * FROM Product"
+//			+ "ORDER BY TenSP, gia")
+//	
+//	@Query("SELECT * FROM Product"
+//			+ "ORDER BY tenSP, gia DESC")
+	
+//	  List<Product> findAllByGiaSP(double gia, Pageable pageable);
+	
+//	@Query("SELECT new Report(o.product , sum(o.gia), count(o)) "
+//			+ " FROM Product o "
+//			+ " GROUP BY o.product"
+//			+ " ORDER BY sum(o.gia) DESC")
+//	List<Report> getInventoryByCategory();
+	
+	
+>>>>>>> 5094b75e4d29f3437944e29486cf7bfb6501590e
 //	Page<Product> findByKeywords(String keywords, Pageable pageable);
 //
 //	Page<Product> findAllByTenspLike(String keywords, Pageable pageable);

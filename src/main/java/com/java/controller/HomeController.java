@@ -3,6 +3,7 @@ package com.java.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.java.service.AccountService;
@@ -13,12 +14,8 @@ public class HomeController {
 	@Autowired
 	ProductService productService;
 	
-	@Autowired
-	AccountService accountService;
-	
 	@RequestMapping("/")
 	public String home(Model model) {
-	    model.addAttribute("taiKhoan", accountService.findAll());
 		model.addAttribute("bestSeller", productService.findAll());
 		model.addAttribute("newProd", productService.findNewProduct());
 		model.addAttribute("thietBi", productService.hienThiThietBi());
@@ -51,4 +48,7 @@ public class HomeController {
 	public String contact() {
 		return "/layout/contact";
 	}
+ 
+	
+ 
 }
