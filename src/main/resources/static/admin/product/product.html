@@ -27,7 +27,7 @@
 									<div class="col-xl-6 col-lg-6 col-md-12">
 										<div class="form-group mb-3">
 											<label for="name">Tên sản phẩm </label> <input id="name"
-												name="tenSP" type="text" class="form-control validate"
+												type="text" class="form-control validate"
 												ng-model="form.tenSP" required />
 										</div>
 										<div class="row">
@@ -57,50 +57,45 @@
 										<div class="row">
 											<div class="form-group mb-3 col-xs-12 col-sm-6">
 												<label for="expire_date">Ngày tạo</label> <input
-													id="expire_date" name="expire_date" type="date"
-													class="form-control validate" data-large-mode="true"
-													ng-model="form.ngayTao" />
+													id="expire_date" type="date" class="form-control validate"
+													data-large-mode="true" ng-model="form.ngayTao" />
 											</div>
 											<div class="form-group mb-3 col-xs-12 col-sm-6">
 												<label for="expire_date">Ngày sửa </label> <input
-													id="expire_date" name="expire_date" type="date"
-													class="form-control validate" required
-													ng-model="form.ngaySua" />
+													ng-model="form.ngaySua" id="expire_date" type="date"
+													class="form-control validate" required />
 											</div>
 										</div>
 									</div>
 									<div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
 										<div class="tm-product-img-dummy mx-auto mt-2">
-											<label for="fileInput" class="mt-2"> <img alt=""
+											<label for="hinhAnh" class="mt-2"> <img alt=""
 												class="img-product-add"
 												ng-src="{{'/assets/images/' + form.hinhAnh}}" width="100%"
 												height="100%">
 											</label>
 										</div>
 										<div class="custom-file mt-3 mb-3">
-											<input id="fileInput" type="file" style="display: none;" />
-											<input type="button"
-												class="btn btn-primary btn-block mx-auto" value="Chọn ảnh"
-												id="fileInput"
-												onclick="document.getElementById('fileInput').click();"
+											<input type="file" class="btn btn-primary btn-block mx-auto"
+												value="Chọn ảnh" id="hinhAnh"
 												onchange="angular.element(this).scope().imageChanged(this.files)" />
 										</div>
 										<div class="form-group mb-3 mt-3">
-											<label for="name">Giá </label> <input id="name" name="name"
-												type="number" class="form-control validate" required
-												ng-model="form.gia" />
+											<label for="name">Giá </label> <input id="name" type="number"
+												class="form-control validate" required ng-model="form.gia" />
 										</div>
 										<div class="row">
 											<div class="form-group mb-3 col-xs-12 col-sm-6">
-												<label for="">Số lượng </label> <input id=""
-													name="expire_date" type="number"
+												<label for="">Số lượng </label> <input id="" type="number"
 													class="form-control validate" data-large-mode="true"
 													ng-model="form.soLuong" />
 											</div>
 											<div class="form-group mb-3 col-xs-12 col-sm-6">
 												<label for="stock">Trạng thái </label> <select
 													class="custom-select tm-select-accounts" id="category">
-													<option selected>Còn hàng</option>
+													<option selected ng-if="form.trangThai == 1">Còn
+														hàng</option>
+													<option ng-if="form.trangThai == 2">Hết hàng</option>
 												</select>
 											</div>
 										</div>
@@ -149,7 +144,8 @@
 											<td class="tm-product-name">{{p.tenSP}}</td>
 											<td>{{p.gia}}</td>
 											<td>{{p.soLuong}}</td>
-											<td>{{p.trangThai}}</td>
+											<td><span ng-if="p.trangThai == 1">1</span> <span
+												ng-if="p.trangThai == 2">2</span></td>
 											<td>{{p.ngayTao | date:'dd-MM-yyyy'}}</td>
 											<td>{{p.ngaySua | date:'dd-MM-yyyy'}}</td>
 											<td><button ng-click="delete(p)"

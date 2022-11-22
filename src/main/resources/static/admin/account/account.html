@@ -34,7 +34,8 @@
 												height="100%"
 													alt="Avatar" class="tm-avatar img-fluid mb-4" />
 											</div>
-											<input class="btn btn-primary" type="file">
+											<input class="btn btn-primary" type="file"
+											onchange="angular.element(this).scope().imageChanged(this.files)" >
 										</div>
 									</div>
 									<div class="tm-block-col tm-col-account-settings">
@@ -100,9 +101,7 @@
 														class="btn btn-primary m-1">Xóa</button>
 													<button ng-click="reset()" type="reset"
 														class="btn btn-primary m-1">Làm mới</button>
-
 												</div>
-
 											</form>
 										</div>
 									</div>
@@ -138,11 +137,9 @@
 													</thead>
 													<tbody>
 														<tr ng-repeat="item in items">
-
 															<td><img
 																ng-src="{{'/assets/images/' + item.hinhAnh}}" width="50"
 																height="50"></td>
-
 															<td>{{item.tenND}}</td>
 															<td>{{item.maVT}}</td>
 															<td>{{item.matKhau}}</td>
@@ -155,31 +152,18 @@
 															<td><a ng-click="delete(item)"
 																class="tm-product-delete-link"> <i
 																	class="far fa-trash-alt "></i>
-
 															</a></td>
 															<td><a ng-click="edit(item)"
 																class="tm-product-delete-link"> <i
 																	class="far fa-edit"></i>
-
 															</a></td>
-
 														</tr>
-
-
-
-
-
-
-
 													</tbody>
 												</table>
-											</div>
-											
+											</div>						
 										</div>
 									</div>
 								</div>
-
-
 							</div>
 						</div>
 					</div>

@@ -28,6 +28,9 @@ public interface ProductDAO extends JpaRepository<Product, Long>{
 	@Query(value = "select top 4 * from san_pham where san_pham.madm = 4;", nativeQuery = true )
     List<Product> hienThimayLoc();
 	
+	@Query(value = "CALL sp_ThongKeDoanhThu (?)", nativeQuery = true )
+    List<Object[]> thongKeDoanhThu(int nam);
+	
 //	@Query("SELECT o FROM Product o WHERE o.tenSP LIKE ?1")
 //	@Query("SELECT o FROM Product o WHERE CONCAT(o.maSP, o.tenSP, o.danhMuc.tenDM, o.nhaCungCap.tenNCC) LIKE ?1")
 //	Page<Product> findByKeywords(String keywords, Pageable pageable);

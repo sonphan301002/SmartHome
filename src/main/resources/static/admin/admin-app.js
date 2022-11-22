@@ -23,15 +23,23 @@ app.config(function($routeProvider){
 		controller: "supplier-ctrl"
 	})
 	.when("/order", {
-		templateUrl: "/admin/order/donhang.html",
+		templateUrl: "/admin/order/order.html",
 		controller: "order-ctrl"
 	})
 	.when("/unauthorized", {
 		templateUrl: "/admin/authority/unauthorized.html",
 		controller: "authority-ctrl"
 	})
+	.when("/revenue", {
+		templateUrl: "/admin/report/revenue.html",
+		controller: "report-ctrl"
+	})
+	.when("/product_report", {
+		templateUrl: "/admin/report/product_report.html",
+		controller: "report-ctrl"
+	})
 	.otherwise({
-		templateUrl: "/admin/order/donhang.html",
+		templateUrl: "/admin/order/order.html",
 		controller: "order-ctrl"
 	})
 })

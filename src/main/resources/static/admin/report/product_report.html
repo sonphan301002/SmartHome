@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container tm-mt-big tm-mb-big">
+		<div class="row">
+			<div class="col-10 mx-auto">
+				<h5 class="tm-block-title">Thống kê sản phẩm</h5>
+
+				<div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+					<div class="tm-edit-product-row">
+						<div class="form-group">
+							<label for="category">Danh mục</label> <select
+								class="custom-select tm-select-accounts" id="category">
+								<option>{</option>
+							</select>
+						</div>
+						<table class="table table-hover tm-table-small tm-product-table">
+							<thead>
+								<tr>
+									<th scope="col">Logo</th>
+									<th scope="col">Mã nhà cung cấp</th>
+									<th scope="col">Tên nhà cung cấp</th>
+									<th scope="col">Mô tả</th>
+									<th scope="col"></th>
+									<th scope="col"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="supp in items">
+									<td><img alt="" ng-src="{{'/assets/images/' + supp.logo}}"
+										width="50" height="50"></td>
+									<td>#{{supp.maNCC}}</td>
+									<td>{{supp.tenNCC}}</td>
+									<td>{{supp.moTa}}</td>
+									<td><button ng-click="delete(supp)"
+											class="tm-product-delete-link btn">
+											<i class="far fa-trash-alt tm-product-delete-icon"></i>
+										</button></td>
+									<td><button ng-click="edit(supp)"
+											class="text-white tm-product-delete-link btn">
+											<i class="far fa-edit"></i>
+										</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

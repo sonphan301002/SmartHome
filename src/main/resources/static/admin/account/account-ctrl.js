@@ -109,4 +109,23 @@ app.controller("account-ctrl", function($scope, $http) {
 			}
 		})
 	}
+	
+	$scope.imageChanged = function(files) {
+		var data = new FormData(); // đối tương FormData
+		data.append('file', files[0]); // chọn file bỏ vào FormData
+		$http.post('/rest/upload/images', data, { // post lên server
+			transformRequest: angular.identity,
+			headers: { 'Content-Type': undefined }
+		}).then(resp => {
+			$scope.form.hinhAnh = resp.data.name; // trả về name
+		}).catch(error => {
+			Swal.fire({
+				icon: 'warning',
+				title: 'Lỗi tải ảnh!',
+				showConfirmButton: true,
+				timer: 1500
+			})
+			console.log("Error", error);
+		})
+	}
 });

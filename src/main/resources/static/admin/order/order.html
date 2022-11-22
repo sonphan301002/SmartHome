@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<title>Đơn hàng</title>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row tm-content-row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 tm-block-col">
+            <div class="">
+                <h2 class="tm-block-title">Đơn hàng</h2>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item"><a class="nav-link active"
+                                            data-toggle="tab" data-target="#edit" href="" role="tab"
+                                            aria-controls="home" aria-selected="true">Chi tiết đơn hàng</a></li>
+                    <li class="nav-item"><a class="nav-link" data-target="#list"
+                                            data-toggle="tab" href="" role="tab" aria-controls="profile"
+                                            aria-selected="false">Danh sách</a></li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="edit" role="tabpanel"
+                         aria-labelledby="home-tab">
+                        <!-- Chi tiết đơn hàng -->
+                        <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+                            <div class="container">
+
+                                <div class="d-flex justify-content-between align-items-center py-3">
+                                    <h5 class="text-white mb-0">
+                                        Mã đơn hàng <span ng-model="form" class="text-white font-weight-bold">#{{form.maHD}}</span>
+                                    </h5>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-lg-8">
+
+                                        <div class="card mb-4">
+                                            <div class="card-body">
+                                                <div class="mb-3 d-flex justify-content-between">
+                                                    <div ng-model="form" class="col">
+                                                        <span class="col-2 text-white me-3">{{form.ngayTao}}</span>
+                                                        <a href="#" class="col-3 badge badge-pill w-100 badge-secondary" ng-click="update()" ng-if="form.trangThai == 1">Chờ xác nhận</a>
+                                                        <a href="#" class="col-3 badge badge-pill w-100 badge-primary" ng-click="update()" ng-if="form.trangThai == 2">Đã thanh toán</a>
+                                                        <a href="#" class="col-3 badge badge-pill w-100 badge-info" ng-click="update()" ng-if="form.trangThai == 3">Đang vận chuyển</a>
+                                                        <span class="col-3 badge badge-pill w-100 badge-success" ng-if="form.trangThai == 4">Giao thành công</span>
+                                                        <span class="col-3 badge badge-pill w-100 badge-danger" ng-if="form.trangThai == 5">Đã huỷ</span>
+                                                    </div>
+
+                                                </div>
+                                                <table class="table table-borderless">
+                                                    <tbody>
+                                                    <tr ng-repeat="item in oditems">
+                                                        <td >
+                                                            <div class="d-flex">
+                                                                <div class="flex-shrink-0">
+                                                                    <img
+                                                                            ng-src="{{'/assets/images/' + item.sanPham.hinhAnh}}"
+                                                                            alt="" width="100" class="img-fluid">
+                                                                </div>
+                                                                <div class="ml-3 text-center flex-lg-grow-1">
+                                                              		<td class="text-white">{{item.sanPham.tenSP}}</td>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>SL: {{item.soLuong}}</td>
+                                                        <td class="text-end">Đơn giá: <br> {{item.donGia}} đ</td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                    <tfoot ng-model="oditems">
+                                                    <tr>
+                                                        <td colspan="2">Tổng tiền hàng</td>
+                                                        <td class="text-end">{{oditems.subtotal}} đ</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">Phí vận chuyển</td>
+                                                        <td class="text-end">30.000 đ</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">Giảm giá</td>
+                                                        <td class="text-danger text-end">-{{oditems.discount}} đ</td>
+                                                    </tr>
+                                                    <tr class="fw-bold">
+                                                        <td colspan="2">Tổng số tiền</td>
+                                                        <td class="text-end">{{oditems.total}} đ</td>
+                                                    </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                        <div class="text-white card mb-4">
+                                            <div class="card-body">
+                                                <div ng-model="form" class="row">
+                                                    <div class="text-center col-lg-6">
+                                                        <h3 class="h6">Hình thức thanh toán</h3>
+                                                        <img src="/assets/images/mo-mo.jpg" alt=""
+                                                             width="50" class="img-fluid">
+                                                        <p ng-model="oditems">
+                                                            Ví Momo<br> Tổng: {{oditems.total}} đ
+                                                            <span ng-if="form.trangThai == 2" class="badge bg-success rounded-pill">Đã thanh toán</span>
+                                                            <span ng-if="form.trangThai != 2" class="badge bg-danger rounded-pill">Chưa thanh toán</span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="text-center col-lg-6">
+                                                        <h3 class="h6">Địa chỉ nhận hàng</h3>
+                                                        <address>
+                                                            <strong>{{form.taiKhoan.hoTen}}</strong><br>{{form.taiKhoan.diaChi}}<br>
+                                                            <abbr title="Phone">SĐT:</abbr> {{form.taiKhoan.sdt}}
+                                                        </address>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-white col-lg-4">
+
+                                        <div class="card mb-4">
+                                            <div class="card-body">
+                                                <h3 class="h6">Ghi chú khách hàng</h3>
+                                                <p ng-model="form">{{form.ghiChu}}</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="list" role="tabpanel"
+                         aria-labelledby="profile-tab">
+                        <!-- Danh sách -->
+                        <div class="tm-product-table-container">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Mã đơn hàng</th>
+                                    <th scope="col">Username</th>
+                                    <th scope="col">Ngày bán </th>
+                                    <th scope="col">Ngày tạo</th>
+                                    <th scope="col">Ngày sửa</th>
+                                    <th scope="col">Trạng thái</th>
+                                    <th scope="col">Chi tiết</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="item in items">
+                                    <th scope="row">#<b>{{item.maHD}}</b></th>
+                                    <td><b>{{item.taiKhoan.tenND}}</b></td>
+                                    <td>{{item.ngayBan}}</td>
+                                    <td>{{item.ngayTao}}</td>
+                                    <td>{{item.ngaySua}}</td>
+                                    <td>
+                                        <span style="font-size: 90%" class="badge badge-pill w-100 badge-secondary" ng-if="item.trangThai == 1">Chờ xác nhận</span>
+                                        <span style="font-size: 90%" class="badge badge-pill w-100 badge-primary" ng-if="item.trangThai == 2">Đã thanh toán</span>
+                                        <span style="font-size: 90%" class="badge badge-pill w-100 badge-info" ng-if="item.trangThai == 3">Đang vận chuyển</span>
+                                        <span style="font-size: 90%" class="badge badge-pill w-100 badge-success" ng-if="item.trangThai == 4">Giao thành công</span>
+                                        <span style="font-size: 90%" class="badge badge-pill w-100 badge-danger" ng-if="item.trangThai == 5">Đã huỷ</span>
+                                    </td>
+                                    <td>
+                                        <button ng-click="edit(item)" class="text-white tm-product-delete-link btn">
+                                            <i class="fas fa-info "></i>
+                                        </button>
+                                    </td>
+                                </tr>
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
