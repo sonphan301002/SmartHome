@@ -26,18 +26,14 @@ public class Account implements Serializable{
 	@Length(min=3)
 	private String tenND;
 	private String maVT;
-	@NotEmpty
 	@Length(min=3)
 	private String matKhau;
 	@Column(columnDefinition = "nvarchar(50)")
-	@NotEmpty
 	private String hoTen;
 	private boolean gioiTinh;
-	@NotEmpty
 	private String email;
 	private String sdt;
 	@Column(columnDefinition = "nvarchar(150)")
-	@NotEmpty
 	private String diaChi;
 	private String cmnd;
 	private String hinhAnh;
