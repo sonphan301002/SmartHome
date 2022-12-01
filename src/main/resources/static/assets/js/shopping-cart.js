@@ -95,16 +95,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 	$scope.cart.loadFromLocalStorage();
 
 // ORDERS
-	$scope.items = [];
-
-	$scope.init = function() {
-		$http.get("/rest/orders").then(resp => {
-			$scope.items = resp.data;
-		})
-	}
-
 	$scope.order = {
-		items : [],
 		ngayTao: new Date(),
 		ngaySua: new Date(),
 		trangThai: 1,
@@ -142,7 +133,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			})
 		},
 		cancel() {
-			var item = angular.copy($scope.items);
+			var item = angular.copy(this);
 			$http.put("/rest/orders/"+ item.maHD).then(resp => {
 				var index = $scope.items.findIndex(p => p.maHD == item.maHD)
 				item.trangThai = 5;
@@ -162,6 +153,4 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			})
 		}
 	};
-
-	$scope.init();
 })
