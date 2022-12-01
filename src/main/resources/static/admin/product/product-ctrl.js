@@ -108,7 +108,7 @@ app.controller("product-ctrl", function($scope, $http) {
 					})
 				}).catch(error => {
 					Swal.fire({
-						icon: 'success',
+						icon: 'warning',
 						title: 'Xóa thất bại!',
 						showConfirmButton: true,
 						timer: 1500
@@ -126,9 +126,14 @@ app.controller("product-ctrl", function($scope, $http) {
 			transformRequest: angular.identity,
 			headers: { 'Content-Type': undefined }
 		}).then(resp => {
-			$scope.form.image = resp.data.name; // trả về name
+			$scope.form.hinhAnh = resp.data.name; // trả về name
 		}).catch(error => {
-			alert("Lỗi upload hình ảnh");
+			Swal.fire({
+				icon: 'warning',
+				title: 'Lỗi tải ảnh!',
+				showConfirmButton: true,
+				timer: 1500
+			})
 			console.log("Error", error);
 		})
 	}

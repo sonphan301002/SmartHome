@@ -39,8 +39,7 @@ public class Oauth2Controller {
 
 
         //Tìm kiếm account theo email
-        Account account = accountService.findByEmail(email);
-
+        Account account = accountService.getById(email);
 
         //Nếu chưa có acc với email tìm được
         if (account == null) {
@@ -54,7 +53,7 @@ public class Oauth2Controller {
         
         
         
-        //Tạo đối tượng userdetails lấy fullname làm username
+        //Tạo đối tượng userdetails lấy email làm username
         UserDetails user = User.withUsername(email).password("").roles("GUEST").build();
         
         //Tạo đối tượng authentication từ userdetails

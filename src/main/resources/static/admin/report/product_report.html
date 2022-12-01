@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container tm-mt-big tm-mb-big">
+        <div>
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="row">
+            <div class="col-10 mx-auto">
+                <h5 class="tm-block-title">Thống kê sản phẩm</h5>
+
+                <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+                    <div class="tm-edit-product-row">
+                        <table class="table table-hover tm-table-small tm-product-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Mã danh mục</th>
+                                    <th scope="col">Tên danh mục</th>
+                                    <th scope="col">Số lượng sản phẩm</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="p in items">
+                                    <td>{{p.group.maDM}}</td>
+                                    <td>{{p.group.tenDM}}</td>
+                                    <td>{{p.count}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <script>
+                            window.onload = function() {
+                                buildChart("myChart");
+                            };
+
+                            function buildChart(id) {
+
+                                const data = {
+                                    labels: [
+                                        'Red',
+                                        'Blue',
+                                        'Yellow'
+                                    ],
+                                    datasets: [{
+                                        label: 'My First Dataset',
+                                        data: [300, 50, 100],
+                                        backgroundColor: [
+                                            'rgb(255, 99, 132)',
+                                            'rgb(54, 162, 235)',
+                                            'rgb(255, 205, 86)'
+                                        ],
+                                        hoverOffset: 4
+                                    }]
+                                };
+
+                                const config = {
+                                    type: 'doughnut',
+                                    data: data,
+                                };
+                                let ctx = document.getElementById(id).getContext("2d")
+
+                                new Chart(ctx, config);
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>

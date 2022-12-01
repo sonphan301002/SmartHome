@@ -1,149 +1,112 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
+
 <head>
-<title>Digizone</title>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Digizone</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
+
 <body>
-	<main th:object="${order}">
-		<section id="pricing"
-			class="padd-section wow fadeInUp mt-5  mb-5"
-			style="visibility: visible; animation-name: fadeInUp;">
-			<div class="d-none" id="maHD" ng-model="order.maHD">[[*{maHD}]]</div>
-			<div class="section-header">
-				<h2 class="section-title text-center">Chi Tiết Đơn Hàng</h2>
-			</div>
+    <main th:object="${order}">
+        <div class="container mt-2 mb-5">
+            <div class="d-flex justify-content-center row">
+                <div class="d-none" id="maHD" ng-model="order.maHD">[[*{maHD}]]</div>
+                <div class="col-md-10">
+                    <div class="receipt bg-white p-3 rounded">
+                        <div class="text-center">
+                            <img src="/assets/images/logodigizone.png" width="300px">
+                        </div>
+                        <h4 class="mt-2 mb-3">Đơn hàng của bạn
+                            <!--Trạng thái 1 -->
+                            <th:block th:if="*{trangThai} == 1">
+                                đang được xử lý !
+                            </th:block>
+                            <!--Trạng thái 2 -->
+                            <th:block th:if="*{trangThai} == 2">
+                                Đang vận chuyển !
+                            </th:block>
+                            <!--Trạng thái 3 -->
+                            <th:block th:if="*{trangThai} == 3">
+                                Đang giao !
+                            </th:block>
+                            <!--Trạng thái 4 -->
+                            <th:block th:if="*{trangThai} == 4">
+                                Giao hàng thành công !
+                            </th:block>
+                        </h4>
+                        <h6 class="name">Xin chào [[*{taiKhoan.hoTen}]]</h6><span class="fs-12 text-black-50">Đơn đặt hàng của bạn đang được xử lí, chúng tôi sẽ làm việc và giao hàng cho bạn trong thời gian sớm nhất !</span>
+                        <hr>
+                        <div class="d-flex flex-row justify-content-between align-items-center order-details">
+                            <div><span class="d-block fs-12">Order number</span><span class="font-weight-bold" ng-model="order.maHD">#[[*{maHD}]]</span></div>
+                            <div><span class="d-block fs-12">Ngày đặt</span><span class="font-weight-bold">[[*{ngayTao}]]</span></div>
+                            <div><span class="d-block fs-12">Địa chỉ nhận hàng</span><span class="font-weight-bold text-success">[[*{taiKhoan.diaChi}]]</span></div>
+                            <div><span class="d-block fs-12">Email</span><span class="font-weight-bold text-success">[[*{taiKhoan.email}]]</span></div>
+                            <div><span class="d-block fs-12">Số điện thoại</span><span class="font-weight-bold text-success">[[*{taiKhoan.sdt}]]</span></div>
+                        </div>
+                        <hr>
+                        <div th:each="detail : *{hoaDonChiTiet}" th:object="${detail}" class="d-flex justify-content-between align-items-center product-details">
+                            <div class="d-flex flex-row product-name-image"><img class="rounded" th:src="@{|/assets/images/*{sanPham.hinhAnh}|}" width="80">
+                                <div class="d-flex flex-column justify-content-between ml-2">
+                                    <div class="col">
+                                        <span class="d-block font-weight-bold p-name">[[*{sanPham.tenSP}]]</span>
+                                        <span class="fs-12">[[*{sanPham.gia}]] VND</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-quatity">
+                                <h5>[[*{soLuong}]]</h5>
+                            </div>
+                            <div class="product-priceTotal">
+                                <h5>[[*{soLuong} * *{sanPham.gia}]] VND</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 amount row">
+                        <div class="d-flex justify-content-center col-md-6"><img src="https://i.imgur.com/AXdWCWr.gif" width="250" height="100"></div>
+                        <div class="col-md-6">
+                            <div class="billing" th:each="detail : *{hoaDonChiTiet}" th:object="${detail}">
+                                <div class="d-flex justify-content-between"><span>Tổng tiền hàng </span><span class="font-weight-bold">[[*{soLuong} * *{sanPham.gia}]]  VND</span></div>
+                                <div class="d-flex justify-content-between mt-2"><span>Phí ship</span><span class="font-weight-bold">Free</span></div>
+                                <div class="d-flex justify-content-between mt-2"><span>Thuế</span><span class="font-weight-bold">[[*{VAT}]] VND</span></div>
+                                <div class="d-flex justify-content-between mt-2"><span class="text-success">Giảm giá</span><span class="font-weight-bold text-success">[[*{giamGia}]] VND</span></div>
+                                <hr>
+                                <div class="d-flex justify-content-between mt-1"><span class="font-weight-bold">Thành tiền</span><span class="font-weight-bold text-success">[[*{soLuong} * *{sanPham.gia} - *{giamGia} ]] VND</span></div>
+                            </div>
+                        </div>
+                    </div>
 
-			<div class="container-fluid" style="background-color: #87A2FB;">
-				<div class="container">
-					<div class="d-flex align-items-center justify-content-between py-3">
-						<h5 class="mb-0">
-							Đơn hàng
-							<span class="font-weight-bold" id="maHD" ng-model="order.maHD">#[[*{maHD}]]</span>
-						</h5>
-					</div>
-					
-					<div class="row d-flex align-items-start justify-content-center">
-						<div class="col-lg-7">
-							<div class="card h-100 mb-4">
-								<div class="card-body">
-									<div class="d-flex align-items-center justify-content-start mb-3">
-										<span class="me-3 mr-3">[[*{ngayTao}]]</span>
-										<span class="badge rounded-pill bg-info">
-											<!--Trạng thái 1 -->
-												<th:block th:if="*{trangThai} == 1">
-													Đang xử lý
-												</th:block> 
-											<!--Trạng thái 2 -->
-												<th:block th:if="*{trangThai} == 2">
-													Đang vận chuyển
-												</th:block>
-											<!--Trạng thái 3 -->
-												<th:block th:if="*{trangThai} == 3">
-													Đang giao
-												</th:block>
-											<!--Trạng thái 4 -->
-												<th:block th:if="*{trangThai} == 4">
-													Giao hàng thành công
-												</th:block>
-										</span>
-									</div>
+                    <span class="d-block mt-4">Thời gian giao hàng dự kiến :</span>
+                    <span class="font-weight-bold text-success">12 March 2020</span>
 
-									<table class="table table-borderless">
-										<tbody>
-											<tr>
-												<td class="text-end">Sản phẩm</td>
-												<td class="text-end">Số lượng</td>
-												<td class="text-end">Thành tiền</td>
-											</tr>
-											
-											<tr th:each="detail : *{hoaDonChiTiet}" th:object="${detail}">
-												<td class="text-end">
-													<div class="d-flex flex-wrap mb-2">
-														<div class="">
-															<img th:src="@{|/assets/images/*{sanPham.hinhAnh}|}"
-																alt="" width="200" class="img-fluid">
-														</div>
-														<div class="">
-															<div>
-																<div class="h5 product-name">[[*{sanPham.tenSP}]]</div>
-																<small class="product-price">[[*{sanPham.gia}]] ₫</small>
-															</div>
-														</div>
-													</div>
-												</td>
-												<td class="product-price text-end">[[*{soLuong}]]</td>
-												<td class="product-price">[[*{soLuong} * *{sanPham.gia}]] ₫</td>
-											</tr>
-										</tbody>
-
-										<tfoot>
-											<tr>
-												<td>Phí vận chuyển</td>
-												<td>Giảm giá</td>
-												<td>Tổng tiền</td>
-											</tr>
-											<tr th:each="detail : *{hoaDonChiTiet}" th:object="${detail}">
-												<td class="product-price text-end">20.000 ₫</td>
-												<td class="product-price text-danger text-end">[[*{giamGia}]] ₫</td>
-												<td class="product-price text-end">[[*{soLuong} * *{sanPham.gia} - *{giamGia}]] ₫</td>
-											</tr>
-										</tfoot>
-									</table>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-5">
-							<div class="card h-100 mb-4">
-								<div class="card-body">
-									<form action="">
-										<div class="form-group">
-											<div class="h6">Ghi chú khách hàng</div>
-											<div class="form-control">[[*{ghiChu}]]</div>
-										</div>
-									</form>
-
-									<div class="row text-center mt-sm-2">
-										<div class="col-sm-4">
-											<div class="h6">Hình thức thanh toán</div>
-											<div class="">
-												<span th:if="*{thanhToan} == 0">Thanh toán khi nhận hàng</span>
-												<div th:if="*{thanhToan} == 1">
-													<img src="/assets/images/mo-mo.jpg"
-														alt="" width="50" class="img-fluid"> 
-												</div>
-											</div>
-										</div>
-
-										<div class="col-sm-8">
-											<div class="h6">Thông tin người nhận</div>
-											<div class="row d-flex justify-content-center">
-												<div class="text-left">
-													<div>Người mua: [[*{taiKhoan.hoTen}]]</div>
-													<br>
-													<div>Địa chỉ: [[*{taiKhoan.diaChi}]]</div>
-													<br>
-													<div>Điện thoại: [[*{taiKhoan.sdt}]]</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									
-									<div class="order-button text-white d-flex align-items-center justify-content-center">
-										<button type="button" ng-click="order.cancel()">Hủy Đơn</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	</main>
+                    <span class="d-block mt-3">Phương thức thanh toán :</span>
+                    <!--Trạng thái 0 -->
+                    <th:block th:if="*{thanhToan} == 0">
+                        <span class="font-weight-bold text-success">Thanh toán khi nhận hàng</span>
+                        <img class="ml-1 mb-1 float-right" src="https://cdn.haitrieu.com/wp-content/uploads/2022/05/Logo-GHTK.png" width="100">
+                    </th:block>
+                    <!--Trạng thái 1 -->
+                    <th:block th:if="*{thanhToan} == 1">
+                        <span class="font-weight-bold text-success">Momo</span>
+                        <img class="ml-1 mb-1 float-right" src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" width="70">
+                    </th:block>
+                    <!--Trạng thái 2 -->
+                    <th:block th:if="*{thanhToan} == 2">
+                        <span class="font-weight-bold text-success">Paypal</span>
+                        <img class="ml-1 mb-1 float-right" src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png" width="70">
+                    </th:block>
+                    <span class="d-block mt-3 text-black-50 fs-15">Chúng tôi sẽ gửi email xác nhận vận chuyển khi mặt hàng được vận chuyển!</span>
+                    <hr>
+                    <div class="d-flex justify-content-between align-items-center footer">
+                        <div class="thanks"><span class="d-block font-weight-bold">Cảm ơn bạn đã mua hàng của cửa hàng chúng tôi</span><span>Digizone team</span></div>
+                        <div class="d-flex flex-column justify-content-end align-items-end"><span class="d-block font-weight-bold">Cần hỗ trợ</span><span>Gọi - 0974493933</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
 </body>
+
 </html>
