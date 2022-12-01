@@ -76,7 +76,7 @@ app.controller("product-ctrl", function($scope, $http) {
 			})
 		}).catch(error => {
 			Swal.fire({
-				icon: 'success',
+				icon: 'warning',
 				title: 'Cập nhật thất bại!',
 				showConfirmButton: true,
 				timer: 1500
