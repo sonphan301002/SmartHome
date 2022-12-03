@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.java.dao.AccountDao;
 import com.java.dao.AuthorityDAO;
+import com.java.entity.Account;
 import com.java.entity.Authority;
 import com.java.service.AuthorityService;
 
@@ -13,11 +15,14 @@ import com.java.service.AuthorityService;
 public class AuthorityServiceImpl implements AuthorityService{
 	@Autowired
 	AuthorityDAO authorityDAO;
+	@Autowired
+	AccountDao accountDao;
 
 	@Override
 	public List<Authority> findAuthoritiesOfAdministrators() {
 		// TODO Auto-generated method stub
-		return authorityDAO.findAuthoritiesOfAdministrators();
+		List<Account> accounts = accountDao.getAdministrators();
+		return authorityDAO.authoritiesOf(accounts);
 	}
 
 	@Override

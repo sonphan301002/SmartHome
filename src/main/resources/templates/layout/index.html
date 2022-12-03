@@ -135,7 +135,7 @@
                         <li class="nav-item"><a class="nav-link" th:href="@{|/contact|}">Liên hệ</a></li>
 
                         <th:block th:if="${#request.remoteUser}">
-                            <li class="nav-item" th:if="${#request.isUserInRole('NV') or #request.isUserInRole('GD')}">
+                            <li class="nav-item" th:if="${#request.isUserInRole('GD') or #request.isUserInRole('NV')}">
                                 <a class="nav-link" th:href="@{/admin/index}"> Quản lí</a>
                             </li>
                         </th:block>

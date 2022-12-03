@@ -22,7 +22,6 @@ import lombok.NoArgsConstructor;
 @Table(name = "TaiKhoan")
 public class Account implements Serializable{
 	@Id
-	@NotEmpty
 	@Length(min=3)
 	private String tenND;
 	private String maVT;

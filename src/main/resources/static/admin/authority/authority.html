@@ -14,15 +14,13 @@
 							<table class="table table-hover tm-table-small tm-product-table">
 								<thead>
 									<tr>
-										<th scope="col">Tên tài khoản</th>
-										<th scope="col">Khách hàng</th>
-										<th scope="col">Nhân viên</th>
-										<th scope="col">Giám đốc</th>
+										<th></th>
+										<th ng-repeat="role in roles">{{role.tenVT}}</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr ng-repeat="ad in admins">
-										<td>{{ad.fullname}}</td>
+										<td>{{ad.tenND}}</td>
 										<td ng-repeat="role in roles">
 											<input ng-checked="authority_of(ad, role)"
 											ng-click="authority_changed(ad, role)" type="checkbox">

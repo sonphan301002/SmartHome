@@ -95,7 +95,7 @@ public class AccountServiceImpl implements AccountService{
 	@Override
 	public List<Account> getAdministrators() {
 		// TODO Auto-generated method stub
-		return null;
+		return accountDao.getAdministrators();
 	}
 	
     @Override

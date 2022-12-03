@@ -55,7 +55,7 @@ app.controller("category-ctrl", function($scope, $http) {
 			})
 		}).catch(error => {
 			Swal.fire({
-				icon: 'success',
+				icon: 'warning',
 				title: 'Cập nhật thất bại!',
 				showConfirmButton: true,
 				timer: 1500
@@ -87,7 +87,7 @@ app.controller("category-ctrl", function($scope, $http) {
 					})
 				}).catch(error => {
 					Swal.fire({
-						icon: 'success',
+						icon: 'warning',
 						title: 'Xóa thất bại!',
 						showConfirmButton: true,
 						timer: 1500

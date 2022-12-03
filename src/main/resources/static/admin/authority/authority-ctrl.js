@@ -12,7 +12,7 @@ app.controller("authority-ctrl", function($scope, $http, $location) {
 		})
 
 		// load staff and director
-		$http.get("/rest/accounts?admin=true").then(resp => {
+		$http.get("/rest/account?admin=true").then(resp => {
 			$scope.admins = resp.data;
 		})
 
@@ -26,7 +26,7 @@ app.controller("authority-ctrl", function($scope, $http, $location) {
 
 	$scope.authority_of = function(acc, role) {
 		if ($scope.authorities) { // có hay k
-			return $scope.authorities.find(ur => ur.account.username == acc.username && ur.role.id == role.id); // tìm kiếm
+			return $scope.authorities.find(ur => ur.taiKhoan.tenND == acc.tenND && ur.vaiTro.maVT == role.maVT); // tìm kiếm
 		}
 	}
 
@@ -36,7 +36,7 @@ app.controller("authority-ctrl", function($scope, $http, $location) {
 		if (authority) { // đã cấp quyền => thu hồi
 			$scope.revoke_authority(authority);
 		} else { // chưa đc cấp quyền => cấp quyền
-			authority = { account: acc, role: role };
+			authority = { taiKhoan: acc, vaiTro: role };
 			$scope.grant_authority(authority);
 		}
 	}
@@ -52,7 +52,7 @@ app.controller("authority-ctrl", function($scope, $http, $location) {
 			})
 		}).catch(error => {
 			Swal.fire({
-				icon: 'success',
+				icon: 'warning',
 				title: 'Cấp quyền thất bại',
 				showConfirmButton: true,
 				timer: 1500
@@ -73,7 +73,7 @@ app.controller("authority-ctrl", function($scope, $http, $location) {
 			})
 		}).catch(error => {
 			Swal.fire({
-				icon: 'success',
+				icon: 'warning',
 				title: 'Thu hồi thất bại',
 				showConfirmButton: true,
 				timer: 1500

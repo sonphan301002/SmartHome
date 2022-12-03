@@ -69,6 +69,9 @@ public class AccountController {
         BeanUtils.copyProperties(dto, entity);
         
         //Lưu thông tin entity vào CSDL
+        entity.setDiaChi("");
+        entity.setGioiTinh(true);
+        entity.setHoTen("");
         accountService.save(entity);
         
         

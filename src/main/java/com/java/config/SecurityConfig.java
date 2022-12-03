@@ -69,8 +69,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		//địa chỉ bắt đầu bằng order -> bắt buộc phải đăng nhập
 		.antMatchers("/order/**").authenticated()
-//		.antMatchers("/admin/**").hasAnyRole("STAF","DIRE")
-//		.antMatchers("/rest/authorities").hasRole("DIRE")
+		.antMatchers("/admin/**").hasAnyRole("NV","GD")
+		.antMatchers("/rest/authorities").hasRole("GD")
 		.anyRequest().permitAll();
 		
 		

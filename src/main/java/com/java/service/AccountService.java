@@ -19,8 +19,6 @@ public interface AccountService {
 
 	List<Account> getAdministrators();
 
-	
-	
     Account getById(String tenND);
 
     void delete(Account entity);
