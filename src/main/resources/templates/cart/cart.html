@@ -106,7 +106,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col">{{item.gia * item.soLuong | number : 0}} vnd
+                                        <div class="col">{{item.gia * item.soLuong | number : 0}} VND
                                             <a ng-click="cart.remove(item.id)" href="" type="button" class="float-right text-uppercase">
                                                 <i class="fas fa-trash-alt mr-1"></i><span>&#10005;</span>
                                             </a>
@@ -114,16 +114,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="back-to-shop"><a th:href="@{/}">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
                         </div>
                         <div class="col-md-4 summary">
                             <div>
-                                <h5><b>Summary</b></h5>
+                                <h5><b>Tổng tiền</b></h5>
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col" style="padding-left:0;">{{cart.count}} ITEMS </div>
-                                <div class="col text-right">{{cart.amount| number : 0}} vnd</div>
+                                <div class="col" style="padding-left:0;">{{cart.count}} sản phẩm </div>
+                                <div class="col text-right">{{cart.amount| number : 0}} VND</div>
                             </div>
                             <form>
                                 <!-- <p>Phương thức thanh toán</p>
@@ -136,19 +135,19 @@
                             </form>
                             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                                 <div class="col">Thuế VAT</div>
-                                <div class="col text-right" ng-model="item.vat">{{cart.amount * 0.05 | number : 0}} vnd</div>
+                                <div class="col text-right" ng-model="item.vat">{{cart.amount * 0.05 | number : 0}} VND</div>
                             </div>
                             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                                 <div class="col">Tổng tiền</div>
-                                <div class="col text-right">{{cart.amount + cart.amount * 0.05| number : 0}} vnd</div>
+                                <div class="col text-right">{{cart.amount + cart.amount * 0.05| number : 0}} VND</div>
                             </div>
 
                             <div class="btn-checkout text-center" th:if="${#request.remoteUser}">
                                 <span class="d-none" name="username" id="username">[[${#request.remoteUser}]]</span>
-                                <a th:href="@{|/order/checkout/${#request.remoteUser}|}" class="text-white text-decoration-none">CHECKOUT</a>
+                                <a th:href="@{|/order/checkout/${#request.remoteUser}|}" class="text-white text-decoration-none">Thanh toán</a>
                             </div>
                             <div class="btn-checkout text-center" th:unless="${#request.remoteUser}">
-                                <a th:href="@{|/security/login/form|}" class="text-white text-decoration-none">CHECKOUT</a>
+                                <a th:href="@{|/security/login/form|}" class="text-white text-decoration-none">Thanh toán</a>
                             </div>
 
                         </div>

@@ -118,19 +118,15 @@
                                         </div>
                                         <div class="col">
                                             <div class="row">
-                                                <input type="number" ng-change="cart.saveToLocalStorage()" ng-model="item.soLuong" style="width: 50px;" min=1>
+                                                <p>{{item.soLuong}}</p>
                                             </div>
                                         </div>
 
-                                        <div class="col">{{item.gia * item.soLuong | number : 0}} vnd
-                                            <a ng-click="cart.remove(item.id)" href="" type="button" class="float-right text-uppercase">
-                                                <i class="fas fa-trash-alt mr-1"></i><span>&#10005;</span>
-                                            </a>
+                                        <div class="col">{{item.gia * item.soLuong | number : 0}} VND
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="back-to-shop"><a th:href="@{/}">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
                         </div>
                         <div class="col-md-5 summary">
                             <div>
@@ -138,8 +134,8 @@
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col" style="padding-left:0;">{{cart.count}} ITEMS </div>
-                                <div class="col text-right">{{cart.amount| number : 0}} vnd</div>
+                                <div class="col" style="padding-left:0;">{{cart.count}} sản phẩm </div>
+                                <div class="col text-right">{{cart.amount| number : 0}} VND</div>
                             </div>
                             <form th:object="${taiKhoan}">
                                 <div class="row">
@@ -226,7 +222,7 @@
                                                             <input readonly type="text" value="SDT: 0917282102" class="form-control mt-2">
                                                         </div>
                                                         <div class="modal-body pb-2">
-                                                            <h6>Số tiền: <span class="text-info">{{cart.amount + cart.amount * 0.05| number : 0}} vnd</span></h6>
+                                                            <h6>Số tiền: <span class="text-info">{{cart.amount + cart.amount * 0.05| number : 0}} VND</span></h6>
                                                             <small class="text-muted">Vui lòng nhập đủ số tiền cần thanh toán !</small>
                                                         </div>
 
@@ -253,11 +249,11 @@
                                 </div>
                                 <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                                     <div class="col">Thuế VAT</div>
-                                    <div class="col text-right" ng-model="item.vat">{{cart.amount * 0.05 | number : 0}} vnd</div>
+                                    <div class="col text-right" ng-model="item.vat">{{cart.amount * 0.05 | number : 0}} VND</div>
                                 </div>
                                 <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                                     <div class="col">Tổng tiền</div>
-                                    <div class="col text-right" ng-model="item.gia">{{cart.amount + cart.amount * 0.05| number : 0}} vnd</div>
+                                    <div class="col text-right" ng-model="item.gia">{{cart.amount + cart.amount * 0.05| number : 0}} VND</div>
                                 </div>
 
                             </div>
