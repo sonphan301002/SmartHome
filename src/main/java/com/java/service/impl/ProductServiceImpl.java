@@ -3,6 +3,7 @@ package com.java.service.impl;
 import java.util.List;
 
 import com.java.dao.ProductDAO;
+import com.java.entity.CateStatsReport;
 import com.java.entity.Product;
 import com.java.service.ProductService;
 
@@ -42,6 +43,11 @@ public class ProductServiceImpl implements ProductService{
 	public Product add(Product product) {
 		// TODO Auto-generated method stub
 		return productDAO.save(product);
+	}
+
+	@Override
+	public List<CateStatsReport> getInventoryByCategory() {
+		return productDAO.getInventoryByCategory();
 	}
 
 	@Override

@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
+
 <head>
-    <title>Digizone</title> 
+    <title>Digizone</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
+
 <body>
     <main>
-        <section class="container mt-4 mb-4">
+        <section class="container mt-1 mb-2">
             <div class="row d-flex align-items-start justify-content-center">
                 <span class="d-none" id="username">[[${#request.remoteUser}]]</span>
-                <div class="col-8">
+                <!-- <div class="col-8">
                     <div class="h5 text-center">Danh sách sản phẩm</div>
                     <table class="">
                         <tr ng-repeat="item in cart.items">
                             <td>
                                 <div class="cart-info">
-                                    <img ng-src="{{'/assets/images/' + item.hinhAnh}}" alt=""
-                                        width="100%" height="100%">
+                                    <img ng-src="{{'/assets/images/' + item.hinhAnh}}" alt="" width="100%" height="100%">
                                     <div>
                                         <p class="product-name">{{item.tenSP}}</p>
                                         <small class="product-price">{{item.gia | number : 0}} ₫</small>
@@ -49,9 +49,9 @@
                             </tr>
                         </table>
                     </div>
-                </div>
-    
-                <div class="col-4">
+                </div> -->
+
+                <!-- <div class="col-4">
                     <div class="" th:object="${taiKhoan}">
                         <div class="h5 text-center">Thông tin đặt hàng</div>
                         <form action="">
@@ -59,50 +59,499 @@
                                 <input type="text" class="form-control" placeholder="Họ và tên" th:value="${taiKhoan.hoTen}">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Điện thoại"  th:value="${taiKhoan.sdt}">
+                                <input type="text" class="form-control" placeholder="Điện thoại" th:value="${taiKhoan.sdt}">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Email"  th:value="${taiKhoan.email}">
+                                <input type="text" class="form-control" placeholder="Email" th:value="${taiKhoan.email}">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Địa chỉ"  th:value="${taiKhoan.diaChi}">
+                                <input type="text" class="form-control" placeholder="Địa chỉ" th:value="${taiKhoan.diaChi}">
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" ng-model="order.ghiChu" placeholder="Ghi chú"></textarea>
                             </div>
                             <div class="form-group">
                                 <input type="radio" name="thanhToan" id="" ng-model="order.thanhToan" value="0"> Thanh toán khi nhận hàng
-                                <input type="radio" name="thanhToan" id="" data-toggle="modal" data-target="#myModal"
-                                    ng-model="order.thanhToan" value="1"> Momo
-                            </div>
+                                <input type="radio" name="thanhToan" id="" data-toggle="modal" data-target="#myModal" ng-model="order.thanhToan" value="1"> Momo
+                            </div> -->
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="myModal" role="dialog">
-                                <div class="modal-dialog">
-                                  <!-- Modal content-->
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <!-- Modal -->
+                <!-- <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog"> -->
+                <!-- Modal content -->
+                <!-- <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body d-flex align-items-center justify-content-center">
+                                            <img ng-src="/assets/images/qr-momo.jpg" alt="" width="70%">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
                                     </div>
-                                    <div class="modal-body d-flex align-items-center justify-content-center">
-                                        <img ng-src="/assets/images/qr-momo.jpg" alt="" width="70%">
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
-                                  </div>
                                 </div>
                             </div>
-                        </form>
-    
-                        <div class="order-button text-white d-flex justify-content-center">
-                            <button type="button"
-                                ng-click="order.purcharse()">Đặt hàng</button>
+                        </form> -->
+
+                <!-- <div class="order-button text-white d-flex justify-content-center">
+                    <button type="button" ng-click="order.purcharse()">Đặt hàng</button>
+                </div> -->
+                <div ng:if="cart.count != 0" class="card mt-5">
+                    <div class="row">
+                        <div class="col-md-7 cart">
+                            <div class="title">
+                                <div class="row">
+                                    <div class="col">
+                                        <h4><b>Danh sách sản phẩm</b></h4>
+                                    </div>
+                                    <div class="col align-self-center text-right text-muted">{{cart.count}} sản phẩm</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row border-top border-bottom" ng-repeat="item in cart.items">
+                                    <div class="row main align-items-center">
+                                        <div class="col-2">
+                                            <img ng-src="{{'/assets/images/' + item.hinhAnh}}" alt="" width="100%" height="100%"> </div>
+                                        <div class="col">
+                                            <div class="row">{{item.tenSP}}</div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="row">
+                                                <input type="number" ng-change="cart.saveToLocalStorage()" ng-model="item.soLuong" style="width: 50px;" min=1>
+                                            </div>
+                                        </div>
+
+                                        <div class="col">{{item.gia * item.soLuong | number : 0}} vnd
+                                            <a ng-click="cart.remove(item.id)" href="" type="button" class="float-right text-uppercase">
+                                                <i class="fas fa-trash-alt mr-1"></i><span>&#10005;</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="back-to-shop"><a th:href="@{/}">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+                        </div>
+                        <div class="col-md-5 summary">
+                            <div>
+                                <h5><b>Thông tin đặt hàng</b></h5>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col" style="padding-left:0;">{{cart.count}} ITEMS </div>
+                                <div class="col text-right">{{cart.amount| number : 0}} vnd</div>
+                            </div>
+                            <form th:object="${taiKhoan}">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-group-prepend">
+                                            <div class="input-icon input-group-text justify-content-center"><i class="fa fa-user text-info"></i></div>
+                                            <input class="input-code" placeholder="Họ tên" th:value="${taiKhoan.hoTen}" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group-prepend">
+                                            <div class="input-icon input-group-text justify-content-center"><i class="fa fa-phone text-info"></i></div>
+                                            <input class="input-code" placeholder="Số điện thoại" th:value="${taiKhoan.sdt}" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-group-prepend">
+                                            <div class="input-icon input-group-text justify-content-center"><i class="fa fa-envelope text-info"></i></div>
+                                            <input class="input-code" placeholder="Email" th:value="${taiKhoan.email}" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group-prepend">
+                                            <div class="input-icon input-group-text justify-content-center"><i class="fas fa-map-marked text-info"></i></div>
+                                            <input class="input-code" placeholder="Địa chỉ" th:value="${taiKhoan.diaChi}" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-group-prepend">
+                                            <div class="input-icon input-group-text justify-content-center"><i class="fa fa-pen text-info"></i></div>
+                                            <textarea class="input-code" ng-model="order.ghiChu" placeholder="Ghi chú"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-group-prepend">
+                                            <div class="input-icon input-group-text justify-content-center"><i class="fa fa-smile text-info"></i></div>
+                                            <input class="input-code" placeholder="Mã giảm giá (nếu có)">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col mt-3">
+                                    <span>Phương thức thanh toán :</span>
+                                    <!-- Radio sử dùng hình ảnh -->
+                                    <div class="row mt-2 justify-content-center">
+                                        <div class="cc-selector">
+                                            <input id="shipcod" type="radio" name="credit-card" ng-model="order.thanhToan" value="0" />
+                                            <label class="drinkcard-cc shipcod" for="shipcod"></label>
+                                            <input checked="checked" id="momo" type="radio" ng-model="order.thanhToan" data-toggle="modal" data-target="#momoModal" value="1" />
+                                            <label class="drinkcard-cc momo" for="momo"></label>
+                                            <input id="paypal" type="radio" name="credit-card" ng-model="order.thanhToan" value="2" />
+                                            <label class="drinkcard-cc paypal" for="paypal"></label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="momoModal" tabindex="-1" role="dialog" aria-labelledby="momoModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                                </div>
+
+                                                <div class="text-center align-items-center mid">
+                                                    <div class="modal-logo"><img class="w-50" src="/assets/images/logodigizone.png"></div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="modal-body pb-2">
+                                                            <h6>THANH TOÁN BẰNG QR CODE</h6>
+                                                            <small class="text-muted">Quét mã QR bên dưới để tiếp tục thanh toán</small>
+                                                            <input readonly type="text" value="CTK: LÊ DUY HOÀNG" class="form-control mt-2">
+                                                            <input readonly type="text" value="SDT: 0917282102" class="form-control mt-2">
+                                                        </div>
+                                                        <div class="modal-body pb-2">
+                                                            <h6>Số tiền: <span class="text-info">{{cart.amount + cart.amount * 0.05| number : 0}} vnd</span></h6>
+                                                            <small class="text-muted">Vui lòng nhập đủ số tiền cần thanh toán !</small>
+                                                        </div>
+
+                                                        <div class="modal-footer float-right mb-3">
+                                                            <button type="button" ng-click="order.purcharse()" class="btn btn-primary" data-dismiss="modal">Hoàn tất</button>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-6">
+                                                        <div class="modal-body d-flex justify-content-center mb-3">
+                                                            <img class="w-75" ng-src="/assets/images/qr-codemomo.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="col">
+                                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                                    <div class="col">Phí ship</div>
+                                    <div class="col text-right">Free</div>
+                                </div>
+                                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                                    <div class="col">Thuế VAT</div>
+                                    <div class="col text-right" ng-model="item.vat">{{cart.amount * 0.05 | number : 0}} vnd</div>
+                                </div>
+                                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                                    <div class="col">Tổng tiền</div>
+                                    <div class="col text-right" ng-model="item.gia">{{cart.amount + cart.amount * 0.05| number : 0}} vnd</div>
+                                </div>
+
+                            </div>
+
+                            <button ng-click="order.purcharse()" class="btn-checkout">Đặt hàng</button>
+
                         </div>
                     </div>
                 </div>
             </div>
+            <style>
+                /* model */
+                
+                .modal-header {
+                    border: none;
+                }
+                
+                .modal-footer {
+                    border: none;
+                }
+                
+                .mid {
+                    margin: 0 110px;
+                }
+                
+                .form-control {
+                    border: none;
+                    border-bottom: 1px solid #DAD8FD;
+                    border-radius: 0;
+                }
+                
+                .form-control:focus {
+                    border-bottom: 2px solid #6F6E9A;
+                    box-shadow: none;
+                }
+                
+                .btn-primary {
+                    background: #5B53FE;
+                }
+                
+                .btn-primary:focus {
+                    box-shadow: none;
+                }
+                
+                .close:focus {
+                    outline: 0;
+                }
+                
+                .title {
+                    margin-bottom: 5vh;
+                }
+                
+                .card {
+                    vertical-align: middle;
+                    display: flex;
+                    font-family: sans-serif;
+                    font-size: 0.8rem;
+                    font-weight: bold;
+                    margin: auto;
+                    max-width: 100%;
+                    width: 100%;
+                    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                    border-radius: 1rem;
+                    border: transparent;
+                }
+                
+                @media(max-width:767px) {
+                    .card {
+                        margin: 3vh auto;
+                    }
+                }
+                
+                .cart {
+                    background-color: #fff;
+                    padding: 4vh 5vh;
+                    border-bottom-left-radius: 1rem;
+                    border-top-left-radius: 1rem;
+                }
+                
+                @media(max-width:767px) {
+                    .cart {
+                        padding: 4vh;
+                        border-bottom-left-radius: unset;
+                        border-top-right-radius: 1rem;
+                    }
+                }
+                
+                .summary {
+                    background-color: #ddd;
+                    border-top-right-radius: 1rem;
+                    border-bottom-right-radius: 1rem;
+                    padding: 4vh;
+                    color: rgb(65, 65, 65);
+                }
+                
+                @media(max-width:767px) {
+                    .summary {
+                        border-top-right-radius: unset;
+                        border-bottom-left-radius: 1rem;
+                    }
+                }
+                
+                .summary .col-2 {
+                    padding: 0;
+                }
+                
+                .summary .col-10 {
+                    padding: 0;
+                }
+                
+                .row {
+                    margin: 0;
+                }
+                
+                .title b {
+                    font-size: 1.5rem;
+                }
+                
+                .main {
+                    margin: 0;
+                    padding: 2vh 0;
+                    width: 100%;
+                }
+                
+                .col-2,
+                .col {
+                    padding: 0 1vh;
+                }
+                
+                .big a {
+                    padding: 0 1vh;
+                }
+                
+                .close {
+                    margin-left: auto;
+                    font-size: 0.7rem;
+                }
+                
+                img {
+                    width: 3.5rem;
+                }
+                
+                .back-to-shop {
+                    margin-top: 4.5rem;
+                }
+                
+                h5 {
+                    margin-top: 4vh;
+                }
+                
+                hr {
+                    margin-top: 1.25rem;
+                }
+                
+                form {
+                    padding: 2vh 0;
+                }
+                
+                select {
+                    border: 1px solid rgba(0, 0, 0, 0.137);
+                    padding: 1.5vh 1vh;
+                    margin-bottom: 4vh;
+                    outline: none;
+                    width: 100%;
+                    background-color: rgb(247, 247, 247);
+                }
+                
+                .input-code {
+                    border: 1px solid rgba(0, 0, 0, 0.137);
+                    padding: 1vh;
+                    margin-bottom: 1vh;
+                    outline: none;
+                    width: 80%;
+                    background-color: rgb(247, 247, 247);
+                }
+                
+                .input-icon {
+                    border: 1px solid rgba(0, 0, 0, 0.137);
+                    padding: 1vh;
+                    margin-bottom: 1vh;
+                    outline: none;
+                    width: 20%;
+                    background-color: rgb(247, 247, 247);
+                }
+                
+                .input-code:focus::-webkit-input-placeholder {
+                    color: transparent;
+                }
+                
+                .btn-checkout {
+                    background-color: #000;
+                    border-color: #000;
+                    color: white;
+                    width: 100%;
+                    font-size: 0.7rem;
+                    margin-top: 4vh;
+                    padding: 1vh;
+                    border-radius: 0;
+                }
+                
+                .btn-checkout:focus {
+                    box-shadow: none;
+                    outline: none;
+                    box-shadow: none;
+                    color: white;
+                    -webkit-box-shadow: none;
+                    -webkit-user-select: none;
+                    transition: none;
+                }
+                
+                .btn-checkout:hover {
+                    color: white;
+                }
+                
+                a {
+                    color: black;
+                }
+                
+                a:hover {
+                    color: black;
+                    text-decoration: none;
+                }
+                
+                #code {
+                    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253), rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+                    background-repeat: no-repeat;
+                    background-position-x: 95%;
+                    background-position-y: center;
+                }
+                
+                .payment .nav-link {
+                    color: #000 !important;
+                }
+                /* Radio sử dụng hình ảnh */
+                
+                .cc-selector input {
+                    margin: 0;
+                    padding: 0;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                }
+                
+                .momo {
+                    background-image: url(https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png);
+                }
+                
+                .shipcod {
+                    background-image: url(https://cdn.haitrieu.com/wp-content/uploads/2022/05/Logo-GHTK.png);
+                }
+                
+                .paypal {
+                    background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png);
+                }
+                
+                input:active+.drinkcard-cc,
+                .cc-selector input:active+.drinkcard-cc {
+                    opacity: .9;
+                }
+                
+                input:checked+.drinkcard-cc,
+                .cc-selector input:checked+.drinkcard-cc {
+                    -webkit-filter: none;
+                    -moz-filter: none;
+                    filter: none;
+                }
+                
+                .drinkcard-cc {
+                    cursor: pointer;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    display: inline-block;
+                    width: 100px;
+                    height: 70px;
+                    -webkit-transition: all 100ms ease-in;
+                    -moz-transition: all 100ms ease-in;
+                    transition: all 100ms ease-in;
+                    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+                    -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+                    filter: brightness(1.8) grayscale(1) opacity(.7);
+                }
+                
+                .drinkcard-cc:hover {
+                    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+                    -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+                    filter: brightness(1.2) grayscale(.5) opacity(.9);
+                }
+                
+                span.cc {
+                    color: #6d84b4
+                }
+            </style>
         </section>
     </main>
 </body>
+
 </html>
