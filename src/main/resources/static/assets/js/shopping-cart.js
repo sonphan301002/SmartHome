@@ -94,6 +94,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 
 	$scope.cart.loadFromLocalStorage();
 
+// ORDERS
 	$scope.order = {
 		ngayTao: new Date(),
 		ngaySua: new Date(),
@@ -132,9 +133,10 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			})
 		},
 		cancel() {
-			var order = angular.copy(this);
-			$http.put(`/rest/orders/${order.maHD}`, order).then(resp => {
-				order.trangThai = "5";
+			var item = angular.copy(this);
+			$http.put("/rest/orders/"+ item.maHD).then(resp => {
+				var index = $scope.items.findIndex(p => p.maHD == item.maHD)
+				item.trangThai = 5;
 				Swal.fire({
 					icon: 'success',
 					title: 'Xác nhận hủy đơn ?',
@@ -149,25 +151,6 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				});
 				console.log(error);
 			})
-		},
-		update() {
-			var order = angular.copy(this);
-			//Đặt hàng
-			$http.put(`/rest/orders/${order.maHD}`, order).then(resp => {
-				Swal.fire({
-					icon: 'success',
-					title: 'Cập nhật thành công',
-					showConfirmButton: true
-				});
-				location.reload();
-			}).catch(error => {
-				Swal.fire({
-					icon: 'warning',
-					title: 'Cập nhật thất bại',
-					showConfirmButton: true
-				});
-				console.log(error);
-			})
 		}
-	}
+	};
 })

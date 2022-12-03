@@ -136,6 +136,7 @@
 
                         <th:block th:if="${#request.remoteUser}">
                             <li class="nav-item" th:if="${#request.isUserInRole('GD') or #request.isUserInRole('NV')}">
+                            <li class="nav-item" th:if="${#request.isUserInRole('NV') or #request.isUserInRole('GD')}">
                                 <a class="nav-link" th:href="@{/admin/index}"> Quản lí</a>
                             </li>
                         </th:block>
