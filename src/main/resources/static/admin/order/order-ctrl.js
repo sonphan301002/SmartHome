@@ -21,6 +21,7 @@ app.controller("order-ctrl", function($scope, $http) {
 			$scope.oditems = resp.data;
 			//tính tiền đồ đó
 			var subtotal = 0;
+			var VAT = 0.05;
 			var discount = 0;
 			var total = 0;
 			for (var i = 0; i < $scope.oditems.length; i++) {
@@ -30,7 +31,7 @@ app.controller("order-ctrl", function($scope, $http) {
 			}
 			$scope.oditems.subtotal = subtotal;
 			$scope.oditems.discount = discount;
-			total += subtotal - discount + 30000;
+			total += subtotal + (subtotal * VAT) - discount + 30000;
 			$scope.oditems.total = total;
 		});
 		$(".nav-tabs a:eq(0)").tab('show')

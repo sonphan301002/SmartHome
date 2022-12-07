@@ -1,118 +1,76 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
+
 <head>
-    <title>Digizone</title> 
+    <title>Digizone</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
+
 <body>
     <main>
-        <section id="pricing" class="padd-section text-center wow fadeInUp mt-5" style="visibility: visible; animation-name: fadeInUp;">
-            <div class="section-header">
-                <h2 class="section-title">Đơn Hàng</h2>
-            </div>
-            
-            <div class="section-title">
-                <div class="" style="background-color: #87A2FB;">
-                    <div class="container py-5">
-                        <div class="row d-flex justify-content-center align-items-center">
-                            <div class="col-12 mb-sm-4" th:each ="o : ${orders}">
-                                <div class="card card-stepper text-black mb-sm-4 h-50" style="border-radius: 16px;">
-                                    <div class="card-body p-5">
-                                        <div class="d-flex justify-content-between align-items-center mb-5">
-                                            <div>
-                                                <h5 class="mb-0">Đơn hàng 
-                                                	<span class="text-primary font-weight-bold">#[[${o.maHD}]]</span>
-                                                </h5>
-                                            </div>
-                                            <div class="text-end">
-                                                <p class="mb-0">Ngày đặt hàng: 
-                                                	<span>[[${o.ngayTao}]]</span>
-                                               	</p>
-                                                <p class="mb-0">Tổng số tiền: 
-                                                	<span class="font-weight-bold">₫1.500.000</span>
-                                               	</p>
-                                            </div>
-                                        </div>
-                                        <!-- Trạng thái -->
-                                        <div class="">
-                                            <ul id="progressbar" class="text-center d-flex justify-content-between mx-0 mt-0 mb-5 px-0 pt-0 pb-2">
-                                                <!--Trạng thái 1 -->
-                                                <th:block th:if="${o.trangThai} == 1">
-                                                    <li class="step0 active"></li>
-                                                    
-                                                    <li class="step0" ></li>
-                                                    
-                                                    <li class="step0 " ></li>
-                                                    
-                                                    <li class="step0 "></li>
-                                                </th:block>
-                                                
-                                                <!--Trạng thái 2 -->
-                                                <th:block th:if="${o.trangThai} == 2">
-                                                    <li class="step0 active " ></li>
-                                                    
-                                                    <li class="step0 active " ></li>
-                                                    
-                                                    <li class="step0 "></li>
-                                                    
-                                                    <li class="step0 "></li>
-                                                </th:block>
-                                                
-                                                <!--Trạng thái 3 -->
-                                                <th:block th:if="${o.trangThai} == 3">
-                                                    <li class="step0 active "></li>
-                                                    
-                                                    <li class="step0 active "></li>
-                                                    
-                                                    <li class="step0 active "></li>
-                                                    
-                                                    <li class="step0 "></li>
-                                                </th:block>
-                                                
-                                                <!--Trạng thái 4 -->
-                                                <th:block th:if="${o.trangThai} == 4">
-                                                    <li class="step0 active "></li>
-                                                    
-                                                    <li class="step0 active "></li>
-                                                    
-                                                    <li class="step0 active "></li>
-                                                    
-                                                    <li class="step0 active "></li>
-                                                </th:block>
-                                            </ul>
-                                        </div>
+        <section id="pricing" class="padd-section text-center wow fadeInUp"
+            style="visibility: visible; animation-name: fadeInUp;">
+            <div class="container">
+                <div class="row d-flex align-items-center justify-content-center">
+                    <div class="container" style="margin-top:20px;" ng-repeat="item in items">
+                        <div class="d-style btn btn-brc-tp border-2 bgc-white 
+                            btn-outline-blue btn-h-outline-blue btn-a-outline-blue 
+                            w-100 my-2 py-3 shadow p-3 bg-white rounded">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-4">
+                                    <h5 class="pt-3 text-170 text-600 text-primary-d1 letter-spacing">
+                                        Đơn hàng #{{item.maHD}}
+                                    </h5>
 
-                                        <div class="d-flex justify-content-between">
-                                            <div class="d-lg-flex align-items-center">
-                                                <div>
-                                                    <p class="fw-bold mb-1">Đơn hàng</p>
-                                                    <p class="fw-bold mb-0">Đang xử lý</p>
-                                                </div>
-                                            </div>
-                                            <div class="d-lg-flex align-items-center">
-                                                <div>
-                                                    <p class="fw-bold mb-1">Đơn hàng</p>
-                                                    <p class="fw-bold mb-0">Đang vận chuyển</p>
-                                                </div>
-                                            </div>
-                                            <div class="d-lg-flex align-items-center">
-                                                <div>
-                                                    <p class="fw-bold mb-1">Đơn hàng</p>
-                                                    <p class="fw-bold mb-0">Đang được giao</p>
-                                                </div>
-                                            </div>
-                                            <div class="d-lg-flex align-items-center">
-                                                <div>
-                                                    <p class="fw-bold mb-1">Đơn hàng</p>
-                                                    <p class="fw-bold mb-0">Đã được giao</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                       <a class="mt-4 d-inline-flex" th:href="@{|/order/orderDetail/${o.maHD}|}">Chi tiết đơn hàng</a> 
+                                    <div class="text-secondary-d1 text-120">
+                                        <span class="ml-n15 align-text-bottom">{{item.ngayTao}}</span>
                                     </div>
+                                </div>
+
+                                <ul class="list-unstyled mb-0 col-12 col-md-4 text-dark-l1 text-90 
+                                    text-left my-4 my-md-0 d-flex justify-content-center">
+                                    <!-- Chờ xử lý -->
+                                    <div ng:if="item.trangThai == 1">
+                                        <li class="mt-25">
+                                            <i class="fas fa-check-circle text-success-m2 text-110 mr-2 mt-1"></i>
+                                            <span class="text-110">Đang xử lý</span>
+                                        </li>
+                                    </div>
+
+                                    <!-- Đã thanh toán -->
+                                    <div ng:if="item.trangThai == 2">
+                                        <li class="mt-25">
+                                            <i class="fas fa-money-check-alt text-success-m2 text-110 mr-2 mt-1"></i>
+                                            <span class="text-110">Đã thanh toán</span>
+                                        </li>
+                                    </div>
+
+                                    <!-- Đang vận chuyển -->
+                                    <div ng:if="item.trangThai == 3">
+                                        <li class="mt-25">
+                                            <i class="fas fa-truck text-success-m2 text-110 mr-2 mt-1"></i>
+                                            <span class="text-110">
+                                                Đang vận chuyển
+                                            </span>
+                                        </li>
+                                    </div>
+
+                                    <!-- Đã giao hàng -->
+                                    <div ng:if="item.trangThai == 4">
+                                        <li class="mt-25">
+                                            <i class="fas fa-box text-success-m2 text-110 mr-2 mt-1"></i>
+                                            <span class="text-110">
+                                                Đã giao hàng
+                                            </span>
+                                        </li>
+                                    </div>
+                                </ul>
+
+                                <div class="col-12 col-md-4 text-center">
+                                    <button type="button" class="f-n-hover btn btn-info btn-raised px-4 py-25 w-75 text-600" 
+                                        ng-click="detail(item)">Chi tiết</button>
                                 </div>
                             </div>
                         </div>
@@ -122,4 +80,5 @@
         </section>
     </main>
 </body>
+
 </html>

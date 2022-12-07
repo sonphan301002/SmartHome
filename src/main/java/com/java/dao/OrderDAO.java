@@ -10,7 +10,7 @@ import com.java.entity.Order;
 
 @Repository
 public interface OrderDAO extends JpaRepository<Order, Long>{
-	@Query("SELECT o FROM Order o WHERE o.taiKhoan.tenND = ?1")
+	@Query("SELECT o FROM Order o WHERE o.taiKhoan.tenND = ?1 ORDER BY maHD DESC")
 	List<Order> findByUsername(String username);
 	
 }

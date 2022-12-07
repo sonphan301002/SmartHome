@@ -5,9 +5,12 @@ import com.java.entity.Order;
 import com.java.entity.OrderDetail;
 import com.java.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 @CrossOrigin("*")
 @RestController
@@ -18,8 +21,9 @@ public class OrderRestController {
 
 
     @GetMapping
-    public List<Order> getAll() {
-        return orderService.findAll();
+    public List<Order> getAll(Model model, HttpServletRequest request) {
+        String tenND = request.getRemoteUser();
+        return orderService.findByUsername(tenND);
     }
 
     @GetMapping("{maHD}")

@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,9 +42,10 @@ public class OrderController {
 		return "/order/orderdetail";
 	}
 	
-	@RequestMapping("/order/checkout/{username}")
-	public String checkout(Model model, @PathVariable("username") String username) {
-	    model.addAttribute("taiKhoan", accountService.findByND(username));
+	@RequestMapping("/order/checkout")
+	public String checkout(Model model,HttpServletRequest request) {
+	    String tenND = request.getRemoteUser();
+	    model.addAttribute("taiKhoan", accountService.findByND(tenND));
 	    return "/order/checkout";
 	}
 }
