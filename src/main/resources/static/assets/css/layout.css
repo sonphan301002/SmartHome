@@ -920,7 +920,7 @@ button:active {
   
 } 
 .pagination li a {
-  color: #040404;
+  color: #fff;
   text-decoration: none;
   display: inline-block;
   padding: 3px 10px;
@@ -930,7 +930,7 @@ button:active {
   display: none;
 }*/
 .pagination li {
-  background-color: #fff;
+  background-color: #17a2b8;
   display: inline-block;
   border-radius: 5%;
   padding: 5px;
