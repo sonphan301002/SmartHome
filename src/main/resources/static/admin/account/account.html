@@ -122,7 +122,7 @@
 													<thead>
 														<tr>
 															<th>Anh</th>
-															<th scope="col">Username</th>
+															<th scope="col">Tài khoản</th>
 															<th scope="col">Mã VT</th>
 															<th scope="col">Mật khẩu</th>
 															<th scope="col">Họ tên</th>
@@ -136,7 +136,7 @@
 														</tr>
 													</thead>
 													<tbody>
-														<tr ng-repeat="item in pager.items">
+														<tr ng-repeat="item in items">
 															<td><img
 																ng-src="{{'/assets/images/' + item.hinhAnh}}" width="50"
 																height="50"></td>
@@ -149,14 +149,17 @@
 															<td>{{item.sdt}}</td>
 															<td>{{item.diaChi}}</td>
 															<td>{{item.cmnd}}</td>
-															<td><a ng-click="delete(item)"
-																class="tm-product-delete-link"> <i
-																	class="far fa-trash-alt "></i>
-															</a></td>
-															<td><a ng-click="edit(item)"
-																class="tm-product-delete-link"> <i
-																	class="far fa-edit"></i>
-															</a></td>
+															<td>
+																<button ng-click="delete(item)" class="tm-product-delete-link btn">
+																	<i class="far fa-trash-alt tm-product-delete-icon"></i>
+																</button>
+															</td>
+															<td>
+																<button ng-click="edit(item)"
+																	class="text-white tm-product-delete-link btn">
+																	<i class="far fa-edit"></i>
+																</button>
+															</td>
 														</tr>
 													</tbody>
 												</table>
@@ -164,19 +167,6 @@
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="blog-pager" id="blog-pager">
-								<ul class="pagination justify-content-center">
-		
-									<li class=""><a href="" ng-click="pager.first()">&#8676;</a>
-									</li>
-									<li class=""><a href="" ng-click="pager.prev()">&#171;</a></li>
-									<li class=""><a href="">{{pager.page + 1}} of {{pager.count}}</a>
-									<li class=""><a href="" ng-click="pager.next()"> &#187;</a></li>
-		
-									<li class=""><a href="" ng-click="pager.last()"> &#8677; </a>
-									</li>
-								</ul>
 							</div>
 						</div>
 					</div>
