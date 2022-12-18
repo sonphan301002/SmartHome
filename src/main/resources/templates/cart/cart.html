@@ -46,7 +46,8 @@
                                                 <div>
                                                     <p class="product-name">{{item.tenSP}}</p>
                                                     <small class="product-price">{{item.gia | number :
-														0}} ₫</small><a class="badge badge-pill badge-danger ml-3" href="" ng-click="cart.remove(item.id)">Xóa</a>
+														0}} ₫</small>
+													<a class="badge badge-pill badge-danger ml-3" href="" ng-click="cart.remove(item.id)">Xóa</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -102,14 +103,16 @@
 							<div>
 								<div class="row border-top border-bottom"
 									ng-repeat="item in cart.items">
-									<div class="row main align-items-center">
+									<div class="row main d-flex align-items-center">
 										<div class="col-2">
 											<img ng-src="{{'/assets/images/' + item.hinhAnh}}" alt=""
 												width="100%" height="100%">
 										</div>
+
 										<div class="col">
 											<div class="row">{{item.tenSP}}</div>
 										</div>
+
 										<div class="col">
 											<div class="row">
 												<input type="number" ng-change="cart.saveToLocalStorage()"
@@ -117,8 +120,11 @@
 											</div>
 										</div>
 
-										<div class="col">{{item.gia * item.soLuong | number :
-											0}} VND</div>
+										<div class="col">{{item.gia * item.soLuong | number : 0}} VND</div>
+
+										<div class="col text-center">
+											<a href="" class="text-danger" ng-click="cart.remove(item.id)">X</a>
+										</div>
 									</div>
 								</div>
 							</div>

@@ -1,24 +1,21 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
 
 <head>
-<title>Digizone</title>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Digizone</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
 <body>
 	<main>
-		<section id="pricing"
-			class="padd-section text-center wow fadeInUp mt-5"
+		<section id="pricing" class="padd-section text-center wow fadeInUp mt-5"
 			style="visibility: visible; animation-name: fadeInUp;">
 			<div class="container">
 				<div class="container-fluid">
 					<div th:object="${items}">
-						<h4 class="text-left">Sản phẩm</h4>
+						<h4 class="text-left ml-3">Danh sách sản phẩm</h4>
 					</div>
 					<div class="col">
 						<div class="row g-2">
@@ -27,53 +24,31 @@
 									<div class="block-pricing">
 										<div class="table position-relative">
 											<div class="special-img collection-img overflow-hidden">
-												<a th:href="@{|/productDetail/${p.maSP}|}"> <img
-													th:src="@{|/assets/images/${p.hinhAnh}|}" width="200">
-												</a> <span
-													class="pb-auto position-absolute bg-danger text-white
+												<a th:href="@{|/productDetail/${p.maSP}|}">
+													<img th:src="@{|/assets/images/${p.hinhAnh}|}" width="200">
+												</a>
+												<span class="pb-auto position-absolute bg-danger text-white
                                                         d-flex align-items-center justify-content-center">Sale</span>
 											</div>
 											<ul class="list-unstyled">
-												<li><a th:href="@{|/productDetail/${p.maSP}|}">[[${p.tenSP}]]</a></li>
-												<li><b style="color: #FF1E00;">$[[${p.gia}]] ₫</b></li>
+												<li>
+													<a th:href="@{|/productDetail/${p.maSP}|}">[[${p.tenSP}]]</a>
+												</li>
+												<li>
+													<b style="color: #FF1E00;">[[${p.gia}]] ₫</b>
+												</li>
 											</ul>
 										</div>
 									</div>
 								</div>
-
-								<!-- <div class="blog-pager" id="blog-pager">
-                                         <ul class="pagination justify-content-center">
-                                            <li class="prev disabled">
-                                                <span> « </span>
-                                            </li>
-                                            <li class="active">
-                                                <a href="" data-page="1">1</a>
-                                            </li>
-                                            <li class="">
-                                                <a href="" data-page="2">2</a>
-                                            </li>
-                                            <li class="">
-                                                <a href="" data-page="3">3</a>
-                                            </li>
-                                            <li class="">
-                                                <a href="" data-page="4">4</a>
-                                            </li>
-                                            <li class="">
-                                                <a href="" data-page="5">5</a>
-                                            </li>
-                                            <li class="next">
-                                                <a href="" data-page="2"> » </a>
-                                            </li>
-                                         </ul>
-                                    </div> -->
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			</div>
-			</div>
+
 		</section>
 	</main>
 </body>
+
 </html>

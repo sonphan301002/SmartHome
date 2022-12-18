@@ -43,9 +43,8 @@
 						<h1>[[*{tenSP}]]</h1>
 						<h4>[[*{gia}]] ₫</h4>
 						<select style="display: block; padding: 10px; margin-top: 20px;">
-							<option>Cỡ lớn hơn</option>
-							<option>Màu hồng</option>
-							<option>Cỡ nhỏ hơn</option>
+							<option th:if="*{soLuong} > 0">Còn hàng</option>
+							<option th:if="*{soLuong} < 0">Hết hàng</option>
 						</select>
 						<a href="" class="btn-add"
 							style="text-decoration: none; color: #fff"
@@ -58,7 +57,7 @@
 		</div>
 
 		<section id="pricing"
-			class="padd-section text-center wow fadeInUp mt-5"
+			class="container padd-section text-center wow fadeInUp mt-5"
 			style="visibility: visible; animation-name: fadeInUp;">
 			<div class="section-header">
 				<h2 class="section-title">Sản phẩm liên quan</h2>

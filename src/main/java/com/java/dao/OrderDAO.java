@@ -2,6 +2,8 @@ package com.java.dao;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -13,4 +15,6 @@ public interface OrderDAO extends JpaRepository<Order, Long>{
 	@Query("SELECT o FROM Order o WHERE o.taiKhoan.tenND = ?1 ORDER BY maHD DESC")
 	List<Order> findByUsername(String username);
 	
+	@Query("SELECT o FROM Order o WHERE o.taiKhoan.tenND = ?1 ORDER BY maHD DESC")
+    Page<Order> findByUsernamePage(String username, Pageable pageable);
 }

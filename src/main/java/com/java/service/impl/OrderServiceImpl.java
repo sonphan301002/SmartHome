@@ -9,6 +9,8 @@ import com.java.entity.Order;
 import com.java.entity.OrderDetail;
 import com.java.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,9 +39,15 @@ public class OrderServiceImpl implements OrderService {
     public List<OrderDetail> findByMaHD(Long maHD) {
         return oddao.findByMaHD(maHD);
     }
+    
     @Override
     public List<Order> findByUsername(String tenND) {
         return odao.findByUsername(tenND);
+    }
+    
+    @Override
+    public Page<Order> findByUsernamePage(String tenND, Pageable pageable) {
+        return odao.findByUsernamePage(tenND, pageable);
     }
 
     @Override
