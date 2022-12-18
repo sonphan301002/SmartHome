@@ -1,6 +1,6 @@
 package com.java.service.impl;
 
-import java.util.ArrayList;
+ 
 import java.util.List;
 
 import com.java.dao.ProductDAO;
@@ -11,7 +11,6 @@ import com.java.service.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -19,7 +18,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductServiceImpl implements ProductService{
 	@Autowired
-	ProductDAO productDAO;
+	ProductDAO productDAO; //truy xuất dữ liệu thông qua DAO
 
 	@Autowired
 	ProductRepository productRepository;
@@ -89,12 +88,29 @@ public class ProductServiceImpl implements ProductService{
         return productDAO.hienThimayLoc();
     }
 
-//	@Override
-//	public Page<Product> findAll(Pageable pageable) {
-// 		return productDAO.findAll(pageable);
-//	}
+	@Override
+	public Iterable<Product> findAll(Sort sort) {
+		// TODO Auto-generated method stub
+		return productDAO.findAll(sort);
+	}
+
+	@Override
+	public Page<Product> findAll(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return productDAO.findAll(pageable);
+	}
+
+	 
+ 
+ 
+ 
+ 
+
 //	@Override
 //	public Page<Product> findAllByTenspLike(String keyword, Pageable pageable) {
+//		 
 //		return productDAO.findAllByTenspLike(keyword, pageable);
 //	}
+//
+ 
 }

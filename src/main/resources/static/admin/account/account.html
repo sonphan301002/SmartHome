@@ -136,7 +136,7 @@
 														</tr>
 													</thead>
 													<tbody>
-														<tr ng-repeat="item in items">
+														<tr ng-repeat="item in pager.items">
 															<td><img
 																ng-src="{{'/assets/images/' + item.hinhAnh}}" width="50"
 																height="50"></td>
@@ -164,6 +164,19 @@
 										</div>
 									</div>
 								</div>
+							</div>
+							<div class="blog-pager" id="blog-pager">
+								<ul class="pagination justify-content-center">
+		
+									<li class=""><a href="" ng-click="pager.first()">&#8676;</a>
+									</li>
+									<li class=""><a href="" ng-click="pager.prev()">&#171;</a></li>
+									<li class=""><a href="">{{pager.page + 1}} of {{pager.count}}</a>
+									<li class=""><a href="" ng-click="pager.next()"> &#187;</a></li>
+		
+									<li class=""><a href="" ng-click="pager.last()"> &#8677; </a>
+									</li>
+								</ul>
 							</div>
 						</div>
 					</div>

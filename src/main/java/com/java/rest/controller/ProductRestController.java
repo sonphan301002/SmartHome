@@ -39,14 +39,10 @@ public class ProductRestController {
 		return productService.findById(maSP);
 	}
 	
-	@GetMapping("{cid}")
-	public List<Product> findByCateId(Model model, @RequestParam("cid") Optional<Long> cid) {
-        if (cid.isPresent()) {
-            return productService.findByCateId(cid.get());
-        } else {
-            return productService.findAll();
-        }
-    }
+	@GetMapping("maDM")
+	public List<Product> getCateId(@PathVariable("maDM") Long maDM) {
+		return productService.findByCateId(maDM);
+	}
 	
 	@PostMapping()
 	public Product create(@RequestBody Product product) {

@@ -14,7 +14,7 @@
             style="visibility: visible; animation-name: fadeInUp;">
             <div class="container">
                 <div class="row d-flex align-items-center justify-content-center">
-                    <div class="container" style="margin-top:20px;" ng-repeat="item in items">
+                    <div class="container" style="margin-top:20px;" ng-repeat="item in pager.items">
                         <div class="d-style btn btn-brc-tp border-2 bgc-white 
                             btn-outline-blue btn-h-outline-blue btn-a-outline-blue 
                             w-100 my-2 py-3 shadow p-3 bg-white rounded">
@@ -75,7 +75,21 @@
                             </div>
                         </div>
                     </div>
+                    <div class="blog-pager" id="blog-pager">
+                        <ul class="pagination justify-content-center">
+
+                            <li class=""><a href="" ng-click="pager.first()">&#8676;</a>
+                            </li>
+                            <li class=""><a href="" ng-click="pager.prev()">&#171;</a></li>
+                            <li class=""><a href="">{{pager.page + 1}} of {{pager.count}}</a>
+                            <li class=""><a href="" ng-click="pager.next()"> &#187;</a></li>
+
+                            <li class=""><a href="" ng-click="pager.last()"> &#8677; </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+                     
             </div>
         </section>
     </main>

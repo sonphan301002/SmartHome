@@ -15,4 +15,7 @@ public interface AccountDao extends JpaRepository<Account, String>{
 	List<Account> getAdministrators();
 	
 	Account findByEmail(String email);
+	
+	@Query("SELECT acc from Account acc WHERE acc.tenND=:username and acc.email=:email")
+	Account findByUsernameandEmail(String username,String email);
 }

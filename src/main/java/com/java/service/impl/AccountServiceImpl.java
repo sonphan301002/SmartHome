@@ -29,6 +29,11 @@ public class AccountServiceImpl implements AccountService{
     }
 
     @Override
+	public Account findByUsernameandEmail(String username, String email) {
+		return accountDao.findByUsernameandEmail(username, email);
+	}
+
+	@Override
     public Account findByND(String tenND) {
         return accountDao.findById(tenND).get();
     }

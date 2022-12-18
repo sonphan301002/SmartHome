@@ -723,3 +723,44 @@ input[type="checkbox"]:focus {
     width: 370px;
   }
 }
+
+
+
+
+/* PAGINATION */
+#blog-pager{
+    width: 100%;
+   
+    text-align: center;
+    padding: 20px 0;
+}
+.pagination{
+    
+    width: 100%;
+    padding-left: 0;
+    list-style: none;
+    border-radius: 0.25rem;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 10px;
+    
+} 
+.pagination li a {
+    color: #040404;
+    text-decoration: none;
+    display: inline-block;
+    padding: 3px 10px;
+   font-size: 20px;
+}
+/*.pagination li.disabled {
+    display: none;
+}*/
+.pagination li {
+    background-color: #fff;
+    display: inline-block;
+    border-radius: 5%;
+    padding: 5px;
+    margin: 5px;
+    font-size: 20px;
+}
+/* END PAGINATION */

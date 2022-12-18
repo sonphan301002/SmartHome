@@ -1,14 +1,21 @@
-app.controller('paginationCtrl', function ($scope, $http) {
-    $scope.items = [];
+app.controller("paginated-ctrl", function($scope, $http) {
+	$scope.items = [];
+	$scope.cates = [];
+ 
 
-	$scope.init = function() {
-		// load product
-		$http.get("/rest/products/${cid}").then(resp => {
+	$scope.initialize = function(cid) {
+		//load products
+		$http.get(`/rest/pagination/${cid}`).then(resp => {
 			$scope.items = resp.data;
-		})
+		});
+	
+
 	}
 
-	$scope.init();
+	//khởi đầu
+	$scope.initialize();
+
+	
 
 	$scope.pager = {
 		page: 0,

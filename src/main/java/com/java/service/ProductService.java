@@ -1,5 +1,6 @@
 package com.java.service;
 
+
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -7,6 +8,10 @@ import org.springframework.data.domain.Pageable;
 
 import com.java.entity.CateStatsReport;
 import com.java.entity.Product;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 public interface ProductService {
 
@@ -24,9 +29,12 @@ public interface ProductService {
     List<Product> hienThiThietBi();
     List<Product> hienThiRobot();
     List<Product> hienThimayLoc();
-    
-    List<CateStatsReport> getInventoryByCategory();
-    
-//	Page<Product> findAll(Pageable pageable);
-//	Page<Product> findAllByTenspLike(String keyword, Pageable pageable);
+	List<CateStatsReport> getInventoryByCategory();
+	Iterable<Product> findAll(Sort sort);
+	Page<Product> findAll(Pageable pageable);
+
+
+ 
+	
+ 
 }
