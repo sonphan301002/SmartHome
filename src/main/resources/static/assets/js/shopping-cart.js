@@ -95,12 +95,25 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 	$scope.cart.loadFromLocalStorage();
 
 // ORDERS
+	$scope.items = [];
+	$scope.detail = [];
+	$scope.info = {};
+
+	$scope.initialize = function() {
+		//load order
+		$http.get("/rest/orders").then(resp => {
+			$scope.items = resp.data;
+		});
+	}
+
+	$scope.initialize();
+	
 	$scope.order = {
 		ngayTao: new Date(),
 		ngaySua: new Date(),
 		trangThai: 1,
 		thanhToan: "",
-		taiKhoan: {tenND: $("#username").text()},
+		taiKhoan: {tenND: $("#tenND").text()},
 		get hoaDonChiTiet() {
 			return $scope.cart.items.map(item => {
 				return {
@@ -108,7 +121,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					donGia: item.gia,
 					soLuong: item.soLuong,
 					giamGia: item.giamGia,
-					VAT: item.vat
+					VAT: item.VAT
 				}
 			})
 		},
@@ -121,7 +134,9 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					title: 'Thanh toán thành công',
 					showConfirmButton: true
 				});
+				// Xóa toàn bộ sản phẩm trong giỏ hàng
 				$scope.cart.clear();
+				// Chuyển trang
 				location.href = "/order/orderDetail/" + resp.data.maHD;
 			}).catch(error => {
 				Swal.fire({
@@ -132,25 +147,67 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				console.log(error);
 			})
 		},
-		cancel() {
-			var item = angular.copy(this);
-			$http.put("/rest/orders/"+ item.maHD).then(resp => {
-				var index = $scope.items.findIndex(p => p.maHD == item.maHD)
-				item.trangThai = 5;
-				Swal.fire({
-					icon: 'success',
-					title: 'Xác nhận hủy đơn ?',
-					showConfirmButton: true
-				});
-				location.reload();
-			}).catch(error => {
-				Swal.fire({
-					icon: 'warning',
-					title: 'Hủy đơn thất bại',
-					showConfirmButton: true
-				});
-				console.log(error);
-			})
-		}
 	};
+
+	$scope.detail = function(item) {
+		$scope.info = angular.copy(item)
+		$http.get(`/rest/orders/${item.maHD}`, item).then(resp => {
+			$scope.detail = resp.data;
+			
+			var subtotal = 0;
+			var VAT = 0.05;
+			var discount = 0;
+			var total = 0;
+
+			for (var i = 0; i < $scope.detail.length; i++) {
+				var detail = $scope.detail[i];
+				subtotal += (detail.donGia * detail.soLuong);
+				discount += (detail.donGia * detail.soLuong) * detail.giamGia / 100;
+			}
+
+			$scope.detail.subtotal = subtotal;
+			$scope.detail.discount = discount;
+
+			total += subtotal + (subtotal * VAT) - discount + 30000;
+
+			$scope.detail.total = total;
+		});
+		location.href= "/order/orderDetail/" + item.maHD;
+	};
+	$scope.pager = {
+		page: 0,
+		size: 4,
+		get items(){
+			var start = this.page * this.size;
+			return $scope.items.slice(start, start + this.size);
+		},
+		
+		get count(){
+			return Math.ceil(1.0 * $scope.items.length/ this.size);
+		},
+		
+		first(){
+			this.page = 0;
+		},
+		
+		prev(){
+			this.page--;
+			if(this.page <0){
+				this.last();
+			}
+		},
+		
+		next(){
+			this.page++;
+			if(this.page >= this.count){
+				this.first();
+			}
+		},
+		
+		last(){
+			this.page = this.count -1;
+		}
+	}
+	 
+	
 })

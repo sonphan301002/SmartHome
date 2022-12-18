@@ -16,8 +16,9 @@ public class CategoryInterceptor implements HandlerInterceptor{
 	CategoryService categoryService;
 	
 	@Override
+	//postHandle: sử dụng để thực hiện các hoạt động trước khi gửi request tới client 
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		request.setAttribute("cates", categoryService.findAll());
+		request.setAttribute("cates", categoryService.findAll()); // tạo attr "cate", lấy tất cả các loại trong cateservice -> findAll 
 	}
 }

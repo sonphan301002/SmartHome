@@ -21,6 +21,7 @@ app.controller("order-ctrl", function($scope, $http) {
 			$scope.oditems = resp.data;
 			//tính tiền đồ đó
 			var subtotal = 0;
+			var VAT = 0.05;
 			var discount = 0;
 			var total = 0;
 			for (var i = 0; i < $scope.oditems.length; i++) {
@@ -30,7 +31,7 @@ app.controller("order-ctrl", function($scope, $http) {
 			}
 			$scope.oditems.subtotal = subtotal;
 			$scope.oditems.discount = discount;
-			total += subtotal - discount + 30000;
+			total += subtotal + (subtotal * VAT) - discount + 30000;
 			$scope.oditems.total = total;
 		});
 		$(".nav-tabs a:eq(0)").tab('show')
@@ -71,4 +72,40 @@ app.controller("order-ctrl", function($scope, $http) {
 			}
 		})
 	}
+	
+	$scope.pager = {
+		page: 0,
+		size: 4,
+		get items(){
+			var start = this.page * this.size;
+			return $scope.items.slice(start, start + this.size);
+		},
+		
+		get count(){
+			return Math.ceil(1.0 * $scope.items.length/ this.size);
+		},
+		
+		first(){
+			this.page = 0;
+		},
+		
+		prev(){
+			this.page--;
+			if(this.page <0){
+				this.last();
+			}
+		},
+		
+		next(){
+			this.page++;
+			if(this.page >= this.count){
+				this.first();
+			}
+		},
+		
+		last(){
+			this.page = this.count -1;
+		}
+	}
+	
 });

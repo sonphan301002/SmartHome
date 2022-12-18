@@ -1,8 +1,11 @@
 package com.java.controller;
 
+import com.java.dao.AccountDao;
+import com.java.entity.Account;
 import com.java.service.SendMailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -11,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ContactController {
     @Autowired
     SendMailService sendMailService;
+    @Autowired
+    AccountDao accountDao;
 
     @PostMapping("/submit")
     public String submit(@RequestParam("toEmail")String toEmail,
@@ -131,6 +136,38 @@ public class ContactController {
                 "</table>";
         sendMailService.queue("digizone.smarthome+support@gmail.com",adminSubject,adminContent);
         return "/layout/contact";
+    }
+    
+    @PostMapping("/forgot")
+    public String forgot(@RequestParam("toEmail")String toEmail,
+    		@RequestParam("username")String username, Model model){
+    	
+    	Account acc = accountDao.findByUsernameandEmail(username,toEmail);
+    	
+//    	Nếu kh tìm thấy tài khoản với username và email đó
+    	if (acc==null) {
+    		model.addAttribute("error","Không tìm thấy tài khoản với tên người dùng và email này !");
+    		return "/account/forgot-password";
+		}else {
+    	
+        String body ="<table cellpadding=\"0\" cellspacing=\"0\" class=\"table__StyledTable-sc-1avdl6r-0 iasblw\" style=\"min-width: 450px; vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;\"><tbody><tr><td style=\"text-align: center;\"><img src=\"https://drive.google.com/uc?id=1D8_zFcDLWCgHF_ipeLsMGZYELtthpK7A\" role=\"presentation\" width=\"130\" class=\"image__StyledImage-sc-hupvqm-0 eLouvR\" style=\"display: inline-block; max-width: 130px;\"></td></tr><tr style=\"text-align: center;\"><td><h2 color=\"#3979b8\" class=\"name__NameContainer-sc-1m457h3-0 jCjfGD\" style=\"margin: 0px; font-size: 18px; color: rgb(57, 121, 184); font-weight: 600;\"><span>Xin chào! " +acc.getHoTen()+"<span style=\"color:red; font-weight: bold;\"></span>"
+                +"</span><span>&nbsp;</span><span></span></h2><p color=\"#3979b8\" font-size=\"medium\" class=\"job-title__Container-sc-1hmtp73-0 ibpiyI\" style=\"margin: 0px; color: rgb(57, 121, 184); font-size: 14px; line-height: 22px;\"><span>Mật khẩu của bạn là:"+acc.getMatKhau()+"</span></p><p color=\"#3979b8\" font-size=\"medium\" class=\"custom-field__CustomFieldContainer-sc-190n2f-0 hXbvbV\" style=\"color: rgb(57, 121, 184); margin: 0px; font-size: 14px; line-height: 22px;\"><span>Chúc bạn một ngày mới tốt lành!</span></p></td></tr><tr><td><table cellpadding=\"0\" cellspacing=\"0\" class=\"table__StyledTable-sc-1avdl6r-0 iasblw\" style=\"width: 100%; vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;\">" +
+                "<tbody><tr><td height=\"30\"></td></tr><tr><td color=\"#1460aB\" direction=\"horizontal\" width=\"auto\" height=\"1\" class=\"color-divider__Divider-sc-1h38qjv-0 dVPycS\" style=\"width: 100%; border-bottom: 1px solid rgb(20, 96, 171); border-left: none; display: block;\"></td></tr><tr><td height=\"30\"></td></tr></tbody></table><table cellpadding=\"0\" cellspacing=\"0\" class=\"table__StyledTable-sc-1avdl6r-0 iasblw\" style=\"width: 100%; vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;\"><tbody><tr style=\"vertical-align: middle;\"><td><table cellpadding=\"0\" cellspacing=\"0\" class=\"table__StyledTable-sc-1avdl6r-0 iasblw\" style=\"vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;\"><tbody><tr height=\"25\" style=\"vertical-align: middle;\"><td width=\"30\" style=\"vertical-align: middle;\">" +
+                "<table cellpadding=\"0\" cellspacing=\"0\" class=\"table__StyledTable-sc-1avdl6r-0 iasblw\" style=\"vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;\"><tbody><tr><td style=\"vertical-align: bottom;\"><span color=\"#1460aB\" width=\"11\" class=\"contact-info__IconWrapper-sc-mmkjr6-1 eOlNoC\" style=\"display: inline-block; background-color: rgb(20, 96, 171);\"><img src=\"https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/phone-icon-2x.png\" color=\"#1460aB\" alt=\"mobilePhone\" width=\"13\" class=\"contact-info__ContactLabelIcon-sc-mmkjr6-0 glcxte\" style=\"display: block; background-color: rgb(20, 96, 171);\"></span></td></tr></tbody></table></td>" +
+                "<td style=\"padding: 0px; color: rgb(57, 121, 184);\"><a href=\"tel:0905008070\" color=\"#3979b8\" class=\"contact-info__ExternalLink-sc-mmkjr6-2 dwaWtg\" style=\"text-decoration: none; color: rgb(57, 121, 184); font-size: 12px;\"><span>0905008070</span></a></td></tr><tr height=\"25\" style=\"vertical-align: middle;\"><td width=\"30\" style=\"vertical-align: middle;\"><table cellpadding=\"0\" cellspacing=\"0\" class=\"table__StyledTable-sc-1avdl6r-0 iasblw\" style=\"vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;\"><tbody><tr><td style=\"vertical-align: bottom;\"><span color=\"#1460aB\" width=\"11\" class=\"contact-info__IconWrapper-sc-mmkjr6-1 eOlNoC\" style=\"display: inline-block; background-color: rgb(20, 96, 171);\"><img src=\"https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/email-icon-2x.png\"" +
+                " color=\"#1460aB\" alt=\"emailAddress\" width=\"13\" class=\"contact-info__ContactLabelIcon-sc-mmkjr6-0 glcxte\" style=\"display: block; background-color: rgb(20, 96, 171);\"></span></td></tr></tbody></table></td><td style=\"padding: 0px;\"><a href=\"mailto:digizone.com.vn@gmail.com\" color=\"#3979b8\" class=\"contact-info__ExternalLink-sc-mmkjr6-2 dwaWtg\" style=\"text-decoration: none; color: rgb(57, 121, 184); font-size: 12px;\"><span>digizone.com.vn@gmail.com</span></a></td></tr><tr height=\"25\" style=\"vertical-align: middle;\"><td width=\"30\" style=\"vertical-align: middle;\"><table cellpadding=\"0\" cellspacing=\"0\" class=\"table__StyledTable-sc-1avdl6r-0 iasblw\" style=\"vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;\"><tbody><tr><td style=\"vertical-align: bottom;\"><span color=\"#1460aB\" width=\"11\" " +
+                "class=\"contact-info__IconWrapper-sc-mmkjr6-1 eOlNoC\" style=\"display: inline-block; background-color: rgb(20, 96, 171);\"><img src=\"https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/link-icon-2x.png\" color=\"#1460aB\" alt=\"website\" width=\"13\" class=\"contact-info__ContactLabelIcon-sc-mmkjr6-0 glcxte\" style=\"display: block; background-color: rgb(20, 96, 171);\"></span></td></tr></tbody></table></td><td style=\"padding: 0px;\"><a href=\"//Digizone.com.vn\" color=\"#3979b8\" class=\"contact-info__ExternalLink-sc-mmkjr6-2 dwaWtg\" style=\"text-decoration: none; color: rgb(57, 121, 184); font-size: 12px;\"><span>Digizone.com.vn</span></a></td></tr><tr height=\"25\" style=\"vertical-align: middle;\"><td width=\"30\" style=\"vertical-align: middle;\"><table cellpadding=\"0\"" +
+                " cellspacing=\"0\" class=\"table__StyledTable-sc-1avdl6r-0 iasblw\" style=\"vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;\"><tbody><tr><td style=\"vertical-align: bottom;\"><span color=\"#1460aB\" width=\"11\" class=\"contact-info__IconWrapper-sc-mmkjr6-1 eOlNoC\" style=\"display: inline-block; background-color: rgb(20, 96, 171);\"><img src=\"https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/address-icon-2x.png\" color=\"#1460aB\" alt=\"address\" width=\"13\" class=\"contact-info__ContactLabelIcon-sc-mmkjr6-0 glcxte\" style=\"display: block; background-color: rgb(20, 96, 171);\"></span></td></tr></tbody></table></td><td style=\"padding: 0px;\"><span color=\"#3979b8\" class=\"contact-info__Address-sc-mmkjr6-3 ikFVIq\" style=\"font-size: 12px; color: rgb(57, 121, 184);\">" +
+                "<span>105 Nguyễn Hoàng, Đà Nẵng</span></span></td></tr></tbody></table></td><td style=\"text-align: right;\"><table cellpadding=\"0\" cellspacing=\"0\" class=\"table__StyledTable-sc-1avdl6r-0 iasblw\" style=\"width: 100%; vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;\"><tbody><tr><td><table cellpadding=\"0\" cellspacing=\"0\" class=\"table__StyledTable-sc-1avdl6r-0 iasblw\" style=\"display: inline-block; vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;\"><tbody><tr style=\"text-align: right;\"><td><a href=\"https://www.facebook.com/Digizone.com.vn\" color=\"#1460AB\" class=\"social-links__LinkAnchor-sc-py8uhj-2 kyynGZ\" style=\"display: inline-block; padding: 0px; background-color: rgb(20, 96, 171);\"><img src=\"https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/facebook-icon-2x.png\" " +
+                "alt=\"facebook\" color=\"#1460AB\" height=\"24\" class=\"social-links__LinkImage-sc-py8uhj-1 cKHJaU\" style=\"background-color: rgb(20, 96, 171); max-width: 135px; display: block;\"></a></td><td width=\"5\"><div></div></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><table cellpadding=\"0\" cellspacing=\"0\" class=\"table__StyledTable-sc-1avdl6r-0 iasblw\" style=\"width: 100%; vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;\"><tbody><tr><td height=\"30\"></td></tr><tr><td color=\"#1460aB\" direction=\"horizontal\" width=\"auto\" height=\"1\" class=\"color-divider__Divider-sc-1h38qjv-0 dVPycS\" style=\"width: 100%; border-bottom: 1px solid rgb(20, 96, 171); border-left: none; display: block;\"></td></tr><tr><td height=\"30\"></td></tr></tbody></table></td></tr></tbody></table>";
+
+        sendMailService.queue(toEmail, "Quên mật khẩu", body);
+
+       
+        model.addAttribute("success","Mật khẩu đã được gửi tới địa chỉ email của bạn !");
+        return "/account/forgot-password";
+		}
+		
     }
 }
 

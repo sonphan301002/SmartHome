@@ -37,4 +37,6 @@ public class CategoryServiceImpl implements CategoryService{
 		// TODO Auto-generated method stub
 		categoryDAO.deleteById(maDM);
 	}
+
+ 
 }

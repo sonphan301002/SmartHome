@@ -33,17 +33,18 @@
         <div class="top-header">
             <ul class="nav justify-content-end">
                 <li class="nav-item mr-auto">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="https://goo.gl/maps/DT6Vuf1a2GEyAK3w8">
                         <i class="fas fa-home mr-2"></i>105 Nguyễn Hoàng, Hải Châu, Đà Nẵng
                     </a>
                 </li>
                 <li class="nav-item mr-auto">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="mailto:digizone.com.vn@gmail.com">
                         <i class="fas fa-envelope mr-2"></i>digizone.com.vn@gmail.com
                     </a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#">Hotline :
-						0905 008 070</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tel: 0905008070">Hotline: 0905 008 070</a>
+                </li>
             </ul>
         </div>
         <!-- header -->
@@ -124,7 +125,7 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-expanded="false">Danh mục sản phẩm</a>
                             <div class="dropdown-menu">
-                                <a th:each="c: ${cates}" class="dropdown-item" th:href="@{|/product/list?cid=${c.maDM}|}">[[${c.tenDM}]]</a>
+                                <a th:each="c: ${cates}" class="dropdown-item" th:href="@{|/product/list?cid=${c.maDM}|}" >[[${c.tenDM}]]</a> <!---->
                             </div>
                         </li>
                         <li class="nav-item"><a class="nav-link" th:href="@{|/review|}">Review sản phẩm</a></li>
@@ -287,8 +288,8 @@
     <script type="text/javascript" src="/assets/js/paginated.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 

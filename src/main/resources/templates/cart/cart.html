@@ -46,7 +46,8 @@
                                                 <div>
                                                     <p class="product-name">{{item.tenSP}}</p>
                                                     <small class="product-price">{{item.gia | number :
-														0}} ₫</small><a class="badge badge-pill badge-danger ml-3" href="" ng-click="cart.remove(item.id)">Xóa</a>
+														0}} ₫</small>
+													<a class="badge badge-pill badge-danger ml-3" href="" ng-click="cart.remove(item.id)">Xóa</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -102,14 +103,16 @@
 							<div>
 								<div class="row border-top border-bottom"
 									ng-repeat="item in cart.items">
-									<div class="row main align-items-center">
+									<div class="row main d-flex align-items-center">
 										<div class="col-2">
 											<img ng-src="{{'/assets/images/' + item.hinhAnh}}" alt=""
 												width="100%" height="100%">
 										</div>
+
 										<div class="col">
 											<div class="row">{{item.tenSP}}</div>
 										</div>
+
 										<div class="col">
 											<div class="row">
 												<input type="number" ng-change="cart.saveToLocalStorage()"
@@ -117,8 +120,11 @@
 											</div>
 										</div>
 
-										<div class="col">{{item.gia * item.soLuong | number :
-											0}} VND</div>
+										<div class="col">{{item.gia * item.soLuong | number : 0}} VND</div>
+
+										<div class="col text-center">
+											<a href="" class="text-danger" ng-click="cart.remove(item.id)">X</a>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -126,34 +132,33 @@
 						</div>
 						<div class="col-md-4 summary">
 							<div>
-								<h5>
+								<h3>
 									<b>Tổng tiền</b>
-								</h5>
+								</h3>
 							</div>
-							<hr>
 							<div class="row">
-								<div class="col" style="padding-left: 0;">{{cart.count}}
-									sản phẩm</div>
-								<div class="col text-right">{{cart.amount| number : 0}}
-									VND</div>
+								<div class="col">{{cart.count}} sản phẩm</div>
+								<div class="col text-right">
+									{{cart.amount| number : 0}} VND
+								</div>
 							</div>
 							<form>
-								<!-- <p>Phương thức thanh toán</p>
-                                    <select>
-										<option class="text-muted">Thanh toán khi nhận hàng</option>
-										<option class="text-muted">Thanh toán trực tuyến</option>
-									</select> -->
-								<p>Ghi chú</p>
-								<input class="input-code" placeholder="Ghi chú">
+								<!-- <label>Phương thức thanh toán</label>
+								<select>
+									<option class="text-muted">Thanh toán khi nhận hàng</option>
+									<option class="text-muted">Thanh toán trực tuyến</option>
+								</select> -->
+								<div class="form-group">
+									<label>Ghi chú</label>
+									<input class="input-code" ng-model="order.ghiChu" placeholder="Ghi chú">
+								</div>
 							</form>
-							<div class="row"
-								style="border-top: 1px solid rgba(0, 0, 0, .1); padding: 2vh 0;">
+							<div class="row" style="border-top: 1px solid rgba(0, 0, 0, .1); padding: 2vh 0;">
 								<div class="col">Thuế VAT</div>
-								<div class="col text-right" ng-model="item.vat">{{cart.amount
+								<div class="col text-right" ng-model="item.VAT">{{cart.amount
 									* 0.05 | number : 0}} VND</div>
 							</div>
-							<div class="row"
-								style="border-top: 1px solid rgba(0, 0, 0, .1); padding: 2vh 0;">
+							<div class="row" style="border-top: 1px solid rgba(0, 0, 0, .1); padding: 2vh 0;">
 								<div class="col">Tổng tiền</div>
 								<div class="col text-right">{{cart.amount + cart.amount *
 									0.05| number : 0}} VND</div>
@@ -162,7 +167,7 @@
 							<div class="btn-checkout text-center"
 								th:if="${#request.remoteUser}">
 								<span class="d-none" name="username" id="username">[[${#request.remoteUser}]]</span>
-								<a th:href="@{|/order/checkout/${#request.remoteUser}|}"
+								<a th:href="@{|/order/checkout|}"
 									class="text-white text-decoration-none">Thanh toán</a>
 							</div>
 							<div class="btn-checkout text-center"

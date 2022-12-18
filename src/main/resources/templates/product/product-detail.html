@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<main th:object="${item}">
+	<main th:object="${item}"> <!--Khai báo đối tượng chứa dữ liệu các trường, duyệt qua các item được truyền từ controller qua-->
 		<div class="container mt-5">
 			<div class="small-container single-product">
 				<div class="row">
@@ -40,12 +40,11 @@
 					</div>
 					<div class="col-sm-6">
 						<p></p>
-						<h1>[[*{tenSP}]]</h1>
+						<h1>[[*{tenSP}]]</h1> <!--* truy xuất các thuộc tính-->
 						<h4>[[*{gia}]] ₫</h4>
 						<select style="display: block; padding: 10px; margin-top: 20px;">
-							<option>Cỡ lớn hơn</option>
-							<option>Màu hồng</option>
-							<option>Cỡ nhỏ hơn</option>
+							<option th:if="*{soLuong} > 0">Còn hàng</option>
+							<option th:if="*{soLuong} < 0">Hết hàng</option>
 						</select>
 						<a href="" class="btn-add"
 							style="text-decoration: none; color: #fff"
@@ -58,7 +57,7 @@
 		</div>
 
 		<section id="pricing"
-			class="padd-section text-center wow fadeInUp mt-5"
+			class="container padd-section text-center wow fadeInUp mt-5"
 			style="visibility: visible; animation-name: fadeInUp;">
 			<div class="section-header">
 				<h2 class="section-title">Sản phẩm liên quan</h2>
@@ -66,7 +65,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3"
-						th:each="p: *{danhMuc.sanPham}">
+						th:each="p: *{danhMuc.sanPham}"> <!--duyệt qua các mặt hàng trong danhmuc, sản phẩm cùng loại đang xem -->
 						<div class="block-pricing">
 							<div class="table">
 								<div class="special-img position-relative overflow-hidden">

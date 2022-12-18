@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
 </head>
+
 <body>
 	<div class="container mt-5">
 		<div class="row tm-content-row">
@@ -11,32 +13,28 @@
 				<div class="">
 					<h2 class="tm-block-title">Sản phẩm</h2>
 					<ul class="nav nav-tabs" id="myTab" role="tablist">
-						<li class="nav-item"><a class="nav-link active"
-							data-toggle="tab" data-target="#edit" href="" role="tab"
-							aria-controls="home" aria-selected="true">Cập nhật</a></li>
-						<li class="nav-item"><a class="nav-link" data-target="#list"
-							data-toggle="tab" href="" role="tab" aria-controls="profile"
-							aria-selected="false">Danh sách</a></li>
+						<li class="nav-item"><a class="nav-link active" data-toggle="tab" data-target="#edit" href=""
+								role="tab" aria-controls="home" aria-selected="true">Cập nhật</a></li>
+						<li class="nav-item"><a class="nav-link" data-target="#list" data-toggle="tab" href=""
+								role="tab" aria-controls="profile" aria-selected="false">Danh sách</a></li>
 					</ul>
 					<div class="tab-content" id="myTabContent">
-						<div class="tab-pane fade show active" id="edit" role="tabpanel"
-							aria-labelledby="home-tab">
+						<div class="tab-pane fade show active" id="edit" role="tabpanel" aria-labelledby="home-tab">
 							<!-- Cập nhật -->
 							<div class="tm-bg-primary-dark tm-block tm-block-h-auto">
 								<div class="row tm-edit-product-row">
 									<div class="col-xl-6 col-lg-6 col-md-12">
 										<div class="form-group mb-3">
-											<label for="name">Tên sản phẩm </label> <input id="name"
-												type="text" class="form-control validate"
-												ng-model="form.tenSP" required />
+											<label for="name">Tên sản phẩm </label> <input id="name" type="text"
+												class="form-control validate" ng-model="form.tenSP" required />
 										</div>
 										<div class="row">
 											<div class="form-group mb-3 col-xs-12 col-sm-12">
 												<label for="">Nhà cung cấp</label> <select
 													ng-model="form.nhaCungCap.maNCC"
 													class="custom-select tm-select-accounts" id="category">
-													<option selected ng-repeat="supp in supps"
-														ng-value="supp.maNCC">{{supp.tenNCC}}</option>
+													<option selected ng-repeat="supp in supps" ng-value="supp.maNCC">
+														{{supp.tenNCC}}</option>
 												</select>
 											</div>
 										</div>
@@ -47,18 +45,17 @@
 												ng-model="form.moTa"></textarea>
 										</div>
 										<div class="form-group mb-3">
-											<label for="category">Danh mục</label> <select
-												ng-model="form.danhMuc.maDM"
+											<label for="category">Danh mục</label> <select ng-model="form.danhMuc.maDM"
 												class="custom-select tm-select-accounts" id="category">
-												<option ng-repeat="cate in cates" selected
-													ng-value="cate.maDM">{{cate.tenDM}}</option>
+												<option ng-repeat="cate in cates" selected ng-value="cate.maDM">
+													{{cate.tenDM}}</option>
 											</select>
 										</div>
 										<div class="row">
 											<div class="form-group mb-3 col-xs-12 col-sm-6">
-												<label for="expire_date">Ngày tạo</label> <input
-													id="expire_date" type="date" class="form-control validate"
-													data-large-mode="true" ng-model="form.ngayTao" />
+												<label for="expire_date">Ngày tạo</label> <input id="expire_date"
+													type="date" class="form-control validate" data-large-mode="true"
+													ng-model="form.ngayTao" />
 											</div>
 											<div class="form-group mb-3 col-xs-12 col-sm-6">
 												<label for="expire_date">Ngày sửa </label> <input
@@ -70,10 +67,9 @@
 									<div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
 										<div class="card mt-3">
 											<div class="d-flex justify-content-center">
-												<label for="hinhAnh" class="mt-2"> <img alt=""
-													class="img-product-add"
-													ng-src="{{'/assets/images/' + form.hinhAnh}}" width="240"
-													height="240">
+												<label for="hinhAnh" class="mt-2"> <img alt="" class="img-product-add"
+														ng-src="{{'/assets/images/' + form.hinhAnh}}" width="240"
+														height="240">
 												</label>
 											</div>
 										</div>
@@ -114,10 +110,10 @@
 								</div>
 							</div>
 						</div>
-						<div class="tab-pane fade" id="list" role="tabpanel"
-							aria-labelledby="profile-tab">
+						<div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="profile-tab">
 							<!-- Danh sách -->
 							<div class="tm-product-table-container">
+								<div class="tm-bg-primary-dark tm-block tm-block-products">
 								<table class="table table-hover tm-table-small tm-product-table">
 									<thead>
 										<tr>
@@ -136,10 +132,9 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr ng-repeat="p in items">
-											<td><img alt=""
-												ng-src="{{'/assets/images/' + p.hinhAnh}}" width="50"
-												height="50"></td>
+										<tr ng-repeat="p in pager.items">
+											<td><img alt="" ng-src="{{'/assets/images/' + p.hinhAnh}}" width="50"
+													height="50"></td>
 											<td>#{{p.maSP}}</td>
 											<td>{{p.nhaCungCap.tenNCC}}</td>
 											<td>{{p.danhMuc.tenDM}}</td>
@@ -147,11 +142,10 @@
 											<td>{{p.gia}}</td>
 											<td>{{p.soLuong}}</td>
 											<td><span ng-if="p.trangThai == 1">1</span> <span
-												ng-if="p.trangThai == 2">2</span></td>
+													ng-if="p.trangThai == 2">2</span></td>
 											<td>{{p.ngayTao | date:'dd-MM-yyyy'}}</td>
 											<td>{{p.ngaySua | date:'dd-MM-yyyy'}}</td>
-											<td><button ng-click="delete(p)"
-													class="tm-product-delete-link btn">
+											<td><button ng-click="delete(p)" class="tm-product-delete-link btn">
 													<i class="far fa-trash-alt tm-product-delete-icon"></i>
 												</button></td>
 											<td><button ng-click="edit(p)"
@@ -161,6 +155,21 @@
 										</tr>
 									</tbody>
 								</table>
+								</div>
+
+							</div>
+							<div class="blog-pager" id="blog-pager">
+								<ul class="pagination justify-content-center">
+		
+									<li class=""><a href="" ng-click="pager.first()">&#8676;</a>
+									</li>
+									<li class=""><a href="" ng-click="pager.prev()">&#171;</a></li>
+									<li class=""><a href="">{{pager.page + 1}} of {{pager.count}}</a>
+									<li class=""><a href="" ng-click="pager.next()"> &#187;</a></li>
+		
+									<li class=""><a href="" ng-click="pager.last()"> &#8677; </a>
+									</li>
+								</ul>
 							</div>
 						</div>
 					</div>
@@ -169,4 +178,5 @@
 		</div>
 	</div>
 </body>
+
 </html>

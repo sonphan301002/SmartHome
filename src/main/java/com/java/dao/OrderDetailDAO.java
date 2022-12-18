@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface OrderDetailDAO extends JpaRepository<OrderDetail, Long>{
-    @Query("select odd FROM OrderDetail odd where odd.hoaDon.maHD = ?1")
+    @Query("select odd FROM OrderDetail odd where odd.hoaDon.maHD = ?1 ORDER BY maHD DESC")
     List<OrderDetail> findByMaHD(Long maHD);
 }
