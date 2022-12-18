@@ -900,101 +900,43 @@ button:active {
   color: #fff;
 }
 /* Phân trang */
-#blog-pager {
+
+
+#blog-pager{
   width: 100%;
+ 
+  text-align: center;
   padding: 20px 0;
 }
-
-.pagination {
-  margin-top: 10px;
-  justify-content: center;
-}
-
-.pagination ul {
-  display: flex;
-  background-color: #fff;
-  padding: 6px;
-  border-radius: 50px;
-  border: 0.3px solid #000;
-}
-
-.pagination ul li {
-  color: #20b2aa;
-  list-style: none;
-  line-height: 45px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.pagination ul li.numb {
-  height: 45px;
-  width: 45px;
-  border-radius: 50%;
-  margin: 0 3px;
-}
-
-.pagination ul li.dots {
-  font-size: 22px;
-  cursor: default;
-}
-
-.pagination ul li.btn {
-  padding: 0 20px;
-}
-
-.pagination ul li.prev {
-  border-radius: 25px 5px 5px 25px;
-}
-
-.pagination ul li.next {
-  border-radius: 5px 25px 25px 5px;
-}
-
-.pagination ul li.active,
-.pagination ul li.numb:hover,
-.pagination ul li.btn:hover {
-  color: #fff;
-  background: #20b2aa;
-}
-
-/* #blog-pager{
-    width: 100%;
-    float: left;
-    text-align: center;
-    padding: 20px 0;
-}
 .pagination{
-    
-    width: 100%;
-    padding-left: 0;
-    list-style: none;
-    border-radius: 0.25rem;
-    text-align: center;
-    display: inline-block;
-    margin-bottom: 10px;
-    
+  
+  width: 100%;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.25rem;
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 10px;
+  
 } 
 .pagination li a {
-    color: #fff;
-    text-decoration: none;
-    display: inline-block;
-    padding: 3px 10px;
-    font: 14px "Source Sans Pro", -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";;
+  color: #040404;
+  text-decoration: none;
+  display: inline-block;
+  padding: 3px 10px;
+ font-size: 20px;
 }
-.pagination li.disabled {
-    display: none;
-}
+/*.pagination li.disabled {
+  display: none;
+}*/
 .pagination li {
-    background-color: #4e5051;
-    display: inline-block;
-    border-radius: 34%;
-    padding: 5px;
-    margin: 5px;
+  background-color: #fff;
+  display: inline-block;
+  border-radius: 5%;
+  padding: 5px;
+  margin: 5px;
+  font-size: 20px;
 }
-  */
 
 /* END PRODUCT */
 
