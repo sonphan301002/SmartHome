@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.java.dao.CategoryDAO;
 import com.java.entity.Category;
 import com.java.service.CategoryService;
 
@@ -23,10 +24,13 @@ public class CategoryRestController {
 	@Autowired
 	CategoryService categoryService;
 	
+	
 	@GetMapping
 	public List<Category> findAll() {
 		return categoryService.findAll();
 	}
+	
+ 
 	
 	@PostMapping
 	public Category add(@RequestBody Category category) {

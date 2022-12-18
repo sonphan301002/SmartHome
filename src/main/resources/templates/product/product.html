@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
-<body>
+<body ng-app="paginated-ctrl">
 	<main>
 		<section id="pricing"
 			class="padd-section text-center wow fadeInUp mt-5"
@@ -18,12 +18,14 @@
 			<div class="container">
 				<div class="container-fluid">
 					<div th:object="${items}">
+						<!--Khai báo đối tượng chứa dữ liệu các trường, duyệt qua các items được truyền từ controller qua-->
 						<h4 class="text-left">Sản phẩm</h4>
 					</div>
 					<div class="col">
-						<div class="row g-2">
-							<div class="col-md-3" th:each="p: ${items}">
-								<div class=" py-4">
+						<div class="row g-2 ">
+							<div class="col-md-3" th:each="p : ${items}" >
+								<!--Duyệt qua các items-->
+								<div class=" py-4" >
 									<div class="block-pricing">
 										<div class="table position-relative">
 											<div class="special-img collection-img overflow-hidden">
@@ -35,39 +37,28 @@
 											</div>
 											<ul class="list-unstyled">
 												<li><a th:href="@{|/productDetail/${p.maSP}|}">[[${p.tenSP}]]</a></li>
+												<!--Hiển thị nội dung sản phẩm-->
 												<li><b style="color: #FF1E00;">$[[${p.gia}]] ₫</b></li>
 											</ul>
 										</div>
 									</div>
 								</div>
 
-								<!-- <div class="blog-pager" id="blog-pager">
-                                         <ul class="pagination justify-content-center">
-                                            <li class="prev disabled">
-                                                <span> « </span>
-                                            </li>
-                                            <li class="active">
-                                                <a href="" data-page="1">1</a>
-                                            </li>
-                                            <li class="">
-                                                <a href="" data-page="2">2</a>
-                                            </li>
-                                            <li class="">
-                                                <a href="" data-page="3">3</a>
-                                            </li>
-                                            <li class="">
-                                                <a href="" data-page="4">4</a>
-                                            </li>
-                                            <li class="">
-                                                <a href="" data-page="5">5</a>
-                                            </li>
-                                            <li class="next">
-                                                <a href="" data-page="2"> » </a>
-                                            </li>
-                                         </ul>
-                                    </div> -->
+
 							</div>
 						</div>
+					</div>
+					<div class="blog-pager" id="blog-pager">
+						<ul class="pagination justify-content-center">
+
+							<li class="active"><a href="" ng-click="first()">&#8676;</a>
+							</li>
+							<li class=""><a href="" ng-click="prev()">&#171;</a></li>
+							<li class=""><a href="" ng-click="pager.next()"> &#187;</a></li>
+
+							<li class="next"><a href="" ng-click="last()"> &#8677; </a>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -76,4 +67,7 @@
 		</section>
 	</main>
 </body>
+<script>
+	
+</script>
 </html>

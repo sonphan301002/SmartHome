@@ -1,7 +1,9 @@
 package com.java.dao;
 
+
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -11,12 +13,12 @@ import com.java.entity.Product;
 
 @Repository
 public interface ProductDAO extends JpaRepository<Product, Long>{
-	@Query("select p from Product p where p.danhMuc.maDM=?1")
+	@Query("select p from Product p where p.danhMuc.maDM=?1") //Câu lệnh lấy sản phẩm theo mã loại giống tham số đã truyền vào
 	List<Product> findByCateId(Long cid);
 	
 	@Query("SELECT o FROM Product o WHERE o.tenSP LIKE %?1%")
 	List<Product> findByTensp(String keyword);
-	
+		
 	@Query(value = "select top 4 * from san_pham order by san_pham.ngay_tao asc", nativeQuery = true )
     List<Product> findNewProduct();
 	
@@ -37,6 +39,10 @@ public interface ProductDAO extends JpaRepository<Product, Long>{
     		+ " GROUP BY o.danhMuc"
     		+ " ORDER BY sum(o.gia) DESC")
     List<CateStatsReport> getInventoryByCategory();
+
+
+
+ 
 
 	
 //	@Query("SELECT o FROM Product o WHERE o.tenSP LIKE ?1")

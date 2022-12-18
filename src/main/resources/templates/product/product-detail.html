@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<main th:object="${item}">
+	<main th:object="${item}"> <!--Khai báo đối tượng chứa dữ liệu các trường, duyệt qua các item được truyền từ controller qua-->
 		<div class="container mt-5">
 			<div class="small-container single-product">
 				<div class="row">
@@ -40,7 +40,7 @@
 					</div>
 					<div class="col-sm-6">
 						<p></p>
-						<h1>[[*{tenSP}]]</h1>
+						<h1>[[*{tenSP}]]</h1> <!--* truy xuất các thuộc tính-->
 						<h4>[[*{gia}]] ₫</h4>
 						<select style="display: block; padding: 10px; margin-top: 20px;">
 							<option>Cỡ lớn hơn</option>
@@ -66,7 +66,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4 col-6 col-sm-6 col-lg-3 pb-3"
-						th:each="p: *{danhMuc.sanPham}">
+						th:each="p: *{danhMuc.sanPham}"> <!--duyệt qua các mặt hàng trong danhmuc, sản phẩm cùng loại đang xem -->
 						<div class="block-pricing">
 							<div class="table">
 								<div class="special-img position-relative overflow-hidden">
