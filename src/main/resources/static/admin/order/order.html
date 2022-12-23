@@ -29,8 +29,6 @@
                                         Mã đơn hàng <span ng-model="form" class="text-white font-weight-bold">#{{form.maHD}}</span>
                                     </h5>
                                 </div>
-
-
                                 <div class="row">
                                     <div class="col-lg-8">
                                         <div class="card mb-4">
@@ -146,7 +144,7 @@
                                 </thead>
                                 
                                 <tbody>
-	                                <tr ng-repeat="item in pager.items">
+	                                <tr ng-repeat="item in items">
 	                                    <th scope="row">#<b>{{item.maHD}}</b></th>
 	                                    <td><b>{{item.taiKhoan.tenND}}</b></td>
 	                                    <td>{{item.ngayTao}}</td>

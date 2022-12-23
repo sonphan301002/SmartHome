@@ -1,13 +1,17 @@
 app.controller("account-ctrl", function($scope, $http) {
 	$scope.items = [];
 	$scope.form = {};
+	$scope.roles = [];
 
 	$scope.initialize = function() {
 		//load tai khoan(get) AccountRestController
 		$http.get("/rest/account").then(resp => {
 			$scope.items = resp.data;
 		});
-
+		
+		$http.get("/rest/roles").then(resp => {
+			$scope.roles = resp.data;
+		});
 	}
 
 	//khoi dau(tai het dữ liệu cân thiết lên)
