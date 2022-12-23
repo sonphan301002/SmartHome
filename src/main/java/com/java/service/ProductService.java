@@ -32,6 +32,8 @@ public interface ProductService {
 	List<CateStatsReport> getInventoryByCategory();
 	Iterable<Product> findAll(Sort sort);
 	Page<Product> findAll(Pageable pageable);
+	List<Object[]> getDoanhThuNgayHomNay();
+	List<Object[]> getSanPhamBanDuoc();
 
 
  

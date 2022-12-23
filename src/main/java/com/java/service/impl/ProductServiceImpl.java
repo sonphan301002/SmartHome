@@ -28,15 +28,27 @@ public class ProductServiceImpl implements ProductService{
 		return productDAO.findAll();
 	}
 
+
 	@Override
 	public Product findById(Long maSP) {
 		return productDAO.findById(maSP).get();
 	}
 
 	@Override
+	public List<Object[]> getDoanhThuNgayHomNay() {
+		return productDAO.getDoanhThuNgayHomNay();
+	}
+
+	@Override
 	public List<Product> findByCateId(Long cid) {
 	    return productDAO.findByCateId(cid);
 	}
+
+	@Override
+	public List<Object[]> getSanPhamBanDuoc() {
+		return productDAO.getSanPhamBanDuoc();
+	}
+
 
 	@Override
 	public List<CateStatsReport> getInventoryByCategory() {
@@ -99,6 +111,8 @@ public class ProductServiceImpl implements ProductService{
 		// TODO Auto-generated method stub
 		return productDAO.findAll(pageable);
 	}
+
+
 
 	 
  
