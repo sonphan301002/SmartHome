@@ -23,28 +23,35 @@
 							aria-labelledby="home-tab">
 							<!-- Cập nhật -->
 							<div class="tm-bg-primary-dark tm-block tm-block-h-auto">
-								<div class="form-group mb-3">
-									<label for="name">Mã danh mục </label> <input id="name"
-										ng-model="form.maDM" type="number" class="form-control"
-										required />
-								</div>
-								<div class="form-group mb-3">
-									<label for="name">Tên danh mục </label> <input id="name"
-										ng-model="form.tenDM" type="text" class="form-control"
-										required />
-								</div>
-								<div class="col text-center ">
-									<button ng-click="add()" class="btn btn-primary m-1">Thêm
-										mới</button>
-									<button ng-click="update()" class="btn btn-primary m-1">Cập
-										nhật</button>
-									<button ng-click="delete(form)" class="btn btn-primary m-1">Xóa</button>
-									<button ng-click="reset()" class="btn btn-primary m-1">Làm
-										mới</button>
-								</div>
+								<form class="text-white" name="myForm">
+									<div class="form-group mb-3">
+										<label for="name">Tên danh mục </label> <input id="name"
+											type="text" class="form-control mb-1" ng-model="form.tenDM" name="tendm"
+											required />
+										<small class="text-danger font-italic" ng-if="myForm.tendm.$invalid">Vui lòng nhập tên danh mục</small>
+									</div>
+									<div class="col text-center" ng-if="myForm.tendm.$invalid">
+										<button ng-click="add()" class="btn btn-warning m-1" disabled>Thêm
+											mới</button>
+										<button ng-click="update()" class="btn btn-warning m-1" disabled>Cập
+											nhật</button>
+										<button ng-click="delete(form)" class="btn btn-warning m-1" disabled>Xóa</button>
+										<button ng-click="reset()" type="reset" class="btn btn-primary m-1">Làm
+											mới</button>
+									</div>
+									<div class="col text-center" ng-if="myForm.tendm.$valid">
+										<button ng-click="add()" class="btn btn-primary m-1">Thêm
+											mới</button>
+										<button ng-click="update()" class="btn btn-primary m-1">Cập
+											nhật</button>
+										<button ng-click="delete(form)" class="btn btn-primary m-1">Xóa</button>
+										<button ng-click="reset()" class="btn btn-primary m-1">Làm
+											mới</button>
+									</div>
+								</form>
 							</div>
 						</div>
-						
+
 						<div class="tab-pane fade" id="list" role="tabpanel"
 							aria-labelledby="profile-tab">
 							<!-- Danh sách -->
