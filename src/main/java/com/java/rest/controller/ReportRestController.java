@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,8 +29,13 @@ public class ReportRestController {
 		return productService.getInventoryByCategory();
 	}
 	
-	@GetMapping({"nam"})
-	public List<Object[]> getDoanhThu(int nam){
-		return reportService.getDoanhThu(nam);
+	@GetMapping("/getDoanhThu")
+	public List<Object[]> getDoanhThu(){
+		return productService.getDoanhThuNgayHomNay();
+	}
+	
+	@GetMapping("/getSanPham")
+	public List<Object[]> getSanPham(){
+		return productService.getSanPhamBanDuoc();
 	}
 }

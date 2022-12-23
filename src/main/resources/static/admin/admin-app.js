@@ -38,6 +38,10 @@ app.config(function($routeProvider) {
             templateUrl: "/admin/report/product_report.html",
             controller: "report-ctrl"
         })
+        .when("/today", {
+            templateUrl: "/admin/report/today.html",
+            controller: "report-ctrl"
+        })
         .otherwise({
             templateUrl: "/admin/order/order.html",
             controller: "order-ctrl"

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <div class="container tm-mt-big tm-mb-big">
+        <div class="row">
+            <div class="col-10 mx-auto">
+                <p class="tm-block-title" ng-repeat="x in i"> Doanh thu bán được hôm nay : {{x[0]}}</p>
+
+                <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+                    <div class="tm-edit-product-row">
+                        <table class="table table-hover tm-table-small tm-product-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Ngày bán</th>
+                                    <th scope="col">Tổng tiền bán được</th>
+                                    <th scope="col">Số lượng sản phẩm đã bán</th>
+                                    <th scope="col">Hóa đơn thấp nhất</th>
+                                    <th scope="col">Hóa đơn cao nhất</th>
+                                    <th scope="col">Trung bình</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td ng-repeat="x in i">{{x[0]}}</td>
+                                    <td ng-repeat="x in i">{{x[1] | number : 0}} VND</td>
+                                    <td ng-repeat="x in i">{{x[2]}} Sản phẩm</td>
+                                    <td ng-repeat="x in i">{{x[3] | number : 0}} VND</td>
+                                    <td ng-repeat="x in i">{{x[4] | number : 0}} VND</td>
+                                    <td ng-repeat="x in i">{{x[5] | number : 0}} VND</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <hr>
+                        <p ng-repeat="x in i" class="text-white">TỔNG DOANH THU : {{x[1] | number : 0}} VND</p>
+                    </div>
+                </div>
+
+                <p class="tm-block-title mt-5" ng-repeat="x in i"> Thống kê sản phẩm bán được ngày : {{x[0]}}</p>
+
+                <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+                    <div class="tm-edit-product-row">
+                        <table class="table table-hover tm-table-small tm-product-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Mã hóa đơn</th>
+                                    <th scope="col">Tên sản phẩm</th>
+                                    <th scope="col">Giá bán</th>
+                                    <th scope="col">Số lượng</th>
+                                    <th scope="col">Loại sản phẩm</th>
+                                    <th scope="col">Thành tiền</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="x in j">
+                                    <td>{{x[0]}}</td>
+                                    <td>{{x[1]}}</td>
+                                    <td>{{x[2]}}</td>
+                                    <td>{{x[3]}}</td>
+                                    <td>{{x[4]}}</td>
+                                    <td>{{x[5]}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
