@@ -116,7 +116,6 @@
                                         </div>
                                     </div>
                                     <div class="text-white col-lg-4">
-
                                         <div class="card mb-4">
                                             <div class="card-body">
                                                 <h3 class="h6">Ghi chú khách hàng</h3>
@@ -143,47 +142,31 @@
                                     <th scope="col">Ngày sửa</th>
                                     <th scope="col">Trạng thái</th>
                                     <th scope="col">Chi tiết</th>
-
                                 </tr>
                                 </thead>
+                                
                                 <tbody>
-                                <tr ng-repeat="item in pager.items">
-                                    <th scope="row">#<b>{{item.maHD}}</b></th>
-                                    <td><b>{{item.taiKhoan.tenND}}</b></td>
-                                    <td>{{item.ngayTao}}</td>
-                                    <td>{{item.ngaySua}}</td>
-                                    <td>
-                                        <span style="font-size: 90%" class="badge badge-pill w-100 badge-secondary" ng-if="item.trangThai == 1">Chờ xác nhận</span>
-                                        <span style="font-size: 90%" class="badge badge-pill w-100 badge-primary" ng-if="item.trangThai == 2">Đã thanh toán</span>
-                                        <span style="font-size: 90%" class="badge badge-pill w-100 badge-info" ng-if="item.trangThai == 3">Đang vận chuyển</span>
-                                        <span style="font-size: 90%" class="badge badge-pill w-100 badge-success" ng-if="item.trangThai == 4">Giao thành công</span>
-                                        <span style="font-size: 90%" class="badge badge-pill w-100 badge-danger" ng-if="item.trangThai == 5">Đã huỷ</span>
-                                    </td>
-                                    <td>
-                                        <button ng-click="edit(item)" class="text-white tm-product-delete-link btn">
-                                            <i class="fas fa-info "></i>
-                                        </button>
-                                    </td>
-                                </tr>
-
-
-
+	                                <tr ng-repeat="item in pager.items">
+	                                    <th scope="row">#<b>{{item.maHD}}</b></th>
+	                                    <td><b>{{item.taiKhoan.tenND}}</b></td>
+	                                    <td>{{item.ngayTao}}</td>
+	                                    <td>{{item.ngaySua}}</td>
+	                                    <td>
+	                                        <span style="font-size: 90%" class="badge badge-pill w-100 badge-secondary" ng-if="item.trangThai == 1">Chờ xác nhận</span>
+	                                        <span style="font-size: 90%" class="badge badge-pill w-100 badge-primary" ng-if="item.trangThai == 2">Đã thanh toán</span>
+	                                        <span style="font-size: 90%" class="badge badge-pill w-100 badge-info" ng-if="item.trangThai == 3">Đang vận chuyển</span>
+	                                        <span style="font-size: 90%" class="badge badge-pill w-100 badge-success" ng-if="item.trangThai == 4">Giao thành công</span>
+	                                        <span style="font-size: 90%" class="badge badge-pill w-100 badge-danger" ng-if="item.trangThai == 5">Đã huỷ</span>
+	                                    </td>
+	                                    <td>
+	                                        <button ng-click="edit(item)" class="text-white tm-product-delete-link btn">
+	                                            <i class="fas fa-info "></i>
+	                                        </button>
+	                                    </td>
+	                                </tr>
                                 </tbody>
-                            </table>
+                            	</table>
                              </div>
-                        </div>
-                        <div class="blog-pager" id="blog-pager">
-                            <ul class="pagination justify-content-center">
-    
-                                <li class=""><a href="" ng-click="pager.first()">&#8676;</a>
-                                </li>
-                                <li class=""><a href="" ng-click="pager.prev()">&#171;</a></li>
-                                <li class=""><a href="">{{pager.page + 1}} of {{pager.count}}</a>
-                                <li class=""><a href="" ng-click="pager.next()"> &#187;</a></li>
-    
-                                <li class=""><a href="" ng-click="pager.last()"> &#8677; </a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                    
